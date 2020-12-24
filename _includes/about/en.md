@@ -2,7 +2,7 @@ I am a second year PhD candidate in **[Information Systems Technology and Design
 , advised by **[Simon Perrault](https://simonperrault.github.io/)**. My research interests focus on CSCW(Computer Supported Cooperative Work) and HCI(Human Computer Interaction). Currently I am studying how to improve the working from home experience for users.
 
 ## News
-- 2020-12-20 Finished my TA task (Introduction to Algorithms). Happy to collaborate with Ernest Chong and Ioannis Panageas!
+- 2020-12-20 Finished my TA task (Introduction to Algorithms). Happy to collaborate with Prof Ernest Chong and Ioannis Panageas!
 - 2020-12-17 I passed QPE only in only one and a half year and become PhD candidate now! Happy to hear suggestions from Prof Lu Wei, Dorien Herremans, Kwan Hui Lim and my advisor Simon Perrault!
 
 
