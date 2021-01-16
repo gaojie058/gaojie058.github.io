@@ -23,13 +23,16 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
-                    {% for page in site.pages %}
-                    {% if page.title and page.hide-in-nav != true %}
+                    {%- assign _sorted_list = site.pages -%}
+                    {%- assign _sorted_list = _sorted_list | sort: 'order' -%}
+
+                    {%- for page in _sorted_list -%}
+                    {%- if page.title and page.hide-in-nav != true -%}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                     </li>
-                    {% endif %}
-                    {% endfor %}
+                    {%- endif -%}
+                    {%- endfor -%}
                 </ul>
             </div>
         </div>
