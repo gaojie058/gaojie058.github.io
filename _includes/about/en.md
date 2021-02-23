@@ -1,5 +1,5 @@
 I am a second year PhD candidate in **[Information Systems Technology and Design](https://istd.sutd.edu.sg/)** in **[Singapore University of Technology and Design](https://www.sutd.edu.sg/)** (SUTD)
-, advised by **[Simon Perrault](https://simonperrault.github.io/)**. Currently, my research interests focus on three parts: 1)the most important one is exploring innovative interaction technologies to make world a better place, which is my start point as well; 2) using NLP algorithms to explore more efficient methods to do qualitative analysis; 3) analyse and extract insights from the big datasets.
+, advised by **[Simon Perrault](https://simonperrault.github.io/)**. Currently, my research interests focus on three parts: 1)the most important one is exploring innovative interaction technologies to make world a better place, which is my start point as well; 2) using NLP algorithms to explore more efficient methods or tools to do qualitative analysis; 3) analysing and extracting insights from the big datasets.
 
 ## News
 - 2020-12-20 Finished my TA task (Introduction to Algorithms). Happy to collaborate with Prof Ernest Chong and Ioannis Panageas!
