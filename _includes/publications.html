@@ -1,0 +1,15 @@
+<div class="row g-5 mb-5">
+  <div>
+    <h3 class="fw-bold border-bottom pb-3 mb-5">Publications</h3>
+    <h5 class="work">More ongoing work is coming :)</h5>
+    <br>
+    {% if page.title == "Home" %}
+      {% for item in site.data.publications.index %}
+        {% assign updated_name = item.name | replace: 'Jie Gao', '<span style="text-decoration: underline; font-weight: bold;">Jie Gao</span>' %}
+        <p>{{ updated_name | raw }} 
+          <a href="{{ item.url }}" class="pdfbutton" target="_blank">PDF</a>
+        </p>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

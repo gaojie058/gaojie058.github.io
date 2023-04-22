@@ -1,0 +1,6 @@
+menu:
+- {name: 'CV', url: '/cv'}
+- {name: 'Contact', url: '/contact'}
+
+contacts:
+- email: gaojie056[AT]gmail.com

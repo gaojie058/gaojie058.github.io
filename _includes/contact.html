@@ -1,0 +1,9 @@
+<div class="row g-5 mb-5">
+  <div>
+    <!-- <h3 class="fw-bold border-bottom pb-3 mb-5">Contact</h3> -->
+    <p>I am open and eager to work with undergraduate and master's students! Feel free to reach out to me for a chat!</p>
+    {% for contact in site.data.settings.contacts %}
+      <p>Email: {{ contact.email }}</p>
+    {% endfor %}
+  </div>
+</div>

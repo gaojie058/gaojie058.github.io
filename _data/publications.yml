@@ -1,0 +1,12 @@
+# featured:
+# - {name: 'Testing General Relativity with Present and Future Astrophysical Observations. Emanuele Berti (Mississippi U. and Lisbon, CENTRA), Enrico Barausse (Paris, Inst. Astrophys. and Paris U., VI-VII), Vitor Cardoso (Lisbon, IST and Perimeter Inst. Theor. Phys. and Lisbon, CENTRA), Leonardo Gualtieri (Rome U. and INFN, Rome), Paolo Pani (Rome U. and INFN, Rome and Lisbon, IST and Lisbon, CENTRA) et al.', url: '/publications/1501.07274.pdf'}
+# - {name: 'Shock interactions, turbulence and the origin of the stellar mass spectrum. Ralph E. Pudritz and N. K.-R. Kevlahan', url: 'http://ms.mcmaster.ca/kevla/pdf/articles/PhilTransRSoc_2013.pdf'}
+# - {name: 'Low shear diffusion central schemes for particle methods. Jonathan Panuelos, James Wadsley, Nicholas Kevlahan', url: 'http://ms.mcmaster.ca/kevla/pdf/articles/jcp_v414.pdf'}
+
+index:
+- name: 'Jie Gao, Xiayin Ying, Junming Cao, Yifan Yang, Pin Sym Foong, Simon Perrault, Differences of Challenges of Working from Home (WFH) between Weibo and Twitter Users during COVID-19, CHI EA 2022'
+  url: 'https://dl.acm.org/doi/fullHtml/10.1145/3491101.3519790'
+- name: 'Jie Gao, Leijing Zhou, Miaomiao Dong, Fan Zhang, “Expressive Plant: A Multisensory Interactive System for Sensory Training of Children with Autism” Ubicomp Poster 2018'
+  url: 'https://dl.acm.org/doi/abs/10.1145/3267305.3267588'
+- name: 'Feng Tian, Pan Wang, ChunYan Dong, Jie Gao, Haifeng Tang, Li Qian, Haojun Xu, 3D design tools for equipment manufacturing and exhibition based on internet, International Conference on Audio, Language and Image Processing (ICALIP), Jul 2016'
+  url: 'https://ieeexplore.ieee.org/document/7846539'

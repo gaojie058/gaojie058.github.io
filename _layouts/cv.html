@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<!-- {{ content }} -->
+
+<div class="row g-5 mb-5">
+  <div>
+    <!-- <h3 class="fw-bold border-bottom pb-3 mb-5">CV</h3> -->
+    <div class="row g-5 mb-5">
+      <div class="col-md-2">
+        <h4>Education</h4>
+      </div>
+      <div class="col-md-10">
+        {% for section in site.data.cv.education %}
+        <h6 style="font-weight: bold;">{{ section.duration }}</h6>
+        <p>{{ section.degree }}</p>
+        <p>{{ section.institution }}</p>
+        <br>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row g-5 mb-5">
+      <div class="col-md-2">
+        <h4>Visting Experience</h4>
+      </div>
+      <div class="col-md-10">
+        {% for section in site.data.cv.academic-experience %}
+        <h6 style="font-weight: bold;">{{ section.duration }}</h6>
+        <p>{{ section.postion }}</p>
+        <p>{{ section.institution }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
