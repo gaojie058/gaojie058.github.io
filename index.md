@@ -13,5 +13,9 @@ My primary research interests lie in Human-Computer Interaction (HCI) and the co
 - enhancing trustworthy when using AI-assisted qualitative coding applications; 
 - utilizing a combination of quantitative and qualitative data to deliver empirical insights and artifact contributions.
 
+Please find my [CV](assets/img/CV_public.pdf) here.
+
+I am more then willing to work with undergraduate and master's students! Feel free to reach out to me for a chat at <ins>gaojie056[AT]gmail.com<ins>.
+
 
 
