@@ -10,7 +10,7 @@ I am a PhD student in [Information Systems Technology and Design](https://istd.s
 My primary research interests lie in Human-Computer Interaction (HCI) and the collaborative aspects of Human-AI interactions (CSCW for AI). Specifically, I am passionate about: 
 
 - investigating effective, automated approaches and tools to facilitate qualitative coding collaboration; 
-- enhancing trustworthy when using AI-assisted qualitative coding applications; 
+- building trustworthy AI-assisted qualitative coding applications; 
 - utilizing a combination of quantitative and qualitative data to deliver empirical insights and artifact contributions.
 
 Please find my [CV](assets/img/CV_public.pdf) here.
