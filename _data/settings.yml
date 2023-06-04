@@ -1,5 +1,5 @@
 menu:
-# - {name: 'CV', url: '/cv'}
+- {name: 'Google Scholar', url: 'https://scholar.google.com/citations?user=U7KDGDsAAAAJ&hl=en'}
 # - {name: 'Contact', url: '/contact'}
 
 contacts:
