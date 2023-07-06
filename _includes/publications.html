@@ -1,14 +1,31 @@
 <div class="row g-5 mb-5">
   <div>
-    <h3 class="fw-bold border-bottom pb-3 mb-5">Publications</h3>
-    <h5 class="work">More ongoing work is coming :)</h5>
+    <h5 class="fw-bold border-bottom pb-3 mb-5">Projects and Publications</h3>
     <br>
     {% if page.title == "Home" %}
       {% for item in site.data.publications.index %}
-        {% assign updated_name = item.name | replace: 'Jie Gao', '<span style="text-decoration: underline; font-weight: bold;">Jie Gao</span>' %}
-        <p>{{ updated_name | raw }} 
+      {% assign updated_authors = item.authors | replace: 'Jie Gao', '<span style="text-decoration: underline; font-weight: bold;">Jie Gao</span>' %}
+      <div class="publication-item" style="display: flex; align-items: start; gap: 20px; margin-bottom: 20px;">
+        <img src="{{ item.image }}" alt="{{ item.name }}" style="width:120px; height:120px;"/>
+        <div>
+          <p style="margin: 0; font-weight: bold;">{{ item.name | raw }}</p>
+          <p style="margin: 0;">{{ updated_authors | raw }}</p>
+          {% if item.tag1 %}
+              <span style="background-color: #ABCDEF; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag1 | raw }}</span>
+          {% endif %}
+          {% if item.tag2 %}
+              <span style="background-color: #61C2A2; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag2 | raw }}</span>
+          {% endif %}
+          {% if item.tag3 %}
+              <span style="background-color: #EDAEC0; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag3 | raw }}</span>
+          {% endif %}
+          {% if item.tag4 %}
+              <span style="background-color: #dae23b; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag4 | raw }}</span>
+          {% endif %}
+          
           <a href="{{ item.url }}" class="pdfbutton" target="_blank">PDF</a>
-        </p>
+        </div>
+      </div>
       {% endfor %}
     {% endif %}
   </div>

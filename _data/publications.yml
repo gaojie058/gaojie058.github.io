@@ -1,12 +1,47 @@
-# featured:
-# - {name: 'Testing General Relativity with Present and Future Astrophysical Observations. Emanuele Berti (Mississippi U. and Lisbon, CENTRA), Enrico Barausse (Paris, Inst. Astrophys. and Paris U., VI-VII), Vitor Cardoso (Lisbon, IST and Perimeter Inst. Theor. Phys. and Lisbon, CENTRA), Leonardo Gualtieri (Rome U. and INFN, Rome), Paolo Pani (Rome U. and INFN, Rome and Lisbon, IST and Lisbon, CENTRA) et al.', url: '/publications/1501.07274.pdf'}
-# - {name: 'Shock interactions, turbulence and the origin of the stellar mass spectrum. Ralph E. Pudritz and N. K.-R. Kevlahan', url: 'http://ms.mcmaster.ca/kevla/pdf/articles/PhilTransRSoc_2013.pdf'}
-# - {name: 'Low shear diffusion central schemes for particle methods. Jonathan Panuelos, James Wadsley, Nicholas Kevlahan', url: 'http://ms.mcmaster.ca/kevla/pdf/articles/jcp_v414.pdf'}
-
 index:
-- name: 'Jie Gao, Xiayin Ying, Junming Cao, Yifan Yang, Pin Sym Foong, Simon Perrault, Differences of Challenges of Working from Home (WFH) between Weibo and Twitter Users during COVID-19, CHI EA 2022'
+- name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
+  url: 'https://arxiv.org/abs/2304.07366'
+  image: 'assets/img/collabcoder.png'
+  authors: 'Jie Gao, Yuchen Guo, Gionnieve Lim, Tianqin Zhang, Zheng Zhang, Toby Jia-Jun Li, Simon Tangi Perrault.'
+  tag1: 'Preprint(Long paper) and CSCW demo 2023'
+  tag2: 'AI4SocialScience'
+  year: 2023
+- name: 'Trust Building in Subjective Tasks: The Impact of Human-AI Collaboration in AI-Assisted Qualitative Coding.'
+  url: ''
+  image: 'assets/img/trust.png'
+  authors: 'Jie Gao...Simon Tangi Perrault.'
+  tag1: 'Under Review (Long paper)'
+  tag3: 'Trustworthy AI'
+  year: 2023
+- name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Collaborative Qualitative Analysis.'
+  url: 'https://arxiv.org/abs/2304.05560'
+  image: 'assets/img/coaicoder.png'
+  authors: 'Jie Gao, Kenny Tsu Wei Choo, Junming Cao, Roy Ka Wei Lee, Simon Perrault.'
+  tag1: 'ToCHI2023 (Long paper)'
+  tag2: 'AI4SocialScience'
+  year: 2023
+- name: 'VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.'
+  url: 'https://arxiv.org/abs/2304.07810'
+  image: 'assets/img/visar.png'
+  authors: 'Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, Toby Jia-Jun Li.'
+  tag1: 'UIST2023 (Long paper)'
+  year: 2023
+- name: 'Understanding the Complexity and Its Impact on Testing in ML-Enabled Systems.'
+  url: 'https://arxiv.org/abs/2301.03837'
+  image: 'assets/img/icsme.png'
+  authors: 'Junming Cao, Bihuan Chen, Longjie Hu, Jie Gao, Kaifeng Huang, Xin Peng.'
+  tag1: 'ICSME2023 (Long paper)'
+  tag4: 'AI+SE'
+  year: 2023
+- name: 'Differences of Challenges of Working from Home (WFH) between Weibo and Twitter Users during COVID-19.'
   url: 'https://dl.acm.org/doi/fullHtml/10.1145/3491101.3519790'
-- name: 'Jie Gao, Leijing Zhou, Miaomiao Dong, Fan Zhang, “Expressive Plant: A Multisensory Interactive System for Sensory Training of Children with Autism” Ubicomp Poster 2018'
+  image: 'assets/img/covid.png'
+  authors: 'Jie Gao, Xiayin Ying, Junming Cao, Yifan Yang, Pin Sym Foong, Simon Perrault.'
+  tag1: 'CHI EA 2022 (Short paper)'
+  year: 2023
+- name: 'Expressive Plant: A Multisensory Interactive System for Sensory Training of Children with Autism.'
+  image: 'assets/img/sensor.png'
   url: 'https://dl.acm.org/doi/abs/10.1145/3267305.3267588'
-- name: 'Feng Tian, Pan Wang, ChunYan Dong, Jie Gao, Haifeng Tang, Li Qian, Haojun Xu, 3D design tools for equipment manufacturing and exhibition based on internet, International Conference on Audio, Language and Image Processing (ICALIP), Jul 2016'
-  url: 'https://ieeexplore.ieee.org/document/7846539'
+  authors: 'Jie Gao, Leijing Zhou, Miaomiao Dong, Fan Zhang.'
+  tag1: 'Ubicomp 2018 (Poster)'
+  year: 2023

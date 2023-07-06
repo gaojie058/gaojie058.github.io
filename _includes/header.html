@@ -9,7 +9,7 @@
   </div>
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
     {% for item in site.data.settings.menu %}
-      <a class="me-3 py-2 text-decoration-none" href="https://scholar.google.com/citations?user=U7KDGDsAAAAJ&hl=en" target="_blank">{{ item.name }}</a>
-    {% endfor %}
+    <a class="me-3 py-2 text-decoration-none" href="{{ item.url }}" target="_blank">{{ item.name }}</a>
+    {% endfor %}  
   </nav>
 </header>
