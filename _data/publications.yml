@@ -13,7 +13,7 @@ index:
   tag1: 'Under Review (Long paper)'
   tag3: 'Trustworthy AI'
   year: 2023
-- name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Collaborative Qualitative Analysis.'
+- name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Human-to-Human Collaboration in Qualitative Analysis'
   url: 'https://arxiv.org/abs/2304.05560'
   image: 'assets/img/coaicoder.png'
   authors: 'Jie Gao, Kenny Tsu Wei Choo, Junming Cao, Roy Ka Wei Lee, Simon Perrault.'
