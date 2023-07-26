@@ -11,6 +11,7 @@ index:
   image: 'assets/img/trust.png'
   authors: 'Jie Gao...Simon Tangi Perrault.'
   tag1: 'Under Review (Long paper)'
+  tag2: 'AI4SocialScience'
   tag3: 'Trustworthy AI'
   year: 2023
 - name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Human-to-Human Collaboration in Qualitative Analysis'
