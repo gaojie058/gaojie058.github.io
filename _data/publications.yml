@@ -4,14 +4,14 @@ index:
   image: 'assets/img/visar.png'
   authors: 'Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, Toby Jia-Jun Li.'
   tag1: 'UIST2023'
-  tag2: 'LLM+Writing'
+  tag5: 'LLM+Writing'
   year: 2023
 - name: 'GlassMessaging: Towards Ubiquitous Messaging Using OHMDs.'
   url: ''
   image: 'assets/img/glassmessaging.jpg'
   authors: 'Nuwan Janaka, Jie Gao, Lin Zhu, Shengdong Zhao, Lan Lyu, Peisen Xu, Maximilian Nabokow, Silang Wang, Yanch Ong'
   tag1: 'Ubicomp2023'
-  tag2: 'SmartGlass'
+  tag4: 'SmartGlass'
   year: 2023
 - name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
   url: 'https://arxiv.org/abs/2304.07366'
@@ -20,7 +20,7 @@ index:
   tag1: 'Preprint'
   tag2: 'CSCW demo 2023'
   tag3: 'AI4SocialScience'
-  tag4: 'LLM+Social Science'
+  tag6: 'LLM+Social Science'
   year: 2023
 - name: 'Trust Building in Subjective Tasks: The Impact of Human-AI Collaboration in AI-Assisted Qualitative Coding.'
   url: ''
