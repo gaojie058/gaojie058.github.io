@@ -11,19 +11,31 @@
           <p style="margin: 0; font-weight: bold;">{{ item.name | raw }}</p>
           <p style="margin: 0;">{{ updated_authors | raw }}</p>
           {% if item.tag1 %}
-              <span style="background-color: #ABCDEF; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag1 | raw }}</span>
+              <span style="background-color: #ABCDEF; color: #000000; padding: 2px 5px; margin-right: 5px; border-radius: 20px;font-size: 13px;">{{ item.tag1 | raw }}</span>
           {% endif %}
           {% if item.tag2 %}
-              <span style="background-color: #61C2A2; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag2 | raw }}</span>
+              <span style="background-color: #61C2A2; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag2 | raw }}</span>
           {% endif %}
           {% if item.tag3 %}
-              <span style="background-color: #EDAEC0; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag3 | raw }}</span>
+              <span style="background-color: #EDAEC0; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag3 | raw }}</span>
           {% endif %}
           {% if item.tag4 %}
-              <span style="background-color: #dae23b; color: #000000; padding: 2px 5px; margin-right: 5px;">{{ item.tag4 | raw }}</span>
+              <span style="background-color: #dae23b; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag4 | raw }}</span>
           {% endif %}
-          
-          <a href="{{ item.url }}" class="pdfbutton" target="_blank">PDF</a>
+          {% if item.tag5 %}
+              <span style="background-color: #F56A79; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag5 | raw }}</span>
+          {% endif %}
+          {% if item.tag6 %}
+              <span style="background-color: #9F92D0; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag6 | raw }}</span>
+          {% endif %}
+          {% if item.tag7 %}
+              <span style="background-color: #3B9CEA; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag7 | raw }}</span>
+          {% endif %}
+          {% if item.tag8 %}
+              <span style="background-color: #FFA07A; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;">{{ item.tag8 | raw }}</span>
+          {% endif %}
+            
+          <a href="{{ item.url }}" class="pdfbutton" target="_blank"; style="font-size: 13px">PDF</a>
         </div>
       </div>
       {% endfor %}

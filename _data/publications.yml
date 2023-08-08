@@ -1,27 +1,18 @@
+#tag1: venue
+#tag2: 'AI4SocialScience'
+#tag3: 'Trustworthy AI'
+#tag4: 'AI+SE'
+#tag5: 'LLM+Writing'
+#tag6: 'LLM+Social Science'
+#tag7: 'SmartGlass'
 index:
-- name: 'VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.'
-  url: 'https://arxiv.org/abs/2304.07810'
-  image: 'assets/img/visar.png'
-  authors: 'Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, Toby Jia-Jun Li.'
-  tag1: 'UIST2023'
-  tag5: 'LLM+Writing'
-  year: 2023
-- name: 'GlassMessaging: Towards Ubiquitous Messaging Using OHMDs.'
-  url: ''
-  image: 'assets/img/glassmessaging.jpg'
-  authors: 'Nuwan Janaka, Jie Gao, Lin Zhu, Shengdong Zhao, Lan Lyu, Peisen Xu, Maximilian Nabokow, Silang Wang, Yanch Ong'
-  tag1: 'Ubicomp2023'
-  tag4: 'SmartGlass'
-  year: 2023
 - name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
-  url: 'https://arxiv.org/abs/2304.07366'
+  url: ''
   image: 'assets/img/collabcoder.png'
   authors: 'Jie Gao, Yuchen Guo, Gionnieve Lim, Tianqin Zhang, Zheng Zhang, Toby Jia-Jun Li, Simon Tangi Perrault.'
   tag1: 'Preprint'
-  tag2: 'CSCW demo 2023'
-  tag3: 'AI4SocialScience'
   tag6: 'LLM+Social Science'
-  year: 2023
+
 - name: 'Trust Building in Subjective Tasks: The Impact of Human-AI Collaboration in AI-Assisted Qualitative Coding.'
   url: ''
   image: 'assets/img/trust.png'
@@ -29,30 +20,50 @@ index:
   tag1: 'Under Review'
   tag2: 'AI4SocialScience'
   tag3: 'Trustworthy AI'
-  year: 2023
-- name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Human-to-Human Collaboration in Qualitative Analysis.'
-  url: 'https://arxiv.org/abs/2304.05560'
-  image: 'assets/img/coaicoder.png'
-  authors: 'Jie Gao, Kenny Tsu Wei Choo, Junming Cao, Roy Ka Wei Lee, Simon Perrault.'
-  tag1: 'ToCHI2023'
-  tag2: 'AI4SocialScience'
-  year: 2023
+
+- name: 'GlassMessaging: Towards Ubiquitous Messaging Using OHMDs.'
+  url: ''
+  image: 'assets/img/glassmessaging.jpg'
+  authors: 'Nuwan Janaka, Jie Gao, Lin Zhu, Shengdong Zhao, Lan Lyu, Peisen Xu, Maximilian Nabokow, Silang Wang, Yanch Ong'
+  tag1: 'Ubicomp2023'
+  tag7: 'SmartGlass'
+
 - name: 'Understanding the Complexity and Its Impact on Testing in ML-Enabled Systems.'
   url: 'https://arxiv.org/abs/2301.03837'
   image: 'assets/img/icsme.png'
   authors: 'Junming Cao, Bihuan Chen, Longjie Hu, Jie Gao, Kaifeng Huang, Xin Peng.'
   tag1: 'ICSME2023'
   tag4: 'AI+SE'
-  year: 2023
+
+- name: 'VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.'
+  url: 'https://arxiv.org/abs/2304.07810'
+  image: 'assets/img/visar.png'
+  authors: 'Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, Toby Jia-Jun Li.'
+  tag1: 'UIST2023'
+  tag5: 'LLM+Writing'
+
+- name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
+  url: 'https://arxiv.org/abs/2304.07366'
+  image: 'assets/img/collabcoder.png'
+  authors: 'Jie Gao, Yuchen Guo, Toby Jia-Jun Li, Simon Tangi Perrault.'
+  tag1: 'CSCW demo 2023'
+  tag6: 'LLM+Social Science'
+
+- name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Human-to-Human Collaboration in Qualitative Analysis.'
+  url: 'https://arxiv.org/abs/2304.05560'
+  image: 'assets/img/coaicoder.png'
+  authors: 'Jie Gao, Kenny Tsu Wei Choo, Junming Cao, Roy Ka Wei Lee, Simon Perrault.'
+  tag1: 'ToCHI2023'
+  tag2: 'AI4SocialScience'
+
 - name: 'Differences of Challenges of Working from Home (WFH) between Weibo and Twitter Users during COVID-19.'
   url: 'https://dl.acm.org/doi/fullHtml/10.1145/3491101.3519790'
   image: 'assets/img/covid.png'
   authors: 'Jie Gao, Xiayin Ying, Junming Cao, Yifan Yang, Pin Sym Foong, Simon Perrault.'
   tag1: 'CHI EA 2022 (Short paper)'
-  year: 2023
+
 - name: 'Expressive Plant: A Multisensory Interactive System for Sensory Training of Children with Autism.'
   image: 'assets/img/sensor.png'
   url: 'https://dl.acm.org/doi/abs/10.1145/3267305.3267588'
   authors: 'Jie Gao, Leijing Zhou, Miaomiao Dong, Fan Zhang.'
   tag1: 'Ubicomp 2018 (Poster)'
-  year: 2023
