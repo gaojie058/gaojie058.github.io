@@ -10,7 +10,7 @@ My primary research interests lie in Human-Computer Interaction (HCI) and Comput
 
 - <span style="color:#61C2A2">**AI4SocialScience**</span>: investigating effective, automated approaches and tools to facilitate qualitative coding collaboration; 
 - <span style="color:#EDAEC0">**Trustworthy AI**</span>: building trustworthy AI-assisted qualitative coding applications.
-- <span style="color:#9F92D0">**LLMs+Interaction**</span>: building LLM-powered applications, study the interactions modes of LLMs. 
+- <span style="color:#9F92D0">**LLMs+Interaction**</span>: building LLM-powered applications, studying the interactions modes of LLMs. 
 
 <!-- Please find my [CV](assets/img/CV_public.pdf) here. -->
 
