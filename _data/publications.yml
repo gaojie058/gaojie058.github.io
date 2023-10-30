@@ -43,8 +43,8 @@ index:
   tag5: 'LLM+Writing'
 
 - name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
-  url: 'https://arxiv.org/abs/2304.07366'
-  image: 'assets/img/collabcoder.png'
+  url: 'https://dl.acm.org/doi/10.1145/3584931.3607500'
+  image: 'assets/img/collabcoder_interface.png'
   authors: 'Jie Gao, Yuchen Guo, Toby Jia-Jun Li, Simon Tangi Perrault.'
   tag1: 'CSCW demo 2023'
   tag6: 'LLM+Social Science'
