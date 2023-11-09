@@ -8,7 +8,7 @@
 index:
 - name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
   url: ''
-  image: 'assets/img/collabcoder.png'
+  image: 'assets/img/collabcoder_workflow.png'
   authors: 'Jie Gao, Yuchen Guo, Gionnieve Lim, Tianqin Zhang, Zheng Zhang, Toby Jia-Jun Li, Simon Tangi Perrault.'
   tag1: 'Preprint'
   tag6: 'LLM+Social Science'

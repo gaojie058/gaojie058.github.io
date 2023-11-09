@@ -12,11 +12,7 @@ My primary research interests lie in Human-Computer Interaction (HCI) and Comput
 - <span style="color:#EDAEC0">**Trustworthy AI**</span>: building trustworthy AI-assisted qualitative coding applications.
 - <span style="color:#9F92D0">**LLMs+Interaction**</span>: building LLM-powered applications, studying the interactions modes of LLMs. 
 
-<!-- Please find my [CV](assets/img/CV_public.pdf) here. -->
 
+📧 Email: <ins>gaojie056[AT]gmail.com<ins>
 
-
-😊 I'm more than happy to collaborate! Don't hesitate to contact me at <ins>gaojie056[AT]gmail.com<ins>
-
-
-
+<!-- I am entering the job market this year and am seeking postdoctoral opportunities in Singapore and the United States, specifically in the fields of human-AI collaboration, human-centered AI, and human-AI interaction. Feel free to recommend any related opportunities! -->
