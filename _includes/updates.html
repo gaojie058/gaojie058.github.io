@@ -3,15 +3,37 @@
     <h5 class="fw-bold border-bottom pb-3 mb-5">Updates</h3>
     {% if page.title == "Home" %}
       {% for item in site.data.updates.index limit:3 %}
-          <p>{{item}}</p>
+          <p>
+            {% assign current_title = item.title %}
+            {% if item.links %}
+                {% for link in item.links %}
+                    {% assign parts = current_title | split: link.click %}
+                    {% assign current_title = parts[0] | append: '<a href="' | append: link.url | append: '">' | append: link.click | append: '</a>' | append: parts[1] %}
+                {% endfor %}
+                {{ current_title | safe }}
+            {% else %}
+                {{ item.title }}
+            {% endif %}
+          </p>
       {% endfor %}
       {% if site.data.updates.index.size > 3 %}
-          <button class="button-80" id="loadMore" onclick="loadMore()" role="button">Load More</button>
-          <div id="hiddenUpdates" style="display: none;">
-              {% for item in site.data.updates.index offset:3 %}
-                  <p>{{item}}</p>
-              {% endfor %}
-          </div>
+      <button class="button-80" id="loadMore" onclick="loadMore()" role="button">Load More</button>
+        <div id="hiddenUpdates" style="display: none;">
+            {% for item in site.data.updates.index offset:3 %}
+                <p>
+                    {% assign current_title = item.title %}
+                    {% if item.links %}
+                        {% for link in item.links %}
+                            {% assign parts = current_title | split: link.click %}
+                            {% assign current_title = parts[0] | append: '<a href="' | append: link.url | append: '">' | append: link.click | append: '</a>' | append: parts[1] %}
+                        {% endfor %}
+                        {{ current_title | safe }}
+                    {% else %}
+                        {{ item.title }}
+                    {% endif %}
+                </p>
+            {% endfor %}
+        </div>
       {% endif %}
     {% endif %}
   </div>
@@ -32,15 +54,15 @@ function loadMore() {
 .button-80 {
 background: #fff;
 backface-visibility: hidden;
-border-radius: .375rem;
+border-radius: .2rem;
 border-style: solid;
-border-width: .125rem;
+border-width: .1rem;
 box-sizing: border-box;
-color: #212121;
+color: #595959;
 cursor: pointer;
 display: inline-block;
 font-family: Circular,Helvetica,sans-serif;
-font-size: 0.8rem;
+font-size: 1rem;
 font-weight: 300;
 letter-spacing: -.01em;
 line-height: 1.3;

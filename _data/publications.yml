@@ -7,17 +7,17 @@
 #tag7: 'SmartGlass'
 index:
 - name: 'CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis.'
-  url: ''
+  url: 'https://arxiv.org/abs/2304.07366'
   image: 'assets/img/collabcoder_workflow.png'
   authors: 'Jie Gao, Yuchen Guo, Gionnieve Lim, Tianqin Zhang, Zheng Zhang, Toby Jia-Jun Li, Simon Tangi Perrault.'
   tag1: 'Preprint'
   tag6: 'LLM+Social Science'
 
 - name: 'Trust Building in Subjective Tasks: The Impact of Human-AI Collaboration in AI-Assisted Qualitative Coding.'
-  url: ''
+  url: 'https://arxiv.org/abs/2309.13858'
   image: 'assets/img/trust.png'
   authors: 'Jie Gao...Simon Tangi Perrault.'
-  tag1: 'Under Review'
+  tag1: 'Preprint'
   tag2: 'AI4SocialScience'
   tag3: 'Trustworthy AI'
 
