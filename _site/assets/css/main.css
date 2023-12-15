@@ -32,3 +32,15 @@ body a:hover {
 .pdfbutton:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
+
+/*# sourceMappingURL=main.css.map */
+
+
+.custom-link {
+  color: #303030; /* Default color */
+  text-decoration: none;
+}
+
+.custom-link:hover {
+  color: #686868; /* Color on hover */
+}
