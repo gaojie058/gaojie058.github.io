@@ -8,9 +8,9 @@
       <span>{{ site.description }}</span>
     </a> -->
   </div>
-  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto ">
     {% for item in site.data.settings.menu %}
-    <a class="me-3 py-2 text-decoration-none fw-bold" href="{{ item.url }}" target="_blank">{{ item.name }}</a>
+    <a class="me-3 py-2 fw-bold " href="{{ item.url }}" target="_blank" style="color: #393939;">{{ item.name }}</a>
     {% endfor %}  
   </nav>
 </header>
