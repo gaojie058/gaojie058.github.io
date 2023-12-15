@@ -3,7 +3,7 @@ layout: home
 title: "Home"
 ---
 
-I am a PhD student in [Information Systems Technology and Design](https://istd.sutd.edu.sg/) at [Singapore University of Technology and Design](https://www.sutd.edu.sg/), mainly advised by [Simon Perrault](https://simonperrault.github.io/) and co-advised by [Kenny Choo](http://kennychoo.net/). I am also greatly honored to work closely with Prof [Shendong Zhao](https://www.shengdongzhao.com/) from [NUS-HCI Lab](https://www.nus-hci.org/) and Prof [Toby Jia-Jun Li](https://toby.li/) from University of Notre Dame. Before joining SUTD, I completed my master's degree in Software Engineering at Zhejiang University and my bachelor's degree in Digital Media Technology at Shanghai University.
+I am a PhD student in [Information Systems Technology and Design](https://istd.sutd.edu.sg/) at [Singapore University of Technology and Design](https://www.sutd.edu.sg/), mainly advised by [Simon Perrault](https://simonperrault.github.io/) and co-advised by [Kenny Choo](http://kennychoo.net/). I am also greatly honored to work closely with Prof [Shendong Zhao](https://www.shengdongzhao.com/) from [NUS-HCI Lab](https://www.nus-hci.org/) and [Toby Jia-Jun Li](https://toby.li/) from University of Notre Dame. Before joining SUTD, I completed my master's degree in Software Engineering at Zhejiang University and my bachelor's degree in Digital Media Technology at Shanghai University.
 
 My research interests include Human-AI Collaboration, Human-AI Interaction and AI for Social Science. Specifically, I am passionate about: 
 
