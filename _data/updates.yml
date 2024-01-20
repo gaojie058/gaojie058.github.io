@@ -1,4 +1,14 @@
 index:
+- title: 2024.01 🎉 One first-authored paper "CollabCoder" and one coauthored paper "Help Me Reflect" have been accepted by CHI2024! (Preprints will have minor refinements in final versions.)
+  links:
+      - click: Help Me Reflect
+        url: "../assets/img/CHI2024_Help_Me_Reflect.pdf"
+      - click: CollabCoder
+        url: "../assets/img/CollabCoder_CHI24.pdf"
+- title: 2024.01 🚀 I successfully defended my PhD thesis titled "Tool Support for Human-AI Collaboration in Qualitative Data Analysis".
+  links:
+      - click: Tool Support for Human-AI Collaboration in Qualitative Data Analysis
+        url: "../assets/img/Jie_Thesis.pdf"
 - title: 2023.12 🚀 Starting from early 2024, I am excited to become a part of the Singapore-MIT Alliance for Research and Technology as a Postdoctoral Researcher, where I will be mentored by Prof. Thomas W. Malone. I'm thrilled about this opportunity!
   links:
       - click: Singapore-MIT Alliance for Research and Technology
