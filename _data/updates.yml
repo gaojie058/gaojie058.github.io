@@ -2,9 +2,9 @@ index:
 - title: 2024.01 🎉 One first-authored paper "CollabCoder" and one coauthored paper "Help Me Reflect" have been accepted by CHI2024! (Preprints will have minor refinements in final versions.)
   links:
       - click: Help Me Reflect
-        url: "../assets/img/CHI2024_Help_Me_Reflect.pdf"
+        url: "https://arxiv.org/abs/2401.10820"
       - click: CollabCoder
-        url: "../assets/img/CollabCoder_CHI24.pdf"
+        url: "https://arxiv.org/abs/2304.07366"
 - title: 2024.01 🚀 I successfully defended my PhD thesis titled "Tool Support for Human-AI Collaboration in Qualitative Data Analysis".
   links:
       - click: Tool Support for Human-AI Collaboration in Qualitative Data Analysis
