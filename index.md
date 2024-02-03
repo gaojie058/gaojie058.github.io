@@ -3,7 +3,7 @@ layout: home
 title: "Home"
 ---
 
-My first name, “Jie”, pronounced like “Jyeah” in English. 
+My first name, “Jie”(洁), pronounced like “Jyeah” in English. 
 
 I am currently a postdoctoral researcher in [Mens, Manus, and Machina (M3S)](https://m3s.mit.edu/) team at the [Singapore-MIT Alliance for Research and Technology](https://smart.mit.edu/), working with Prof. [Thomas W. Malone](https://mitsloan.mit.edu/faculty/directory/thomas-w-malone). Prior to this, I did my PhD in [Information Systems Technology and Design](https://istd.sutd.edu.sg/) at [Singapore University of Technology and Design](https://www.sutd.edu.sg/), advised by [Simon Perrault](https://simonperrault.github.io/). My research interests include Human-AI Collaboration, Human-AI Interaction and AI for Social Science. Specifically, I am passionate about: 
 
