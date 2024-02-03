@@ -1,3 +1,36 @@
+body {
+  background: #ffffff;
+  color: #303030;
+  font-family: Palatino;
+}
 
+body a {
+  color: #0069a5; /* Darker teal for links */
+  font-weight: 400;
+  text-decoration: none; /* Optional: Removes underline */
+}
+
+body a:hover {
+  color: #00273c; /* Darker blue on hover */
+  text-decoration: none;
+}
+
+.pdfbutton {
+  background-color: #000000;
+  border: none;
+  color: white !important;
+  padding: 0px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.pdfbutton:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
 
 /*# sourceMappingURL=main.css.map */
