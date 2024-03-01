@@ -1,8 +1,8 @@
 index:
-- title: 2024.03 We have lunched the website of CollabCoder.
-  links: 
+- title: 2024.03 We have launched CollabCoder website. Construction and refinement is ongoing!
+  links:
       - click: CollabCoder
-      - url: https://gaojie058.github.io/CollabCoder/
+        url: "https://gaojie058.github.io/CollabCoder/"
 - title: 2024.01 🎉 One first-authored paper "CollabCoder" and one coauthored paper "Help Me Reflect" have been accepted by CHI2024! (Preprints will have minor refinements in final versions.)
   links:
       - click: Help Me Reflect
