@@ -1,8 +1,11 @@
 index:
-- title: 2024.03 🎉 Our Late-breaking Work "A Taxonomy for Human-LLM Interaction Modes-An Initial Exploration" has been accepted to CHI 2024. ArXiv is coming soon!
-- title: 2024.03 We have launched CollabCoder website. Construction and refinement is ongoing!
+- title: 2024.03 🎉 Our Late-breaking Work "A Taxonomy for Human-LLM Interaction Modes-An Initial Exploration" has been accepted to CHI 2024.
   links:
-      - click: CollabCoder
+      - click: A Taxonomy for Human-LLM Interaction Modes-An Initial Exploration
+        url: "../assets/img/CHI_LBW_2024_camera_ready.pdf"
+- title: 2024.03 We have launched CollabCoder Website. Construction and refinement is ongoing!
+  links:
+      - click: CollabCoder Website
         url: "https://gaojie058.github.io/CollabCoder/"
 - title: 2024.01 🎉 One first-authored paper "CollabCoder" and one coauthored paper "Help Me Reflect" have been accepted to CHI2024! (Preprints will have minor refinements in final versions.)
   links:
