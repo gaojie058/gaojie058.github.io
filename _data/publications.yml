@@ -10,15 +10,17 @@ aiqa_index:
 
 - name: 'CollabCoder: A Lower-barrier, Rigorous Workflow for Inductive Collaborative Qualitative Analysis with Large Language Models'
   # url: 'https://arxiv.org/abs/2304.07366'
-  url: '../assets/img/CollabCoder_CHI24.pdf'
+  url: 'https://arxiv.org/abs/2304.07366'
   image: 'assets/img/collabcoder_workflow.png'
   website: 'https://gaojie058.github.io/CollabCoder/'
+  video: 'https://youtu.be/C3n4UvMHgIY'
+  code: 'https://github.com/gaojie058/CollabCoder_system'
   authors: 'Jie Gao, Yuchen Guo, Gionnieve Lim, Tianqin Zhang, Zheng Zhang, Toby Jia-Jun Li, Simon Tangi Perrault.'
   tag1: 'CHI 2024'
   tag6: 'LLM+Social Science'
 
 - name: 'CoAIcoder: Examining the Effectiveness of AI-assisted Human-to-Human Collaboration in Qualitative Analysis.'
-  url: 'https://arxiv.org/abs/2304.05560'
+  url: 'https://dl.acm.org/doi/abs/10.1145/3617362'
   image: 'assets/img/coaicoder.png'
   authors: 'Jie Gao, Kenny Tsu Wei Choo, Junming Cao, Roy Ka Wei Lee, Simon Perrault.'
   tag1: 'TOCHI 2023'
@@ -36,7 +38,7 @@ aiqa_index:
 new_index:
 - name: 'A Taxonomy for Human-LLM Interaction Modes: An Initial Exploration'
   # url: 'https://arxiv.org/abs/2304.07366'
-  url: '../assets/img/CHI_LBW_2024_camera_ready.pdf'
+  url: 'https://arxiv.org/abs/2404.00405'
   image: 'assets/img/taxonomy.png'
   authors: 'Jie Gao*, Simret Araya Gebreegziabher*, Kenny Tsu Wei Choo, Toby Jia-Jun Li, Simon Tangi Perrault, Thomas W. Malone'
   tag1: 'CHI LBW 2024'
