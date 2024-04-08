@@ -46,10 +46,7 @@
         
         <a href="{{ item.url }}" class="pdfbutton" target="_blank"; style="font-size: 13px">PDF</a>
 
-        {% if item.website %}
-          <a href="{{ item.website }}" class="pdfbutton" target="_blank"; style="font-size: 13px">Website</a>
-        {% endif %}
-        
+
       </div>
     </div>
     {% endfor %}
@@ -106,11 +103,11 @@
           {% endif %}
 
           {% if item.video %}
-            <a href="{{ item.website }}" class="pdfbutton" target="_blank"; style="font-size: 13px">Video</a>
+            <a href="{{ item.video }}" class="pdfbutton" target="_blank"; style="font-size: 13px">Video</a>
           {% endif %}
 
           {% if item.code %}
-          <a href="{{ item.website }}" class="pdfbutton" target="_blank"; style="font-size: 13px">Code</a>
+          <a href="{{ item.code }}" class="pdfbutton" target="_blank"; style="font-size: 13px">Code</a>
           {% endif %}
 
           
