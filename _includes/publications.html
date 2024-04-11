@@ -1,6 +1,6 @@
 <div class="row g-5">
   <div>
-    <h5 class="fw-bold border-bottom pb-2 mb-2">Publications</h5>
+    <h5 class="fw-bold border-bottom pb-2 mb-2">Featured Publications</h5>
     <div>
       <p>*Co-first author.</p>
     </div>
@@ -14,11 +14,12 @@
 
     {% if page.title == "Home" %}
 
-    <!-- <div style="background-color: aliceblue; "> -->
+
     <br>
     <div>
       <p style="font-weight:bold;">🆕 Check Our New Work!</p>
     </div>
+  
     {% for item in site.data.publications.new_index %}
     {% assign updated_authors = item.authors | replace: 'Jie Gao', '<span
       style="text-decoration: underline; font-weight: 600;">Jie Gao</span>' %}
@@ -63,14 +64,15 @@
     </div>
 
     {%- if forloop.index == site.data.publications.new_index.size %}
-    <!-- 当前循环项是 new_index 的最后一个元素时执行的代码 -->
     {%- endif %}
     {% endfor %}
+
+
 
     <br>
 
     <div>
-      <p style="font-weight:bold;">AI-assisted (LLM-powered) Qualitative Data Analysis:</p>
+      <p style="font-weight:bold;">🌟 AI-assisted (LLM-powered) Qualitative Data Analysis:</p>
       <p>If you're interested in the development of this line of research, I suggest
         reviewing the <a href="https://gaojie058.github.io/CollabCoder/about" target="_blank">development history of
           CollabCoder</a>.
@@ -131,7 +133,7 @@
 
     <br>
     <div>
-      <p style="font-weight:bold;">LLM-powered Applications:</p>
+      <p style="font-weight:bold;">🤖 LLM-powered Applications:</p>
       <p>I am thrilled to be part of my colleagues' LLM projects and have gained valuable insights from our
         collaboration!</p>
     </div>
@@ -162,7 +164,21 @@
         {% endif %}
         {%- endfor %}
 
+
         <a href="{{ item.url }}" class="pdfbutton" target="_blank" style="font-size: 13px">PDF</a>
+        {% if item.website %}
+        <a href="{{ item.website }}" class="pdfbutton" target="_blank" ; style="font-size: 13px">Website</a>
+        {% endif %}
+
+        {% if item.video %}
+        <a href="{{ item.video }}" class="pdfbutton" target="_blank" ; style="font-size: 13px">Video</a>
+        {% endif %}
+
+        {% if item.code %}
+        <a href="{{ item.code }}" class="pdfbutton" target="_blank" ; style="font-size: 13px">Code</a>
+        {% endif %}
+
+
       </div>
     </div>
     {%- if forloop.index == site.data.publications.llm.size %}
@@ -174,8 +190,10 @@
 
     <!-- <div style="background-color: aliceblue;"> -->
     <br>
+    <br>
+    <br>
     <div>
-      <p style="font-weight:bold;">Explorations in other directions:</p>
+      <h5 class="fw-bold border-bottom pb-2 mb-2"; style="font-weight:bold;">Explorations in other directions:</h5>
       <p>In the early stages of my research, I have explored various areas such as designing, SmartGlass, Social Media,
         etc.
         Although not all of these projects were led by me or reached a full paper, I enjoyed the experience and gained

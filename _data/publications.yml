@@ -49,19 +49,21 @@ new_index:
 
 llm_index:
 
+- name: 'VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.'
+  url: 'https://dl.acm.org/doi/10.1145/3586183.3606800'
+  image: 'assets/img/visar.png'
+  authors: 'Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, Toby Jia-Jun Li.'
+  website: 'https://visar.app/'
+  video: 'https://www.youtube.com/watch?v=qmd03KFFy8Q&ab_channel=TobyLi'
+  code: 'https://github.com/roryzhengzhang/VISAR'
+  tag1: 'UIST 2023'
+  tag5: 'LLM+Writing'
+
 - name: 'Help Me Reflect: Leveraging Self-Reflection Interface Nudges to Enhance Deliberativeness on Online Deliberation Platforms'
   url: '../assets/img/CHI2024_Help_Me_Reflect.pdf'
   image: '../assets/img/help_me_reflect.png'
   authors: 'Shun Yi Yeo, Gionnieve Lim, Jie Gao, Weiyu Zhang, Simon Tangi Perrault'
   tag1: 'CHI 2024'
-
-
-- name: 'VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.'
-  url: 'https://dl.acm.org/doi/10.1145/3586183.3606800'
-  image: 'assets/img/visar.png'
-  authors: 'Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, Toby Jia-Jun Li.'
-  tag1: 'UIST 2023'
-  tag5: 'LLM+Writing'
 
 
 
