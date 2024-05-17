@@ -188,8 +188,8 @@
 
 
 
-    <!-- <div style="background-color: aliceblue;"> -->
-    <br>
+   
+    <!-- <br>
     <br>
     <br>
     <div>
@@ -211,7 +211,6 @@
 
         {%- for index in (1..8) %}
         {% assign tag_key = "tag" | append:index %}
-        <!-- "tag#{{index}}" -->
         {% if item[tag_key] %}
         {%- if tag_key == "tag1" %}
         {% assign border_radius = "20px" %}
@@ -230,9 +229,8 @@
       </div>
     </div>
     {%- if forloop.index == site.data.publications.othter.size %}
-    <!-- 当前循环项是 aiqaindex 的最后一个元素时执行的代码 -->
     {%- endif %}
-    {% endfor %}
+    {% endfor %} -->
 
 
     {% endif %}
