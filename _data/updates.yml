@@ -1,4 +1,18 @@
 index:
+- title: 2024.12 🚀 I will join the Malone postdoctoral fellow program at Johns Hopkins University next March! I will be working with a research group leading by Prof. Mark Dredze to explore the potential of LLM in qualitative analysis methodology usage in healthcare. I will also work with excellent researchers Ziang Xiao and Chien-Ming Huang!
+  links:
+      - click: Malone postdoctoral fellow program
+        url: "https://malonecenter.jhu.edu/welcoming-the-new-cohort-of-malone-postdoctoral-fellows/"
+      - click: Johns Hopkins University
+        url: "https://www.jhu.edu/"
+      - click: research group
+        url: "https://www.cs.jhu.edu/~mdredze/group/"
+      - click: Mark Dredze
+        url: "https://www.cs.jhu.edu/~mdredze/"
+      - click: Ziang Xiao
+        url: "https://www.ziangxiao.com/"
+      - click: Chien-Ming Huang
+        url: "https://www.cs.jhu.edu/~cmhuang/"
 - title: 2024.09 I am serving as an Associate Chair for CHI2025 under subcommittee "Understanding People — Statistical and Quantitative Methods" this year!
   links:
       - click: Understanding People — Statistical and Quantitative Methods
