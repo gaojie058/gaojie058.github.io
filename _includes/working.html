@@ -1,0 +1,61 @@
+<div class="row g-5">
+  <div>
+    <h5 class="fw-bold border-bottom pb-2 mb-2">New Works</h5>
+    <div>
+      <p>I explored a few new topics last year, including 1) MindCoder, 2) the full extension of Human-LLM interaction modes, and 3) CodeMap, a tool designed for code understanding. In particular, one of our most excited works has provided a functional tool named MindCoder, which supports automated qualitative coding within 3–5 minutes. You can access it via <a href="https://mindcoder.ai/" target="_blank">mindcoder.ai</a>.</p>
+    </div>
+
+
+    {% if page.title == "Home" %}
+
+    {% for item in site.data.publications.new_index %}
+    {% assign updated_authors = item.authors | replace: 'Jie Gao', '<span
+      style="text-decoration: underline; font-weight: 600;">Jie Gao</span>' %}
+
+    <div class="publication-item" style="display: flex; align-items: start; gap: 20px; margin-bottom: 20px;">
+      <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100px; height:100px;" />
+      <div>
+        <p style="margin: 0; font-weight: 600;">{{ item.name | raw }}</p>
+        <p style="margin: 0;">{{ updated_authors | raw }}</p>
+
+        {%- for index in (1..8) %}
+        {% assign tag_key = "tag" | append:index %}
+        <!-- "tag#{{index}}" -->
+        {% if item[tag_key] %}
+        {%- if tag_key == "tag1" %}
+        {% assign border_radius = "20px" %}
+        {%- else %}
+        {% assign border_radius = "" %}
+        {%- endif %}
+        {% assign tag_color = site.data.tags.tags_colors[tag_key] %}
+        <span
+          style="background-color: {{ tag_color }}; color: #000000; padding: 2px 5px; margin-right: 5px; font-size: 13px;border-radius:{{border_radius}};">{{
+          item[tag_key] | raw }}</span>
+
+        {% endif %}
+        {%- endfor %}
+
+        <a href="{{ item.url }}" class="pdfbutton" target="_blank" style="font-size: 13px">Paper</a>
+        {% if item.website %}
+        <a href="{{ item.website }}" class="pdfbutton" target="_blank" ; style="font-size: 13px">Website</a>
+        {% endif %}
+
+        {% if item.video %}
+        <a href="{{ item.video }}" class="pdfbutton" target="_blank" ; style="font-size: 13px">Video</a>
+        {% endif %}
+
+        {% if item.code %}
+        <a href="{{ item.code }}" class="pdfbutton" target="_blank" ; style="font-size: 13px">Code</a>
+        {% endif %}
+
+      </div>
+    </div>
+
+    {%- if forloop.index == site.data.publications.new_index.size %}
+    {%- endif %}
+    {% endfor %}
+
+
+    {% endif %}
+  </div>
+</div>

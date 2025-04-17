@@ -6,7 +6,44 @@
 #tag6: 'LLM+Social Science'
 #tag7: 'SmartGlass'
 #tag8: 'LLM'
+#tag9: 'Human-LLM Interaction'
+
+new_index:
+
+- name: 'MindCoder: Automated and Controllable Reasoning Chain in Qualitative Analysis'
+  image: 'assets/img/mindcoder.jpg'
+  url: 'https://arxiv.org/abs/2501.00775'
+  website: 'https://mindcoder.ai/'
+  video: 'https://www.youtube.com/watch?v=a0mOkOrmVWg&ab_channel=JieGAO'
+  authors: 'Jie Gao, Zhiyao Shu, Shunyi Yeo'
+  tag1: 'Under Review 2025'
+
+
+- name: 'A Taxonomy for Human-LLM Interaction Modes'
+  image: 'assets/img/taxonomy2.jpg'
+  url: 'assets/img/Taxonomy.pdf'
+  authors: 'Jie Gao, Erika Lee, Zhiyao Shu, Michelle Vaccaro, Xiaoxian Zhang, Junming Cao, Thomas Malone'
+  tag1: 'Under Review 2025'
+
+- name: 'Chain of Understanding: Supporting Code Understanding with Large Language Models'
+  image: 'assets/img/codemap.jpg'
+  url: 'https://arxiv.org/abs/2504.04553'
+  authors: 'Jie Gao, Yue Xue, Xiaofei Xie, SoeMin Thant, Erika Lee'
+  tag1: 'Under Review 2025'
+
+
+
 aiqa_index:
+
+- name: '[Workshop] LLMs as Research Tools: Applications and Evaluations in HCI Data Work'
+  image: 'assets/img/lart.jpg'
+  url: 'https://dl.acm.org/doi/pdf/10.1145/3613905.3636301'
+  website: 'https://sites.google.com/view/llmsindatawork/home?authuser=0'
+  # video: 'https://youtu.be/C3n4UvMHgIY'
+  # code: 'https://github.com/gaojie058/CollabCoder_system'
+  authors: 'Marianne Aubin Le Quéré, Hope Schroeder, Casey Randazzo, Jie Gao, Ziv Epstein, Simon Perrault, David Mimno, Louise Barkhuus, Hanlin Li'
+  tag1: 'CHI 2024'
+  tag6: 'LLM+Social Science'
 
 - name: 'CollabCoder: A Lower-barrier, Rigorous Workflow for Inductive Collaborative Qualitative Analysis with Large Language Models'
   # url: 'https://arxiv.org/abs/2304.07366'
@@ -35,7 +72,7 @@ aiqa_index:
 
 
 
-new_index:
+theory_index:
 - name: 'A Taxonomy for Human-LLM Interaction Modes: An Initial Exploration'
   # url: 'https://arxiv.org/abs/2304.07366'
   url: 'https://arxiv.org/abs/2404.00405'
