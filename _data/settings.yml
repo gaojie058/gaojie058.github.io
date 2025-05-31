@@ -1,9 +1,5 @@
 menu:
-- {name: 'Google Scholar', url: 'https://scholar.google.com/citations?user=U7KDGDsAAAAJ&hl=en'}
-- {name: 'CV', url: 'assets/img/CV_Jie.pdf'}
-# - {name: 'Contact', url: '/contact'}
-
-contacts:
-- email: jie.gao[at]smart.mit.edu
+- {name: '<i class="fab fa-google-scholar" style="color: #568ed3;"></i> Google Scholar', url: 'https://scholar.google.com/citations?user=U7KDGDsAAAAJ&hl=en'}
+- {name: '<i class="fas fa-file-alt" style="color: #568ed3;"></i> CV', url: 'assets/img/CV_Jie.pdf'}
 
 
