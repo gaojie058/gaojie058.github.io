@@ -16,20 +16,19 @@ new_index:
   website: 'https://mindcoder.ai/'
   video: 'https://www.youtube.com/watch?v=a0mOkOrmVWg&ab_channel=JieGAO'
   authors: 'Jie Gao, Zhiyao Shu, Shunyi Yeo'
-  tag1: 'Under Review 2025'
 
 
 - name: 'A Taxonomy for Human-LLM Interaction Modes'
   image: 'assets/img/taxonomy2.jpg'
   url: 'assets/img/Taxonomy.pdf'
   authors: 'Jie Gao, Erika Lee, Zhiyao Shu, Michelle Vaccaro, Xiaoxian Zhang, Junming Cao, Thomas Malone'
-  tag1: 'Under Review 2025'
+
 
 - name: 'Chain of Understanding: Supporting Code Understanding with Large Language Models'
   image: 'assets/img/codemap.jpg'
   url: 'https://arxiv.org/abs/2504.04553'
   authors: 'Jie Gao, Yue Xue, Xiaofei Xie, SoeMin Thant, Erika Lee'
-  tag1: 'Under Review 2025'
+
 
 
 
