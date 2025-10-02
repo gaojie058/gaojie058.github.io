@@ -18,10 +18,10 @@ new_index:
   authors: 'Jie Gao, Zhiyao Shu, Shunyi Yeo'
 
 
-- name: 'A Taxonomy for Human-LLM Interaction Modes'
-  image: 'assets/img/taxonomy2.jpg'
-  url: 'assets/img/Taxonomy manuscript.pdf'
-  authors: 'Jie Gao, Erika Lee, Zhiyao Shu, Michelle Vaccaro, Xiaoxian Zhang, Junming Cao, Thomas Malone'
+# - name: 'A Taxonomy for Human-LLM Interaction Modes'
+#   image: 'assets/img/taxonomy2.jpg'
+#   url: 'assets/img/Taxonomy manuscript.pdf'
+#   authors: 'Jie Gao, Erika Lee, Zhiyao Shu, Michelle Vaccaro, Xiaoxian Zhang, Junming Cao, Thomas Malone'
 - name: 'Chain of Understanding: Supporting Code Understanding with Large Language Models'
   image: 'assets/img/codemap.jpg'
   url: 'https://arxiv.org/abs/2504.04553'
