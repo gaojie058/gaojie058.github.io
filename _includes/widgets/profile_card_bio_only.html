@@ -2,22 +2,36 @@
 <div class="row">
     <div class="col">
         <div class="card border-0 shadow-sm bg-white">
-            <div class="card-body p-4">
-                <div class="row px-3 pt-3">
-                    <div class="col h3">
-                        About Me
-                    </div>
-                </div>
+            <div class="card-body">
                 <div class="row p-3">
                     <div class="col">
-                        <div class="text-profile-bio mt-0" {% if site.data.profile.short_bio_text_justify %}style="text-align: justify;"{% endif %}>
-                            {{ site.data.profile.short_bio }}
+                        <div class="text-profile-bio mt-0" {% if site.data.profile.short_bio_text_justify %}style="text-align: justify; font-size: 0.9rem;"{% else %}style="font-size: 0.9rem;"{% endif %}>
+                            <p style="color: red; font-weight: bold;"> I am on academic job market for a tenure-track position in 2026. Please feel free to reach out if you know any opportunities. If you are also on job market, I'd love to connect!</p>
+                            <p>
+                                I am currently a Malone Postdoc Fellow in <a href="https://www.cs.jhu.edu/" target="_blank">Department of Computer Science</a>, <a href="https://malonecenter.jhu.edu/" target="_blank">Malone Center for Engineering in Healthcare</a> and <a href="https://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>. I am mentored by <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a>, <a href="https://www.ziangxiao.com/" target="_blank">Ziang Xiao</a>, and <a href="https://www.cs.jhu.edu/~cmhuang/" target="_blank">Chien-Ming Huang</a>. My research interests include <b>Human-AI Collaboration, AI for Social Science, and Human Aspects of Software Engineering</b>. As a <b style="color: #d2691e;">human-AI collaboration researcher</b>, I focus on empowering humans for analysing complex data.
+                            </p>
+                            <p>
+                                <b style="color: #d2691e;">Research Interests: </b>Every major technological leap has transformed how humans analyse and learn from data, a process shapes how we make business decisions, formulate public policies, and even diagnose diseases. Today, AI made us enter the next chapter where humans and AI can jointly learn from data. I leverage AI techniques and social science methodologies to design, build, and evaluate human-AI collaborative systems that empower humans to analyze complex unstructured data. <b>My long-term vision is to expand human capabilities through human-AI collaboration, moving beyond data analysis toward broader human cognition.</b>
+                            </p>
+                            <div class="text-center my-3">
+                                <img src="{{ '/assets/images/research/vision.png' | relative_url }}" alt="Research Vision" class="img-fluid" style="max-width: 60%; height: auto;">
+                            </div>
+                            <div style="background-color: #faf5f0; padding: 15px; border-radius: 8px; border-left: 4px solid #d2691e; margin: 15px 0;">
+                                <p style="margin-bottom: 10px;">
+                                    My research aims to answer following open-ended questions:
+                                </p>
+                                <ol style="margin-bottom: 0;">
+                                    <li><i class="fas fa-user"></i> <i class="fas fa-arrow-left"></i> <i class="fas fa-robot"></i> <b>Bring AI to Humans: Integrating AI into Human Analytical Workflows to Make Humans More Capable</b>: What are data analysis practitioners' manual analytical workflows? What challenges do they face when using existing analysis platforms? How do they envision AI's role in their workflows? How to evaluate AI-generated results' quality? What are gains and loses when applying AI? </li>
+                                    <li><i class="fas fa-user"></i> <i class="fas fa-arrow-right"></i> <i class="fas fa-robot"></i> <b>Bring Humans to AI: Bringing Humans into AI's Automation to Make AI Systems Responsible: </b>When and where should humans be involved in AI's automation process? What is the ideal division of labor between humans and AI? Which forms of human involvement are meaningful and desirable, and which are not? How can we design AI systems to enable such involvement?</li>
+                                </ol>
+                            </div>
+
                         </div>
+
                         {% if site.data.profile.cv_link %}
                             <a target="_blank" href="{{ site.data.profile.cv_link | relative_url }}"><i class="fas fa-file-alt"></i> Curriculum Vitae</a> <br/>
                         {% endif %}
                     </div>
-        
                 </div>
             </div>
         </div>        

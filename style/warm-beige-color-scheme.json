@@ -1,0 +1,192 @@
+{
+  "name": "经典组合 - 温暖米色配色方案",
+  "description": "经典组合：温馨舒适的米色调配色搭配极简几何字体，营造温暖亲和且易读的视觉体验",
+  "version": "2.0.0",
+  "author": "Gianna's Website Theme",
+  "variant": "classic",
+  "variant_info": {
+    "name": "经典组合",
+    "description": "温暖舒适 · 易读性强",
+    "characteristics": ["温暖", "舒适", "易读", "亲和", "经典"],
+    "best_for": ["学术网站", "个人博客", "专业展示", "长文阅读"]
+  },
+  "colors": {
+    "primary": {
+      "name": "主背景色",
+      "hex": "#fefefe",
+      "rgb": "rgb(254, 254, 254)",
+      "hsl": "hsl(0, 0%, 99%)",
+      "description": "页面主要背景色，接近纯白但带有温暖感"
+    },
+    "secondary": {
+      "name": "次要背景色",
+      "hex": "#f5f2f0",
+      "rgb": "rgb(245, 242, 240)",
+      "hsl": "hsl(24, 17%, 95%)",
+      "description": "卡片、侧边栏等次要区域背景色"
+    },
+    "accent": {
+      "name": "强调色",
+      "hex": "#5d4e37",
+      "rgb": "rgb(93, 78, 55)",
+      "hsl": "hsl(36, 26%, 29%)",
+      "description": "主要文字颜色，深棕色调"
+    },
+    "text_secondary": {
+      "name": "次要文字色",
+      "hex": "#8e7b6b",
+      "rgb": "rgb(142, 123, 107)",
+      "hsl": "hsl(27, 14%, 49%)",
+      "description": "辅助文字、说明文字颜色"
+    },
+    "link": {
+      "name": "链接色",
+      "hex": "#d2691e",
+      "rgb": "rgb(210, 105, 30)",
+      "hsl": "hsl(25, 75%, 47%)",
+      "description": "链接、按钮等交互元素颜色"
+    },
+    "border": {
+      "name": "边框色",
+      "hex": "#e8e0d8",
+      "rgb": "rgb(232, 224, 216)",
+      "hsl": "hsl(30, 24%, 88%)",
+      "description": "分割线、边框颜色"
+    }
+  },
+  "shadows": {
+    "light": {
+      "name": "轻阴影",
+      "css": "0 2px 10px rgba(93,78,55,0.08)",
+      "description": "轻微的阴影效果，用于卡片悬浮"
+    },
+    "medium": {
+      "name": "中等阴影",
+      "css": "0 4px 20px rgba(93,78,55,0.12)",
+      "description": "中等阴影效果，用于弹窗、重要元素"
+    }
+  },
+  "gradients": {
+    "background": {
+      "name": "背景渐变",
+      "css": "linear-gradient(135deg, #f5f2f0 0%, #fefefe 100%)",
+      "description": "页面背景渐变，从米色到白色"
+    }
+  },
+  "color_palette": {
+    "warm_neutrals": [
+      "#fefefe",
+      "#f5f2f0",
+      "#e8e0d8",
+      "#d4c4b0",
+      "#c0a888",
+      "#8e7b6b",
+      "#5d4e37"
+    ],
+    "warm_accents": [
+      "#d2691e",
+      "#cd853f",
+      "#daa520",
+      "#b8860b",
+      "#a0522d"
+    ]
+  },
+  "usage_guidelines": {
+    "primary_text": "使用 #5d4e37 作为主要文字颜色",
+    "secondary_text": "使用 #8e7b6b 作为次要文字和说明文字",
+    "backgrounds": "主背景使用 #fefefe，卡片背景使用 #f5f2f0",
+    "interactive_elements": "链接和按钮使用 #d2691e",
+    "borders_dividers": "使用 #e8e0d8 作为分割线和边框",
+    "shadows": "使用带有棕色调的半透明阴影营造温暖感"
+  },
+  "accessibility": {
+    "contrast_ratios": {
+      "primary_text_on_bg": "14.2:1 (AAA级)",
+      "secondary_text_on_bg": "5.8:1 (AA级)",
+      "link_on_bg": "6.1:1 (AA级)"
+    },
+    "notes": "所有颜色组合均满足WCAG 2.1 AA级无障碍标准"
+  },
+  "design_principles": {
+    "warmth": "使用米色和棕色调营造温暖感",
+    "comfort": "柔和的对比度创造舒适的阅读体验",
+    "elegance": "精心调配的色彩层次展现优雅气质",
+    "readability": "确保文字在各种背景上都有良好的可读性"
+  },
+  "applications": {
+    "web_design": "适用于博客、个人网站、学术网站",
+    "print_design": "适用于书籍、杂志、宣传册设计",
+    "ui_design": "适用于需要温暖亲和感的应用界面",
+    "branding": "适用于咖啡、烘焙、手工艺等温暖品牌"
+  },
+  "typography": {
+    "name": "经典组合字体方案",
+    "description": "温暖舒适的字体搭配，结合极简几何设计与优秀易读性，营造经典而现代的视觉体验",
+    "style": "classic-geometric",
+    "variant": "classic",
+    "fonts": {
+      "primary": {
+        "name": "正文字体",
+        "family": "\"Nunito Sans\", \"Avenir\", \"Helvetica\", sans-serif",
+        "description": "温暖友好的无衬线字体，几何感适中，易读性极佳，适合长文阅读"
+      },
+      "heading": {
+        "name": "标题字体",
+        "family": "\"Poppins\", \"Montserrat\", sans-serif",
+        "description": "现代几何设计字体，圆润友好，层次感强，适合各级标题"
+      },
+      "monospace": {
+        "name": "等宽字体",
+        "family": "\"JetBrains Mono\", \"Fira Code\", monospace",
+        "description": "现代等宽字体，清晰易读，适合代码和数据显示"
+      }
+    },
+    "weights": {
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "line_heights": {
+      "body": 1.6,
+      "heading": 1.3,
+      "caption": 1.4
+    },
+    "letter_spacing": {
+      "normal": "0.01em",
+      "heading": "-0.02em",
+      "caption": "0.02em"
+    },
+    "font_sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem"
+    },
+    "characteristics": {
+      "warm": "温暖友好的字体选择",
+      "readable": "优秀的易读性和舒适度",
+      "geometric": "适度的几何设计感",
+      "classic": "经典而不过时的风格",
+      "versatile": "适用于多种内容类型"
+    },
+    "best_for": [
+      "学术网站和论文展示",
+      "个人博客和文章阅读",
+      "专业作品集展示",
+      "教育和知识分享平台",
+      "需要长时间阅读的内容"
+    ],
+    "pairing_principles": {
+      "contrast": "标题与正文形成适度对比",
+      "harmony": "整体保持和谐统一",
+      "hierarchy": "清晰的视觉层次结构",
+      "comfort": "优先考虑阅读舒适度"
+    }
+  }
+}

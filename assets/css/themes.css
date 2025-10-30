@@ -1,0 +1,189 @@
+/* 个人网站配色主题 */
+
+/* 主题1: 极简白色 - 简洁专业 */
+:root[data-theme="minimal-white"] {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8f9fa;
+    --accent-color: #2c3e50;
+    --text-secondary: #6c757d;
+    --link-color: #f5f2f0;
+    --border-color: #e9ecef;
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.08);
+    --gradient-bg: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* 主题2: 温暖米色 - 温馨舒适 (经典组合) */
+:root[data-theme="warm-beige"] {
+    /* === 主要颜色 === */
+    --primary-bg: #fefefe;        /* 主背景色 - 接近纯白但带有温暖感 */
+    --secondary-bg: #f5f2f0;      /* 次要背景色 - 卡片、侧边栏背景 */
+    --accent-color: #5d4e37;      /* 强调色 - 主要文字颜色，深棕色调 */
+    --text-secondary: #8e7b6b;    /* 次要文字色 - 辅助文字、说明文字 */
+    --link-color: #d2691e;        /* 链接色 - 链接、按钮等交互元素 */
+    --border-color: #e8e0d8;      /* 边框色 - 分割线、边框颜色 */
+
+    /* === 阴影效果 === */
+    --shadow-light: 0 2px 10px rgba(93, 78, 55, 0.08);
+    --shadow-medium: 0 4px 20px rgba(93, 78, 55, 0.12);
+    --shadow-heavy: 0 8px 30px rgba(93, 78, 55, 0.15);
+
+    /* === 渐变背景 === */
+    --gradient-bg: linear-gradient(135deg, #f5f2f0 0%, #fefefe 100%);
+    --gradient-card: linear-gradient(145deg, #fefefe 0%, #f5f2f0 100%);
+
+    /* === 扩展色板 === */
+    --neutral-50: #fefefe;
+    --neutral-100: #f5f2f0;
+    --neutral-200: #e8e0d8;
+    --neutral-300: #d4c4b0;
+    --neutral-400: #c0a888;
+    --neutral-500: #8e7b6b;
+    --neutral-600: #5d4e37;
+
+    /* === 强调色变体 === */
+    --accent-light: #cd853f;
+    --accent-lighter: #daa520;
+    --accent-dark: #a0522d;
+    --accent-darker: #8b4513;
+
+    /* === 状态颜色 === */
+    --success-color: #8fbc8f;
+    --warning-color: #daa520;
+    --error-color: #cd5c5c;
+    --info-color: #4682b4;
+
+    /* === 透明度变体 === */
+    --overlay-light: rgba(93, 78, 55, 0.05);
+    --overlay-medium: rgba(93, 78, 55, 0.1);
+    --overlay-heavy: rgba(93, 78, 55, 0.2);
+}
+
+/* 主题3: 现代深色 - 时尚前卫 */
+:root[data-theme="modern-dark"] {
+    --primary-bg: #1e1e1e;
+    --secondary-bg: #0d1117;
+    --accent-color: #f0f6fc;
+    --text-secondary: #8b949e;
+    --link-color: #58a6ff;
+    --border-color: #30363d;
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.3);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.4);
+    --gradient-bg: linear-gradient(135deg, #0d1117 0%, #1e1e1e 100%);
+}
+
+/* 主题4: 清新绿色 - 自然活力 */
+:root[data-theme="fresh-green"] {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f0f8f0;
+    --accent-color: #2d5a2d;
+    --text-secondary: #6b8e6b;
+    --link-color: #28a745;
+    --border-color: #d4edda;
+    --shadow-light: 0 2px 10px rgba(40,167,69,0.1);
+    --shadow-medium: 0 4px 20px rgba(40,167,69,0.15);
+    --gradient-bg: linear-gradient(135deg, #f0f8f0 0%, #ffffff 100%);
+}
+
+/* 主题5: 优雅紫色 - 创意艺术 */
+:root[data-theme="elegant-purple"] {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8f6ff;
+    --accent-color: #4a3c6b;
+    --text-secondary: #7b6ba8;
+    --link-color: #6f42c1;
+    --border-color: #e6e0ff;
+    --shadow-light: 0 2px 10px rgba(111,66,193,0.1);
+    --shadow-medium: 0 4px 20px rgba(111,66,193,0.15);
+    --gradient-bg: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%);
+}
+
+/* 主题6: 海洋蓝色 - 宁静专业 */
+:root[data-theme="ocean-blue"] {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f0f8ff;
+    --accent-color: #1e3a5f;
+    --text-secondary: #5a7a9a;
+    --link-color: #0066cc;
+    --border-color: #d6e8ff;
+    --shadow-light: 0 2px 10px rgba(0,102,204,0.1);
+    --shadow-medium: 0 4px 20px rgba(0,102,204,0.15);
+    --gradient-bg: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+}
+
+/* 默认主题 */
+:root {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8f9fa;
+    --accent-color: #2c3e50;
+    --text-secondary: #6c757d;
+    --link-color: #f5f2f0;
+    --border-color: #e9ecef;
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.08);
+    --gradient-bg: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* 主题切换器样式 */
+.theme-switcher {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: var(--shadow-medium);
+    min-width: 200px;
+}
+
+.theme-switcher h6 {
+    margin: 0 0 10px 0;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.theme-option:hover {
+    background-color: var(--secondary-bg);
+    border-color: var(--border-color);
+}
+
+.theme-option.active {
+    background-color: var(--link-color);
+    color: white;
+}
+
+.theme-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid rgba(255,255,255,0.8);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.theme-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* 主题颜色预览 */
+.theme-color.minimal-white { background: linear-gradient(45deg, #2c3e50, #f5f2f0);}
+.theme-color.warm-beige { background: linear-gradient(45deg, #5d4e37, #d2691e); }
+.theme-color.modern-dark { background: linear-gradient(45deg, #1e1e1e, #58a6ff); }
+.theme-color.fresh-green { background: linear-gradient(45deg, #2d5a2d, #28a745); }
+.theme-color.elegant-purple { background: linear-gradient(45deg, #4a3c6b, #6f42c1); }
+.theme-color.ocean-blue { background: linear-gradient(45deg, #1e3a5f, #0066cc); }

@@ -1,0 +1,236 @@
+/* 字体主题系统 */
+
+/* 字体方案1: 现代无衬线 - 简洁清晰 */
+:root[data-font="modern-sans"] {
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.3;
+    --letter-spacing-normal: 0;
+    --letter-spacing-heading: -0.02em;
+}
+
+/* 字体方案2: 经典衬线 - 学术优雅 */
+:root[data-font="classic-serif"] {
+    --font-primary: "Georgia", "Times New Roman", "Noto Serif", serif;
+    --font-heading: "Playfair Display", "Georgia", serif;
+    --font-mono: "Source Code Pro", "Courier New", monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --line-height-body: 1.7;
+    --line-height-heading: 1.2;
+    --letter-spacing-normal: 0.01em;
+    --letter-spacing-heading: -0.01em;
+}
+
+/* 字体方案3: 温暖人文 - 友好亲和 */
+:root[data-font="warm-humanist"] {
+    --font-primary: "Source Sans Pro", "Open Sans", "Segoe UI", sans-serif;
+    --font-heading: "Merriweather", "Georgia", serif;
+    --font-mono: "Fira Code", "Source Code Pro", monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 600;
+    --font-weight-bold: 700;
+    --line-height-body: 1.65;
+    --line-height-heading: 1.25;
+    --letter-spacing-normal: 0.005em;
+    --letter-spacing-heading: 0;
+}
+
+/* 字体方案4: 极简几何 - 现代前卫 */
+:root[data-font="minimal-geometric"] {
+    --font-primary: "Nunito Sans", "Avenir", "Helvetica", sans-serif;
+    --font-heading: "Poppins", "Montserrat", sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+    --font-weight-normal: 300;
+    --font-weight-medium: 400;
+    --font-weight-bold: 600;
+    --line-height-body: 1.7;
+    --line-height-heading: 1.2;
+    --letter-spacing-normal: 0.02em;
+    --letter-spacing-heading: -0.03em;
+}
+
+/* 字体方案7: 经典组合 - 温暖可读 (与warm-beige主题配套) */
+:root[data-font="classic-combination"] {
+    --font-primary: "Nunito Sans", "Avenir", "Helvetica", sans-serif;
+    --font-heading: "Poppins", "Montserrat", sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.3;
+    --line-height-caption: 1.4;
+    --letter-spacing-normal: 0.01em;
+    --letter-spacing-heading: -0.02em;
+    --letter-spacing-caption: 0.02em;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+}
+
+/* 字体方案5: 创意表现 - 艺术设计 */
+:root[data-font="creative-display"] {
+    --font-primary: "Lato", "Helvetica Neue", sans-serif;
+    --font-heading: "Oswald", "Impact", sans-serif;
+    --font-mono: "Space Mono", "Courier New", monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.1;
+    --letter-spacing-normal: 0.01em;
+    --letter-spacing-heading: 0.05em;
+}
+
+/* 字体方案6: 中英混排 - 国际化 */
+:root[data-font="mixed-international"] {
+    --font-primary: "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-heading: "Noto Serif", "Source Han Serif SC", serif;
+    --font-mono: "Noto Sans Mono", "Source Han Mono SC", monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+    --line-height-body: 1.8;
+    --line-height-heading: 1.4;
+    --letter-spacing-normal: 0.01em;
+    --letter-spacing-heading: 0.02em;
+}
+
+/* 默认字体方案 */
+:root {
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.3;
+    --letter-spacing-normal: 0;
+    --letter-spacing-heading: -0.02em;
+}
+
+/* 字体切换器样式 */
+.font-switcher {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    z-index: 1000;
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: var(--shadow-medium);
+    min-width: 220px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.font-switcher h6 {
+    margin: 0 0 10px 0;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.font-option {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    background: var(--secondary-bg);
+}
+
+.font-option:hover {
+    background-color: var(--primary-bg);
+    border-color: var(--border-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-light);
+}
+
+.font-option.active {
+    background-color: var(--link-color);
+    color: white;
+    border-color: var(--link-color);
+}
+
+.font-option.active .font-preview {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.font-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.font-description {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+.font-preview {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* 字体预览样式 */
+.font-preview.modern-sans {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-preview.classic-serif {
+    font-family: "Playfair Display", "Georgia", serif;
+}
+
+.font-preview.warm-humanist {
+    font-family: "Merriweather", "Georgia", serif;
+}
+
+.font-preview.minimal-geometric {
+    font-family: "Poppins", "Montserrat", sans-serif;
+}
+
+.font-preview.creative-display {
+    font-family: "Oswald", "Impact", sans-serif;
+}
+
+.font-preview.mixed-international {
+    font-family: "Noto Serif", "Source Han Serif SC", serif;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .font-switcher {
+        left: 10px;
+        top: 80px;
+        min-width: 200px;
+        max-height: 300px;
+    }
+}
+
+/* Google Fonts 导入 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Merriweather:wght@300;400;700&family=Nunito+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Space+Mono:wght@400;700&family=Fira+Code:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&family=Source+Code+Pro:wght@300;400;500;600&family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:wght@400;500;600;700&family=Noto+Sans+Mono:wght@300;400;500&display=swap');

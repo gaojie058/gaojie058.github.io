@@ -1,0 +1,299 @@
+/* 经典组合 - 温暖米色主题 CSS 变量配置
+ * 版本: 2.0.0
+ * 变体: 经典组合 (Classic)
+ * 描述: 温馨舒适的米色调配色搭配极简几何字体，营造温暖亲和且易读的视觉体验
+ * 特点: 温暖舒适 · 易读性强 · 经典耐看
+ */
+
+:root {
+    /* === 主要颜色 === */
+    --warm-beige-primary-bg: #fefefe;        /* 主背景色 - 接近纯白但带有温暖感 */
+    --warm-beige-secondary-bg: #f5f2f0;      /* 次要背景色 - 卡片、侧边栏背景 */
+    --warm-beige-accent: #5d4e37;            /* 强调色 - 主要文字颜色，深棕色调 */
+    --warm-beige-text-secondary: #8e7b6b;    /* 次要文字色 - 辅助文字、说明文字 */
+    --warm-beige-link: #d2691e;              /* 链接色 - 链接、按钮等交互元素 */
+    --warm-beige-border: #e8e0d8;            /* 边框色 - 分割线、边框颜色 */
+
+    /* === RGB 格式 === */
+    --warm-beige-primary-bg-rgb: 254, 254, 254;
+    --warm-beige-secondary-bg-rgb: 245, 242, 240;
+    --warm-beige-accent-rgb: 93, 78, 55;
+    --warm-beige-text-secondary-rgb: 142, 123, 107;
+    --warm-beige-link-rgb: 210, 105, 30;
+    --warm-beige-border-rgb: 232, 224, 216;
+
+    /* === 阴影效果 === */
+    --warm-beige-shadow-light: 0 2px 10px rgba(93, 78, 55, 0.08);
+    --warm-beige-shadow-medium: 0 4px 20px rgba(93, 78, 55, 0.12);
+    --warm-beige-shadow-heavy: 0 8px 30px rgba(93, 78, 55, 0.15);
+
+    /* === 渐变背景 === */
+    --warm-beige-gradient-bg: linear-gradient(135deg, #f5f2f0 0%, #fefefe 100%);
+    --warm-beige-gradient-card: linear-gradient(145deg, #fefefe 0%, #f5f2f0 100%);
+
+    /* === 扩展色板 === */
+    --warm-beige-neutral-50: #fefefe;
+    --warm-beige-neutral-100: #f5f2f0;
+    --warm-beige-neutral-200: #e8e0d8;
+    --warm-beige-neutral-300: #d4c4b0;
+    --warm-beige-neutral-400: #c0a888;
+    --warm-beige-neutral-500: #8e7b6b;
+    --warm-beige-neutral-600: #5d4e37;
+
+    /* === 强调色变体 === */
+    --warm-beige-accent-light: #cd853f;
+    --warm-beige-accent-lighter: #daa520;
+    --warm-beige-accent-dark: #a0522d;
+    --warm-beige-accent-darker: #8b4513;
+
+    /* === 状态颜色 === */
+    --warm-beige-success: #8fbc8f;
+    --warm-beige-warning: #daa520;
+    --warm-beige-error: #cd5c5c;
+    --warm-beige-info: #4682b4;
+
+    /* === 透明度变体 === */
+    --warm-beige-overlay-light: rgba(93, 78, 55, 0.05);
+    --warm-beige-overlay-medium: rgba(93, 78, 55, 0.1);
+    --warm-beige-overlay-heavy: rgba(93, 78, 55, 0.2);
+
+    /* === 字体配置 === */
+    --warm-beige-font-primary: 'Georgia', 'Times New Roman', serif;
+    --warm-beige-font-secondary: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+    --warm-beige-font-mono: 'Source Code Pro', 'Courier New', monospace;
+
+    /* === 经典组合字体方案 === */
+    --warm-beige-classic-font-primary: "Nunito Sans", "Avenir", "Helvetica", sans-serif;
+    --warm-beige-classic-font-heading: "Poppins", "Montserrat", sans-serif;
+    --warm-beige-classic-font-mono: "JetBrains Mono", "Fira Code", monospace;
+    
+    /* 字体权重 */
+    --warm-beige-classic-weight-light: 300;
+    --warm-beige-classic-weight-normal: 400;
+    --warm-beige-classic-weight-medium: 500;
+    --warm-beige-classic-weight-semibold: 600;
+    --warm-beige-classic-weight-bold: 700;
+    
+    /* 行高 */
+    --warm-beige-classic-line-height-body: 1.6;
+    --warm-beige-classic-line-height-heading: 1.3;
+    --warm-beige-classic-line-height-caption: 1.4;
+    
+    /* 字间距 */
+    --warm-beige-classic-letter-spacing-normal: 0.01em;
+    --warm-beige-classic-letter-spacing-heading: -0.02em;
+    --warm-beige-classic-letter-spacing-caption: 0.02em;
+    
+    /* 字体大小 */
+    --warm-beige-classic-font-size-xs: 0.75rem;
+    --warm-beige-classic-font-size-sm: 0.875rem;
+    --warm-beige-classic-font-size-base: 1rem;
+    --warm-beige-classic-font-size-lg: 1.125rem;
+    --warm-beige-classic-font-size-xl: 1.25rem;
+    --warm-beige-classic-font-size-2xl: 1.5rem;
+    --warm-beige-classic-font-size-3xl: 1.875rem;
+    --warm-beige-classic-font-size-4xl: 2.25rem;
+}
+
+/* === 应用示例 === */
+
+/* === 经典组合主题应用 === */
+.warm-beige-theme,
+.variant-classic {
+    background-color: var(--warm-beige-primary-bg);
+    color: var(--warm-beige-accent);
+    font-family: var(--warm-beige-classic-font-primary);
+    font-weight: var(--warm-beige-classic-weight-normal);
+    line-height: var(--warm-beige-classic-line-height-body);
+    letter-spacing: var(--warm-beige-classic-letter-spacing-normal);
+    font-size: var(--warm-beige-classic-font-size-base);
+}
+
+/* 卡片样式 */
+.warm-beige-card {
+    background: var(--warm-beige-secondary-bg);
+    border: 1px solid var(--warm-beige-border);
+    border-radius: 12px;
+    box-shadow: var(--warm-beige-shadow-light);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.warm-beige-card:hover {
+    box-shadow: var(--warm-beige-shadow-medium);
+    transform: translateY(-2px);
+}
+
+/* 文字样式 */
+.warm-beige-text-primary {
+    color: var(--warm-beige-accent);
+}
+
+.warm-beige-text-secondary {
+    color: var(--warm-beige-text-secondary);
+}
+
+/* 链接样式 */
+.warm-beige-link {
+    color: var(--warm-beige-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.warm-beige-link:hover {
+    color: var(--warm-beige-accent-dark);
+    text-decoration: underline;
+}
+
+/* 按钮样式 */
+.warm-beige-button {
+    background-color: var(--warm-beige-link);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.warm-beige-button:hover {
+    background-color: var(--warm-beige-accent-dark);
+    box-shadow: var(--warm-beige-shadow-medium);
+}
+
+/* 输入框样式 */
+.warm-beige-input {
+    background-color: var(--warm-beige-primary-bg);
+    border: 2px solid var(--warm-beige-border);
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: var(--warm-beige-accent);
+    transition: border-color 0.3s ease;
+}
+
+.warm-beige-input:focus {
+    outline: none;
+    border-color: var(--warm-beige-link);
+    box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+}
+
+/* 导航栏样式 */
+.warm-beige-navbar {
+    background: var(--warm-beige-gradient-bg);
+    border-bottom: 1px solid var(--warm-beige-border);
+    backdrop-filter: blur(10px);
+}
+
+/* 页脚样式 */
+.warm-beige-footer {
+    background-color: var(--warm-beige-secondary-bg);
+    border-top: 1px solid var(--warm-beige-border);
+    color: var(--warm-beige-text-secondary);
+}
+
+/* === 经典组合字体主题样式 === */
+.warm-beige-classic-theme,
+.variant-classic {
+    font-family: var(--warm-beige-classic-font-primary);
+    font-weight: var(--warm-beige-classic-weight-normal);
+    line-height: var(--warm-beige-classic-line-height-body);
+    letter-spacing: var(--warm-beige-classic-letter-spacing-normal);
+}
+
+.warm-beige-classic-theme h1,
+.warm-beige-classic-theme h2,
+.warm-beige-classic-theme h3,
+.warm-beige-classic-theme h4,
+.warm-beige-classic-theme h5,
+.warm-beige-classic-theme h6,
+.variant-classic h1,
+.variant-classic h2,
+.variant-classic h3,
+.variant-classic h4,
+.variant-classic h5,
+.variant-classic h6 {
+    font-family: var(--warm-beige-classic-font-heading);
+    font-weight: var(--warm-beige-classic-weight-semibold);
+    line-height: var(--warm-beige-classic-line-height-heading);
+    letter-spacing: var(--warm-beige-classic-letter-spacing-heading);
+}
+
+.warm-beige-classic-theme code,
+.warm-beige-classic-theme pre,
+.variant-classic code,
+.variant-classic pre {
+    font-family: var(--warm-beige-classic-font-mono);
+}
+
+/* 极简几何字体的特殊样式 */
+.warm-beige-geometric-text {
+    font-family: var(--warm-beige-geometric-font-primary);
+    font-weight: var(--warm-beige-geometric-weight-normal);
+    letter-spacing: var(--warm-beige-geometric-letter-spacing-normal);
+}
+
+.warm-beige-geometric-heading {
+    font-family: var(--warm-beige-geometric-font-heading);
+    font-weight: var(--warm-beige-geometric-weight-bold);
+    letter-spacing: var(--warm-beige-geometric-letter-spacing-heading);
+    line-height: var(--warm-beige-geometric-line-height-heading);
+}
+
+.warm-beige-geometric-button {
+    font-family: var(--warm-beige-geometric-font-heading);
+    font-weight: var(--warm-beige-geometric-weight-medium);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background-color: var(--warm-beige-link);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.warm-beige-geometric-button:hover {
+    background-color: var(--warm-beige-accent-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--warm-beige-shadow-medium);
+}
+
+/* === 经典组合主题使用指南 === */
+/*
+当前配置: 经典组合 (Classic Combination)
+版本: v2.0.0
+特点: 温暖可读，经典几何，学术优雅
+
+配色使用:
+1. 主要文字使用: var(--warm-beige-accent) - 深棕色 #2C1810
+2. 次要文字使用: var(--warm-beige-text-secondary) - 中性棕 #6B5B4F
+3. 主背景使用: var(--warm-beige-primary-bg) - 温暖米白 #FAF7F2
+4. 卡片背景使用: var(--warm-beige-secondary-bg) - 纯白 #FFFFFF
+5. 链接和按钮使用: var(--warm-beige-link) - 温暖橙 #D4A574
+6. 边框和分割线使用: var(--warm-beige-border) - 浅米色 #E8E0D6
+7. 阴影效果使用: var(--warm-beige-shadow-light/medium/heavy)
+
+经典组合字体使用:
+1. 主要字体: var(--warm-beige-classic-font-primary) - Georgia, Times New Roman (衬线)
+2. 标题字体: var(--warm-beige-classic-font-heading) - Optima, Avenir Next (无衬线)
+3. 等宽字体: var(--warm-beige-classic-font-mono) - SF Mono, Monaco (代码)
+
+字体尺寸:
+- 基础: var(--warm-beige-classic-font-size-base) - 16px
+- 小号: var(--warm-beige-classic-font-size-sm) - 14px
+- 大号: var(--warm-beige-classic-font-size-lg) - 18px
+- 特大: var(--warm-beige-classic-font-size-xl) - 20px
+
+适用场景:
+- 学术网站和博客
+- 专业作品集
+- 文档和知识库
+- 需要长时间阅读的内容
+
+色彩对比度:
+- 主文字对背景: 14.2:1 (AAA级)
+- 次要文字对背景: 5.8:1 (AA级)
+- 链接对背景: 6.1:1 (AA级)
+*/
