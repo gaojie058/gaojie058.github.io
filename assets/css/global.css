@@ -102,6 +102,46 @@ h1, h2, h3, h4, h5, h6,
     color: var(--link-color) !important;
 }
 
+/* 导航栏切换按钮样式 */
+.navbar-toggler {
+    border: 1px solid var(--border-color) !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(93, 78, 55, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2893, 78, 55, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* 移动端导航栏样式 */
+@media (max-width: 575.98px) {
+    .navbar-collapse {
+        background-color: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+        padding: 1rem;
+        box-shadow: var(--shadow-light);
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 0.25rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem !important;
+        border-radius: 0.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: var(--border-color);
+    }
+}
+
 /* 链接样式 */
 a {
     color: var(--link-color);
@@ -209,54 +249,55 @@ div.lazy {
     display: inline;
 }
 
-/* 覆盖蓝色样式，改为 #f5f2f0 */
-/* Bootstrap primary 颜色覆盖 */
+/* Bootstrap primary 颜色覆盖 - 使用温暖米色主题 */
 .btn-primary {
-    background-color: #f5f2f0 !important;
-    border-color: #f5f2f0 !important;
-    color: var(--accent-color) !important;
+    background-color: var(--link-color) !important;
+    border-color: var(--link-color) !important;
+    color: white !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-    background-color: #e8e0d8 !important;
-    border-color: #e8e0d8 !important;
-    color: var(--accent-color) !important;
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: white !important;
 }
 
 /* 链接颜色覆盖 */
 a.text-primary,
 .text-primary {
-    color: #f5f2f0 !important;
+    color: var(--link-color) !important;
 }
 
 /* 背景颜色覆盖 */
 .bg-primary {
-    background-color: #f5f2f0 !important;
+    background-color: var(--link-color) !important;
 }
 
 /* 边框颜色覆盖 */
 .border-primary {
-    border-color: #f5f2f0 !important;
+    border-color: var(--link-color) !important;
 }
 
-/* 任何直接使用蓝色的元素 */
-[style*="color: #007bff"],
-[style*="color: blue"],
-[style*="color: #0066cc"] {
-    color: #f5f2f0 !important;
+/* 确保文本颜色正确显示 */
+.text-white {
+    color: white !important;
 }
 
-[style*="background-color: #007bff"],
-[style*="background-color: blue"],
-[style*="background-color: #0066cc"] {
-    background-color: #f5f2f0 !important;
+.text-dark {
+    color: var(--accent-color) !important;
 }
 
-[style*="border-color: #007bff"],
-[style*="border-color: blue"],
-[style*="border-color: #0066cc"] {
-    border-color: #f5f2f0 !important;
+/* 修复可能的白色文本问题 */
+.navbar-brand,
+.nav-link,
+h1, h2, h3, h4, h5, h6,
+p, span, div {
+    color: var(--accent-color) !important;
+}
+
+.navbar-brand strong {
+    color: var(--accent-color) !important;
 }
 
