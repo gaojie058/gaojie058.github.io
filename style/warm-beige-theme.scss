@@ -1,0 +1,378 @@
+// 温暖米色主题配色方案
+// 温馨舒适的米色调配色，营造温暖亲和的视觉体验
+// 版本: 1.0.0
+// 作者: Gianna's Website Theme
+
+// === 主要颜色变量 ===
+$warm-beige-primary-bg: #fefefe !default;        // 主背景色
+$warm-beige-secondary-bg: #f5f2f0 !default;      // 次要背景色
+$warm-beige-accent: #5d4e37 !default;            // 强调色
+$warm-beige-text-secondary: #8e7b6b !default;    // 次要文字色
+$warm-beige-link: #d2691e !default;              // 链接色
+$warm-beige-border: #e8e0d8 !default;            // 边框色
+
+// === 扩展色板 ===
+$warm-beige-neutrals: (
+  50: #fefefe,
+  100: #f5f2f0,
+  200: #e8e0d8,
+  300: #d4c4b0,
+  400: #c0a888,
+  500: #8e7b6b,
+  600: #5d4e37
+) !default;
+
+$warm-beige-accents: (
+  light: #cd853f,
+  lighter: #daa520,
+  base: #d2691e,
+  dark: #a0522d,
+  darker: #8b4513
+) !default;
+
+// === 状态颜色 ===
+$warm-beige-success: #8fbc8f !default;
+$warm-beige-warning: #daa520 !default;
+$warm-beige-error: #cd5c5c !default;
+$warm-beige-info: #4682b4 !default;
+
+// === 阴影配置 ===
+$warm-beige-shadow-color: rgba(93, 78, 55, 0.08) !default;
+$warm-beige-shadow-light: 0 2px 10px $warm-beige-shadow-color !default;
+$warm-beige-shadow-medium: 0 4px 20px rgba(93, 78, 55, 0.12) !default;
+$warm-beige-shadow-heavy: 0 8px 30px rgba(93, 78, 55, 0.15) !default;
+
+// === 渐变配置 ===
+$warm-beige-gradient-bg: linear-gradient(135deg, $warm-beige-secondary-bg 0%, $warm-beige-primary-bg 100%) !default;
+$warm-beige-gradient-card: linear-gradient(145deg, $warm-beige-primary-bg 0%, $warm-beige-secondary-bg 100%) !default;
+
+// === 字体配置 ===
+$warm-beige-font-primary: 'Georgia', 'Times New Roman', serif !default;
+$warm-beige-font-secondary: 'Source Sans Pro', 'Helvetica Neue', sans-serif !default;
+$warm-beige-font-mono: 'Source Code Pro', 'Courier New', monospace !default;
+
+// === 极简几何字体方案 ===
+$warm-beige-geometric-font-primary: "Nunito Sans", "Avenir", "Helvetica", sans-serif !default;
+$warm-beige-geometric-font-heading: "Poppins", "Montserrat", sans-serif !default;
+$warm-beige-geometric-font-mono: "JetBrains Mono", "Fira Code", monospace !default;
+$warm-beige-geometric-weight-normal: 300 !default;
+$warm-beige-geometric-weight-medium: 400 !default;
+$warm-beige-geometric-weight-bold: 600 !default;
+$warm-beige-geometric-line-height-body: 1.7 !default;
+$warm-beige-geometric-line-height-heading: 1.2 !default;
+$warm-beige-geometric-letter-spacing-normal: 0.02em !default;
+$warm-beige-geometric-letter-spacing-heading: -0.03em !default;
+
+// === 间距配置 ===
+$warm-beige-spacing: (
+  xs: 0.25rem,
+  sm: 0.5rem,
+  md: 1rem,
+  lg: 1.5rem,
+  xl: 2rem,
+  xxl: 3rem
+) !default;
+
+// === 边框圆角配置 ===
+$warm-beige-border-radius: (
+  sm: 4px,
+  md: 8px,
+  lg: 12px,
+  xl: 16px,
+  full: 50%
+) !default;
+
+// === 断点配置 ===
+$warm-beige-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+// === 工具函数 ===
+
+// 获取中性色
+@function warm-beige-neutral($key) {
+  @return map-get($warm-beige-neutrals, $key);
+}
+
+// 获取强调色
+@function warm-beige-accent($key: base) {
+  @return map-get($warm-beige-accents, $key);
+}
+
+// 获取间距
+@function warm-beige-spacing($key) {
+  @return map-get($warm-beige-spacing, $key);
+}
+
+// 获取圆角
+@function warm-beige-radius($key) {
+  @return map-get($warm-beige-border-radius, $key);
+}
+
+// 创建带透明度的颜色
+@function warm-beige-alpha($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+// === Mixins ===
+
+// === 字体混合器 ===
+@mixin warm-beige-text($size: 1rem, $weight: normal, $color: $warm-beige-accent) {
+  font-family: $warm-beige-font-primary;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: 1.6;
+}
+
+@mixin warm-beige-heading($level: 1) {
+  font-family: $warm-beige-font-secondary;
+  font-weight: 600;
+  color: $warm-beige-accent;
+  margin-bottom: map-get($warm-beige-spacing, 'md');
+  
+  @if $level == 1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  } @else if $level == 2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  } @else if $level == 3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  } @else {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+
+// === 极简几何字体混合器 ===
+@mixin warm-beige-geometric-text($size: 1rem, $weight: $warm-beige-geometric-weight-normal, $color: $warm-beige-accent) {
+  font-family: $warm-beige-geometric-font-primary;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $warm-beige-geometric-line-height-body;
+  letter-spacing: $warm-beige-geometric-letter-spacing-normal;
+}
+
+@mixin warm-beige-geometric-heading($level: 1) {
+  font-family: $warm-beige-geometric-font-heading;
+  font-weight: $warm-beige-geometric-weight-bold;
+  color: $warm-beige-accent;
+  line-height: $warm-beige-geometric-line-height-heading;
+  letter-spacing: $warm-beige-geometric-letter-spacing-heading;
+  margin-bottom: map-get($warm-beige-spacing, 'md');
+  
+  @if $level == 1 {
+    font-size: 2.5rem;
+  } @else if $level == 2 {
+    font-size: 2rem;
+  } @else if $level == 3 {
+    font-size: 1.5rem;
+  } @else {
+    font-size: 1.25rem;
+  }
+}
+
+@mixin warm-beige-geometric-button($style: 'primary') {
+  font-family: $warm-beige-geometric-font-heading;
+  font-weight: $warm-beige-geometric-weight-medium;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  padding: map-get($warm-beige-spacing, 'sm') map-get($warm-beige-spacing, 'lg');
+  border-radius: map-get($warm-beige-border-radius, 'sm');
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  @if $style == 'primary' {
+    background-color: $warm-beige-link;
+    color: white;
+    
+    &:hover {
+      background-color: $warm-beige-accent-dark;
+      transform: translateY(-1px);
+      box-shadow: $warm-beige-shadow-medium;
+    }
+  } @else if $style == 'secondary' {
+    background-color: transparent;
+    color: $warm-beige-link;
+    border: 2px solid $warm-beige-link;
+    
+    &:hover {
+      background-color: $warm-beige-link;
+      color: white;
+    }
+  }
+}
+
+// 卡片样式
+@mixin warm-beige-card($shadow: light) {
+  background: $warm-beige-secondary-bg;
+  border: 1px solid $warm-beige-border;
+  border-radius: warm-beige-radius(lg);
+  
+  @if $shadow == light {
+    box-shadow: $warm-beige-shadow-light;
+  } @else if $shadow == medium {
+    box-shadow: $warm-beige-shadow-medium;
+  } @else if $shadow == heavy {
+    box-shadow: $warm-beige-shadow-heavy;
+  }
+  
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: $warm-beige-shadow-medium;
+    transform: translateY(-2px);
+  }
+}
+
+// 按钮样式
+@mixin warm-beige-button($variant: primary) {
+  border: none;
+  border-radius: warm-beige-radius(md);
+  padding: warm-beige-spacing(sm) warm-beige-spacing(lg);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  @if $variant == primary {
+    background-color: $warm-beige-link;
+    color: white;
+    
+    &:hover {
+      background-color: warm-beige-accent(dark);
+      box-shadow: $warm-beige-shadow-medium;
+    }
+  } @else if $variant == secondary {
+    background-color: transparent;
+    color: $warm-beige-accent;
+    border: 2px solid $warm-beige-border;
+    
+    &:hover {
+      background-color: $warm-beige-secondary-bg;
+      border-color: $warm-beige-link;
+    }
+  }
+}
+
+// 输入框样式
+@mixin warm-beige-input {
+  background-color: $warm-beige-primary-bg;
+  border: 2px solid $warm-beige-border;
+  border-radius: warm-beige-radius(sm);
+  padding: warm-beige-spacing(sm);
+  color: $warm-beige-accent;
+  transition: border-color 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: $warm-beige-link;
+    box-shadow: 0 0 0 3px warm-beige-alpha($warm-beige-link, 0.1);
+  }
+}
+
+// 文字样式
+@mixin warm-beige-text($variant: primary) {
+  @if $variant == primary {
+    color: $warm-beige-accent;
+  } @else if $variant == secondary {
+    color: $warm-beige-text-secondary;
+  }
+}
+
+// 链接样式
+@mixin warm-beige-link {
+  color: $warm-beige-link;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: warm-beige-accent(dark);
+    text-decoration: underline;
+  }
+}
+
+// 响应式断点
+@mixin warm-beige-media($breakpoint) {
+  $value: map-get($warm-beige-breakpoints, $breakpoint);
+  
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+// === 使用示例 ===
+
+// 基础主题类
+.warm-beige-theme {
+  background-color: $warm-beige-primary-bg;
+  color: $warm-beige-accent;
+  font-family: $warm-beige-font-primary;
+}
+
+// 卡片组件
+.warm-beige-card {
+  @include warm-beige-card(light);
+  padding: warm-beige-spacing(lg);
+}
+
+// 按钮组件
+.warm-beige-btn {
+  @include warm-beige-button(primary);
+  
+  &--secondary {
+    @include warm-beige-button(secondary);
+  }
+}
+
+// 输入框组件
+.warm-beige-input {
+  @include warm-beige-input;
+}
+
+// 文字组件
+.warm-beige-text {
+  @include warm-beige-text(primary);
+  
+  &--secondary {
+    @include warm-beige-text(secondary);
+  }
+}
+
+// 链接组件
+.warm-beige-link {
+  @include warm-beige-link;
+}
+
+// === 配色指南 ===
+/*
+使用方法:
+1. 导入此文件: @import 'warm-beige-theme';
+2. 使用变量: background-color: $warm-beige-primary-bg;
+3. 使用函数: color: warm-beige-neutral(600);
+4. 使用混入: @include warm-beige-card(medium);
+
+色彩层次:
+- 主背景: $warm-beige-primary-bg (#fefefe)
+- 次要背景: $warm-beige-secondary-bg (#f5f2f0)
+- 主文字: $warm-beige-accent (#5d4e37)
+- 次要文字: $warm-beige-text-secondary (#8e7b6b)
+- 链接/强调: $warm-beige-link (#d2691e)
+- 边框: $warm-beige-border (#e8e0d8)
+
+设计原则:
+- 温暖感: 使用米色和棕色调
+- 舒适感: 柔和的对比度
+- 优雅感: 精心调配的色彩层次
+- 可读性: 确保良好的文字对比度
+*/
