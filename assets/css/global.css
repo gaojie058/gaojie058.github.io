@@ -301,3 +301,16 @@ p, span, div {
     color: var(--accent-color) !important;
 }
 
+/* 图片描述文字设置为白色 */
+.carousel-caption h5,
+.carousel-caption p {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+

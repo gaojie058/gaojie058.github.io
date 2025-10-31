@@ -11,7 +11,7 @@ date: 2025-10-29 00:01:00 +0800
             <del>I love running.</del> No, I lied. I really think running is the most boring activity. I love <b>walking in nature</b>, even <b>watching TV at home, swimming, playing squash, and hiking</b> are much more interesting than running.
         </li>
         <li class="mb-2 small">
-            <del>I hate writing.</del> No, I lied. I've <b>kept a diary from high school until today (over 10 years)</b>. Actually, I used to write everything down in middle school too, but that notebook was lost. I write these experiences to help me remember what I was thinking as a child, a teenager, and a young adult. And I'm very happy to say that nothing has really changed since I was 13 years old, except that I'm more mature now.
+            <del>I hate writing.</del> No, I lied. I've <b>kept a diary from high school until today (over 10 years)</b>. I write these experiences to help me remember what I was thinking as a child, a teenager, and a young adult. And I'm very happy to say that nothing has really changed since I was 13 years old, except that I'm more mature now.
         </li>
     </p>
 </div>
