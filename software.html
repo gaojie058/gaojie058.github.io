@@ -1,0 +1,19 @@
+---
+layout: default
+title : Software
+navbar_title: Software
+---
+
+<div class="row">
+    <div class="col-12">
+        
+         <h5 class="pt-4">Software Projects</h5>
+         <p class="pt-2">To me, one of the most enjoyable aspects of research is building innovative software that helps people solve real problems and makes their lives easier. As a result, I highly value reproducibility and open source. Although maintaining these tools requires significant effort, I try my best to continue this line of work to better support real-world applications of research. </p>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+            {% assign software_items = site.software | sort: "date" | reverse %}
+            {% for item in software_items %}
+                {% include widgets/software_item.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
