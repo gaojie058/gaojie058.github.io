@@ -1,11 +1,11 @@
 {% assign item = include.item %}
-{% assign paper_link = nil %}
+{% assign main_link = nil %}
 {% for link in item.links %}
-    {% if link[0] == 'Paper' %}
+    {% if link[0] == 'Website' %}
         {% if link[1].url %}
-            {% assign paper_link = link[1].url %}
+            {% assign main_link = link[1].url %}
         {% else %}
-            {% assign paper_link = link[1] %}
+            {% assign main_link = link[1] %}
         {% endif %}
     {% endif %}
 {% endfor %}
@@ -21,38 +21,27 @@
         </div>
         <div class="col-md-9 col-xl-10 p-3 pl-md-0">
             <h5 class="mt-0 mb-1 font-weight-normal">
-                {% if paper_link %}
-                    <a href="{{ paper_link }}" target="_blank" style="color: inherit;">{{ item.title }}</a>
+                {% if main_link %}
+                    <a href="{{ main_link }}" target="_blank" style="color: inherit;">{{ item.title }}</a>
                 {% else %}
                     {{ item.title }}
                 {% endif %}
             </h5>
-            <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-            <p class="mt-0 mb-0 small">
-                {{item.pub_pre}}
-                {% if item.pub %}
-                    <span class="badge badge-pill" style="background-color: #ffddc5; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                        <i class="fas fa-university" style="margin-right: 3px;"></i>{{ item.pub }}
-                    </span>
-                {% endif %}
-                {% if item.pub_post contains 'Under review' or item.pub_post contains 'under review' %}
-                    <span class="badge badge-pill" style="background-color: #ffa500; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                        <i class="fas fa-clock" style="margin-right: 3px;"></i>Under Review
-                    </span>
-                {% elsif item.pub_post %}
-                    {{ item.pub_post }}
-                {% endif %}
-                {{ item.pub_last }}
-                {{ item.pub_date }} <span data-google-scholar-id="{{ item.google_scholar_id }}"></span>
+            
+            {% if item.date %}
+            <p class="mt-0 mb-0 small text-muted">
+                {{ item.date | date: "%Y" }}
             </p>
-            <div class="abstract-container" data-abstract-id="{{ item.id }}">
-                <p class="mt-0 mb-0 small text-muted abstract-text">{{ item.abstract }}</p>
-            </div>
+            {% endif %}
+
+            <p class="mt-0 mb-0 small text-muted">
+                {{ item.description }}
+            </p>
             
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
                 {% for link in item.links %}
                 {% assign link_name = link[0] %}
-                {% if link_name == 'Paper' %}{% continue %}{% endif %}
+                {% if link_name == 'Website' %}{% continue %}{% endif %}
                 {% assign link_url = link[1] %}
                 {% assign link_target = "_blank" %}
                 
@@ -83,44 +72,31 @@
     </div>
 </div>
 
-<div class="row no-gutters d-md-none {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}">
-    <div class="w-100 {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}">
+<div class="row no-gutters d-md-none {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %} {% if item.cover %}lazy{% endif %}" data-src="{{ item.cover | relative_url }}">
+    <div class="w-100 {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}" style="background-color: rgba(255,255,255,0.9);">
         <div class="d-flex align-items-start flex-column py-3 px-4">
             <div class="mb-auto"></div>
             <div>
                 <h5 class="mt-0 mb-1 font-weight-normal">
-                    {% if paper_link %}
-                        <a href="{{ paper_link }}" target="_blank" style="color: inherit;">{{ item.title }}</a>
+                    {% if main_link %}
+                        <a href="{{ main_link }}" target="_blank" style="color: inherit;">{{ item.title }}</a>
                     {% else %}
                         {{ item.title }}
                     {% endif %}
                 </h5>
-                <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small">
-                    {{item.pub_pre}}
-                    {% if item.pub %}
-                        <span class="badge badge-pill" style="background-color: #d2691e; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                            <i class="fas fa-university" style="margin-right: 3px;"></i>{{ item.pub }}
-                        </span>
-                    {% endif %}
-                    {% if item.pub_post contains 'Under review' or item.pub_post contains 'under review' %}
-                        <span class="badge badge-pill" style="background-color: #ffa500; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                            <i class="fas fa-clock" style="margin-right: 3px;"></i>Under Review
-                        </span>
-                    {% elsif item.pub_post %}
-                        {{ item.pub_post }}
-                    {% endif %}
-                    {{ item.pub_last }}
-                    {{ item.pub_date }} <span data-google-scholar-id="{{ item.google_scholar_id }}"></span>
+                {% if item.date %}
+                <p class="mt-0 mb-0 small text-muted">
+                    {{ item.date | date: "%Y" }}
                 </p>
-                <div class="abstract-container" data-abstract-id="{{ item.id }}-mobile">
-                    <p class="mt-0 mb-0 small text-muted abstract-text">{{ item.abstract }}</p>
-                </div>
+                {% endif %}
+                <p class="mt-0 mb-0 small text-muted">
+                    {{ item.description }}
+                </p>
                 
                 <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
                     {% for link in item.links %}
                     {% assign link_name = link[0] %}
-                    {% if link_name == 'Paper' %}{% continue %}{% endif %}
+                    {% if link_name == 'Website' %}{% continue %}{% endif %}
                     {% assign link_url = link[1] %}
                     {% assign link_target = "_blank" %}
                     

@@ -1,12 +1,11 @@
 ---
-show: true
+show: false
 width: 8
 date: 2025-10-29 00:01:00 +0800
 ---
 <div class="p-4">
     <h5>Fun Facts</h5>
     <p class="text-justify small">
-      I would like to share several fun facts:
         <li class="mb-2 small">
             <del>I love running.</del> No, I lied. I really think running is the most boring activity. I love <b>walking in nature</b>, even <b>watching TV at home, swimming, playing squash, and hiking</b> are much more interesting than running.
         </li>

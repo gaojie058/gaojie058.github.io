@@ -1,15 +1,18 @@
 ---
 layout: default
-title : Life
-navbar_title: About Me
+title : About
+navbar_title: About
 container_class: container-xl
 ---
 
 {% assign cards_by_group = site.life | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
 
+{% assign group_count = cards_by_group | size %}
+<div class="row">
 {% for group in cards_by_group %}
-<h1>{{ group.name }}</h1>
-<div class="row grid mb-4">
+<div class="{% if group_count > 1 %}col-lg-6{% else %}col-12{% endif %} mb-4">
+<h5>{{ group.name }}</h5>
+<div class="row grid">
     <div class="grid-sizer col-1"></div>
     {% for item in group.items %}
     {% if item.width >= 6 -%}
@@ -29,4 +32,6 @@ container_class: container-xl
     </div>
     {% endfor %}
 </div>
+</div>
 {% endfor %}
+</div>

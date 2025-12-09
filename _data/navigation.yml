@@ -5,5 +5,7 @@ pages:
 #   url: /index_layout2
 - name: Publications
   url: /publications
-- name: About me
+- name: Software
+  url: /software
+- name: About
   url: /life
