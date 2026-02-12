@@ -1,5 +1,12 @@
-<footer class="footer border-top py-2 mt-5 bg-white small">
+<footer class="footer footer-enhanced py-3 mt-5 small">
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
+        <div class="row mb-2">
+            <div class="col text-center">
+                <a href="#" class="back-to-top" title="Back to top">
+                    <i class="fas fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
         <div class="row my-2">
             <div class="col text-center">
                 <div class="text-muted">
@@ -7,6 +14,7 @@
                 </div>
             </div>
         </div>
+        {% if site.data.display.footer_text %}
         <div class="row my-2">
             <div class="col text-center">
                 <div class="text-muted">
@@ -14,5 +22,12 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 </footer>
+<script>
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light fixed-top mb-5 shadow-sm">
+<nav class="navbar navbar-expand-sm navbar-light fixed-top mb-5" id="main-navbar">
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
         <a class="navbar-brand" href="{{ "/" | relative_url }}"><strong>{{site.data.profile.navbar_name}}</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,3 +16,15 @@
         </div>
     </div>
 </nav>
+<script>
+(function() {
+    var navbar = document.getElementById('main-navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+})();
+</script>
