@@ -1,32 +1,37 @@
 <div class="row sticky-top" style="top: 80px">
     <div class="col">
-        <div class="card border-0 shadow-sm bg-white">
+        <div class="card border-0 shadow-sm bg-white fade-in-up">
             <div class="card-body px-4 pt-4 pb-3">
                 <div class="row">
                     <div class="col">
                         {% if site.data.profile.portrait_url %}
-                        <!-- When the screen is wider than md, float the portrait on the right -->
-                        <div class="figure d-none d-md-block">
-                            <img 
-                                src="{{ site.data.profile.portrait_url | relative_url }}" 
-                                class="figure-img img-fluid" 
-                                data-toggle="tooltip" 
-                                data-placement="top" 
+                        <div class="profile-portrait d-none d-md-block">
+                            <img
+                                src="{{ site.data.profile.portrait_url | relative_url }}"
+                                class="figure-img img-fluid"
+                                style="border-radius: 1rem;"
+                                data-toggle="tooltip"
+                                data-placement="top"
                                 title="{{ site.data.profile.portrait_caption }}">
                         </div>
                         <div class="mb-3 d-md-none text-center">
-                            <img src="{{ site.data.profile.portrait_url | relative_url }}" class="rounded-circle" style="max-width: 50%;" alt="Portrait">
+                            <img src="{{ site.data.profile.portrait_url | relative_url }}" class="rounded-circle" style="max-width: 50%; box-shadow: 0 4px 16px rgba(93, 78, 55, 0.15);" alt="Portrait">
                         </div>
                         {% endif %}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col text-center h4">
+                    <div class="col text-center profile-name-serif" style="margin-bottom: 0.2rem;">
                         {{ site.data.profile.primary_name }}
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="profile-name-divider"></div>
+                    </div>
+                </div>
 
-                <div class="row small">
+                <div class="row small mt-2">
                     <div class="col text-center">
                         {% for position in site.data.profile.positions %}
                         {{ position.name }}<br/>
@@ -34,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="row small">
+                <div class="row small mt-1">
                     <div class="col text-center">
                         <a class="email-text" href="mailto:{{ site.data.profile.email | encode_email }}">
                             {{ site.data.profile.email | replace: "@", "(at)" }}
@@ -42,54 +47,56 @@
                     </div>
                 </div>
 
-                <div class="row pt-2">
-                    <div class="col text-center">
-                        {% if site.data.profile.gscholar %}
-                        {%- if site.data.profile.gscholar contains 'scholar.google' -%}
-                        {%- assign gscholar_url = site.data.profile.gscholar -%}
-                        {%- else -%}
-                        {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
-                        {%- endif -%}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" target="_blank" href="{{ gscholar_url }}">
-                            <i class="fab fa-google-scholar"></i> Google Scholar
-                        </a>
-                        {% endif %}
-                        
-                        {% if site.data.profile.github %}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" target="_blank" href="https://github.com/{{ site.data.profile.github }}">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        {% endif %}
+                <div class="row pt-3">
+                    <div class="col">
+                        <div class="social-links-grid">
+                            {% if site.data.profile.gscholar %}
+                            {%- if site.data.profile.gscholar contains 'scholar.google' -%}
+                            {%- assign gscholar_url = site.data.profile.gscholar -%}
+                            {%- else -%}
+                            {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+                            {%- endif -%}
+                            <a class="social-icon-btn" target="_blank" href="{{ gscholar_url }}" data-toggle="tooltip" data-placement="bottom" title="Google Scholar">
+                                <i class="fab fa-google-scholar"></i>
+                            </a>
+                            {% endif %}
 
-                        {% if site.data.profile.wechat_qrcode %}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" data-toggle="modal" data-target="#modal-wechat">
-                            <i class="fab fa-weixin"></i> WeChat
-                        </a>
-                        {% endif %}
+                            {% if site.data.profile.github %}
+                            <a class="social-icon-btn" target="_blank" href="https://github.com/{{ site.data.profile.github }}" data-toggle="tooltip" data-placement="bottom" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            {% endif %}
 
-                        {% if site.data.profile.twitter %}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" target="_blank" href="https://twitter.com/{{ site.data.profile.twitter }}">
-                            <i class="fab fa-twitter"></i> Twitter
-                        </a>
-                        {% endif %}
+                            {% if site.data.profile.wechat_qrcode %}
+                            <a class="social-icon-btn" data-toggle="modal" data-target="#modal-wechat" style="cursor: pointer;" title="WeChat">
+                                <i class="fab fa-weixin"></i>
+                            </a>
+                            {% endif %}
 
-                        {% if site.data.profile.linkedin %}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        {% endif %}
+                            {% if site.data.profile.twitter %}
+                            <a class="social-icon-btn" target="_blank" href="https://twitter.com/{{ site.data.profile.twitter }}" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            {% endif %}
 
-                        {% if site.data.profile.cv_link %}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" target="_blank" href="{{ site.data.profile.cv_link | relative_url }}">
-                            <i class="fas fa-file-alt"></i> CV
-                        </a>
-                        {% endif %}
+                            {% if site.data.profile.linkedin %}
+                            <a class="social-icon-btn" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" data-toggle="tooltip" data-placement="bottom" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            {% endif %}
 
-                        {% if site.data.profile.orcid %}
-                        <a class="px-1 m-1 d-block btn btn-outline-secondary btn-sm border-0" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}">
-                            <i class="fab fa-orcid"></i> ORCID
-                        </a>
-                        {% endif %}
+                            {% if site.data.profile.cv_link %}
+                            <a class="social-icon-btn" target="_blank" href="{{ site.data.profile.cv_link | relative_url }}" data-toggle="tooltip" data-placement="bottom" title="CV">
+                                <i class="fas fa-file-alt"></i>
+                            </a>
+                            {% endif %}
+
+                            {% if site.data.profile.orcid %}
+                            <a class="social-icon-btn" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}" data-toggle="tooltip" data-placement="bottom" title="ORCID">
+                                <i class="fab fa-orcid"></i>
+                            </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
