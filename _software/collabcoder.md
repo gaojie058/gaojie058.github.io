@@ -5,7 +5,5 @@ description: ""
 cover: assets/images/software/collabcoder.jpg
 links:
   Website: https://gaojie058.github.io/CollabCoder/
-  Paper: https://doi.org/10.1145/3613904.3642002
-  Video: https://youtu.be/C3n4UvMHgIY
-  GitHub: https://github.com/gaojie058/CollabCoder
+  Paper: https://arxiv.org/abs/2304.07366
 ---
