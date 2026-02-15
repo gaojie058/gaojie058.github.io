@@ -5,7 +5,5 @@ description: ""
 cover: 
 links:
   Website: https://gaojie058.github.io/code-map/
-  Paper: https://doi.org/10.1145/3794763.3794822
-  GitHub: https://github.com/gaojie058/code-map
-  # Tool: https://code-map.vercel.app
+  Paper: https://arxiv.org/abs/2504.04553
 ---
