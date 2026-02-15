@@ -41,7 +41,7 @@
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
                 {% for link in item.links %}
                 {% assign link_name = link[0] %}
-                {% if link_name == 'Website' %}{% continue %}{% endif %}
+                
                 {% assign link_url = link[1] %}
                 {% assign link_target = "_blank" %}
                 
@@ -96,7 +96,7 @@
                 <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
                     {% for link in item.links %}
                     {% assign link_name = link[0] %}
-                    {% if link_name == 'Website' %}{% continue %}{% endif %}
+                    
                     {% assign link_url = link[1] %}
                     {% assign link_target = "_blank" %}
                     
