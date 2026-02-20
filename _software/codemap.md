@@ -1,7 +1,7 @@
 ---
-title: "CodeMap: Understanding Codebase like a Professional! Human–AI Collaboration for Code Comprehension"
+title: "CodeMap"
 date: 2026-01-01
-description: ""
+description: "A human-AI collaborative tool for code comprehension. Helps developers understand complex codebases through interactive visualization and AI-guided exploration."
 cover: 
 links:
   Website: https://gaojie058.github.io/code-map/

@@ -1,7 +1,7 @@
 ---
-title: "MindCoder: Flexible and Informal Qualitative Analysis"
+title: "MindCoder"
 date: 2025-01-01
-description: ""
+description: "An AI-powered platform for flexible and informal qualitative data analysis. Supports open coding, sub-theme grouping, and theme generation with human-AI collaboration."
 cover: /assets/images/software/mindcoder.png
 links:
   Website: https://mindcoder.ai/
