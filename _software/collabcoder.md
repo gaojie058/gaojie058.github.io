@@ -1,7 +1,7 @@
 ---
-title: "CollabCoder: A GPT-Powered Workflow for Collaborative Qualitative Analysis"
+title: "CollabCoder"
 date: 2024-01-01
-description: ""
+description: "A GPT-powered workflow for collaborative qualitative analysis. Enables multiple researchers to code data together with AI assistance, improving inter-rater reliability and efficiency."
 cover: assets/images/software/collabcoder.jpg
 links:
   Website: https://gaojie058.github.io/CollabCoder/
