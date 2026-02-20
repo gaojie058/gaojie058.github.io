@@ -9,10 +9,27 @@ navbar_title: Software
          <h5 class="pt-4">Software Projects</h5>
          <p class="pt-2">One of the most enjoyable aspects of research is building innovative software that helps people solve real problems and makes their lives easier. As a result, I highly value reproducibility and open source. Although maintaining these tools requires significant effort, I try my best to continue this line of work to better support real-world applications of research.</p>
         
-        <div class="row mt-3">
-            {% assign software_items = site.software | sort: "date" | reverse %}
-            {% for item in software_items %}
-            <div class="col-md-4 mb-4">
+        <!-- Support Qualitative Analysis -->
+        <h6 class="mt-4 mb-3" style="color: #8b6914; font-weight: 600; letter-spacing: 0.03em;">
+            <i class="fas fa-search" style="margin-right: 0.4rem; opacity: 0.7;"></i>Support Qualitative Analysis
+        </h6>
+        <div class="row mb-4">
+            {% assign qa_items = site.software | where: "category", "qualitative-analysis" | sort: "order" %}
+            {% for item in qa_items %}
+            <div class="col-md-6 mb-4">
+                {% include widgets/software_card.html item=item %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Support Codebase Understanding -->
+        <h6 class="mt-2 mb-3" style="color: #8b6914; font-weight: 600; letter-spacing: 0.03em;">
+            <i class="fas fa-code" style="margin-right: 0.4rem; opacity: 0.7;"></i>Support Codebase Understanding
+        </h6>
+        <div class="row mb-4">
+            {% assign cu_items = site.software | where: "category", "codebase-understanding" | sort: "order" %}
+            {% for item in cu_items %}
+            <div class="col-md-6 mb-4">
                 {% include widgets/software_card.html item=item %}
             </div>
             {% endfor %}
