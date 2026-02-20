@@ -1,6 +1,8 @@
 ---
 title: "MindCoder"
 date: 2025-01-01
+order: 1
+category: qualitative-analysis
 description: "An AI-powered platform for flexible and informal qualitative data analysis. Supports open coding, sub-theme grouping, and theme generation with human-AI collaboration."
 cover: /assets/images/software/mindcoder.png
 links:
