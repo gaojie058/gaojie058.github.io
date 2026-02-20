@@ -10,51 +10,50 @@
     {% endif %}
 {% endfor %}
 
-<div class="card border-0 shadow-sm h-100" style="border-radius: 0.75rem; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-    <!-- Cover image -->
+<div class="software-card" style="display: flex; gap: 1rem; padding: 1rem; border-radius: 0.75rem; background: white; box-shadow: 0 1px 8px rgba(93,78,55,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%;">
+    <!-- Cover -->
     {% if item.cover %}
-    <div style="height: 80px; overflow: hidden; background: #f5f0eb;">
+    <div style="width: 100px; min-width: 100px; height: 100px; border-radius: 0.5rem; overflow: hidden; background: #f5f0eb; flex-shrink: 0;">
         <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
     {% else %}
-    <div style="height: 80px; background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd4 100%); display: flex; align-items: center; justify-content: center;">
-        <i class="fas fa-code" style="font-size: 1.5rem; color: #c8a882; opacity: 0.5;"></i>
+    <div style="width: 100px; min-width: 100px; height: 100px; border-radius: 0.5rem; background: linear-gradient(135deg, #f5f0eb, #e8ddd4); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <i class="fas fa-code" style="font-size: 1.5rem; color: #c8a882; opacity: 0.4;"></i>
     </div>
     {% endif %}
 
-    <div class="card-body d-flex flex-column" style="padding: 1rem;">
-        <!-- Badge -->
-        {% if item.badge %}
-        <div style="margin-bottom: 0.5rem;">
-            <a href="{{ item.badge_url }}" target="_blank" style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.7rem; font-weight: 600; background: linear-gradient(135deg, #10b981, #059669); color: white; text-decoration: none; letter-spacing: 0.02em;">
+    <!-- Content -->
+    <div style="display: flex; flex-direction: column; flex: 1; min-width: 0;">
+        <!-- Top row: title + badge -->
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.25rem;">
+            <span style="font-weight: 600; font-size: 0.95rem; color: #333;">
+                {% if main_link %}
+                    <a href="{{ main_link }}" target="_blank" style="color: inherit; text-decoration: none;">{{ item.title }}</a>
+                {% else %}
+                    {{ item.title }}
+                {% endif %}
+            </span>
+            {% if item.badge %}
+            <a href="{{ item.badge_url }}" target="_blank" style="display: inline-block; padding: 0.15rem 0.5rem; border-radius: 2rem; font-size: 0.65rem; font-weight: 600; background: #ecfdf5; color: #059669; text-decoration: none; border: 1px solid #a7f3d0;">
                 {{ item.badge }}
             </a>
-        </div>
-        {% endif %}
-
-        <!-- Title -->
-        <h6 class="card-title mb-1" style="font-weight: 600; line-height: 1.3; font-size: 0.95rem;">
-            {% if main_link %}
-                <a href="{{ main_link }}" target="_blank" style="color: inherit; text-decoration: none;">{{ item.title }}</a>
-            {% else %}
-                {{ item.title }}
             {% endif %}
-        </h6>
+        </div>
 
         <!-- Year -->
-        {% if item.date %}
-        <p class="mb-2" style="font-size: 0.8rem; color: #999;">{{ item.date | date: "%Y" }}</p>
-        {% endif %}
+        <div style="font-size: 0.75rem; color: #aaa; margin-bottom: 0.35rem;">
+            {% if item.year_display %}{{ item.year_display }}{% elsif item.date %}{{ item.date | date: "%Y" }}{% endif %}
+        </div>
 
         <!-- Description -->
         {% if item.description and item.description != "" %}
-        <p class="card-text mb-3" style="font-size: 0.85rem; color: #666; line-height: 1.5; flex-grow: 1;">{{ item.description }}</p>
+        <p style="font-size: 0.8rem; color: #777; line-height: 1.45; margin: 0 0 0.5rem 0; flex-grow: 1;">{{ item.description }}</p>
         {% else %}
         <div style="flex-grow: 1;"></div>
         {% endif %}
 
         <!-- Links -->
-        <div class="mt-auto" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
             {% for link in item.links %}
             {% assign link_name = link[0] %}
             {% assign link_url = link[1] %}
@@ -63,33 +62,20 @@
                 {% assign link_url = link[1].url %}
                 {% assign link_target = link[1].target %}
             {% endif %}
-
             <a target="{{ link_target }}" href="{{ link_url }}" 
-               style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 500; text-decoration: none; transition: all 0.2s ease;
-               {% if link_name == 'Website' %}
-                   background: #f5f0eb; color: #8b6914;
-               {% elsif link_name == 'Paper' %}
-                   background: #eef2ff; color: #4f46e5;
-               {% elsif link_name == 'GitHub' or link_name == 'Code' %}
-                   background: #f0fdf4; color: #166534;
-               {% elsif link_name == 'Video' %}
-                   background: #fef2f2; color: #dc2626;
-               {% else %}
-                   background: #f5f5f5; color: #555;
-               {% endif %}
-               ">
-                {% if link_name == 'GitHub' or link_name == 'Code' %}
-                    <i class="fab fa-github"></i>
-                {% elsif link_name == 'Website' %}
-                    <i class="fas fa-globe"></i>
-                {% elsif link_name == 'Paper' %}
-                    <i class="fas fa-file-pdf"></i>
-                {% elsif link_name == 'Video' %}
-                    <i class="fas fa-video"></i>
-                {% elsif link_name == 'Tool' %}
-                    <i class="fas fa-tools"></i>
-                {% endif %}
-                {{ link_name }}
+               style="display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.55rem; border-radius: 0.35rem; font-size: 0.7rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s;
+               {% if link_name == 'Website' %}background: #fef7ed; color: #92400e; border: 1px solid #fde68a;
+               {% elsif link_name == 'Paper' %}background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe;
+               {% elsif link_name == 'GitHub' or link_name == 'Code' %}background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0;
+               {% elsif link_name == 'Video' %}background: #fef2f2; color: #dc2626; border: 1px solid #fecaca;
+               {% else %}background: #f9fafb; color: #555; border: 1px solid #e5e7eb;
+               {% endif %}">
+                {% if link_name == 'GitHub' or link_name == 'Code' %}<i class="fab fa-github"></i>
+                {% elsif link_name == 'Website' %}<i class="fas fa-globe"></i>
+                {% elsif link_name == 'Paper' %}<i class="fas fa-file-pdf"></i>
+                {% elsif link_name == 'Video' %}<i class="fas fa-video"></i>
+                {% elsif link_name == 'Tool' %}<i class="fas fa-tools"></i>
+                {% endif %}{{ link_name }}
             </a>
             {% endfor %}
         </div>
@@ -97,8 +83,8 @@
 </div>
 
 <style>
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(93, 78, 55, 0.12) !important;
+.software-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(93, 78, 55, 0.12) !important;
 }
 </style>
