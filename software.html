@@ -7,29 +7,29 @@ navbar_title: Software
 <div class="row">
     <div class="col-12">
          <h5 class="pt-4">Software Projects</h5>
-         <p class="pt-2">One of the most enjoyable aspects of research is building innovative software that helps people solve real problems and makes their lives easier. As a result, I highly value reproducibility and open source. Although maintaining these tools requires significant effort, I try my best to continue this line of work to better support real-world applications of research.</p>
+         <p class="pt-2" style="font-size: 0.9rem; color: #666;">I build open-source tools that bring AI into real research workflows.</p>
         
         <!-- Support Qualitative Analysis -->
-        <h6 class="mt-4 mb-3" style="color: #8b6914; font-weight: 600; letter-spacing: 0.03em;">
+        <h5 class="mt-4 mb-3" style="color: #8b6914; font-weight: 600;">
             <i class="fas fa-search" style="margin-right: 0.4rem; opacity: 0.7;"></i>Support Qualitative Analysis
-        </h6>
+        </h5>
         <div class="row mb-4">
             {% assign qa_items = site.software | where: "category", "qualitative-analysis" | sort: "order" %}
             {% for item in qa_items %}
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6 mb-3">
                 {% include widgets/software_card.html item=item %}
             </div>
             {% endfor %}
         </div>
 
         <!-- Support Codebase Understanding -->
-        <h6 class="mt-2 mb-3" style="color: #8b6914; font-weight: 600; letter-spacing: 0.03em;">
+        <h5 class="mt-2 mb-3" style="color: #8b6914; font-weight: 600;">
             <i class="fas fa-code" style="margin-right: 0.4rem; opacity: 0.7;"></i>Support Codebase Understanding
-        </h6>
+        </h5>
         <div class="row mb-4">
             {% assign cu_items = site.software | where: "category", "codebase-understanding" | sort: "order" %}
             {% for item in cu_items %}
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6 mb-3">
                 {% include widgets/software_card.html item=item %}
             </div>
             {% endfor %}
