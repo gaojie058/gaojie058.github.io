@@ -678,7 +678,7 @@ p, span, div {
     background: linear-gradient(180deg, var(--secondary-bg), var(--primary-bg)) !important;
     border-top: none !important;
     position: relative;
-    padding-top: 2rem !important;
+    padding-top: 1rem !important;
 }
 
 .footer-enhanced::before {
