@@ -13,28 +13,7 @@
                 </li>
                 {% endfor %}
             </ul>
-            <div class="navbar-social-links ml-3 d-none d-sm-flex">
-                {% if site.data.profile.gscholar %}
-                {%- if site.data.profile.gscholar contains 'scholar.google' -%}
-                {%- assign gscholar_url = site.data.profile.gscholar -%}
-                {%- else -%}
-                {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
-                {%- endif -%}
-                <a class="navbar-social-icon" target="_blank" href="{{ gscholar_url }}" title="Google Scholar"><i class="fab fa-google-scholar"></i></a>
-                {% endif %}
-                {% if site.data.profile.github %}
-                <a class="navbar-social-icon" target="_blank" href="https://github.com/{{ site.data.profile.github }}" title="GitHub"><i class="fab fa-github"></i></a>
-                {% endif %}
-                {% if site.data.profile.twitter %}
-                <a class="navbar-social-icon" target="_blank" href="https://twitter.com/{{ site.data.profile.twitter }}" title="Twitter"><i class="fab fa-twitter"></i></a>
-                {% endif %}
-                {% if site.data.profile.linkedin %}
-                <a class="navbar-social-icon" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                {% endif %}
-                {% if site.data.profile.cv_link %}
-                <a class="navbar-social-icon" target="_blank" href="{{ site.data.profile.cv_link | relative_url }}" title="CV"><i class="fas fa-file-alt"></i></a>
-                {% endif %}
-            </div>
+            <!-- social icons moved to profile card only -->
         </div>
     </div>
 </nav>
