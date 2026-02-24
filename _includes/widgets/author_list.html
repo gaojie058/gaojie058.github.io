@@ -36,7 +36,7 @@
     {%- else -%}
         {%- assign display_name = name | append: mark -%}
     {%- endif -%}
-    
+
     {%- if info['url'] -%}
         <a class="text-body" target="_blank" href="{{ info['url'] }}">{{ display_name }}</a>{%- if forloop.index < authors.size -%}, {% endif -%}
     {%- else -%}
@@ -46,15 +46,3 @@
     {%- endif -%}
 
 {%- endfor -%}
-
-{%- if has_eq_contrib or has_corresponding %}
-<mark>(
-    {%- if has_eq_contrib -%}
-        * <i> equal contribution</i>
-    {%- endif -%}
-    {%- if has_corresponding -%}
-        {%- if has_eq_contrib -%}, {% endif -%}
-        <sup>#</sup> <i> advising author</i>
-    {%- endif -%}
-)</mark>
-{%- endif -%}

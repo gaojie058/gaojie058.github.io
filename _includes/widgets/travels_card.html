@@ -1,20 +1,32 @@
-<div class="my-3 bg-white shadow-sm rounded-lg fade-in-up">
-    <div class="px-4 pt-3 pb-1">
-        <h5 class="section-title-small"><i class="fas fa-plane"></i> Upcoming Travels</h5>
+<div class="mt-4 px-2">
+    <div class="small" style="font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-muted); margin-bottom: 0.5rem;">
+        <i class="fas fa-plane" style="color: var(--color-accent); margin-right: 0.2rem; font-size: 0.7rem;"></i> Travels
     </div>
-    <div class="px-4 pb-3">
-        <ul class="travel-list">
-            <li>
-                <span class="travel-date">Apr 2026</span>
-                <span class="travel-event"><a href="https://chi2026.acm.org/" target="_blank">CHI 2026</a></span>
-                <span class="travel-place">Yokohama, Japan</span>
-            </li>
-            <li>
-                <span class="travel-date">Jul 2026</span>
-                <span class="travel-event"><a href="https://conf.researchr.org/home/icpc-2026" target="_blank">ICPC 2026</a></span>
-                <span class="travel-place">Milan, Italy</span>
-            </li>
-        </ul>
-        <p class="travel-note">Feel free to reach out if you'd like to meet!</p>
+    <ul class="travel-list-stacked">
+        <li>
+            <a href="https://conf.researchr.org/home/icse-2026" target="_blank">ICSE 2026</a>
+            <span class="travel-meta">Apr 2026 · Rio de Janeiro</span>
+        </li>
+        <li>
+            <a href="https://iclr.cc/Conferences/2026" target="_blank">ICLR 2026</a>
+            <span class="travel-meta">Apr 2026 · Rio de Janeiro</span>
+        </li>
+    </ul>
+    <div class="travel-past-toggle" onclick="this.classList.toggle('open'); var l=this.nextElementSibling; l.style.display=this.classList.contains('open')?'block':'none';">
+        <span class="travel-past-arrow">&#9654;</span> Past
     </div>
+    <ul class="travel-list-stacked travel-list-past" style="display:none;">
+        <li>
+            <a href="https://2025.emnlp.org/" target="_blank">EMNLP 2025</a>
+            <span class="travel-meta">Nov 2025 · Suzhou</span>
+        </li>
+        <li>
+            <a href="https://conf.researchr.org/home/vlhcc-2025" target="_blank">VL/HCC 2025</a>
+            <span class="travel-meta">Oct 2025 · North Carolina</span>
+        </li>
+        <li>
+            <a href="https://chi2025.acm.org/" target="_blank">CHI 2025</a>
+            <span class="travel-meta">Apr 2025 · Yokohama</span>
+        </li>
+    </ul>
 </div>
