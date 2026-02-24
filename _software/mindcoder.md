@@ -5,7 +5,7 @@ year_display: "2025 – 2026"
 order: 1
 category: qualitative-analysis
 description: "An AI-powered platform for flexible qualitative data analysis. Supports open coding, sub-theme grouping, and theme generation with human-AI collaboration."
-badge: "🚀 Live Tool"
+badge: "🚀 mindcoder.ai"
 badge_url: "https://mindcoder.ai"
 cover: /assets/images/software/mindcoder.png
 links:

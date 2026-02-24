@@ -1,67 +1,86 @@
-{% assign news_by_year = site.news | sort: "date" | reverse | slice: 0, include.limit | group_by_exp: "item", "item.date | date: '%Y'" -%}
-{% assign preview_items = 5 %}
+{% assign all_news = site.news | sort: "date" | reverse | slice: 0, include.limit %}
+{% assign preview_count = 2 %}
 {% assign global_count = 0 %}
 
-<div class="my-3 bg-white shadow-sm news-card fade-in-up">
-    <div class="news-card-header">
-        <i class="fas fa-rss"></i>
-        <h6>Updates & Travel</h6>
+<div class="mt-4 mb-5 px-2">
+    <div class="small" style="font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-muted); margin-bottom: 0.3rem;">
+        <i class="fas fa-rss" style="color: var(--color-accent); margin-right: 0.2rem; font-size: 0.7rem;"></i> Updates
     </div>
-    <div class="px-3 pb-1 small">
-        {% for year in news_by_year %}
-        {% assign year_start_count = global_count %}
-        {% assign all_items_hidden = false %}
-        {% if year_start_count >= preview_items %}
-            {% assign all_items_hidden = true %}
+    <ul class="news-list-compact">
+        {% for item in all_news %}
+        {% assign global_count = global_count | plus: 1 %}
+        {% if global_count <= preview_count %}
+        <li class="news-compact-item">
+            <span class="news-compact-date">{{ item.date | date: "%Y.%m" }}</span>
+            <span class="news-compact-text">{{ item.title }}</span>
+        </li>
         {% endif %}
-        <div class="media py-1 {% if not_first -%}border-top border-gray{%- endif %} {% if all_items_hidden %}d-none news-hidden-year{% endif %}">
-            {% assign not_first = true %}
-            <div class="mr-3 my-1"><span class="news-year-badge">{{ year.name }}</span></div>
-            <div class="media-body">
-                {% for item in year.items %}
-                {% assign global_count = global_count | plus: 1 %}
-                <div class="news-item d-flex {% if global_count > preview_items %}d-none news-hidden-item{% endif %}">
-                    <div>{{ item.title }}</div>
-                    <div class="ml-auto mt-auto no-break news-month">{{ item.date | date: "%b" }}</div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
         {% endfor %}
+    </ul>
+    {% assign total = all_news | size %}
+    {% if total > preview_count %}
+    <div class="news-more-toggle" onclick="this.classList.toggle('open'); var l=document.getElementById('news-rest'); if(l.style.display==='none'){l.style.display='block';this.querySelector('.news-more-text').textContent='Less';}else{l.style.display='none';this.querySelector('.news-more-text').textContent='More';}">
+        <span class="news-more-arrow">&#9654;</span> <span class="news-more-text">More</span>
     </div>
-    {% if global_count > preview_items %}
-    <div class="news-read-more">
-        <a href="javascript:void(0)" id="news-read-more-btn" class="btn btn-link btn-sm text-decoration-none">Read More <i class="fas fa-angle-down"></i></a>
-    </div>
-    <script>
-        var newsExpanded = false;
-        document.getElementById('news-read-more-btn').addEventListener('click', function() {
-            var hiddenItems = document.querySelectorAll('.news-hidden-item');
-            var hiddenYears = document.querySelectorAll('.news-hidden-year');
-            var btnIcon = this.querySelector('i');
-
-            if (newsExpanded) {
-                // Collapse
-                hiddenItems.forEach(function(item) {
-                    item.classList.add('d-none');
-                });
-                hiddenYears.forEach(function(year) {
-                    year.classList.add('d-none');
-                });
-                this.innerHTML = 'Read More <i class="fas fa-angle-down"></i>';
-                newsExpanded = false;
-            } else {
-                // Expand
-                hiddenItems.forEach(function(item) {
-                    item.classList.remove('d-none');
-                });
-                hiddenYears.forEach(function(year) {
-                    year.classList.remove('d-none');
-                });
-                this.innerHTML = 'Read Less <i class="fas fa-angle-up"></i>';
-                newsExpanded = true;
-            }
-        });
-    </script>
+    <ul class="news-list-compact" id="news-rest" style="display:none;">
+        {% assign global_count = 0 %}
+        {% for item in all_news %}
+        {% assign global_count = global_count | plus: 1 %}
+        {% if global_count > preview_count %}
+        <li class="news-compact-item">
+            <span class="news-compact-date">{{ item.date | date: "%Y.%m" }}</span>
+            <span class="news-compact-text">{{ item.title }}</span>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
     {% endif %}
 </div>
+
+<style>
+.news-list-compact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.news-compact-item {
+    padding: 0.3rem 0;
+    line-height: 1.4;
+    font-size: 0.75rem;
+}
+.news-compact-date {
+    color: var(--color-accent);
+    font-size: 0.65rem;
+    margin-right: 0.3rem;
+    font-weight: 600;
+}
+.news-compact-text {
+    color: var(--color-text);
+    font-size: 0.75rem;
+}
+.news-compact-text a {
+    color: var(--color-accent);
+}
+.news-more-toggle {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #bbb;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.news-more-toggle:hover {
+    color: #999;
+}
+.news-more-arrow {
+    font-size: 0.5rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+.news-more-toggle.open .news-more-arrow {
+    transform: rotate(90deg);
+}
+</style>

@@ -10,144 +10,103 @@
     {% endif %}
 {% endfor %}
 
-<div class="d-none d-md-block">
-    <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
-        <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
+{% assign _has_eq = false %}
+{% assign _has_corr = false %}
+{% for a in item.authors %}
+    {% if a contains '*' %}{% assign _has_eq = true %}{% endif %}
+    {% if a contains '#' %}{% assign _has_corr = true %}{% endif %}
+{% endfor %}
+
+{% capture pub_footnote %}
+{% if _has_eq or _has_corr %}
+<span class="pub-footnote">
+    {% if _has_eq %}* equal contribution{% endif %}
+    {% if _has_eq and _has_corr %} · {% endif %}
+    {% if _has_corr %}<sup>#</sup> advising author{% endif %}
+</span>
+{% endif %}
+{% endcapture %}
+
+{% capture pub_venue_block %}
+<p class="pub-venue">
+    {% if item.pub_post contains 'Under review' or item.pub_post contains 'under review' %}
+        <span class="pub-badge pub-badge-review">Under Review</span>
+    {% elsif item.pub_post %}
+        <span class="pub-meta-text">{{ item.pub_post }}</span>
+    {% endif %}
+    {% if item.pub_pre %}
+        <span class="pub-meta-text">{{ item.pub_pre }}</span>
+    {% endif %}
+    {% if item.pub_date %}<span class="pub-meta-text">{{ item.pub_date }}</span>{% endif %}
+    {{ item.pub_last }}
+    <span data-google-scholar-id="{{ item.google_scholar_id }}"></span>
+</p>
+{{ pub_footnote }}
+{% endcapture %}
+
+{% capture pub_links_block %}
+<div class="pub-links">
+    {% for link in item.links %}
+    {% assign link_name = link[0] %}
+    {% if link_name == 'Paper' %}{% continue %}{% endif %}
+    {% assign link_url = link[1] %}
+    {% assign link_target = "_blank" %}
+    {% if link[1].url %}
+        {% assign link_url = link[1].url %}
+        {% assign link_target = link[1].target %}
+    {% endif %}
+    <a target="{{ link_target }}" href="{{ link_url }}" class="pub-link-btn">
+        {% if link_name == 'GitHub' or link_name == 'Code' %}
+            <i class="fab fa-github"></i>
+        {% elsif link_name == 'Website' %}
+            <i class="fas fa-globe"></i>
+        {% elsif link_name == 'Video' %}
+            <i class="fas fa-video"></i>
+        {% elsif link_name == 'Tool' %}
+            <i class="fas fa-tools"></i>
+        {% else %}
+            [{{ link_name }}]
+        {% endif %}
+    </a>
+    {% endfor %}
+</div>
+{% endcapture %}
+
+<div class="pub-item {% unless include.hide_bottom_border %}pub-item-border{% endunless %}">
+    <div class="d-none d-md-flex pub-item-row">
+        <div class="pub-item-cover">
             {%- if item.cover -%}
-            <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy w-100 rounded-sm" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
+            <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy pub-cover-img" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
             {%- else -%}
-            <svg class="bubble-visual-hash lazy w-100 rounded-sm" data-bubble-visual-hash="{{ item.id }}" viewBox="0 0 300 200"></svg>
+            <svg class="bubble-visual-hash lazy pub-cover-img" data-bubble-visual-hash="{{ item.id }}" viewBox="0 0 300 200"></svg>
             {%- endif -%}
+            {% if item.pub %}<span class="pub-cover-venue">{{ item.pub }}</span>{% endif %}
         </div>
-        <div class="col-md-9 col-xl-10 p-3 pl-md-0">
-            <h5 class="mt-0 mb-1 font-weight-normal">
+        <div class="pub-item-body">
+            <h6 class="pub-title">
                 {% if paper_link %}
-                    <a href="{{ paper_link }}" target="_blank" style="color: inherit;">{{ item.title }}</a>
+                    <a href="{{ paper_link }}" target="_blank">{{ item.title }}</a>
                 {% else %}
                     {{ item.title }}
                 {% endif %}
-            </h5>
-            <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-            <p class="mt-0 mb-0 small">
-                {{item.pub_pre}}
-                {% if item.pub %}
-                    <span class="badge badge-pill" style="background-color: #ffddc5; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                        <i class="fas fa-university" style="margin-right: 3px;"></i>{{ item.pub }}
-                    </span>
-                {% endif %}
-                {% if item.pub_post contains 'Under review' or item.pub_post contains 'under review' %}
-                    <span class="badge badge-pill" style="background-color: #ffa500; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                        <i class="fas fa-clock" style="margin-right: 3px;"></i>Under Review
-                    </span>
-                {% elsif item.pub_post %}
-                    {{ item.pub_post }}
-                {% endif %}
-                {{ item.pub_last }}
-                {{ item.pub_date }} <span data-google-scholar-id="{{ item.google_scholar_id }}"></span>
-            </p>
-            <div class="abstract-container" data-abstract-id="{{ item.id }}">
-                <p class="mt-0 mb-0 small text-muted abstract-text">{{ item.abstract }}</p>
-            </div>
-            
-            <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-                {% for link in item.links %}
-                {% assign link_name = link[0] %}
-                {% if link_name == 'Paper' %}{% continue %}{% endif %}
-                {% assign link_url = link[1] %}
-                {% assign link_target = "_blank" %}
-                
-                {% if link[1].url %}
-                    {% assign link_url = link[1].url %}
-                    {% assign link_target = link[1].target %}
-                {% endif %}
-
-                <a target="{{ link_target }}" href="{{ link_url }}" class="mr-2">
-                    {% if link_name == 'GitHub' or link_name == 'Code' %}
-                        <i class="fab fa-github"></i>
-                    {% elsif link_name == 'Website' %}
-                        <i class="fas fa-globe"></i>
-                    {% elsif link_name == 'Paper' %}
-                        <i class="fas fa-file-pdf"></i>
-                    {% elsif link_name == 'Video' %}
-                        <i class="fas fa-video"></i>
-                    {% elsif link_name == 'Tool' %}
-                        <i class="fas fa-tools"></i>
-                    {% else %}
-                        [{{ link_name }}]
-                    {% endif %}
-                </a>
-                {% endfor %}
-            </p>
-
-        </div>
-    </div>
-</div>
-
-<div class="row no-gutters d-md-none {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}">
-    <div class="w-100 {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}">
-        <div class="d-flex align-items-start flex-column py-3 px-4">
-            <div class="mb-auto"></div>
-            <div>
-                <h5 class="mt-0 mb-1 font-weight-normal">
-                    {% if paper_link %}
-                        <a href="{{ paper_link }}" target="_blank" style="color: inherit;">{{ item.title }}</a>
-                    {% else %}
-                        {{ item.title }}
-                    {% endif %}
-                </h5>
-                <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small">
-                    {{item.pub_pre}}
-                    {% if item.pub %}
-                        <span class="badge badge-pill" style="background-color: #d2691e; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                            <i class="fas fa-university" style="margin-right: 3px;"></i>{{ item.pub }}
-                        </span>
-                    {% endif %}
-                    {% if item.pub_post contains 'Under review' or item.pub_post contains 'under review' %}
-                        <span class="badge badge-pill" style="background-color: #ffa500; color: white; font-size: 0.75em; padding: 3px 8px; margin-right: 5px;">
-                            <i class="fas fa-clock" style="margin-right: 3px;"></i>Under Review
-                        </span>
-                    {% elsif item.pub_post %}
-                        {{ item.pub_post }}
-                    {% endif %}
-                    {{ item.pub_last }}
-                    {{ item.pub_date }} <span data-google-scholar-id="{{ item.google_scholar_id }}"></span>
-                </p>
-                <div class="abstract-container" data-abstract-id="{{ item.id }}-mobile">
-                    <p class="mt-0 mb-0 small text-muted abstract-text">{{ item.abstract }}</p>
-                </div>
-                
-                <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-                    {% for link in item.links %}
-                    {% assign link_name = link[0] %}
-                    {% if link_name == 'Paper' %}{% continue %}{% endif %}
-                    {% assign link_url = link[1] %}
-                    {% assign link_target = "_blank" %}
-                    
-                    {% if link[1].url %}
-                        {% assign link_url = link[1].url %}
-                        {% assign link_target = link[1].target %}
-                    {% endif %}
-
-                    <a target="{{ link_target }}" href="{{ link_url }}" class="mr-2">
-                        {% if link_name == 'GitHub' or link_name == 'Code' %}
-                            <i class="fab fa-github"></i>
-                        {% elsif link_name == 'Website' %}
-                            <i class="fas fa-globe"></i>
-                        {% elsif link_name == 'Paper' %}
-                            <i class="fas fa-file-pdf"></i>
-                        {% elsif link_name == 'Video' %}
-                        <i class="fas fa-video"></i>
-                    {% elsif link_name == 'Tool' %}
-                        <i class="fas fa-tools"></i>
-                    {% else %}
-                            [{{ link_name }}]
-                        {% endif %}
-                    </a>
-                    {% endfor %}
-                </p>
-            </div>
+                {% if item.selected %}<span class="pub-badge pub-badge-featured">Featured</span>{% endif %}
+            </h6>
+            <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
+            {{ pub_venue_block }}
+            {{ pub_links_block }}
         </div>
     </div>
 
+    <div class="d-md-none pub-item-mobile">
+        <h6 class="pub-title">
+            {% if paper_link %}
+                <a href="{{ paper_link }}" target="_blank">{{ item.title }}</a>
+            {% else %}
+                {{ item.title }}
+            {% endif %}
+        </h6>
+        <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
+        {{ pub_venue_block }}
+        {{ pub_links_block }}
+    </div>
 </div>

@@ -4,8 +4,8 @@ pages:
 # - name: Home (Layout 2)
 #   url: /index_layout2
 - name: Publications
-  url: /publications
+  url: /#publications
 - name: Software
-  url: /software
+  url: /#software
 - name: About
   url: /life
