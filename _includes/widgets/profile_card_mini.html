@@ -62,6 +62,59 @@
                 </div>
             </div>
 
+            <div class="row pt-3">
+                <div class="col">
+                    <div class="social-links-grid">
+                        {% if site.data.profile.gscholar %}
+                        {%- if site.data.profile.gscholar contains 'scholar.google' -%}
+                        {%- assign gscholar_url = site.data.profile.gscholar -%}
+                        {%- else -%}
+                        {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+                        {%- endif -%}
+                        <a class="social-icon-btn" target="_blank" href="{{ gscholar_url }}" data-toggle="tooltip" data-placement="bottom" title="Google Scholar">
+                            <i class="fab fa-google-scholar"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.github %}
+                        <a class="social-icon-btn" target="_blank" href="https://github.com/{{ site.data.profile.github }}" data-toggle="tooltip" data-placement="bottom" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.twitter %}
+                        <a class="social-icon-btn" target="_blank" href="https://twitter.com/{{ site.data.profile.twitter }}" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.linkedin %}
+                        <a class="social-icon-btn" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" data-toggle="tooltip" data-placement="bottom" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.cv_link %}
+                        <a class="social-icon-btn" target="_blank" href="{{ site.data.profile.cv_link | relative_url }}" data-toggle="tooltip" data-placement="bottom" title="CV">
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.wechat_qrcode %}
+                        <a class="social-icon-btn" data-toggle="modal" data-target="#modal-wechat" style="cursor: pointer;" title="WeChat">
+                            <i class="fab fa-weixin"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.orcid %}
+                        <a class="social-icon-btn" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}" data-toggle="tooltip" data-placement="bottom" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
