@@ -738,3 +738,440 @@ p, span, div {
     color: var(--accent-color) !important;
 }
 
+
+/* Research area: HCI × SE × AI */
+.research-multiply {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+}
+.research-domain {
+    font-family: 'Cormorant Garamond', 'Lora', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: #9b7a5a;
+    transition: color 0.2s;
+}
+.research-domain:hover {
+    color: #d2691e;
+}
+.research-times {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #c8b8a4;
+    margin: 0 0.1rem;
+}
+.research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+}
+.tag-niche {
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0.3em 0.7em;
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: #8a7968;
+    background: #faf7f3;
+    border: 1px solid #ede5db;
+    border-radius: 50px;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease;
+}
+.tag-niche:hover {
+    background: #f3ece3;
+    border-color: #ddd0c2;
+    color: #6b5c4c;
+}
+.tag-niche .tag-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #d2b48c;
+    flex-shrink: 0;
+}
+
+/* ===== Bio Redesign ===== */
+.bio-intro {
+    margin-bottom: 1.2rem;
+}
+.bio-intro p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #4a4a4a;
+}
+.bio-intro a {
+    color: #b87333;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+.bio-intro a:hover {
+    border-bottom-color: #b87333;
+}
+
+.vision-statement {
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%);
+    border-left: 3px solid #c8956c;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.8rem;
+}
+.vision-statement p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #5a4e42;
+    margin: 0;
+}
+.vision-statement .accent {
+    color: #b87333;
+}
+.vision-statement em {
+    font-style: italic;
+    color: #6b5c4c;
+}
+
+/* Research theme cards */
+.research-themes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+@media (max-width: 768px) {
+    .research-themes {
+        grid-template-columns: 1fr;
+    }
+}
+.theme-card {
+    background: #fff;
+    border: 1px solid #ede5db;
+    border-radius: 0.75rem;
+    padding: 1.3rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.theme-card:hover {
+    box-shadow: 0 4px 16px rgba(160, 130, 90, 0.1);
+    transform: translateY(-2px);
+}
+.theme-icon {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: #c8956c;
+    margin-bottom: 0.6rem;
+}
+.theme-card h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #3d3429;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+}
+.theme-subtitle {
+    font-size: 0.78rem;
+    color: #8a7968;
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+}
+.theme-details {
+    font-size: 0.75rem;
+    color: #7a6a58;
+}
+.theme-details summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: #9b7a5a;
+    padding: 0.3rem 0;
+    user-select: none;
+    outline: none;
+}
+.theme-details summary:hover {
+    color: #b87333;
+}
+.theme-details ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.2rem;
+    line-height: 1.6;
+}
+.theme-details li {
+    margin-bottom: 0.3rem;
+}
+
+/* Profile card name - use Playfair */
+.profile-name-serif {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    color: #3d3429;
+}
+
+/* Research narrative */
+.research-narrative {
+    margin-bottom: 1.5rem;
+}
+.research-narrative p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+.section-heading {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #3d3429;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #ede5db;
+}
+.section-heading i {
+    color: #c8956c;
+    margin-right: 0.4rem;
+    font-size: 0.9em;
+}
+
+/* Update profile name to DM Serif Display */
+.profile-name-serif {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif !important;
+}
+
+/* Theme card h4 update */
+.theme-card h4 {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif !important;
+    font-weight: 400 !important;
+}
+
+/* ===== Academic Timeline ===== */
+.academic-timeline {
+    margin-bottom: 1.8rem;
+}
+.timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 1.5px;
+    background: #e0d6cc;
+}
+.timeline-item {
+    position: relative;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+.timeline-marker {
+    position: absolute;
+    left: -1.5rem;
+    top: 4px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #c8956c;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1.5px #c8956c;
+    z-index: 1;
+}
+.timeline-marker.marker-visit {
+    background: #fff;
+    box-shadow: 0 0 0 1.5px #c8956c;
+}
+.timeline-marker.marker-edu {
+    background: #e8ddd2;
+    box-shadow: 0 0 0 1.5px #b8a08a;
+}
+.timeline-period {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #9b7a5a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.1rem;
+}
+.timeline-title {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: #3d3429;
+    line-height: 1.3;
+}
+.timeline-place {
+    font-size: 0.82rem;
+    color: #6b5c4c;
+    margin-bottom: 0.15rem;
+}
+.timeline-place a {
+    color: #b87333;
+    text-decoration: none;
+}
+.timeline-place a:hover {
+    text-decoration: underline;
+}
+.timeline-detail {
+    font-size: 0.72rem;
+    color: #9b8e7e;
+    line-height: 1.4;
+}
+
+/* ===== Clean Bio ===== */
+.bio-content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #3d3429;
+    margin-bottom: 1rem;
+}
+.bio-content a {
+    color: #b87333;
+    text-decoration: none;
+}
+.bio-content a:hover {
+    text-decoration: underline;
+}
+.bio-divider {
+    border: none;
+    border-top: 1px solid #ede5db;
+    margin: 1.5rem 0;
+}
+.research-directions {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+.research-directions li {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #3d3429;
+    margin-bottom: 0.6rem;
+}
+.tag-niche {
+    font-size: 0.72rem !important;
+    padding: 0.25em 0.65em !important;
+}
+
+/* Compact job market banner */
+.job-market-banner {
+    font-size: 0.82rem;
+    color: #8b6914;
+    background: #fdf6e3;
+    border-left: 3px solid #d4a017;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 1.2rem;
+    border-radius: 0 0.3rem 0.3rem 0;
+    line-height: 1.5;
+}
+.job-market-banner i {
+    color: #d4a017;
+    margin-right: 0.3rem;
+}
+.job-market-banner a {
+    color: #b87333;
+    font-weight: 500;
+}
+
+/* Theme tags inside cards */
+.theme-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+/* Vision text */
+.vision-text {
+    font-style: italic;
+    color: #6b5c4c;
+}
+
+/* Vision block - prominent */
+.vision-block {
+    background: linear-gradient(135deg, #faf8f5 0%, #f3ece3 100%);
+    border-left: 3px solid #c8956c;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+}
+.vision-block p {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+    font-size: 1.02rem !important;
+    font-weight: 400;
+    line-height: 1.7 !important;
+    color: #3d3429 !important;
+    margin: 0 !important;
+}
+
+/* Section title small */
+.section-title-small {
+    font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #3d3429;
+    margin-bottom: 0.5rem;
+}
+.section-title-small i {
+    color: #c8956c;
+    margin-right: 0.3rem;
+    font-size: 0.85em;
+}
+
+/* Travel list */
+.travel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.travel-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f5f0ea;
+}
+.travel-list li:last-child {
+    border-bottom: none;
+}
+.travel-date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #9b7a5a;
+    min-width: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+.travel-event a {
+    color: #b87333;
+    font-weight: 500;
+    text-decoration: none;
+}
+.travel-event a:hover {
+    text-decoration: underline;
+}
+.travel-place {
+    color: #8a7968;
+    font-size: 0.8rem;
+}
+.travel-place::before {
+    content: '·';
+    margin-right: 0.4rem;
+    color: #c8b8a4;
+}
+.travel-note {
+    font-size: 0.75rem;
+    color: #9b8e7e;
+    font-style: italic;
+    margin: 0.5rem 0 0 0;
+}
