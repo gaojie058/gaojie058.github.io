@@ -20,6 +20,9 @@ navbar_title: About Me
             {% include widgets/experience_card.html %}
         {% endif %}
 
+        <!-- Upcoming Travels -->
+        {% include widgets/travels_card.html %}
+
         {% if site.data.display.homepage.show_news %}
         {% assign count_news = site.news | size %}
         {% if count_news > 0 %}

@@ -297,3 +297,64 @@
 - 次要文字对背景: 5.8:1 (AA级)
 - 链接对背景: 6.1:1 (AA级)
 */
+/* Research area: HCI × SE × AI */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap');
+
+.research-multiply {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+}
+.research-domain {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: #9b7a5a;
+    transition: color 0.2s;
+}
+.research-domain:hover {
+    color: #d2691e;
+}
+.research-times {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #c8b8a4;
+    margin: 0 0.1rem;
+}
+.research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+}
+.tag-niche {
+    font-family: 'Inter', -apple-system, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0.3em 0.7em;
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: #8a7968;
+    background: #faf7f3;
+    border: 1px solid #ede5db;
+    border-radius: 50px;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease;
+}
+.tag-niche:hover {
+    background: #f3ece3;
+    border-color: #ddd0c2;
+    color: #6b5c4c;
+}
+.tag-niche .tag-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #d2b48c;
+    flex-shrink: 0;
+}

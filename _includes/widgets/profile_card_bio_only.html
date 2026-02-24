@@ -3,33 +3,51 @@
     <div class="col">
         <div class="card border-0 shadow-sm bg-white fade-in-up">
             <div class="card-body">
-                <div class="row p-3">
-                    <div class="col">
-                        <div class="text-profile-bio mt-0" {% if site.data.profile.short_bio_text_justify %}style="text-align: justify; font-size: 0.9rem;"{% else %}style="font-size: 0.9rem;"{% endif %}>
-                            <div class="job-market-callout">
-                                <i class="fas fa-bullhorn"></i>
-                                <p>I am on academic job market for a tenure-track position in 2026. Please feel free to reach out if you know any opportunities. If you are also on job market, I'd love to connect!</p>
-                            </div>
-                            <p>
-                                I am currently a Malone Postdoc Fellow in <a href="https://www.cs.jhu.edu/" target="_blank">Department of Computer Science</a>, <a href="https://malonecenter.jhu.edu/" target="_blank">Malone Center for Engineering in Healthcare</a> and <a href="https://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>. I am mentored by <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a>, <a href="https://www.ziangxiao.com/" target="_blank">Ziang Xiao</a>, and <a href="https://www.cs.jhu.edu/~cmhuang/" target="_blank">Chien-Ming Huang</a>. My research interests include <b>Human-AI Collaboration, AI for Social Science, and Human Aspects of Software Engineering</b>. As a <b style="color: #d2691e;">human-AI collaboration researcher</b>, I focus on empowering humans for analysing complex data.
-                            </p>
-                            <p>
-                                <b style="color: #d2691e;">Research Interests: </b>Every major technological leap has transformed how humans analyse and learn from data, a process shapes how we make business decisions, formulate public policies, and even diagnose diseases. Today, AI made us enter the next chapter where humans and AI can jointly learn from data. I leverage AI techniques and social science methodologies to design, build, and evaluate human-AI collaborative systems that empower humans to analyze complex unstructured data. <b>My long-term vision is to expand human capabilities through human-AI collaboration, moving beyond data analysis toward broader human cognition.</b>
-                            </p>
-                            <div class="text-center my-3">
-                                <img src="{{ '/assets/images/research/vision.png' | relative_url }}" alt="Research Vision" class="img-fluid" style="max-width: 60%; height: auto; border-radius: 0.75rem;">
-                            </div>
-                            <div class="research-callout">
-                                <p style="margin-bottom: 10px; font-weight: 500;">
-                                    My research aims to answer following open-ended questions:
-                                </p>
-                                <ol style="margin-bottom: 0;">
-                                    <li><i class="fas fa-user"></i> <i class="fas fa-arrow-left"></i> <i class="fas fa-robot"></i> <b>Bring AI to Humans: Integrating AI into Human Analytical Workflows to Make Humans More Capable</b>: What are data analysis practitioners' manual analytical workflows? What challenges do they face when using existing analysis platforms? How do they envision AI's role in their workflows? How to evaluate AI-generated results' quality? What are gains and loses when applying AI? </li>
-                                    <li><i class="fas fa-user"></i> <i class="fas fa-arrow-right"></i> <i class="fas fa-robot"></i> <b>Bring Humans to AI: Bringing Humans into AI's Automation to Make AI Systems Responsible: </b>When and where should humans be involved in AI's automation process? What is the ideal division of labor between humans and AI? Which forms of human involvement are meaningful and desirable, and which are not? How can we design AI systems to enable such involvement?</li>
-                                </ol>
-                            </div>
+                <div class="row p-3 p-md-4">
+                    <div class="col bio-content">
 
+                        <div class="job-market-banner">
+                            <i class="fas fa-bullhorn"></i> I am on the academic job market for a tenure-track position in 2026. <a href="mailto:jgao77@jh.edu">Reach out</a> if you know of any opportunities!
                         </div>
+
+                        <p>
+                            I am a <strong>Malone Postdoc Fellow</strong> in the <a href="https://www.cs.jhu.edu/" target="_blank">Department of Computer Science</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>, affiliated with the <a href="https://malonecenter.jhu.edu/" target="_blank">Malone Center for Engineering in Healthcare</a> and the <a href="https://www.clsp.jhu.edu/" target="_blank">Center for Language and Speech Processing</a>. I am mentored by <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a>, <a href="https://www.ziangxiao.com/" target="_blank">Ziang Xiao</a>, and <a href="https://www.cs.jhu.edu/~cmhuang/" target="_blank">Chien-Ming Huang</a>. My research lies at the intersection of <strong>Human-Computer Interaction, AI, and Software Engineering</strong>.
+                        </p>
+
+                        <p>
+                            Previously, I was a Postdoctoral Associate at the <a href="https://smart.mit.edu/" target="_blank"><strong>Singapore-MIT Alliance for Research and Technology (SMART)</strong></a>, working with <a href="https://mitsloan.mit.edu/faculty/directory/thomas-w-malone" target="_blank">Thomas W. Malone</a> on collective intelligence and human-AI collaboration. I received my Ph.D. from the <a href="https://www.sutd.edu.sg/" target="_blank"><strong>Singapore University of Technology and Design (SUTD)</strong></a>, advised by <a href="https://www.simonperrault.com/" target="_blank">Simon Perrault</a>. During my Ph.D., I was a visiting student at the <a href="https://nd.edu/" target="_blank"><strong>University of Notre Dame</strong></a> (hosted by Toby Jia-Jun Li) and the <a href="https://www.nus.edu.sg/" target="_blank"><strong>National University of Singapore</strong></a> (hosted by Shengdong Zhao). Prior to that, I received my M.Eng. from <strong>Zhejiang University</strong> and B.Eng. from <strong>Shanghai University</strong>.
+                        </p>
+
+                        <!-- Vision - prominent -->
+                        <div class="vision-block">
+                            <p>My long-term vision is to establish the empirical foundations and design principles for <strong>trustworthy human-AI collaboration</strong>, expanding what humans can accomplish while ensuring they remain informed and in control.</p>
+                        </div>
+
+                        <hr class="bio-divider">
+
+                        <p>
+                            I design, build, and evaluate <strong>human-AI collaborative systems</strong> that empower people to understand and work with subjective and interpretative data, such as qualitative interviews and source code. As AI takes on increasingly autonomous roles in data analysis and software development, I study how humans can effectively collaborate with and evaluate AI in professional workflows. I leverage <strong>AI techniques</strong> and <strong>social science methodologies</strong> to pursue two complementary directions:
+                        </p>
+
+                        <div class="research-themes">
+                            <div class="theme-card">
+                                <h4>Bring AI to Humans</h4>
+                                <p>Integrating AI into human analytical workflows so that a novice researcher can conduct rigorous qualitative analysis, and a new developer can comprehend unfamiliar codebases.</p>
+                                <div class="theme-tags">
+                                    <span class="tag-niche"><span class="tag-dot"></span>AI-Assisted Qualitative Analysis</span>
+                                    <span class="tag-niche"><span class="tag-dot"></span>Codebase Onboarding/Understanding</span>
+                                    <span class="tag-niche"><span class="tag-dot"></span>Developer Experience</span>
+                                </div>
+                            </div>
+                            <div class="theme-card">
+                                <h4>Bring Humans to AI</h4>
+                                <p>Studying when and how professionals should be involved in AI's process, to ensure AI systems remain trustworthy and accountable.</p>
+                                <div class="theme-tags">
+                                    <span class="tag-niche"><span class="tag-dot"></span>AI Agent Oversight</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
