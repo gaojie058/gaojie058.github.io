@@ -106,6 +106,7 @@
             {% endif %}
         </h6>
         <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
+        {% if item.selected %}<span class="pub-badge pub-badge-featured" style="margin-bottom: 0.3rem; display: inline-block;">Featured</span>{% endif %}
         {{ pub_venue_block }}
         {{ pub_links_block }}
     </div>
