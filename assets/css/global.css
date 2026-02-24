@@ -137,6 +137,7 @@ hr {
     border-radius: 0.75rem;
     overflow: hidden;
     margin-bottom: 1rem;
+    max-width: 180px;
 }
 
 .profile-portrait img {
