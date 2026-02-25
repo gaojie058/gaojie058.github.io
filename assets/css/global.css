@@ -470,6 +470,23 @@ hr {
     color: var(--color-muted);
 }
 
+.travel-dot-present {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #4ecdc4;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+.travel-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
 .travel-list-past li,
 .travel-list-past a,
 .travel-list-past .travel-meta {
