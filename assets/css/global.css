@@ -18,15 +18,19 @@
     scroll-margin-top: 80px;
 }
 
+/* ===== Global Scale ===== */
+html {
+    zoom: 0.8;
+}
+
 /* ===== Base ===== */
 body {
     font-family: var(--font-body);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--color-text);
     background-color: var(--color-bg);
-    padding-top: 3.5rem;
-    font-size: 0.82rem;
+    padding-top: 4.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,12 +40,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text);
 }
 
-h1 { font-size: 1.5rem; }
-h2 { font-size: 1.2rem; }
-h3 { font-size: 1.05rem; }
-h4 { font-size: 0.92rem; }
-h5 { font-size: 0.82rem; }
-h6 { font-size: 0.75rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.9rem; }
 
 a {
     color: var(--color-accent);
@@ -137,8 +141,8 @@ hr {
 .profile-portrait {
     border-radius: 0.75rem;
     overflow: hidden;
-    margin-bottom: 0.8rem;
-    max-width: 140px;
+    margin-bottom: 1rem;
+    max-width: 180px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -151,7 +155,7 @@ hr {
 
 .profile-name-serif {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--color-text);
 }
@@ -685,7 +689,7 @@ hr {
 
 .pub-item-cover {
     flex-shrink: 0;
-    width: 120px;
+    width: 140px;
 }
 
 .pub-cover-img {
