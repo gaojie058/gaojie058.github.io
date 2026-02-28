@@ -22,7 +22,7 @@
     <div class="news-more-toggle" onclick="this.classList.toggle('open'); var l=document.getElementById('news-rest'); if(l.style.display==='none'){l.style.display='block';this.querySelector('.news-more-text').textContent='Less';}else{l.style.display='none';this.querySelector('.news-more-text').textContent='More';}">
         <span class="news-more-arrow">&#9654;</span> <span class="news-more-text">More</span>
     </div>
-    <ul class="news-list-compact" id="news-rest" style="display:none;">
+    <ul class="news-list-compact news-list-past" id="news-rest" style="display:none;">
         {% assign global_count = 0 %}
         {% for item in all_news %}
         {% assign global_count = global_count | plus: 1 %}
@@ -82,5 +82,10 @@
 }
 .news-more-toggle.open .news-more-arrow {
     transform: rotate(90deg);
+}
+.news-list-past li,
+.news-list-past .news-compact-date,
+.news-list-past .news-compact-text {
+    opacity: 0.55;
 }
 </style>
