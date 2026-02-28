@@ -151,49 +151,52 @@
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/google_scholar_citation_count.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/read_more.js' | relative_url }}"></script>
-    <!-- Mobile: close sidebar on link click + highlight active -->
-    <script>
-    document.querySelectorAll('.sidenav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-            // Close mobile sidebar
-            var sidebar = document.querySelector('.sidenav-sidebar');
-            if (sidebar && sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-            }
-            // Immediately highlight clicked link
-            document.querySelectorAll('.sidenav-link[data-section]').forEach(function(l) {
-                l.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-    });
-    </script>
-    <!-- Scroll spy for sidenav active state -->
+    <!-- Sidenav: mobile close + scroll spy -->
     <script>
     (function() {
-        var links = document.querySelectorAll('.sidenav-link[data-section]');
-        if (!links.length) return;
-        var sections = ['publications', 'software'];
-        var offset = 200;
-        function update() {
-            var scrollY = window.scrollY || window.pageYOffset;
-            var active = 'top';
-            for (var i = 0; i < sections.length; i++) {
-                var el = document.getElementById(sections[i]);
-                if (el && scrollY >= el.offsetTop - offset) {
-                    active = sections[i];
-                }
-            }
-            links.forEach(function(link) {
-                if (link.dataset.section === active) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
+        var allNavLinks = document.querySelectorAll('.sidenav-nav .sidenav-link');
+        var sectionLinks = document.querySelectorAll('.sidenav-link[data-section]');
+
+        // Mobile: close sidebar on any link click
+        allNavLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var sidebar = document.querySelector('.sidenav-sidebar');
+                if (sidebar && sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
                 }
             });
+        });
+
+        // Scroll spy
+        if (!sectionLinks.length) return;
+        var sectionIds = ['publications', 'software'];
+        var offset = 200;
+
+        function setActive(name) {
+            allNavLinks.forEach(function(l) { l.classList.remove('active'); });
+            sectionLinks.forEach(function(l) {
+                if (l.dataset.section === name) l.classList.add('active');
+            });
         }
-        window.addEventListener('scroll', update);
-        update();
+
+        function onScroll() {
+            var scrollY = window.scrollY || window.pageYOffset;
+            var active = 'top';
+            for (var i = 0; i < sectionIds.length; i++) {
+                var el = document.getElementById(sectionIds[i]);
+                if (el) {
+                    // Account for zoom: 0.8
+                    var top = el.getBoundingClientRect().top + window.scrollY;
+                    if (scrollY >= top - offset) {
+                        active = sectionIds[i];
+                    }
+                }
+            }
+            setActive(active);
+        }
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); // Run once on load
     })();
     </script>
 </body>
