@@ -71,13 +71,13 @@
 
             <!-- Navigation -->
             <nav class="sidenav-nav">
-                <a href="{{ '/' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'About Me' %}active{% endif %}">
+                <a href="{{ '/' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'About Me' %}active{% endif %}" data-section="top">
                     <i class="fas fa-home"></i> Home
                 </a>
-                <a href="{{ '/#publications' | relative_url }}" class="sidenav-link">
+                <a href="{{ '/#publications' | relative_url }}" class="sidenav-link" data-section="publications">
                     <i class="fas fa-book"></i> Publications
                 </a>
-                <a href="{{ '/#software' | relative_url }}" class="sidenav-link">
+                <a href="{{ '/#software' | relative_url }}" class="sidenav-link" data-section="software">
                     <i class="fas fa-code"></i> Software
                 </a>
                 <a href="{{ '/life' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'About' %}active{% endif %}">
@@ -151,5 +151,33 @@
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/google_scholar_citation_count.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/read_more.js' | relative_url }}"></script>
+    <!-- Scroll spy for sidenav active state -->
+    <script>
+    (function() {
+        var links = document.querySelectorAll('.sidenav-link[data-section]');
+        if (!links.length) return;
+        var sections = ['software', 'publications'];
+        var offset = 200;
+        function update() {
+            var scrollY = window.scrollY || window.pageYOffset;
+            var active = 'top';
+            for (var i = 0; i < sections.length; i++) {
+                var el = document.getElementById(sections[i]);
+                if (el && scrollY >= el.offsetTop - offset) {
+                    active = sections[i];
+                }
+            }
+            links.forEach(function(link) {
+                if (link.dataset.section === active) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', update);
+        update();
+    })();
+    </script>
 </body>
 </html>
