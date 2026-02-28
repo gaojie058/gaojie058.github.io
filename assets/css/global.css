@@ -1053,3 +1053,429 @@ img.lazy, div.lazy {
     justify-content: center;
     gap: 0.3rem;
 }
+
+/* ===== Layout v4: Side Navigation ===== */
+
+/* Override body padding for sidenav layout */
+.sidenav-layout {
+    padding-top: 0 !important;
+}
+
+/* Left sidebar */
+.sidenav-sidebar {
+    width: 220px;
+    min-height: 100vh;
+    background: #fff;
+    border-right: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidenav-inner {
+    padding: 2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Profile in sidebar */
+.sidenav-profile {
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.sidenav-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 0.8rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.sidenav-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidenav-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+}
+
+.sidenav-funfact {
+    font-size: 0.65rem;
+    color: var(--color-muted);
+    font-style: italic;
+    line-height: 1.4;
+    margin: 0.3rem 0 0.5rem;
+}
+
+.sidenav-title {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    line-height: 1.4;
+}
+
+/* Navigation links */
+.sidenav-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 1.8rem;
+}
+
+.sidenav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sidenav-link:hover {
+    background: rgba(184, 115, 51, 0.06);
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.sidenav-link.active {
+    background: rgba(184, 115, 51, 0.1);
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.sidenav-link i {
+    width: 16px;
+    text-align: center;
+    font-size: 0.78rem;
+}
+
+/* Social links in sidebar */
+.sidenav-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+.sidenav-social a {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.sidenav-social a:hover {
+    color: var(--color-accent);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* Email */
+.sidenav-email {
+    text-align: center;
+    margin-top: 0.6rem;
+}
+
+.sidenav-email a {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-muted);
+}
+
+/* Sidebar travels & updates — compact */
+.sidenav-travels,
+.sidenav-updates {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+}
+
+.sidenav-travels .travel-list-stacked a,
+.sidenav-updates .news-item {
+    font-size: 0.72rem;
+}
+
+.sidenav-travels .mt-4,
+.sidenav-updates .mt-4 {
+    margin-top: 0.5rem !important;
+}
+
+/* Main content area */
+.sidenav-main {
+    flex: 1;
+    margin-left: 220px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav-content {
+    flex: 1;
+    max-width: 720px;
+    margin: 0;
+    padding: 2.5rem 2rem 2.5rem 1.5rem;
+    width: 100%;
+}
+
+/* Homepage content spacing */
+.homepage-content {
+    padding-top: 0.5rem;
+}
+
+/* Mobile: hidden sidebar + top bar */
+.sidenav-mobile-bar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: #faf8f5;
+    border-bottom: 1px solid #eee;
+    z-index: 99;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.sidenav-toggle {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.3rem;
+}
+
+.sidenav-mobile-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-left: 0.8rem;
+}
+
+.sidenav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 99;
+}
+
+@media (max-width: 767.98px) {
+    .sidenav-sidebar {
+        transform: translateX(-100%);
+    }
+    .sidenav-sidebar.open {
+        transform: translateX(0);
+    }
+    .sidenav-sidebar.open ~ .sidenav-overlay {
+        display: block;
+    }
+    .sidenav-main {
+        margin-left: 0;
+    }
+    .sidenav-mobile-bar {
+        display: flex;
+    }
+    .sidenav-content {
+        padding: 3.5rem 1rem 2rem;
+    }
+}
+
+/* ===== Fancy Bio Section ===== */
+.bio-content p {
+    margin-bottom: 0.9rem;
+    line-height: 1.75;
+}
+
+/* Vision block — centered, elegant quote style */
+.vision-block {
+    margin: 1.8rem auto;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    border: none;
+    border-top: 1px solid #e8e0d8;
+    border-bottom: 1px solid #e8e0d8;
+    background: none;
+    border-radius: 0;
+    max-width: 90%;
+}
+
+.vision-block p {
+    font-size: 1.05rem !important;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.vision-block mark {
+    background: none;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* Research themes — clean cards with top accent bar */
+.research-themes {
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.theme-card {
+    position: relative;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 0 0 2px 2px;
+    opacity: 0.6;
+}
+
+.theme-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.theme-card h4 {
+    margin-top: 0.3rem;
+}
+
+.theme-card p {
+    line-height: 1.7;
+}
+
+/* ===== Elegant Section Headings ===== */
+.section-title-small {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.4rem;
+}
+
+.section-title-small::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2rem;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 1px;
+}
+
+/* ===== Travels & News Section ===== */
+.travels-news-section {
+    background: linear-gradient(135deg, #faf8f5 0%, #fefefe 100%);
+    border-radius: 10px;
+    border: 1px solid #f0ece6;
+    padding: 1.2rem !important;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Section Dividers ===== */
+#publications,
+#software {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+    margin-top: 1.8rem !important;
+}
+
+/* ===== Fancy Publication Cards ===== */
+.pub-item {
+    padding: 1rem 0.5rem;
+    transition: background-color 0.2s ease;
+    border-radius: 6px;
+}
+
+.pub-item:hover {
+    background-color: rgba(184, 115, 51, 0.02);
+}
+
+/* Filters */
+.pub-filters {
+    margin-bottom: 1rem;
+}
+
+/* Fancy filter buttons */
+.pub-filter-btn {
+    transition: all 0.25s ease;
+}
+
+.pub-filter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Software section items */
+#sw-filter-list .sw-filter-item {
+    margin-bottom: 0.8rem;
+}
+
+/* ===== Refined Profile Card ===== */
+.profile-portrait {
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Social icons — fancy hover */
+.social-icon-btn {
+    transition: all 0.25s ease;
+}
+
+.social-icon-btn:hover {
+    transform: translateY(-2px);
+    color: var(--color-accent);
+}
+
+/* ===== Fancy Tags ===== */
+.tag-niche {
+    transition: all 0.2s ease;
+}
+
+.tag-niche:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    border-color: var(--color-accent);
+}
+
+/* ===== Smooth scrolling ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Fancy keyword highlight animation ===== */
+.research-keyword {
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: highlight-slide 0.8s ease forwards;
+}
+
+@keyframes highlight-slide {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}

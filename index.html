@@ -1,81 +1,71 @@
 ---
-layout: default
+layout: sidenav
 title : Human-AI Collaboration Researcher
 navbar_title: About Me
+container_class: container-fluid
 ---
 
-<div class="row">
-    <div class="col-lg-3 col-md-4">
-        <div>
-            {% include widgets/profile_card_mini.html %}
-            {% include widgets/travels_card.html %}
-            {% if site.data.display.homepage.show_news %}
-            {% assign count_news = site.news | size %}
-            {% if count_news > 0 %}
-            {% include widgets/news_card.html limit=site.data.display.homepage.num_news %}
-            {% endif %}
-            {% endif %}
+<div class="homepage-content">
+
+    {% include widgets/profile_card_bio_only.html %}
+
+    <!-- Debugging widgets -->
+    {% include widgets/debug_repo_name.html %}
+    {% include widgets/debug_url.html %}
+
+    {% if site.data.display.homepage.show_experience %}
+        {% include widgets/experience_card.html %}
+    {% endif %}
+
+    <!-- Travels & News are in sidebar for this layout -->
+
+    {% include widgets/publication_filter_card.html %}
+
+    <!-- Software -->
+    <div id="software" class="my-4 px-2 px-md-3">
+        <h5 class="section-title-small">
+            <i class="fas fa-code"></i> Software
+        </h5>
+        <p style="font-size: 0.82rem; color: #888; margin-bottom: 0.75rem;">I love building software that helps people solve real problems. I value reproducibility and open source.</p>
+
+        <div class="pub-filters" id="sw-filters">
+            <div class="pub-filter-row">
+                <span class="pub-filter-label">Topic</span>
+                <button class="sw-filter-btn pub-filter-btn active" data-filter="all">All</button>
+                <button class="sw-filter-btn pub-filter-btn" data-filter="qualitative-analysis">Qualitative Analysis</button>
+                <button class="sw-filter-btn pub-filter-btn" data-filter="codebase-understanding">Code Understanding</button>
+            </div>
         </div>
-    </div>
-    <div class="col-lg-9 col-md-8">
 
-        {% include widgets/profile_card_bio_only.html %}
-
-        <!-- Debugging widgets -->
-        {% include widgets/debug_repo_name.html %}
-        {% include widgets/debug_url.html %}
-
-        {% if site.data.display.homepage.show_experience %}
-            {% include widgets/experience_card.html %}
-        {% endif %}
-
-        {% include widgets/publication_filter_card.html %}
-
-        <!-- Software -->
-        <div id="software" class="my-4 px-2 px-md-3">
-            <h5 class="section-title-small">
-                <i class="fas fa-code"></i> Software
-            </h5>
-            <p style="font-size: 0.82rem; color: #888; margin-bottom: 0.75rem;">I love building software that helps people solve real problems. I value reproducibility and open source.</p>
-
-            <div class="pub-filters" id="sw-filters">
-                <div class="pub-filter-row">
-                    <span class="pub-filter-label">Topic</span>
-                    <button class="sw-filter-btn pub-filter-btn active" data-filter="all">All</button>
-                    <button class="sw-filter-btn pub-filter-btn" data-filter="qualitative-analysis">Qualitative Analysis</button>
-                    <button class="sw-filter-btn pub-filter-btn" data-filter="codebase-understanding">Code Understanding</button>
-                </div>
+        <div id="sw-filter-list">
+            {% assign all_software = site.software | sort: "order" %}
+            {% for item in all_software %}
+            <div class="sw-filter-item" data-category="{{ item.category }}">
+                {% include widgets/software_card.html item=item %}
             </div>
+            {% endfor %}
+        </div>
 
-            <div id="sw-filter-list">
-                {% assign all_software = site.software | sort: "order" %}
-                {% for item in all_software %}
-                <div class="sw-filter-item" data-category="{{ item.category }}">
-                    {% include widgets/software_card.html item=item %}
-                </div>
-                {% endfor %}
-            </div>
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var swFilters = document.querySelectorAll('.sw-filter-btn');
-                var swItems = document.querySelectorAll('.sw-filter-item');
-                swFilters.forEach(function(btn) {
-                    btn.addEventListener('click', function() {
-                        swFilters.forEach(function(b) { b.classList.remove('active'); });
-                        btn.classList.add('active');
-                        var filter = btn.getAttribute('data-filter');
-                        swItems.forEach(function(item) {
-                            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                                item.style.display = '';
-                            } else {
-                                item.style.display = 'none';
-                            }
-                        });
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var swFilters = document.querySelectorAll('.sw-filter-btn');
+            var swItems = document.querySelectorAll('.sw-filter-item');
+            swFilters.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    swFilters.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    var filter = btn.getAttribute('data-filter');
+                    swItems.forEach(function(item) {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     });
                 });
             });
-            </script>
-        </div>
+        });
+        </script>
     </div>
+
 </div>
