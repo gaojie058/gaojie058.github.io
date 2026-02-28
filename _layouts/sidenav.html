@@ -167,8 +167,9 @@
             });
         });
 
-        // Scroll spy
-        if (!sectionLinks.length) return;
+        // Scroll spy — only on homepage
+        var hasTargets = document.getElementById('publications') || document.getElementById('software');
+        if (!sectionLinks.length || !hasTargets) return;
         var sectionIds = ['publications', 'software'];
         var offset = 200;
 
@@ -180,16 +181,17 @@
         }
 
         function onScroll() {
-            var scrollY = window.scrollY || window.pageYOffset;
+            // If scrolled to bottom, activate the last section
+            var atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50);
+            if (atBottom) {
+                setActive(sectionIds[sectionIds.length - 1]);
+                return;
+            }
             var active = 'top';
             for (var i = 0; i < sectionIds.length; i++) {
                 var el = document.getElementById(sectionIds[i]);
-                if (el) {
-                    // Account for zoom: 0.8
-                    var top = el.getBoundingClientRect().top + window.scrollY;
-                    if (scrollY >= top - offset) {
-                        active = sectionIds[i];
-                    }
+                if (el && el.getBoundingClientRect().top < offset) {
+                    active = sectionIds[i];
                 }
             }
             setActive(active);
