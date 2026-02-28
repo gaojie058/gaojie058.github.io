@@ -151,6 +151,17 @@
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/google_scholar_citation_count.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/read_more.js' | relative_url }}"></script>
+    <!-- Mobile: close sidebar on link click -->
+    <script>
+    document.querySelectorAll('.sidenav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+            var sidebar = document.querySelector('.sidenav-sidebar');
+            if (sidebar && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+    });
+    </script>
     <!-- Scroll spy for sidenav active state -->
     <script>
     (function() {
