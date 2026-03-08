@@ -1115,8 +1115,8 @@ img.lazy, div.lazy {
 }
 
 .sidenav-avatar {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 0.8rem;
@@ -1131,14 +1131,14 @@ img.lazy, div.lazy {
 
 .sidenav-name {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 0.3rem;
 }
 
 .sidenav-funfact {
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     color: #888;
     font-style: italic;
     line-height: 1.5;
@@ -1146,7 +1146,7 @@ img.lazy, div.lazy {
 }
 
 .sidenav-title {
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     color: #555;
     line-height: 1.5;
 }
@@ -1201,7 +1201,7 @@ img.lazy, div.lazy {
 
 .sidenav-social a {
     color: var(--color-muted);
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     transition: all 0.2s ease;
 }
 
@@ -1219,7 +1219,7 @@ img.lazy, div.lazy {
 
 .sidenav-email a {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.82rem;
     color: #888;
 }
 
