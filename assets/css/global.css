@@ -151,7 +151,7 @@ hr {
     border-radius: 0.75rem;
     overflow: hidden;
     margin-bottom: 1rem;
-    max-width: 220px;
+    max-width: 240px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -164,7 +164,7 @@ hr {
 
 .profile-name-serif {
     font-family: var(--font-heading);
-    font-size: 1.85rem;
+    font-size: 2.1rem;
     font-weight: 600;
     color: var(--color-text);
 }
@@ -178,7 +178,7 @@ hr {
 }
 
 .name-fun-fact {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--color-muted);
     font-style: italic;
     margin: 0.3rem 0 0 0;
@@ -187,7 +187,7 @@ hr {
 
 .text-profile-position,
 .text-profile-bio {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--color-muted);
 }
 
