@@ -88,11 +88,6 @@
             <!-- Spacer to push bottom content down -->
             <div class="sidenav-spacer" style="flex:1 1 auto; min-height:1rem;"></div>
 
-            <!-- Travels (compact) -->
-            <div class="sidenav-travels">
-                {% include widgets/travels_card.html %}
-            </div>
-
             <!-- Updates (compact) -->
             <div class="sidenav-updates">
                 {% if site.data.display.homepage.show_news %}
@@ -101,6 +96,11 @@
                 {% include widgets/news_card.html limit=3 %}
                 {% endif %}
                 {% endif %}
+            </div>
+
+            <!-- Travels (compact) -->
+            <div class="sidenav-travels">
+                {% include widgets/travels_card.html %}
             </div>
         </div>
     </aside>
