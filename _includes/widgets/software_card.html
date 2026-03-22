@@ -13,7 +13,11 @@
 <div class="pub-item">
     <div class="d-none d-md-flex pub-item-row">
         <div class="pub-item-cover">
-            {% if item.cover %}
+            {% if item.icon %}
+            <div class="sw-icon-box" style="background: {{ item.icon_color | default: '#b87333' }}15; border: 1px solid {{ item.icon_color | default: '#b87333' }}25;">
+                <i class="{{ item.icon }}" style="color: {{ item.icon_color | default: '#b87333' }};"></i>
+            </div>
+            {% elsif item.cover %}
             <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="pub-cover-img" style="object-fit: cover;">
             {% else %}
             <div class="pub-cover-img" style="padding-top: 66%; background: linear-gradient(135deg, #f5f0eb, #e8ddd4); position: relative;">

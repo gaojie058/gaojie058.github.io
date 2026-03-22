@@ -7,7 +7,8 @@ category: qualitative-analysis
 description: "An AI-powered platform for flexible qualitative data analysis. Supports open coding, sub-theme grouping, and theme generation with human-AI collaboration."
 badge: "↗ mindcoder.ai"
 badge_url: "https://mindcoder.ai"
-cover: /assets/images/software/mindcoder.png
+icon: "fas fa-brain"
+icon_color: "#9B59B6"
 links:
   Website: https://mindcoder.ai/
   Paper: https://arxiv.org/abs/2501.00775

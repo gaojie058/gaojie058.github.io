@@ -1507,3 +1507,28 @@ html {
     from { background-position: 100% 0; }
     to { background-position: 0 0; }
 }
+
+/* ===== Software Icon Box ===== */
+.sw-icon-box {
+    width: 140px;
+    height: 93px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sw-icon-box i {
+    font-size: 2.2rem;
+    transition: transform 0.2s;
+}
+
+.sw-icon-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.sw-icon-box:hover i {
+    transform: scale(1.1);
+}
