@@ -28,19 +28,10 @@ container_class: container-fluid
         </h5>
         <p style="font-size: 0.82rem; color: #888; margin-bottom: 0.75rem;">I love building software that helps people solve real problems. I value reproducibility and open source.</p>
 
-        <div class="pub-filters" id="sw-filters">
-            <div class="pub-filter-row">
-                <span class="pub-filter-label">Topic</span>
-                <button class="sw-filter-btn pub-filter-btn active" data-filter="all">All</button>
-                <button class="sw-filter-btn pub-filter-btn" data-filter="qualitative-analysis">Qualitative Analysis</button>
-                <button class="sw-filter-btn pub-filter-btn" data-filter="codebase-understanding">Code Understanding</button>
-            </div>
-        </div>
-
         <div id="sw-filter-list">
             {% assign all_software = site.software | sort: "order" %}
             {% for item in all_software %}
-            <div class="sw-filter-item" data-category="{{ item.category }}">
+            <div class="sw-filter-item">
                 {% include widgets/software_card.html item=item %}
             </div>
             {% endfor %}
@@ -48,6 +39,7 @@ container_class: container-fluid
 
         <script>
         document.addEventListener('DOMContentLoaded', function() {
+            /* filter removed — kept script block for future use */
             var swFilters = document.querySelectorAll('.sw-filter-btn');
             var swItems = document.querySelectorAll('.sw-filter-item');
             swFilters.forEach(function(btn) {

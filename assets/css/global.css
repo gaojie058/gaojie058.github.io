@@ -1508,27 +1508,26 @@ html {
     to { background-position: 0 0; }
 }
 
-/* ===== Software Icon Box ===== */
-.sw-icon-box {
-    width: 140px;
-    height: 93px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+/* ===== Software Compact Layout ===== */
+#sw-filter-list .pub-item {
+    padding: 0.4rem 0.5rem;
 }
 
-.sw-icon-box i {
-    font-size: 2.2rem;
-    transition: transform 0.2s;
+#sw-filter-list .pub-title {
+    font-size: 0.88rem;
+    margin-bottom: 0.1rem;
 }
 
-.sw-icon-box:hover {
-    transform: scale(1.03);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+#sw-filter-list .pub-authors {
+    font-size: 0.75rem;
+    margin-bottom: 0.05rem;
+    line-height: 1.5;
 }
 
-.sw-icon-box:hover i {
-    transform: scale(1.1);
+#sw-filter-list .pub-venue {
+    margin-bottom: 0.1rem;
+}
+
+#sw-filter-list .pub-links {
+    margin-top: 0.1rem;
 }
