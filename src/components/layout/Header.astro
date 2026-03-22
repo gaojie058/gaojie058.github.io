@@ -2,13 +2,13 @@
 import { menuLinks } from '@/site-config'
 ---
 
-<header class='mb-12 flex w-full flex-wrap pb-3 text-sm sm:flex-nowrap sm:justify-start'>
+<header class='mb-10 flex w-full flex-wrap border-b border-border pb-5 text-sm sm:flex-nowrap sm:justify-start'>
 	<nav class='relative mx-auto flex w-full items-center justify-between' aria-label='global'>
-		<a class='flex-none text-xl font-semibold' href='/' aria-label='Home'>Sophia Gao</a>
+		<a class='flex-none text-xl font-bold tracking-tight text-foreground' href='/' aria-label='Home'>Sophia Gao</a>
 
-		<div class='flex flex-row items-center justify-center gap-x-5 sm:gap-x-7'>
+		<div class='flex flex-row items-center justify-center gap-x-3 sm:gap-x-8'>
 			{menuLinks.slice(1).map(link => (
-				<a href={link.path} class='flex-none text-[1.05rem] font-medium hover:text-foreground/75'>
+				<a href={link.path} class='text-sm font-medium text-muted-foreground transition-colors hover:text-foreground'>
 					{link.title}
 				</a>
 			))}

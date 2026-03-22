@@ -3,22 +3,22 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: 'Satoshi';
-	src: url('/fonts/Satoshi-Variable.ttf');
+	font-family: 'Mulish';
+	src: url('/fonts/Mulish-Variable.ttf');
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Satoshi';
-	src: url('/fonts/Satoshi-VariableItalic.ttf');
+	font-family: 'Mulish';
+	src: url('/fonts/Mulish-VariableItalic.ttf');
 	font-style: italic;
 	font-display: swap;
 }
 
 @layer base {
 	:root {
-		--background: 210 33% 99%;
+		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
 		--primary: 240 5.9% 10%;
 		--primary-foreground: 0 0% 98%;

@@ -32,8 +32,8 @@ const config = {
 				},
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans],
-				satoshi: ['Satoshi', 'sans-serif'],
+				sans: ['Mulish', ...fontFamily.sans],
+				mulish: ['Mulish', 'sans-serif'],
 			}
 		}
 	}
