@@ -1,0 +1,45 @@
+---
+import { cn } from '@/utils'
+
+interface Props {
+	as?: string
+	class?: string
+	href?: string
+	heading: string
+	subheading?: string
+	date?: string
+	imagePath?: string
+	altText?: string
+	imageClass?: string
+}
+
+const { as: Tag = 'div', class: className, href, heading, subheading, date, imagePath, altText, imageClass } = Astro.props
+---
+
+<Fragment>
+	{Tag === 'a' ? (
+		<a class={cn(className, 'relative rounded-2xl border border-border bg-primary-foreground px-5 py-3 transition-all hover:border-foreground/25 hover:shadow-sm')} href={href}>
+			{imagePath && <img src={imagePath} alt={altText || ''} class={cn('mb-3 md:absolute md:mb-0', imageClass)} loading='eager' />}
+			<div class='flex flex-col gap-y-1.5'>
+				<div class='flex flex-col gap-y-0.5'>
+					<h3 class='text-lg font-medium'>{heading}</h3>
+					{subheading && <p class='text-muted-foreground'>{subheading}</p>}
+					{date && <p class='text-muted-foreground'>{date}</p>}
+				</div>
+				<slot />
+			</div>
+		</a>
+	) : (
+		<div class={cn(className, 'relative rounded-2xl border border-border bg-primary-foreground px-5 py-3')}>
+			{imagePath && <img src={imagePath} alt={altText || ''} class={cn('mb-3 md:absolute md:mb-0', imageClass)} loading='eager' />}
+			<div class='flex flex-col gap-y-1.5'>
+				<div class='flex flex-col gap-y-0.5'>
+					<h3 class='text-lg font-medium'>{heading}</h3>
+					{subheading && <p class='text-muted-foreground'>{subheading}</p>}
+					{date && <p class='text-muted-foreground'>{date}</p>}
+				</div>
+				<slot />
+			</div>
+		</div>
+	)}
+</Fragment>

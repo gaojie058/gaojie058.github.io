@@ -1,0 +1,267 @@
+---
+import PageLayout from '../layouts/BaseLayout.astro'
+import Section from '../components/Section.astro'
+import Card from '../components/Card.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import Label from '../components/Label.astro'
+import SkillLayout from '../components/SkillLayout.astro'
+import PublicationItem from '../components/PublicationItem.astro'
+import { profileConfig } from '@/site-config'
+import { getCollection } from 'astro:content'
+
+// Fetch collections
+const allPubs = (await getCollection('publication')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const allNews = (await getCollection('news')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const allSoftware = (await getCollection('software')).sort((a, b) => a.data.order - b.data.order)
+
+// Group publications by year
+const pubsByYear = new Map<number, typeof allPubs>()
+for (const pub of allPubs) {
+	// Use pub_date string to extract display year, or fall back to date
+	const yearMatch = pub.data.pub_date?.match(/\((\d{4})\)/) || pub.data.pub_date?.match(/(\d{4})/)
+	const year = yearMatch ? parseInt(yearMatch[1]) : pub.data.date.getFullYear()
+	if (!pubsByYear.has(year)) pubsByYear.set(year, [])
+	pubsByYear.get(year)!.push(pub)
+}
+const sortedYears = [...pubsByYear.keys()].sort((a, b) => b - a)
+
+// Get unique topics for filter
+const topics = [...new Set(allPubs.map(p => p.data.topic))].filter(t => t !== 'other')
+
+const topicLabels: Record<string, string> = {
+	qual: 'Qualitative Analysis',
+	code: 'Code Understanding',
+	oversight: 'Human Oversight',
+	society: 'Society & HCI',
+	other: 'Other',
+}
+
+const researchAreas = ['Human-AI Collaboration', 'Qualitative Analysis', 'Code Comprehension', 'LLM Evaluation']
+const methods = ['User Studies', 'System Design', 'Mixed Methods', 'Thematic Analysis']
+const tools = ['Python', 'React', 'TypeScript', 'LLM APIs', 'Figma']
+---
+
+<PageLayout meta={{ title: 'Home' }}>
+	<div class='flex w-full flex-col gap-y-10'>
+		<!-- Profile Hero -->
+		<section class='flex flex-col items-center gap-y-7'>
+			<img
+				src={profileConfig.portrait}
+				alt='Jie (Sophia) Gao'
+				class='h-28 w-28 rounded-full object-cover shadow-md'
+				loading='eager'
+			/>
+			<div class='flex flex-col items-center gap-y-4'>
+				<h1 class='text-3xl font-bold'>{profileConfig.name}</h1>
+				<a
+					href='mailto:jgao77@jh.edu'
+					class='flex flex-row items-center gap-x-3 rounded-3xl border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
+				>
+					<span class='relative flex items-center justify-center'>
+						<span class='absolute inline-flex h-2 w-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'></span>
+						<span class='relative inline-flex h-2 w-2 rounded-full bg-green-400'></span>
+					</span>
+					<p class='font-medium'>On the faculty job market!</p>
+				</a>
+				<div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
+					<Label title={profileConfig.title}>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'>
+							<path fill='currentColor' d='M4.615 20q-.69 0-1.152-.462Q3 19.075 3 18.385v-9.77q0-.69.463-1.152Q3.925 7 4.615 7H9V5.615q0-.69.463-1.152Q9.925 4 10.615 4h2.77q.69 0 1.153.463q.462.462.462 1.152V7h4.385q.69 0 1.152.463q.463.462.463 1.152v9.77q0 .69-.462 1.152q-.463.463-1.153.463zm0-1h14.77q.23 0 .423-.192q.192-.193.192-.423v-9.77q0-.23-.192-.423Q19.615 8 19.385 8H4.615q-.23 0-.423.192Q4 8.385 4 8.615v9.77q0 .23.192.423q.193.192.423.192M10 7h4V5.615q0-.23-.192-.423Q13.615 5 13.385 5h-2.77q-.23 0-.423.192q-.192.193-.192.423zM4 19V8z'/>
+						</svg>
+					</Label>
+					<Label title={profileConfig.institution}>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'>
+							<path fill='currentColor' d='M12.003 11.73q.668 0 1.14-.475q.472-.475.472-1.143t-.475-1.14q-.476-.472-1.143-.472t-1.14.476q-.472.475-.472 1.143t.475 1.14q.476.472 1.143.472M12 19.677q2.82-2.454 4.458-4.991q1.638-2.538 1.638-4.39q0-2.744-1.737-4.53T12 3.981q-2.621 0-4.359 1.785t-1.737 4.53q0 1.852 1.638 4.39q1.639 2.537 4.458 4.99m0 1.343q-3.525-3.117-5.31-5.814q-1.786-2.697-1.786-4.909q0-3.173 2.066-5.234Q9.037 3 12 3t5.03 2.062q2.066 2.061 2.066 5.234q0 2.212-1.785 4.909q-1.786 2.697-5.311 5.814m0-10.904'/>
+						</svg>
+					</Label>
+					<Label title='Google Scholar' as='a' href={profileConfig.social.scholar} target='_blank'>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'>
+							<path fill='currentColor' d='M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14z'/>
+						</svg>
+					</Label>
+					<Label title='LinkedIn' as='a' href={profileConfig.social.linkedin} target='_blank'>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' class='h-5 w-5 text-foreground/75' slot='icon'>
+							<path fill='currentColor' d='M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248c-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586c.173-.431.568-.878 1.232-.878c.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252c-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z'/>
+						</svg>
+					</Label>
+					<Label title='CV' as='a' href={profileConfig.cvLink} target='_blank'>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'>
+							<path fill='currentColor' d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z'/>
+						</svg>
+					</Label>
+				</div>
+			</div>
+		</section>
+
+		<!-- About -->
+		<Section title='About'>
+			<div class='space-y-4 text-muted-foreground'>
+				<p>
+					I am a <a href='https://malonecenter.jhu.edu/people/jie-gao/' target='_blank' class='text-foreground underline underline-offset-2 hover:text-foreground/80'>Malone Postdoc Fellow</a> in the <a href='https://www.cs.jhu.edu/' target='_blank' class='text-foreground underline underline-offset-2 hover:text-foreground/80'>Department of Computer Science</a> at <a href='https://www.jhu.edu/' target='_blank' class='text-foreground underline underline-offset-2 hover:text-foreground/80'>Johns Hopkins University</a>, affiliated with the <a href='https://malonecenter.jhu.edu/' target='_blank' class='text-foreground underline underline-offset-2 hover:text-foreground/80'>Malone Center for Engineering in Healthcare</a> and the <a href='https://www.clsp.jhu.edu/' target='_blank' class='text-foreground underline underline-offset-2 hover:text-foreground/80'>Center for Language and Speech Processing</a>. I am mentored by <a href='https://www.cs.jhu.edu/~mdredze/' target='_blank' class='text-foreground underline underline-offset-2'>Mark Dredze</a>, <a href='https://www.ziangxiao.com/' target='_blank' class='text-foreground underline underline-offset-2'>Ziang Xiao</a>, and <a href='https://www.cs.jhu.edu/~cmhuang/' target='_blank' class='text-foreground underline underline-offset-2'>Chien-Ming Huang</a>. My research lies at the intersection of <strong>Human-Computer Interaction</strong>, <strong>AI</strong>, and <strong>Software Engineering</strong>.
+				</p>
+
+				<div class='rounded-xl border border-border bg-accent/50 p-4 text-center italic text-foreground'>
+					When there's <mark class='rounded bg-yellow-200 px-1 dark:bg-yellow-800'>no clear right answer</mark>, how can <mark class='rounded bg-yellow-200 px-1 dark:bg-yellow-800'>humans and AI collaborate</mark>?
+				</div>
+
+				<p>
+					I design, build, and evaluate human-AI collaborative systems for tasks requiring intensive human judgment, especially where no or little ground truth exists (e.g., qualitative analysis, code comprehension, code review and auditing, subjective data annotation). I use tools to bring my design ideas to life. My latest tool is <a href='https://mindcoder.ai' target='_blank' class='text-foreground underline underline-offset-2'>mindcoder.ai</a>.
+				</p>
+
+				<div class='grid gap-4 sm:grid-cols-2'>
+					<div class='rounded-xl border border-border p-4'>
+						<h4 class='mb-2 font-semibold text-foreground'>Bring AI to Humans</h4>
+						<p class='text-sm'>Integrating AI into human workflows to help people perform subjective tasks more effectively and confidently.</p>
+						<div class='mt-3 flex flex-wrap gap-1.5'>
+							<span class='rounded-full bg-accent px-2 py-0.5 text-xs'>AI-Assisted Qualitative Analysis</span>
+							<span class='rounded-full bg-accent px-2 py-0.5 text-xs'>Codebase Understanding</span>
+							<span class='rounded-full bg-accent px-2 py-0.5 text-xs'>Developer Experience</span>
+						</div>
+					</div>
+					<div class='rounded-xl border border-border p-4'>
+						<h4 class='mb-2 font-semibold text-foreground'>Bring Humans to AI</h4>
+						<p class='text-sm'>Bringing humans to AI to ensure better supervision and evaluation of increasingly autonomous AI systems.</p>
+						<div class='mt-3 flex flex-wrap gap-1.5'>
+							<span class='rounded-full bg-accent px-2 py-0.5 text-xs'>AI Agent</span>
+							<span class='rounded-full bg-accent px-2 py-0.5 text-xs'>Responsible AI</span>
+							<span class='rounded-full bg-accent px-2 py-0.5 text-xs'>Human Intervention</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Section>
+
+		<!-- Updates / News -->
+		<Section title='Updates' id='news'>
+			<div class='flex flex-col gap-y-1'>
+				{allNews.slice(0, 5).map(item => (
+					<div class='flex flex-col gap-x-3 border-b border-border/50 py-2 text-sm sm:flex-row'>
+						<span class='shrink-0 text-muted-foreground sm:w-28'>
+							{item.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+						</span>
+						<span set:html={item.data.title} />
+					</div>
+				))}
+				{allNews.length > 5 && (
+					<details class='mt-2'>
+						<summary class='cursor-pointer text-sm font-medium text-muted-foreground hover:text-foreground'>Show all {allNews.length} updates...</summary>
+						<div class='mt-2 flex flex-col gap-y-1'>
+							{allNews.slice(5).map(item => (
+								<div class='flex flex-col gap-x-3 border-b border-border/50 py-2 text-sm sm:flex-row'>
+									<span class='shrink-0 text-muted-foreground sm:w-28'>
+										{item.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+									</span>
+									<span set:html={item.data.title} />
+								</div>
+							))}
+						</div>
+					</details>
+				)}
+			</div>
+		</Section>
+
+		<!-- Publications -->
+		<Section title='Publications' id='publications'>
+			<div class='flex flex-col gap-y-4'>
+				<!-- Topic filters -->
+				<div class='flex flex-wrap gap-2' id='pub-filters'>
+					<button class='pub-filter-btn rounded-full border border-border px-3 py-1 text-xs font-medium transition-colors hover:bg-accent active' data-filter='all'>All</button>
+					{topics.map(topic => (
+						<button class='pub-filter-btn rounded-full border border-border px-3 py-1 text-xs font-medium transition-colors hover:bg-accent' data-filter={topic}>
+							{topicLabels[topic] || topic}
+						</button>
+					))}
+				</div>
+
+				<!-- Publication list by year -->
+				{sortedYears.map(year => (
+					<div class='pub-year-group'>
+						<h3 class='mb-3 text-lg font-semibold text-foreground/70'>{year}</h3>
+						<div class='flex flex-col gap-y-3'>
+							{pubsByYear.get(year)!.map(pub => (
+								<div class='pub-item' data-topic={pub.data.topic}>
+									<PublicationItem
+										title={pub.data.title}
+										authors={pub.data.authors}
+										venue={pub.data.pub}
+										links={pub.data.links}
+										selected={pub.data.selected}
+										coverImage={pub.data.cover}
+									/>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</Section>
+
+		<!-- Software -->
+		<Section title='Software' id='software'>
+			<div class='flex flex-col gap-y-3 sm:flex-row sm:flex-wrap sm:gap-3'>
+				{allSoftware.map(sw => (
+					<ProjectCard
+						href={sw.data.links?.Website}
+						heading={sw.data.title}
+						subheading={sw.data.description}
+						imagePath={sw.data.cover}
+						altText={sw.data.title}
+						links={sw.data.links}
+						class='w-full sm:w-[calc(50%-0.375rem)]'
+					/>
+				))}
+			</div>
+		</Section>
+
+		<!-- Skills -->
+		<Section title='Skills'>
+			<SkillLayout title='Research' skills={researchAreas} />
+			<SkillLayout title='Methods' skills={methods} />
+			<SkillLayout title='Tools' skills={tools} />
+		</Section>
+	</div>
+</PageLayout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const filterBtns = document.querySelectorAll('.pub-filter-btn')
+		const pubItems = document.querySelectorAll('.pub-item')
+		const yearGroups = document.querySelectorAll('.pub-year-group')
+
+		filterBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				filterBtns.forEach(b => b.classList.remove('active', 'bg-accent'))
+				btn.classList.add('active', 'bg-accent')
+				const filter = btn.getAttribute('data-filter')
+
+				pubItems.forEach(item => {
+					const el = item as HTMLElement
+					if (filter === 'all' || el.dataset.topic === filter) {
+						el.style.display = ''
+					} else {
+						el.style.display = 'none'
+					}
+				})
+
+				// Hide year groups with no visible items
+				yearGroups.forEach(group => {
+					const visible = group.querySelectorAll('.pub-item:not([style*="display: none"])')
+					;(group as HTMLElement).style.display = visible.length > 0 ? '' : 'none'
+				})
+			})
+		})
+
+		// Set initial active state
+		const firstBtn = document.querySelector('.pub-filter-btn')
+		firstBtn?.classList.add('bg-accent')
+	})
+</script>
+
+<style>
+	a {
+		@apply transition-colors;
+	}
+	mark {
+		@apply text-foreground;
+	}
+</style>

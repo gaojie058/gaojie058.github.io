@@ -1,0 +1,26 @@
+---
+import { cn } from '@/utils'
+
+interface Props {
+	title: string
+	as?: string
+	href?: string
+	target?: string
+	class?: string
+}
+
+const { title, as: Tag = 'span', href, target, class: className } = Astro.props
+const Component = href ? 'a' : Tag
+---
+
+{href ? (
+	<a href={href} target={target} class={cn('flex items-center gap-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors', className)}>
+		<slot name='icon' />
+		<span>{title}</span>
+	</a>
+) : (
+	<span class={cn('flex items-center gap-x-2 text-sm text-muted-foreground', className)}>
+		<slot name='icon' />
+		<span>{title}</span>
+	</span>
+)}

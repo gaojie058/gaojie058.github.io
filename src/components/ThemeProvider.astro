@@ -1,0 +1,28 @@
+---
+
+---
+
+<script is:inline>
+	function getThemePreference() {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme')
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+	}
+
+	function updateTheme(theme) {
+		const d = document.documentElement
+		const isDark = theme === 'dark'
+		d.classList[isDark ? 'add' : 'remove']('dark')
+	}
+
+	updateTheme(getThemePreference())
+
+	document.addEventListener('theme-change', (e) => {
+		const newTheme = e.detail.theme
+		localStorage.setItem('theme', newTheme)
+		updateTheme(newTheme)
+	})
+
+	document.addEventListener('astro:after-swap', () => updateTheme(getThemePreference()))
+</script>

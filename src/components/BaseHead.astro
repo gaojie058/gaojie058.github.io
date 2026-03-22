@@ -1,0 +1,45 @@
+---
+import { siteConfig } from '@/site-config'
+import '../styles/app.css'
+
+interface Props {
+	title: string
+	description?: string
+	ogImage?: string
+	articleDate?: string
+}
+
+const { title, description = siteConfig.description, ogImage, articleDate } = Astro.props
+const titleSeparator = '•'
+const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0, shrink-to-fit=no' />
+<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+
+<!-- Favicon -->
+<link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+
+<!-- Fonts -->
+<link rel='preload' href='/fonts/Satoshi-Variable.ttf' as='font' type='font/ttf' crossorigin />
+
+<!-- Canonical -->
+<link rel='canonical' href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{siteTitle}</title>
+<meta name='title' content={siteTitle} />
+<meta name='description' content={description} />
+<meta name='author' content={siteConfig.author} />
+
+<!-- Open Graph -->
+<meta property='og:type' content={articleDate ? 'article' : 'website'} />
+<meta property='og:url' content={canonicalURL} />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+{ogImage && <meta property='og:image' content={ogImage} />}
+
+<!-- Sitemap -->
+<link rel='sitemap' href='/sitemap-index.xml' />

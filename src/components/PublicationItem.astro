@@ -1,0 +1,49 @@
+---
+interface Props {
+	title: string
+	authors: string[]
+	venue: string
+	year?: string
+	links?: Record<string, string>
+	selected?: boolean
+	coverImage?: string
+}
+
+const { title, authors, venue, links, selected, coverImage } = Astro.props
+
+function formatAuthors(authors: string[]) {
+	return authors.map(a => {
+		const clean = a.replace(/[*#]/g, '')
+		if (clean.startsWith('Jie Gao')) return `<strong>${a}</strong>`
+		return a
+	}).join(', ')
+}
+---
+
+<div class='rounded-2xl border border-border bg-primary-foreground p-4 transition-all hover:border-foreground/25 hover:shadow-sm'>
+	<div class='flex gap-4'>
+		{coverImage && (
+			<div class='hidden shrink-0 sm:block'>
+				<img src={coverImage} alt={title} class='h-24 w-24 rounded-lg object-cover' loading='lazy' />
+			</div>
+		)}
+		<div class='flex flex-col gap-y-1'>
+			<h3 class='font-medium leading-snug'>{title}</h3>
+			<p class='text-sm text-muted-foreground' set:html={formatAuthors(authors)} />
+			<p class='text-sm'>
+				<span class='font-medium text-foreground/80'>{venue}</span>
+				{selected && <span class='ml-2 inline-flex items-center rounded-full bg-accent px-2 py-0.5 text-xs font-medium text-accent-foreground'>Selected</span>}
+			</p>
+			{links && Object.keys(links).length > 0 && (
+				<div class='mt-1 flex flex-wrap gap-2'>
+					{Object.entries(links).map(([label, url]) => (
+						<a href={url} target='_blank' rel='noopener noreferrer' class='inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-0.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground'>
+							{label === 'Paper' && <svg class='h-3 w-3' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'/></svg>}
+							{label}
+						</a>
+					))}
+				</div>
+			)}
+		</div>
+	</div>
+</div>

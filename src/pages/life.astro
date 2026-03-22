@@ -1,0 +1,56 @@
+---
+import PageLayout from '../layouts/BaseLayout.astro'
+import Section from '../components/Section.astro'
+import Card from '../components/Card.astro'
+---
+
+<PageLayout meta={{ title: 'About' }}>
+	<div class='flex w-full flex-col gap-y-10'>
+		<Section title='About Me'>
+			<div class='space-y-4 text-muted-foreground'>
+				<p>
+					Welcome to my life page! I created this page to share my interests outside of work. I experience most things with curiosity and fun.
+				</p>
+			</div>
+		</Section>
+
+		<Section title='Education'>
+			<div class='flex flex-col gap-y-3'>
+				<Card heading='Johns Hopkins University' subheading='Malone Postdoctoral Fellow, Computer Science' date='2025 - Present' />
+				<Card heading='Singapore-MIT Alliance for Research and Technology' subheading='Postdoctoral Associate' date='2024 - 2025' />
+				<Card heading='Singapore University of Technology and Design' subheading='Ph.D., Information Systems Technology and Design' date='2019 - 2024' />
+				<Card heading='Zhejiang University' subheading='M.Eng.' />
+				<Card heading='Shanghai University' subheading='B.Eng.' />
+			</div>
+		</Section>
+
+		<Section title='Fun Facts'>
+			<div class='space-y-3 text-muted-foreground'>
+				<p>
+					<s>I love running.</s> No, I lied. I really think running is the most boring activity. I love <strong>walking in nature</strong>, even <strong>watching TV at home, swimming, playing squash, and hiking</strong> are much more interesting than running.
+				</p>
+				<p>
+					<s>I hate writing.</s> No, I lied. I've <strong>kept a diary from high school until today (over 10 years)</strong>. I write these experiences to help me remember what I was thinking as a child, a teenager, and a young adult. And I'm very happy to say that nothing has really changed since I was 13 years old, except that I'm more mature now.
+				</p>
+			</div>
+		</Section>
+
+		<Section title='Cats'>
+			<div class='grid grid-cols-2 gap-4'>
+				<div class='overflow-hidden rounded-xl'>
+					<img src='/images/etc/cat1.jpg' alt='Cat 1' class='h-auto w-full rounded-xl object-cover transition-transform hover:scale-105' loading='lazy' />
+					<p class='mt-2 text-sm text-muted-foreground'>Meow! I am a <strong>brave</strong> cat.</p>
+				</div>
+				<div class='overflow-hidden rounded-xl'>
+					<img src='/images/etc/cat2.jpg' alt='Cat 2' class='h-auto w-full rounded-xl object-cover transition-transform hover:scale-105' loading='lazy' />
+				</div>
+				<div class='overflow-hidden rounded-xl'>
+					<img src='/images/etc/cat3.jpg' alt='Cat 3' class='h-auto w-full rounded-xl object-cover transition-transform hover:scale-105' loading='lazy' />
+				</div>
+				<div class='overflow-hidden rounded-xl'>
+					<img src='/images/etc/cat4.jpg' alt='Cat 4' class='h-auto w-full rounded-xl object-cover transition-transform hover:scale-105' loading='lazy' />
+				</div>
+			</div>
+		</Section>
+	</div>
+</PageLayout>
