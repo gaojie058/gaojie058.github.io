@@ -57,7 +57,7 @@
                     <a href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     {% endif %}
                     {% if site.data.profile.cv_link %}
-                    <a href="{{ site.data.profile.cv_link | relative_url }}" target="_blank" title="CV"><i class="fas fa-file-alt"></i></a>
+                    <a href="{{ site.baseurl }}{{ site.data.profile.cv_link }}" target="_blank" title="CV"><i class="fas fa-file-alt"></i></a>
                     {% endif %}
                 </div>
 
