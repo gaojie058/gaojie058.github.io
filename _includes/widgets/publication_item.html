@@ -90,6 +90,7 @@
                     {{ item.title }}
                 {% endif %}
                 {% if item.selected %}<span class="pub-badge pub-badge-featured">Featured</span>{% endif %}
+                {% if item.award %}<span class="pub-badge pub-badge-award">🏆 {{ item.award }}</span>{% endif %}
             </h6>
             <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
             {{ pub_venue_block }}
@@ -107,6 +108,7 @@
         </h6>
         <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
         {% if item.selected %}<span class="pub-badge pub-badge-featured" style="margin-bottom: 0.3rem; display: inline-block;">Featured</span>{% endif %}
+        {% if item.award %}<span class="pub-badge pub-badge-award" style="margin-bottom: 0.3rem; display: inline-block;">🏆 {{ item.award }}</span>{% endif %}
         {{ pub_venue_block }}
         {{ pub_links_block }}
     </div>

@@ -22,6 +22,7 @@
                 {% if item.badge %}
                 <a href="{{ item.badge_url }}" target="_blank" class="sw-badge">{{ item.badge }}</a>
                 {% endif %}
+                {% if item.award %}<span class="pub-badge pub-badge-award">🏆 {{ item.award }}</span>{% endif %}
             </h6>
             <p class="pub-authors">
                 {% if item.description and item.description != "" %}{{ item.description }}{% endif %}
@@ -72,6 +73,7 @@
             {% if item.badge %}
             <a href="{{ item.badge_url }}" target="_blank" class="sw-badge">{{ item.badge }}</a>
             {% endif %}
+            {% if item.award %}<span class="pub-badge pub-badge-award">🏆 {{ item.award }}</span>{% endif %}
         </h6>
         <p class="pub-authors">
             {% if item.description and item.description != "" %}{{ item.description }}{% endif %}
