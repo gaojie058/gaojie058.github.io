@@ -19,6 +19,7 @@
             <button class="pub-filter-btn" data-filter-type="venue" data-filter="hci">HCI</button>
             <button class="pub-filter-btn" data-filter-type="venue" data-filter="se">Software Engineering</button>
             <button class="pub-filter-btn" data-filter-type="venue" data-filter="ai">AI / NLP</button>
+            <button class="pub-filter-btn" data-filter-type="venue" data-filter="preprint">Preprint</button>
         </div>
     </div>
 
@@ -32,6 +33,8 @@
             {% assign venue_cat = "se" %}
         {% elsif pub_lower contains "emnlp" or pub_lower contains "acl" or pub_lower contains "nips" or pub_lower contains "icml" or pub_lower contains "iclr" or pub_lower contains "nlp" %}
             {% assign venue_cat = "ai" %}
+        {% elsif pub_lower contains "preprint" %}
+            {% assign venue_cat = "preprint" %}
         {% endif %}
         <div class="pub-filter-item" data-topic="{{ item.topic | default: 'other' }}" data-venue="{{ venue_cat }}" data-featured="{{ item.selected }}">
             {% include widgets/publication_item.html item=item first=false last=false %}
@@ -40,7 +43,7 @@
     <div id="pub-empty-msg" class="pub-empty-msg" style="display:none;">No publications found for this filter.</div>
     </div>
 
-    <div class="text-center mt-1" id="pub-show-more-wrap">
+    <div class="text-center mt-1" id="pub-show-more-wrap" style="display:none;">
         <button id="pub-show-more-btn" class="pub-show-more-btn">Show all publications <i class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 0.2rem;"></i></button>
     </div>
 </div>
@@ -49,8 +52,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     var activeTopic = 'all';
     var activeVenue = 'all';
-    var collapsed = true;
-    var defaultVisible = 3;
+    var collapsed = false;
+    var defaultVisible = 999;
     var items = document.querySelectorAll('.pub-filter-item');
     var showMoreWrap = document.getElementById('pub-show-more-wrap');
     var showMoreBtn = document.getElementById('pub-show-more-btn');

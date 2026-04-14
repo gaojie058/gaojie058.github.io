@@ -689,7 +689,7 @@ hr {
 }
 
 .pub-item-border {
-    border-bottom: 2px dashed #ececec;
+    border-bottom: none;
 }
 
 .pub-item-row {
@@ -1408,19 +1408,10 @@ img.lazy, div.lazy {
 /* ===== Elegant Section Headings ===== */
 .section-title-small {
     position: relative;
-    display: inline-block;
-    padding-bottom: 0.4rem;
-}
-
-.section-title-small::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 2rem;
-    height: 2px;
-    background: var(--color-accent);
-    border-radius: 1px;
+    display: block;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 1rem;
 }
 
 /* ===== Travels & News Section ===== */
@@ -1442,13 +1433,21 @@ img.lazy, div.lazy {
 
 /* ===== Fancy Publication Cards ===== */
 .pub-item {
-    padding: 1rem 0.5rem;
-    transition: background-color 0.2s ease;
-    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pub-filter-item + .pub-filter-item {
+    margin-top: 0.8rem;
 }
 
 .pub-item:hover {
-    background-color: rgba(184, 115, 51, 0.02);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* Filters */
