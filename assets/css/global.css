@@ -21,6 +21,7 @@
 /* ===== Global Scale ===== */
 html {
     zoom: 0.8;
+    background-color: #fff;
 }
 
 /* Fix 100vh under zoom */
@@ -38,7 +39,7 @@ body {
     font-weight: 400;
     line-height: 1.7;
     color: var(--color-text);
-    background-color: var(--color-bg);
+    background-color: #fff;
     padding-top: 4.5rem;
 }
 
@@ -573,18 +574,18 @@ hr {
 }
 
 .pub-filter-label {
-    font-size: 0.72rem;
+    font-size: 0.9rem;
     color: var(--color-muted);
     font-weight: 600;
-    min-width: 3rem;
+    min-width: 3.75rem;
 }
 
 .pub-filter-btn {
     background: none;
     border: 1px solid var(--color-border);
     border-radius: 20px;
-    padding: 0.15rem 0.55rem;
-    font-size: 0.68rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.82rem;
     font-family: var(--font-body);
     color: var(--color-muted);
     cursor: pointer;
@@ -1077,6 +1078,7 @@ img.lazy, div.lazy {
 /* Override body padding for sidenav layout */
 .sidenav-layout {
     padding-top: 0 !important;
+    background-color: #fff !important;
 }
 
 /* Wrapper to center sidebar + main */
@@ -1427,8 +1429,6 @@ img.lazy, div.lazy {
 #publications,
 #software {
     border-top: none;
-    padding-top: 2.5rem;
-    margin-top: 2.5rem !important;
 }
 
 /* ===== Fancy Publication Cards ===== */

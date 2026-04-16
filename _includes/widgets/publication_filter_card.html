@@ -1,8 +1,8 @@
 {% assign all_pubs = site.publications | sort: "date" | reverse %}
-<div id="publications" class="my-4 px-2 px-md-3">
-    <h5 class="section-title-small">
+<div id="publications" class="mb-4 px-2 px-md-3">
+    <h3 class="section-title-small" style="font-size:1.6rem; font-weight:700;">
         <i class="fas fa-book"></i> Publications
-    </h5>
+    </h3>
 
     <div class="pub-filters" id="pub-filters">
         <div class="pub-filter-row">
@@ -20,6 +20,11 @@
             <button class="pub-filter-btn" data-filter-type="venue" data-filter="se">Software Engineering</button>
             <button class="pub-filter-btn" data-filter-type="venue" data-filter="ai">AI / NLP</button>
             <button class="pub-filter-btn" data-filter-type="venue" data-filter="preprint">Preprint</button>
+        </div>
+        <div class="pub-filter-row">
+            <span class="pub-filter-label">Show</span>
+            <button class="pub-filter-btn active" data-filter-type="featured" data-filter="all">All</button>
+            <button class="pub-filter-btn" data-filter-type="featured" data-filter="selected">Selected</button>
         </div>
     </div>
 
@@ -52,6 +57,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var activeTopic = 'all';
     var activeVenue = 'all';
+    var activeFeatured = 'all';
     var collapsed = false;
     var defaultVisible = 999;
     var items = document.querySelectorAll('.pub-filter-item');
@@ -65,7 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
         items.forEach(function(item) {
             var matchTopic = activeTopic === 'all' || item.getAttribute('data-topic') === activeTopic;
             var matchVenue = activeVenue === 'all' || item.getAttribute('data-venue') === activeVenue;
-            if (matchTopic && matchVenue) {
+            var matchFeatured = activeFeatured === 'all' || item.getAttribute('data-featured') === 'true';
+            if (matchTopic && matchVenue && matchFeatured) {
                 totalVisible++;
                 visibleCount++;
                 if (collapsed && visibleCount > defaultVisible) {
@@ -105,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             btn.classList.add('active');
             if (type === 'topic') activeTopic = filter;
-            else activeVenue = filter;
+            else if (type === 'venue') activeVenue = filter;
+            else if (type === 'featured') activeFeatured = filter;
             collapsed = true;
             applyFilters();
         });

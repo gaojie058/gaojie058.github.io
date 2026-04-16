@@ -74,10 +74,13 @@
                 <a href="{{ '/' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'About Me' %}active{% endif %}" data-section="top">
                     <i class="fas fa-home"></i> Home
                 </a>
-                <a href="{{ '/#publications' | relative_url }}" class="sidenav-link" data-section="publications">
+                <a href="{{ '/publications' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'Publications' %}active{% endif %}">
                     <i class="fas fa-book"></i> Publications
                 </a>
-                <a href="{{ '/#software' | relative_url }}" class="sidenav-link" data-section="software">
+                <a href="{{ '/honors' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'Honors' %}active{% endif %}">
+                    <i class="fas fa-award"></i> Honors
+                </a>
+                <a href="{{ '/software' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'Software' %}active{% endif %}">
                     <i class="fas fa-code"></i> Software
                 </a>
                 <a href="{{ '/life' | relative_url }}" class="sidenav-link {% if page.navbar_title == 'About' %}active{% endif %}">
@@ -168,9 +171,9 @@
         });
 
         // Scroll spy — only on homepage
-        var hasTargets = document.getElementById('publications') || document.getElementById('software');
+        var hasTargets = false;
         if (!sectionLinks.length || !hasTargets) return;
-        var sectionIds = ['publications', 'software'];
+        var sectionIds = [];
         var offset = 200;
 
         function setActive(name) {

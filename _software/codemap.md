@@ -4,7 +4,7 @@ date: 2026-01-01
 order: 1
 category: codebase-understanding
 description: "A human-AI collaborative tool for code comprehension. Helps developers understand complex codebases through interactive visualization and AI-guided exploration."
-award: "Best Paper Award"
+award: "ACM SIGSOFT Distinguished Paper Award"
 icon: "fas fa-map-marked-alt"
 icon_color: "#4A90D9"
 links:
