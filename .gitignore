@@ -8,3 +8,7 @@ vendor/
 Gemfile.lock
 
 .DS_Store
+
+# Local Claude Code state and personal brainstorming notes
+.claude/
+brainstorming/

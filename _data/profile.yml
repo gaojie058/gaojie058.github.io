@@ -7,6 +7,11 @@ positions:
 - name: Johns Hopkins University
   logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
 
+affiliations:
+- DSAI
+- Malone Center for Engineering in Healthcare
+- CLSP
+
 
 email: "jgao77@jh.edu"
 cv_link: /assets/pdfs/CV_public.pdf

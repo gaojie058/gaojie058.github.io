@@ -1,27 +1,8 @@
 ---
-layout: sidenav
+layout: topnav
 title : Publications
 navbar_title: Publications
-container_class: container-xl
+wide: true
 ---
 
-<div class="mb-4 px-2 px-md-3">
-    <h3 class="section-title-small" style="font-size:1.6rem; font-weight:700;">
-        <i class="fas fa-graduation-cap"></i> PhD Thesis
-    </h3>
-    <div class="mt-3">
-        <div style="font-weight:600; font-size:1rem;"><a href="{{ '/assets/pdfs/Jie_Thesis.pdf' | relative_url }}" target="_blank">Tool Support for Human-AI Collaboration in Qualitative Data Analysis</a></div>
-        <div style="color:#666; font-size:0.9rem; margin-top:0.2rem;">Ph.D. Dissertation, Singapore University of Technology and Design, 2024</div>
-        <div style="color:#666; font-size:0.9rem; margin-top:0.4rem;">
-            <div style="font-weight:600; margin-bottom:0.15rem;">Thesis Examination Committee</div>
-            <div>Advisor: <a href="https://simonperrault.github.io/" target="_blank">Prof. Simon Perrault</a></div>
-            <div>TEC Chair: <a href="https://statnlp.com/people/luwei/" target="_blank">Prof. Lu Wei</a></div>
-            <div>Internal TEC Member: <a href="https://dorienherremans.com/" target="_blank">Dr. Dorien Herremans</a></div>
-            <div>Internal TEC Member: <a href="https://sites.google.com/site/limkwanhui/home" target="_blank">Dr. Lim Kwan Hui</a></div>
-        </div>
-    </div>
-</div>
-
-<div class="mt-5">
-    {% include widgets/publication_filter_card.html %}
-</div>
+{% include widgets/publication_filter_card.html %}

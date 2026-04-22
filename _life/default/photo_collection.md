@@ -2,8 +2,8 @@
 show: true
 width: 12
 date: 2021-09-12 00:01:00 +0800
-height: 500px
-group: Photo
+height: 640px
+group: Travel
 images:
 - src: ./assets/images/photos/japan_2025.jpg
   desc: Attending CHI in Japan, 2025.

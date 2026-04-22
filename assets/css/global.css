@@ -20,17 +20,7 @@
 
 /* ===== Global Scale ===== */
 html {
-    zoom: 0.8;
     background-color: #fff;
-}
-
-/* Fix 100vh under zoom */
-.sidenav-sidebar,
-.sidenav-wrapper {
-    min-height: calc(100vh / 0.8);
-}
-.sidenav-sidebar {
-    height: calc(100vh / 0.8);
 }
 
 /* ===== Base ===== */
@@ -792,10 +782,17 @@ hr {
 }
 
 .pub-badge-award {
-    background: #fff3e0;
-    color: #e65100;
+    background: linear-gradient(135deg, #ffb347 0%, #ff7a00 100%);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
     vertical-align: middle;
-    margin-left: 0.3rem;
+    margin-left: 0.4rem;
+    box-shadow: 0 1px 6px rgba(230, 81, 0, 0.28);
+    white-space: nowrap;
 }
 
 .pub-meta-text {
@@ -1433,12 +1430,35 @@ img.lazy, div.lazy {
 
 /* ===== Fancy Publication Cards ===== */
 .pub-item {
+    position: relative;
     padding: 1rem 1.2rem;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pub-selected-corner {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.8rem;
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    box-shadow: 0 1px 6px rgba(46, 125, 50, 0.28);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Reserve space for the corner pill so the title text doesn't run under it */
+.pub-item-selected .pub-title {
+    padding-right: 5rem;
 }
 
 .pub-filter-item + .pub-filter-item {
