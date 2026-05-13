@@ -1,5 +1,5 @@
 {% assign all_pubs = site.publications | sort: "date" | reverse %}
-<div id="publications" class="mb-4 px-2 px-md-3">
+<div id="publications" class="mb-4">
     <div class="pub-filters" id="pub-filters">
         <div class="pub-filter-row">
             <span class="pub-filter-label">Topic</span>
@@ -66,7 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var totalVisible = 0;
         items.forEach(function(item) {
             var matchTopic = activeTopic === 'all' || item.getAttribute('data-topic') === activeTopic;
-            var matchVenue = activeVenue === 'all' || item.getAttribute('data-venue') === activeVenue;
+            var itemVenue = item.getAttribute('data-venue');
+            var matchVenue;
+            if (activeVenue === 'preprint') {
+                matchVenue = itemVenue === 'preprint';
+            } else if (activeVenue === 'all') {
+                matchVenue = itemVenue !== 'preprint';
+            } else {
+                matchVenue = itemVenue === activeVenue;
+            }
             var matchFeatured = activeFeatured === 'all' || item.getAttribute('data-featured') === 'true';
             if (matchTopic && matchVenue && matchFeatured) {
                 totalVisible++;

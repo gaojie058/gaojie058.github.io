@@ -1,6 +1,6 @@
 ---
 title:          "Tool Support for Human-AI Collaboration in Qualitative Data Analysis"
-date:           2026-11-01 00:01:00 +0800
+date:           2024-11-01 00:01:00 +0800
 selected:       true
 topic:          "qual"
 pub:            "Ph.D. Thesis (2024)"

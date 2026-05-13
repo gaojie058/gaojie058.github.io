@@ -8,14 +8,14 @@ navbar_title: About Me
 /* ===== Hero ===== */
 .home-hero {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 3rem;
+    grid-template-columns: 14rem 1fr;
+    gap: 2.4rem;
     align-items: center;
-    margin: 1rem 0 4rem;
+    margin: 0 0 4rem;
 }
 .home-hero-photo {
-    width: 320px;
-    height: 320px;
+    width: 14rem;
+    height: 14rem;
     border-radius: 6px;
     object-fit: cover;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -23,7 +23,7 @@ navbar_title: About Me
 .home-hero-name {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 2.6rem;
+    font-size: 1.9rem;
     line-height: 1.15;
     margin: 0 0 0.6rem;
     letter-spacing: -0.01em;
@@ -66,7 +66,25 @@ navbar_title: About Me
     font-size: 0.92rem;
     color: var(--color-muted);
     line-height: 1.55;
+    margin-bottom: 0.7rem;
+}
+.home-hero-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
     margin-bottom: 1.1rem;
+}
+.home-hero-keywords .kw {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 0.18rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid #d8d8d8;
+    background: #fafafa;
+    color: #555;
+    line-height: 1.4;
 }
 .home-hero-tagline {
     font-size: 1rem;
@@ -82,7 +100,7 @@ navbar_title: About Me
     font-size: 0.95rem;
 }
 .home-hero-contact a {
-    color: var(--color-muted);
+    color: var(--color-text);
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
@@ -95,7 +113,14 @@ navbar_title: About Me
     width: 1.2em;
     text-align: center;
     display: inline-block;
+    transition: opacity 0.15s;
 }
+.home-hero-contact .fa-envelope       { color: #b87333; }
+.home-hero-contact .fa-google-scholar { color: #4285f4; }
+.home-hero-contact .fa-twitter        { color: #1da1f2; }
+.home-hero-contact .fa-linkedin       { color: #0a66c2; }
+.home-hero-contact .fa-file-alt       { color: #b87333; }
+.home-hero-contact a:hover i { opacity: 0.75; }
 
 @media (max-width: 768px) {
     .home-hero {
@@ -104,18 +129,20 @@ navbar_title: About Me
         text-align: left;
         margin-bottom: 2.5rem;
     }
-    .home-hero-photo { width: 220px; height: 220px; }
-    .home-hero-name { font-size: 2rem; }
+    .home-hero-photo { width: 11rem; height: 11rem; }
+    .home-hero-name { font-size: 1.6rem; }
 }
 
 /* ===== Section headings ===== */
 .home-section { margin: 3.5rem 0; }
 .home-section-title {
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.7rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
     margin: 0 0 1.4rem;
-    letter-spacing: -0.005em;
+    color: var(--color-text);
 }
 .home-section-lead {
     font-size: 1rem;
@@ -124,6 +151,37 @@ navbar_title: About Me
     margin-bottom: 2rem;
 }
 .home-section-lead p { margin-bottom: 1rem; }
+
+/* ===== Link hierarchy =====
+   Affiliation links: muted, only reveal on hover
+   Narrative links (people, institutions, event titles): muted blue
+   Destination links (papers, projects, tools — under "Related:"): keep accent copper */
+.home-hero-affiliations a {
+    color: var(--color-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+.home-hero-affiliations a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+.home-section-lead p a,
+.news-text a {
+    color: #1d4e9e;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+.home-section-lead p a:hover,
+.news-text a:hover {
+    color: #143879;
+    border-bottom-color: rgba(20, 56, 121, 0.5);
+    text-decoration: none;
+}
+.research-related a {
+    font-weight: 500;
+}
 
 .bio-toggle {
     display: inline-block;
@@ -158,47 +216,72 @@ navbar_title: About Me
     font-style: italic;
 }
 
-/* ===== Research blocks ===== */
-.research-block { margin-bottom: 2.5rem; }
-.research-block:last-child { margin-bottom: 0; }
-.research-block h3 {
+.bio-slogan {
     font-family: var(--font-heading);
+    font-size: 1.55rem;
     font-weight: 600;
-    font-size: 1.2rem;
-    margin: 0 0 0.6rem;
-    color: var(--color-text);
-}
-.research-block h3 .research-icon {
+    line-height: 1.4;
+    letter-spacing: -0.015em;
     color: var(--color-accent);
-    margin-right: 0.6rem;
-    font-size: 1.05rem;
-    width: 1.3em;
-    text-align: center;
-    display: inline-block;
+    border-left: 4px solid var(--color-accent);
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    margin: 1rem 0 1.6rem;
 }
-.research-block p {
+.bio-slogan strong { font-weight: 700; }
+
+/* ===== Research list ===== */
+.research-lead {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+    margin: 0 0 1.5rem;
+}
+.research-lead strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+.research-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.research-item {
+    position: relative;
+    padding: 0 0 0 1.5rem;
+    margin-bottom: 2rem;
+}
+.research-item:last-child { margin-bottom: 0; }
+.research-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+.research-item h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 0 0.15rem;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+.research-sub {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+.research-item p {
     font-size: 1rem;
     line-height: 1.75;
-    margin-bottom: 0.7rem;
+    margin: 0;
     color: var(--color-text);
-}
-.research-related {
-    font-size: 0.92rem;
-    color: var(--color-muted);
-    line-height: 1.7;
-}
-.research-related .label {
-    font-weight: 600;
-    color: var(--color-text);
-    margin-right: 0.25rem;
-}
-.research-related a { color: var(--color-accent); }
-
-.research-note {
-    font-size: 1rem;
-    font-style: italic;
-    color: #0f766e;
-    line-height: 1.7;
 }
 
 /* ===== News list ===== */
@@ -216,13 +299,12 @@ navbar_title: About Me
     flex-shrink: 0;
     font-family: var(--font-mono);
     font-size: 0.82rem;
-    color: var(--color-accent);
+    color: #999;
     width: 5.2rem;
     padding-top: 0.15rem;
     letter-spacing: -0.01em;
 }
 .news-text { flex: 1; color: var(--color-text); }
-.news-text a { color: var(--color-accent); }
 
 .news-toggle {
     margin-top: 1rem;
@@ -259,9 +341,16 @@ navbar_title: About Me
 }
 .travel-cancelled .travel-note { text-decoration: none; opacity: 1; }
 .travel-presenting {
-    color: var(--color-accent);
-    font-size: 0.9em;
-    margin-left: 0.2em;
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #0f766e;
+    background: rgba(15, 118, 110, 0.08);
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.4em;
+    letter-spacing: 0.02em;
+    vertical-align: 0.05em;
 }
 </style>
 
@@ -280,10 +369,14 @@ navbar_title: About Me
             <a href="https://ai.jhu.edu/" target="_blank">@Data Science and AI Institute</a><br>
             <a href="https://www.clsp.jhu.edu/" target="_blank">@Center for Language and Speech Processing</a>
         </div>
-        <div class="home-hero-contact">
-            <a href="mailto:{{ site.data.profile.email | encode_email }}"><i class="fas fa-envelope"></i> {{ site.data.profile.email | replace: "@", "(at)" }}</a>
+        <div class="home-hero-keywords">
+            <span class="kw kw-1">Agentic AI</span>
+            <span class="kw kw-2">Human-AI Collaboration</span>
+            <span class="kw kw-3">AI-assisted Qualitative Analysis</span>
         </div>
         <div class="home-hero-contact">
+            <a href="mailto:{{ site.data.profile.email | encode_email }}"><i class="fas fa-envelope"></i> {{ site.data.profile.email | replace: "@", "(at)" }}</a>
+            <span class="sep">·</span>
             {% if site.data.profile.gscholar %}
             {%- if site.data.profile.gscholar contains 'scholar.google' -%}
             {%- assign gscholar_url = site.data.profile.gscholar -%}
@@ -312,14 +405,13 @@ navbar_title: About Me
 <section class="home-section">
     <h2 class="home-section-title">About</h2>
     <div class="home-section-lead">
-        <p class="job-market-banner">
-            📢 I am on <strong>faculty job market</strong>, and have made many friends who are also on the market. Feel free to send emails to connect, or to share opportunities as well 🤗
-        </p>
         <p>
-            I am currently a <a href="https://malonecenter.jhu.edu/people/jie-gao/" target="_blank">Malone Postdoc Fellow</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>, where I am mentored by <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a>, <a href="https://www.ziangxiao.com/" target="_blank">Ziang Xiao</a>, and <a href="https://www.cs.jhu.edu/~cmhuang/" target="_blank">Chien-Ming Huang</a>.<span class="bio-toggle" onclick="this.classList.toggle('open'); var c=document.getElementById('bio-history-content'); c.style.display=this.classList.contains('open')?'inline':'none';" title="Show background"><span class="bio-toggle-arrow">▸</span> more</span><span id="bio-history-content" class="bio-history-content" style="display:none;"> I was fortunate to gain multiple kinds of training I currently rely on through postdoc, Ph.D., and visiting student experiences. Previously, I was a Postdoctoral Associate at <a href="https://m3s.mit.edu/" target="_blank">MIT's SMART program in Singapore</a>, advised by <a href="https://mitsloan.mit.edu/faculty/directory/thomas-w-malone" target="_blank">Thomas W. Malone</a>, where I learned collective intelligence and the theoretical perspective of human-AI teams. I received my Ph.D. from <a href="https://www.sutd.edu.sg/" target="_blank">SUTD</a>, advised by <a href="https://simonperrault.github.io/" target="_blank">Simon Perrault</a>, where I gained foundational HCI training. During my Ph.D., I was a visiting student at the <a href="https://nd.edu/" target="_blank">University of Notre Dame</a>, hosted by <a href="https://toby.li/" target="_blank">Toby Jia-Jun Li</a>, where I learned to design innovative human-AI collaboration, and at the <a href="https://www.nus.edu.sg/" target="_blank">National University of Singapore</a>, hosted by <a href="https://www.shengdongzhao.com/" target="_blank">Shengdong Zhao</a>, where I learned to run rigorous empirical user studies.</span>
+            I am currently a <a href="https://malonecenter.jhu.edu/people/jie-gao/" target="_blank">Malone Postdoc Fellow</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>, where I am mentored by <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a>, <a href="https://www.ziangxiao.com/" target="_blank">Ziang Xiao</a>, and <a href="https://www.cs.jhu.edu/~cmhuang/" target="_blank">Chien-Ming Huang</a>. I was fortunate to gain multiple kinds of training I currently rely on through postdoc, Ph.D., and visiting student experiences. Previously, I was a Postdoctoral Associate at <a href="https://m3s.mit.edu/" target="_blank">MIT's SMART program in Singapore</a>, advised by <a href="https://mitsloan.mit.edu/faculty/directory/thomas-w-malone" target="_blank">Thomas W. Malone</a>, where I learned collective intelligence and the theoretical perspective of human-AI teams. I received my Ph.D. from <a href="https://www.sutd.edu.sg/" target="_blank">SUTD</a>, advised by <a href="https://simonperrault.github.io/" target="_blank">Simon Perrault</a>, where I gained foundational HCI training. During my Ph.D., I was a visiting student at the <a href="https://nd.edu/" target="_blank">University of Notre Dame</a>, hosted by <a href="https://toby.li/" target="_blank">Toby Jia-Jun Li</a>, where I learned to design innovative human-AI collaboration, and at the <a href="https://www.nus.edu.sg/" target="_blank">National University of Singapore</a>, hosted by <a href="https://www.shengdongzhao.com/" target="_blank">Shengdong Zhao</a>, where I learned to run rigorous empirical user studies.
         </p>
-        <p>
-            I design and evaluate human-AI systems that help people build human-readable interpretations in subjective tasks where ground truth is limited or absent. I design them along two directions: (1) <strong>Bring AI to Humans</strong>: integrating AI into workflows to help people perform subjective tasks more effectively (e.g., AI-assisted qualitative analysis, codebase comprehension, developer experience); and (2) <strong>Bring Humans to AI</strong>: bringing human oversight to autonomous AI systems to ensure they remain trustworthy and responsible (e.g., responsible AI).        </p>
+        <p class="bio-slogan">
+            AI agents are here.<br>
+            How do we <strong>understand</strong> them? How do we <strong>control</strong> them?
+        </p>
         <p>
             Fundamentally, I am fascinated by how people identify patterns and derive reusable principles from messy, ambiguous, and complex situations and phenomena. Text and code are my entry points into them. This is why I am drawn to analytical methods such as thematic analysis, grounded theory, content analysis, and taxonomy building. These methods help people turn complexity into understanding. To achieve this goal, I use human-AI collaboration to make these methods more accessible, simplified, and supported, while keeping human judgment and reasoning.
         </p>
@@ -329,32 +421,25 @@ navbar_title: About Me
 <!-- ===== Research ===== -->
 <section class="home-section">
     <h2 class="home-section-title">Research</h2>
+    <p class="research-lead">Three threads of <strong>human-AI collaboration</strong>, each pairing a different human role with AI on a different interpretive task.</p>
 
-    <div class="research-block">
-        <h3><i class="fas fa-tags research-icon"></i>Understanding Text &amp; Human Analyst-AI Collaboration for Qualitative Analysis</h3>
-        <p>
-            How can AI support, rather than replace, the interpretive labor of reading unstructured text? I design and evaluate systems that help people code qualitative data, build shared meaning in collaborative analysis, and turn raw text into grounded theories, while keeping human judgment central.
-        </p>
-        <div class="research-related">
-            <span class="label">Related:</span>
-            <a href="https://dl.acm.org/doi/full/10.1145/3617362" target="_blank">CoAIcoder (TOCHI 2023)</a> ·
-            <a href="https://dl.acm.org/doi/10.1145/3613904.3642002" target="_blank">CollabCoder (CHI 2024)</a> ·
-            <a href="https://aclanthology.org/2025.hcinlp-1.20/" target="_blank">Subjective annotation (HCI+NLP Workshop at EMNLP 2025)</a> ·
-            <a href="https://arxiv.org/pdf/2501.00775v3" target="_blank">MindCoder (Preprint 2025)</a> ·
-            <a href="https://mindcoder.ai" target="_blank">mindcoder.ai</a>
-        </div>
-    </div>
-
-    <div class="research-block">
-        <h3><i class="fas fa-diagram-project research-icon"></i>Understanding Code &amp; Developer-AI Collaboration for Code Comprehension</h3>
-        <p>
-            Real-world codebases are messy, and newcomers often struggle to build an accurate mental model. I build tools that help developers comprehend unfamiliar code, review AI-generated changes critically, and collaborate with AI assistants in ways that preserve developer judgment.
-        </p>
-        <div class="research-related">
-            <span class="label">Related:</span>
-            <a href="https://arxiv.org/abs/2504.04553" target="_blank">CodeMap (ICPC 2026, Distinguished Paper)</a>
-        </div>
-    </div>
+    <ul class="research-list">
+        <li class="research-item">
+            <h3>Agent Behavior Analysis</h3>
+            <div class="research-sub">Helping humans understand agents</div>
+            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans tell whether they did it well." I am currently exploring how humans can stay meaningfully in the loop with autonomous AI systems.</p>
+        </li>
+        <li class="research-item">
+            <h3>Code Comprehension</h3>
+            <div class="research-sub">Helping humans understand code</div>
+            <p>Real-world codebases are messy, and newcomers often struggle to build an accurate mental model. I build tools that help developers comprehend unfamiliar code, review AI-generated changes critically, and collaborate with AI assistants in ways that preserve developer judgment.</p>
+        </li>
+        <li class="research-item">
+            <h3>Qualitative Analysis</h3>
+            <div class="research-sub">Helping humans understand unstructured text</div>
+            <p>How can AI support, rather than replace, the interpretive labor of reading unstructured text? I design and evaluate systems that help people code qualitative data, build shared meaning in collaborative analysis, and turn raw text into grounded theories, while keeping human judgment central.</p>
+        </li>
+    </ul>
 
     <!-- Temporarily hidden during faculty job market — agent direction kept off public site until publications land. To restore: uncomment this block (and re-add the emoji note inside if desired).
     <div class="research-block">
@@ -406,11 +491,11 @@ navbar_title: About Me
         </li>
         <li class="travel-cancelled">
             <span class="news-date">[2026.04]</span>
-            <span class="news-text"><a href="https://conf.researchr.org/home/icse-2026" target="_blank">ICSE / ICPC 2026</a>, Rio de Janeiro, Brazil <span class="travel-presenting">· presenting</span> <span class="travel-note">(cancelled — visa issues)</span></span>
+            <span class="news-text"><a href="https://conf.researchr.org/home/icse-2026" target="_blank">ICSE / ICPC 2026</a>, Rio de Janeiro, Brazil <span class="travel-presenting">presenting</span> <span class="travel-note">(cancelled — visa issues)</span></span>
         </li>
         <li>
             <span class="news-date">[2025.11]</span>
-            <span class="news-text"><a href="https://2025.emnlp.org/" target="_blank">EMNLP 2025</a>, Suzhou, China <span class="travel-presenting">· presenting</span></span>
+            <span class="news-text"><a href="https://2025.emnlp.org/" target="_blank">EMNLP 2025</a>, Suzhou, China <span class="travel-presenting">presenting</span></span>
         </li>
         <li>
             <span class="news-date">[2025.10]</span>
@@ -422,7 +507,7 @@ navbar_title: About Me
         </li>
         <li>
             <span class="news-date">[2024.05]</span>
-            <span class="news-text"><a href="https://chi2024.acm.org/" target="_blank">CHI 2024</a>, Honolulu, USA <span class="travel-presenting">· presenting</span></span>
+            <span class="news-text"><a href="https://chi2024.acm.org/" target="_blank">CHI 2024</a>, Honolulu, USA <span class="travel-presenting">presenting</span></span>
         </li>
     </ul>
     <div class="news-toggle" onclick="this.classList.toggle('open'); var l=document.getElementById('travel-older'); if(l.style.display==='none'){l.style.display='block';this.querySelector('.news-toggle-label').textContent='Hide older';}else{l.style.display='none';this.querySelector('.news-toggle-label').textContent='Show older';}">
@@ -436,7 +521,7 @@ navbar_title: About Me
         </li>
         <li>
             <span class="news-date">[2023.10]</span>
-            <span class="news-text"><a href="https://cscw.acm.org/2023/" target="_blank">CSCW 2023</a>, Minneapolis, USA (Virtual) <span class="travel-presenting">· presenting</span></span>
+            <span class="news-text"><a href="https://cscw.acm.org/2023/" target="_blank">CSCW 2023</a>, Minneapolis, USA (Virtual) <span class="travel-presenting">presenting</span></span>
         </li>
         <li>
             <span class="news-date">[2022.11]</span>
@@ -444,11 +529,11 @@ navbar_title: About Me
         </li>
         <li>
             <span class="news-date">[2022.04]</span>
-            <span class="news-text"><a href="https://chi2022.acm.org/" target="_blank">CHI 2022</a>, New Orleans, USA (Hybrid) <span class="travel-presenting">· presenting</span></span>
+            <span class="news-text"><a href="https://chi2022.acm.org/" target="_blank">CHI 2022</a>, New Orleans, USA (Hybrid) <span class="travel-presenting">presenting</span></span>
         </li>
         <li>
             <span class="news-date">[2018.10]</span>
-            <span class="news-text"><a href="https://ubicomp.org/ubicomp2018/" target="_blank">UbiComp 2018</a>, Singapore <span class="travel-presenting">· presenting</span></span>
+            <span class="news-text"><a href="https://ubicomp.org/ubicomp2018/" target="_blank">UbiComp 2018</a>, Singapore <span class="travel-presenting">presenting</span></span>
         </li>
     </ul>
 </section>
