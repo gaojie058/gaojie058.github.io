@@ -1,0 +1,39 @@
+{% assign papers = site.publications | where: "topic", include.topic | sort: "date" | reverse %}
+{% if papers.size > 0 %}
+<ul class="research-papers">
+    {% for pub in papers %}
+        {% assign paper_url = nil %}
+        {% assign website_url = nil %}
+        {% for link in pub.links %}
+            {% if link[0] == 'Paper' %}
+                {% if link[1].url %}{% assign paper_url = link[1].url %}{% else %}{% assign paper_url = link[1] %}{% endif %}
+            {% endif %}
+            {% if link[0] == 'Website' %}
+                {% if link[1].url %}{% assign website_url = link[1].url %}{% else %}{% assign website_url = link[1] %}{% endif %}
+            {% endif %}
+        {% endfor %}
+        <li>
+            {% if paper_url %}
+                <a href="{{ paper_url }}" target="_blank">{{ pub.title }}</a>
+            {% else %}
+                {{ pub.title }}
+            {% endif %}
+            {% if pub.award %}<span class="research-paper-award" title="{{ pub.award }}">🏆</span>{% endif %}
+            <span class="research-paper-venue">{{ pub.pub }}</span>
+            {% if website_url %}
+                {% if pub.website_label %}
+                    {% assign site_label = pub.website_label %}
+                {% else %}
+                    {% assign site_label = website_url | replace: 'https://', '' | replace: 'http://', '' %}
+                    {% assign last_char = site_label | slice: -1, 1 %}
+                    {% if last_char == '/' %}
+                        {% assign trimmed_len = site_label.size | minus: 1 %}
+                        {% assign site_label = site_label | slice: 0, trimmed_len %}
+                    {% endif %}
+                {% endif %}
+                <span class="research-paper-site">· <a href="{{ website_url }}" target="_blank"><i class="fas fa-globe"></i> {{ site_label }}</a></span>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}

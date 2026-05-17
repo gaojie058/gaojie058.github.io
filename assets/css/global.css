@@ -795,6 +795,26 @@ hr {
     white-space: nowrap;
 }
 
+.news-badge-new {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff5a8a 0%, #e91e63 100%);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+    box-shadow: 0 1px 4px rgba(233, 30, 99, 0.3);
+    animation: news-badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes news-badge-pulse {
+    0%, 100% { box-shadow: 0 1px 4px rgba(233, 30, 99, 0.3); }
+    50%      { box-shadow: 0 1px 10px rgba(233, 30, 99, 0.55); }
+}
+
 .pub-meta-text {
     font-size: 0.78rem;
     color: var(--color-muted);
@@ -1440,26 +1460,58 @@ img.lazy, div.lazy {
 }
 .pub-item:last-child { border-bottom: none; }
 
-.pub-selected-corner {
+.pub-paper-corner {
     position: absolute;
     top: 0.7rem;
     right: 0.8rem;
-    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.7rem;
-    border-radius: 999px;
-    box-shadow: 0 1px 6px rgba(46, 125, 50, 0.28);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #fff;
+    color: #1d4e9e;
+    border: 1px solid #1d4e9e;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.22rem 0.6rem 0.22rem 0.55rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
     z-index: 2;
-    pointer-events: none;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Reserve space for the corner pill so the title text doesn't run under it */
-.pub-item-selected .pub-title {
+.pub-paper-corner i {
+    color: #d32f2f;
+    font-size: 0.92rem;
+    line-height: 1;
+}
+
+.pub-paper-corner:hover {
+    background: #eaf1fb;
+    color: #143879;
+    border-color: #143879;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(20, 56, 121, 0.18);
+}
+
+/* Reserve space for the corner PDF button so the title text doesn't run under it */
+.pub-item-has-paper .pub-title {
     padding-right: 5rem;
+}
+
+/* Small inline "Selected" indicator shown in the links row of selected items */
+.pub-selected-inline {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    margin-right: 0.25rem;
+    vertical-align: middle;
 }
 
 .pub-filter-item + .pub-filter-item {

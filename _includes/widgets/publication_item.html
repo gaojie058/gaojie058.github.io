@@ -46,8 +46,10 @@
 
 {% capture pub_links_block %}
 <div class="pub-links">
+    {% if item.selected %}<span class="pub-selected-inline">★ Selected</span>{% endif %}
     {% for link in item.links %}
     {% assign link_name = link[0] %}
+    {% unless link_name == 'Paper' %}
     {% assign link_url = link[1] %}
     {% assign link_target = "_blank" %}
     {% if link[1].url %}
@@ -63,18 +65,17 @@
             <i class="fas fa-video"></i>
         {% elsif link_name == 'Tool' %}
             <i class="fas fa-tools"></i>
-        {% elsif link_name == 'Paper' %}
-            [Paper Link]
         {% else %}
             [{{ link_name }}]
         {% endif %}
     </a>
+    {% endunless %}
     {% endfor %}
 </div>
 {% endcapture %}
 
-<div class="pub-item {% unless include.hide_bottom_border %}pub-item-border{% endunless %} {% if item.selected %}pub-item-selected{% endif %}">
-    {% if item.selected %}<span class="pub-selected-corner">Selected</span>{% endif %}
+<div class="pub-item {% unless include.hide_bottom_border %}pub-item-border{% endunless %} {% if item.selected %}pub-item-selected{% endif %}{% if paper_link %} pub-item-has-paper{% endif %}">
+    {% if paper_link %}<a href="{{ paper_link }}" target="_blank" class="pub-paper-corner"><i class="fas fa-file-pdf"></i><span>PDF</span></a>{% endif %}
     <div class="d-none d-md-flex pub-item-row">
         <div class="pub-item-cover">
             {%- if item.cover -%}
@@ -85,13 +86,7 @@
             {% if item.pub %}<span class="pub-cover-venue">{{ item.pub }}</span>{% endif %}
         </div>
         <div class="pub-item-body">
-            <h6 class="pub-title">
-                {% if paper_link %}
-                    <a href="{{ paper_link }}" target="_blank">{{ item.title }}</a>
-                {% else %}
-                    {{ item.title }}
-                {% endif %}
-            </h6>
+            <h6 class="pub-title">{{ item.title }}</h6>
             <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
             {% if item.award %}<span class="pub-badge pub-badge-award" style="margin-left: 0; margin-bottom: 0.4rem; display: inline-block;">🏆 {{ item.award }}</span>{% endif %}
             {{ pub_venue_block }}
@@ -100,13 +95,7 @@
     </div>
 
     <div class="d-md-none pub-item-mobile">
-        <h6 class="pub-title">
-            {% if paper_link %}
-                <a href="{{ paper_link }}" target="_blank">{{ item.title }}</a>
-            {% else %}
-                {{ item.title }}
-            {% endif %}
-        </h6>
+        <h6 class="pub-title">{{ item.title }}</h6>
         <p class="pub-authors">{% include widgets/author_list.html authors=item.authors %}</p>
         {% if item.award %}<span class="pub-badge pub-badge-award" style="margin-bottom: 0.3rem; display: inline-block;">🏆 {{ item.award }}</span>{% endif %}
         {{ pub_venue_block }}

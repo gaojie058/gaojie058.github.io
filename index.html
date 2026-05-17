@@ -284,6 +284,85 @@ navbar_title: About Me
     color: var(--color-text);
 }
 
+.research-papers {
+    list-style: none;
+    padding: 0;
+    margin: 0.7rem 0 0;
+}
+.research-papers li {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding: 0.25rem 0 0.25rem 0.9rem;
+    border-left: 2px solid #eaeaea;
+    margin-bottom: 0.3rem;
+    color: var(--color-text);
+}
+.research-papers li:hover {
+    border-left-color: var(--color-accent);
+}
+.research-papers a {
+    color: #1d4e9e;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.research-papers a:hover {
+    color: #143879;
+    text-decoration: underline;
+}
+.research-paper-venue {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    margin-left: 0.35rem;
+}
+.research-paper-award {
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-size: 0.95rem;
+    cursor: help;
+    vertical-align: middle;
+    filter: drop-shadow(0 1px 2px rgba(230, 81, 0, 0.3));
+}
+.research-paper-site {
+    color: var(--color-muted);
+    font-size: 0.78rem;
+    margin-left: 0.25rem;
+    white-space: nowrap;
+}
+.research-paper-site a {
+    color: #1d4e9e;
+    text-decoration: none;
+}
+.research-paper-site a:hover {
+    color: #143879;
+    text-decoration: underline;
+}
+.research-paper-site i {
+    font-size: 0.72rem;
+    margin-right: 0.15rem;
+}
+
+.research-aside {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 1.8rem 0 0;
+}
+.research-aside strong { color: var(--color-text); font-style: normal; font-weight: 600; }
+.research-aside a strong { color: inherit; }
+.research-aside a {
+    color: #1d4e9e;
+    font-style: normal;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+.research-aside a:hover {
+    color: #143879;
+    border-bottom-color: rgba(20, 56, 121, 0.5);
+    text-decoration: none;
+}
+
 /* ===== News list ===== */
 .news-list { list-style: none; padding: 0; margin: 0; }
 .news-list li {
@@ -371,8 +450,10 @@ navbar_title: About Me
         </div>
         <div class="home-hero-keywords">
             <span class="kw kw-1">Agentic AI</span>
-            <span class="kw kw-2">Human-AI Collaboration</span>
-            <span class="kw kw-3">AI-assisted Qualitative Analysis</span>
+            <span class="kw kw-2">Multi-Agent Systems</span>
+            <span class="kw kw-3">Human-AI Collaboration</span>
+            <span class="kw kw-4">AI-assisted Qualitative Analysis</span>
+            <span class="kw kw-5">AI-assisted Code Comprehension</span>
         </div>
         <div class="home-hero-contact">
             <a href="mailto:{{ site.data.profile.email | encode_email }}"><i class="fas fa-envelope"></i> {{ site.data.profile.email | replace: "@", "(at)" }}</a>
@@ -421,25 +502,30 @@ navbar_title: About Me
 <!-- ===== Research ===== -->
 <section class="home-section">
     <h2 class="home-section-title">Research</h2>
-    <p class="research-lead">Three threads of <strong>human-AI collaboration</strong>, each pairing a different human role with AI on a different interpretive task.</p>
+    <p class="research-lead">Building a science of <strong>interpretive work</strong> across humans, autonomous agents, and their collaborations.</p>
 
     <ul class="research-list">
         <li class="research-item">
             <h3>Agent Behavior Analysis</h3>
             <div class="research-sub">Helping humans understand agents</div>
-            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans tell whether they did it well." I am currently exploring how humans can stay meaningfully in the loop with autonomous AI systems.</p>
+            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans tell whether they did it well." I study how humans can stay in the loop when AI agents act on their own.</p>
+            {% include widgets/research_papers.html topic="oversight" %}
         </li>
         <li class="research-item">
             <h3>Code Comprehension</h3>
             <div class="research-sub">Helping humans understand code</div>
-            <p>Real-world codebases are messy, and newcomers often struggle to build an accurate mental model. I build tools that help developers comprehend unfamiliar code, review AI-generated changes critically, and collaborate with AI assistants in ways that preserve developer judgment.</p>
+            <p>Real-world codebases are messy, and newcomers often struggle to build an accurate mental model. I build tools that help developers understand unfamiliar code, review AI-generated changes critically, and collaborate with AI assistants without giving up their own judgment.</p>
+            {% include widgets/research_papers.html topic="code" %}
         </li>
         <li class="research-item">
             <h3>Qualitative Analysis</h3>
             <div class="research-sub">Helping humans understand unstructured text</div>
-            <p>How can AI support, rather than replace, the interpretive labor of reading unstructured text? I design and evaluate systems that help people code qualitative data, build shared meaning in collaborative analysis, and turn raw text into grounded theories, while keeping human judgment central.</p>
+            <p>How can AI support, rather than replace, the interpretive work of reading unstructured text? I design and evaluate systems that help people code qualitative data, align interpretations across multiple coders, and develop grounded theories from raw text, while keeping human judgment central.</p>
+            {% include widgets/research_papers.html topic="qual" %}
         </li>
     </ul>
+
+    <p class="research-aside">Beyond these three lines, I also work on other topics such as <a href="https://dl.acm.org/doi/abs/10.1145/3586183.3606800" target="_blank"><strong>AI-assisted writing</strong></a>, <a href="https://dl.acm.org/doi/abs/10.1145/3613904.3642530" target="_blank"><strong>online deliberation</strong></a>, and <a href="https://dl.acm.org/doi/abs/10.1145/3610931" target="_blank"><strong>messaging on smart glasses</strong></a>.</p>
 
     <!-- Temporarily hidden during faculty job market — agent direction kept off public site until publications land. To restore: uncomment this block (and re-add the emoji note inside if desired).
     <div class="research-block">
