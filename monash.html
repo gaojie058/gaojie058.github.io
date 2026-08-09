@@ -1,0 +1,328 @@
+---
+layout: topnav
+title : About Monash University
+navbar_title: Monash
+---
+
+<style>
+/* ===== Monash page ===== */
+.mn-hero {
+    margin: 0 0 3rem;
+}
+.mn-hero h1 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 2.1rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.9rem;
+}
+.mn-hero-lead {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* Campus photo under the hero */
+.mn-figure {
+    margin: 1.8rem 0 0;
+}
+.mn-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2.2 / 1;
+    object-fit: cover;
+    object-position: center 70%;   /* keeps the building's name plate in frame */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+.mn-figure figcaption {
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    color: var(--color-text-3);
+}
+.mn-figure figcaption a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.mn-figure figcaption .credit { opacity: 0.8; }
+
+.mn-section { margin: 3.2rem 0; }
+.mn-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin: 0 0 1.4rem;
+}
+.mn-section-head h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+.mn-section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+    align-self: center;
+}
+.mn-body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+.mn-body p { margin: 0 0 1rem; }
+.mn-body p:last-child { margin-bottom: 0; }
+
+/* Draft marker. Any paragraph, list item, or note whose text contains "todo:"
+   in any casing is painted amber, so an unfinished placeholder cannot ship
+   unnoticed. Delete the words and the highlight goes with them. */
+.mn-todo {
+    background: #fff4cc;
+    border: 1px dashed #d3a10c;
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 0.8rem;
+    color: #5b4400;
+}
+.mn-todo a { color: inherit; }
+p.mn-todo { margin-bottom: 1rem; }
+
+/* Optional `note:` closing a section, for a status line such as a site that is
+   not up yet. Quieter than the body text so it reads as an aside. */
+.mn-section-note {
+    margin: 1.1rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--color-text-3);
+}
+
+/* Fact list — Monash at a glance */
+.mn-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0.9rem;
+    margin: 1.5rem 0 0;
+}
+.mn-fact {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+    padding: 0.95rem 1.1rem;
+}
+.mn-fact .k {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    color: var(--color-text-3);
+    margin-bottom: 0.3rem;
+}
+.mn-fact .v {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+/* Open positions — plain text, no cards */
+.mn-roles {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 0.4rem;
+}
+.mn-role h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 0 0.3rem;
+    color: var(--color-text);
+}
+/* The start date sits inline after the role name, as a quiet aside. */
+.mn-role h3 .when {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--color-text-3);
+    margin-left: 0.6rem;
+}
+.mn-role p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+/* A labelled reference block under a position: a scholarship (`funding:`) or an
+   admission requirement (`notes:`). Plain text, one step quieter than the
+   position itself so it reads as supporting detail. */
+.mn-block { margin: 0.7rem 0 0; }
+/* A position can carry several blocks; keep them apart without a divider. */
+.mn-block + .mn-block { margin-top: 1rem; }
+.mn-block .k {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+    color: var(--color-text-3);
+    margin-bottom: 0.35rem;
+}
+.mn-block ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+.mn-block li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.35rem;
+}
+.mn-block li:last-child { margin-bottom: 0; }
+
+.mn-list {
+    padding-left: 1.1rem;
+    margin: 0.4rem 0 0;
+}
+.mn-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+.mn-list li:last-child { margin-bottom: 0; }
+
+.mn-cta {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.3rem 1.5rem;
+    background: var(--color-accent-soft-bg);
+}
+.mn-cta p { margin: 0 0 0.8rem; line-height: 1.7; }
+.mn-cta p:last-child { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+    .mn-hero h1 { font-size: 1.6rem; }
+    .mn-section { margin: 2.4rem 0; }
+    .mn-figure img { aspect-ratio: 16 / 10; }
+}
+</style>
+
+{%- comment -%}
+  All copy on this page lives in _data/monash.yml — edit that file, not this one.
+  %EMAIL% in any paragraph is swapped for a mailto: link to the profile address.
+{%- endcomment -%}
+{%- assign mn = site.data.monash -%}
+{%- capture email_link -%}<a href="mailto:{{ site.data.profile.email | encode_email }}">{{ site.data.profile.email | replace: "@", "(at)" }}</a>{%- endcapture -%}
+
+<!-- ===== Hero ===== -->
+<section class="mn-hero">
+    <h1>{{ mn.hero.title | default: page.title }}</h1>
+    {% if mn.hero.lead %}
+    <p class="mn-hero-lead">{{ mn.hero.lead | replace: '%EMAIL%', email_link }}</p>
+    {% endif %}
+
+    {% if mn.hero.image %}
+    <figure class="mn-figure">
+        <img src="{{ mn.hero.image.src | relative_url }}" alt="{{ mn.hero.image.alt | strip_newlines | strip }}" decoding="async">
+        {% if mn.hero.image.caption or mn.hero.image.credit %}
+        <figcaption>
+            {{ mn.hero.image.caption }}
+            {% if mn.hero.image.credit %}<span class="credit">{{ mn.hero.image.credit }}</span>{% endif %}
+        </figcaption>
+        {% endif %}
+    </figure>
+    {% endif %}
+</section>
+
+<!-- ===== Sections (in _data/monash.yml order; a section with no `title:` renders
+       as a plain lead-in, with no heading or rule) ===== -->
+{% for section in mn.sections %}
+<section class="mn-section">
+    {% if section.title %}
+    <div class="mn-section-head">
+        <h2>{{ section.title }}</h2>
+        <span class="rule"></span>
+    </div>
+    {% endif %}
+
+    {% if section.paragraphs or section.facts or section.roles or section.list %}
+    <div class="mn-body">
+        {%- comment -%} `todo:` anywhere in a string paints it amber. See .mn-todo. {%- endcomment -%}
+        {% for paragraph in section.paragraphs %}
+        {% assign scan = paragraph | downcase %}
+        <p{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ paragraph | replace: '%EMAIL%', email_link }}</p>
+        {% endfor %}
+
+        {% if section.list %}
+        <ul class="mn-list">
+            {% for item in section.list %}
+            {% assign scan = item | downcase %}
+            <li{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ item | replace: '%EMAIL%', email_link }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if section.facts %}
+        <div class="mn-facts">
+            {% for fact in section.facts %}
+            <div class="mn-fact">
+                <span class="k">{{ fact.label }}</span>
+                <span class="v">{{ fact.value }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if section.roles %}
+        <div class="mn-roles">
+            {% for role in section.roles %}
+            <div class="mn-role">
+                <h3>{{ role.name }}{% if role.when %}<span class="when">{{ role.when }}</span>{% endif %}</h3>
+                {% if role.description %}{% assign scan = role.description | downcase %}<p{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ role.description }}</p>{% endif %}
+                {%- comment -%}
+                  `notes:` (admission requirements) and `funding:` (scholarships) are both
+                  lists of {title, link, items} and render the same way, requirements first.
+                {%- endcomment -%}
+                {% assign blocks = role.notes | default: role.funding %}
+                {% if role.notes and role.funding %}{% assign blocks = role.notes | concat: role.funding %}{% endif %}
+                {% for block in blocks %}
+                <div class="mn-block">
+                    <div class="k">{% if block.link %}<a href="{{ block.link }}" target="_blank">{{ block.title }}</a>{% else %}{{ block.title }}{% endif %}</div>
+                    <ul>
+                        {% for item in block.items %}
+                        {% assign scan = item | downcase %}
+                        <li{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {%- comment -%} `note:` closes a section as a quiet status line. {%- endcomment -%}
+    {% if section.note %}{% assign scan = section.note | downcase %}<p class="mn-section-note{% if scan contains 'todo:' %} mn-todo{% endif %}">{{ section.note }}</p>{% endif %}
+
+    {% if section.callout %}
+    <div class="mn-cta">
+        {% for paragraph in section.callout.paragraphs %}
+        {% assign scan = paragraph | downcase %}
+        <p{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ paragraph | replace: '%EMAIL%', email_link }}</p>
+        {% endfor %}
+        {% if section.callout.list %}
+        <ul class="mn-list">
+            {% for item in section.callout.list %}
+            {% assign scan = item | downcase %}
+            <li{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ item | replace: '%EMAIL%', email_link }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endfor %}

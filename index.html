@@ -10,23 +10,36 @@ navbar_title: About Me
     display: grid;
     grid-template-columns: 14rem 1fr;
     gap: 2.4rem;
-    align-items: center;
+    align-items: start;
     margin: 0 0 4rem;
 }
+.home-hero-photo-wrap {
+    position: relative;
+}
+.home-hero-photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    background: radial-gradient(60% 60% at 50% 42%, var(--color-glow), transparent 72%);
+    z-index: 0;
+}
 .home-hero-photo {
+    position: relative;
+    z-index: 1;
     width: 14rem;
     height: 14rem;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     object-fit: cover;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 28px -10px rgba(10,10,10,.16);
 }
 .home-hero-name {
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.9rem;
-    line-height: 1.15;
-    margin: 0 0 0.6rem;
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    font-size: 2.3rem;
+    line-height: 1.12;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.02em;
 }
 .home-hero-name-cn {
     font-size: 0.65em;
@@ -36,15 +49,46 @@ navbar_title: About Me
     letter-spacing: 0.08em;
     vertical-align: 0.18em;
 }
-.job-market-banner {
-    background: rgba(184, 115, 51, 0.1);
+/* ===== Announcement (under the About heading) ===== */
+.home-announce {
+    background: var(--color-accent-soft-bg);
+    border: 1px solid var(--color-border);
     border-left: 3px solid var(--color-accent);
-    padding: 0.75rem 1rem;
-    border-radius: 0 6px 6px 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1.1rem 1.35rem;
+    margin: 0 0 1.5rem;
+}
+.home-announce p {
+    margin: 0;
     color: var(--color-text);
     font-size: 1rem;
-    line-height: 1.6;
-    margin: 0 0 1.5rem;
+    line-height: 1.65;
+}
+.home-announce strong { font-weight: 650; }
+.home-announce-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-accent-2);
+    text-decoration: none;
+}
+.home-announce-more:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+.home-announce-more i {
+    font-size: 0.7rem;
+    transition: transform 0.15s;
+}
+.home-announce-more:hover i { transform: translateX(2px); }
+@media (max-width: 768px) {
+    .home-announce { padding: 0.95rem 1.1rem; margin-bottom: 1.25rem; }
+    .home-announce p { font-size: 0.95rem; }
 }
 .home-hero-funfact {
     font-family: "Caveat", "DM Sans", sans-serif;
@@ -56,35 +100,47 @@ navbar_title: About Me
 .home-hero-funfact strong { font-weight: 600; color: var(--color-accent); }
 
 .home-hero-position {
-    font-size: 1.05rem;
-    color: var(--color-muted);
-    line-height: 1.55;
-    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0 0 0.5rem;
 }
-.home-hero-position strong { color: var(--color-text); font-weight: 600; }
 .home-hero-affiliations {
     font-size: 0.92rem;
     color: var(--color-muted);
     line-height: 1.55;
     margin-bottom: 0.7rem;
 }
-.home-hero-keywords {
+.research-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-bottom: 1.1rem;
 }
-.home-hero-keywords .kw {
-    font-family: var(--font-body);
-    font-size: 0.78rem;
+.research-tags .kw {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.01em;
-    padding: 0.18rem 0.65rem;
+    padding: 0.2rem 0.7rem;
     border-radius: 999px;
-    border: 1px solid #d8d8d8;
-    background: #fafafa;
-    color: #555;
+    border: 1px solid transparent;
+    background: var(--color-bg-secondary);
+    color: var(--color-muted);
     line-height: 1.4;
+    transition: color .15s, border-color .15s, transform .15s;
+}
+/* The old odd/even green-vs-indigo alternation has no monochrome equivalent —
+   alternating grays across one tag row reads as an accident, so the row is now
+   one uniform chip. */
+.research-tags .kw:nth-child(odd),
+.research-tags .kw:nth-child(even) {
+    background: var(--color-accent-soft-bg);
+    color: var(--color-accent-2);
+}
+.research-tags .kw:hover {
+    transform: translateY(-1px);
+    border-color: var(--color-border-hover);
 }
 .home-hero-tagline {
     font-size: 1rem;
@@ -96,31 +152,41 @@ navbar_title: About Me
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     font-size: 0.95rem;
 }
 .home-hero-contact a {
-    color: var(--color-text);
+    color: var(--color-muted);
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    transition: color 0.15s;
+    gap: 0.4rem;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 0.32rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-bg-secondary);
+    transition: color 0.15s, border-color 0.15s, transform 0.15s;
 }
-.home-hero-contact a:hover { color: var(--color-accent); text-decoration: none; }
-.home-hero-contact .sep { color: #ccc; }
+.home-hero-contact a:hover {
+    color: var(--color-text);
+    border-color: var(--color-border-hover);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
 .home-hero-contact i {
-    font-size: 0.95rem;
-    width: 1.2em;
+    font-size: 0.9rem;
+    width: 1em;
     text-align: center;
     display: inline-block;
-    transition: opacity 0.15s;
 }
-.home-hero-contact .fa-envelope       { color: #b87333; }
-.home-hero-contact .fa-google-scholar { color: #4285f4; }
-.home-hero-contact .fa-twitter        { color: #1da1f2; }
-.home-hero-contact .fa-linkedin       { color: #0a66c2; }
-.home-hero-contact .fa-file-alt       { color: #b87333; }
-.home-hero-contact a:hover i { opacity: 0.75; }
+/* Brand hues dropped: every contact icon is ink against its muted label. */
+.home-hero-contact .fa-envelope,
+.home-hero-contact .fa-google-scholar,
+.home-hero-contact .fa-twitter,
+.home-hero-contact .fa-linkedin,
+.home-hero-contact .fa-file-alt       { color: var(--color-text); }
 
 @media (max-width: 768px) {
     .home-hero {
@@ -133,16 +199,30 @@ navbar_title: About Me
     .home-hero-name { font-size: 1.6rem; }
 }
 
-/* ===== Section headings ===== */
+/* ===== Section headings: label + hairline rule ===== */
 .home-section { margin: 3.5rem 0; }
-.home-section-title {
+.home-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin: 0 0 1.4rem;
+}
+.home-section-head h2 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin: 0 0 1.4rem;
+    font-size: 1.05rem;
+    /* Title case, not caps. The 0.1em tracking was there to open up uppercase —
+       at mixed case that much space reads as a gap, so it drops to near zero. */
+    letter-spacing: 0.01em;
+    margin: 0;
     color: var(--color-text);
+    white-space: nowrap;
+}
+.home-section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+    align-self: center;
 }
 .home-section-lead {
     font-size: 1rem;
@@ -154,8 +234,8 @@ navbar_title: About Me
 
 /* ===== Link hierarchy =====
    Affiliation links: muted, only reveal on hover
-   Narrative links (people, institutions, event titles): muted blue
-   Destination links (papers, projects, tools — under "Related:"): keep accent copper */
+   Narrative links (people, institutions, event titles) and destination links
+   (papers, projects, tools — under "Related:") now share the single accent indigo */
 .home-hero-affiliations a {
     color: var(--color-muted);
     text-decoration: none;
@@ -168,15 +248,15 @@ navbar_title: About Me
 }
 .home-section-lead p a,
 .news-text a {
-    color: #1d4e9e;
+    color: var(--color-accent);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--color-border-hover);
     transition: color 0.15s, border-color 0.15s;
 }
 .home-section-lead p a:hover,
 .news-text a:hover {
-    color: #143879;
-    border-bottom-color: rgba(20, 56, 121, 0.5);
+    color: var(--color-accent-dark);
+    border-bottom-color: var(--color-text);
     text-decoration: none;
 }
 .research-related a {
@@ -187,8 +267,8 @@ navbar_title: About Me
     display: inline-block;
     cursor: pointer;
     color: var(--color-accent);
-    background: rgba(184, 115, 51, 0.12);
-    border: 1px solid rgba(184, 115, 51, 0.35);
+    background: var(--color-accent-soft-bg);
+    border: 1px solid var(--color-border-hover);
     font-size: 0.85em;
     font-weight: 600;
     padding: 0.15em 0.6em;
@@ -201,7 +281,7 @@ navbar_title: About Me
     white-space: nowrap;
 }
 .bio-toggle:hover {
-    background: rgba(184, 115, 51, 0.22);
+    background: var(--color-accent-soft);
     border-color: var(--color-accent);
 }
 .bio-toggle.open .bio-toggle-arrow { transform: rotate(90deg); }
@@ -218,16 +298,16 @@ navbar_title: About Me
 
 .bio-slogan {
     font-family: var(--font-heading);
-    font-size: 1.55rem;
-    font-weight: 600;
-    line-height: 1.4;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.45;
     letter-spacing: -0.015em;
-    color: var(--color-accent);
-    border-left: 4px solid var(--color-accent);
-    padding: 0.5rem 0 0.5rem 1.2rem;
-    margin: 1rem 0 1.6rem;
+    color: var(--color-text);
+    margin: 1rem 0 1.8rem;
 }
-.bio-slogan strong { font-weight: 700; }
+.bio-slogan strong {
+    font-weight: 800;
+}
 
 /* ===== Research list ===== */
 .research-lead {
@@ -240,47 +320,71 @@ navbar_title: About Me
     color: var(--color-text);
     font-weight: 600;
 }
-.research-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.1rem;
+    margin: 1.4rem 0 0;
 }
-.research-item {
+.research-card {
     position: relative;
-    padding: 0 0 0 1.5rem;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.3rem 1.4rem;
+    transition: border-color .18s;
 }
-.research-item:last-child { margin-bottom: 0; }
-.research-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.6rem;
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 50%;
-    background: var(--color-accent);
+.research-card:hover {
+    border-color: var(--color-text-3);
 }
-.research-item h3 {
+.research-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+}
+.research-mark {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-soft-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+/* Was a green/indigo alternation across the three cards; now one neutral mark. */
+.research-card:nth-child(even) .research-mark {
+    background: var(--color-accent-soft-bg);
+    color: var(--color-text);
+}
+.research-card-head { min-width: 0; }
+.research-card-head h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     margin: 0 0 0.15rem;
     color: var(--color-text);
     letter-spacing: -0.01em;
 }
-.research-sub {
-    font-size: 0.82rem;
-    font-weight: 500;
+.research-card .research-sub {
+    font-size: 0.85rem;
+    font-weight: 400;
     color: var(--color-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-}
-.research-item p {
-    font-size: 1rem;
-    line-height: 1.75;
     margin: 0;
+}
+.research-card > p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0.7rem 0 0;
     color: var(--color-text);
 }
 
@@ -289,11 +393,76 @@ navbar_title: About Me
     padding: 0;
     margin: 0.7rem 0 0;
 }
+/* Fully collapsed list: every item is hidden, so the top margin would otherwise
+   leave a dead gap above the disclosure button. It comes back once expanded. */
+.research-papers.is-collapsed { margin-top: 0; }
+.research-papers.is-collapsed.open { margin-top: 0.7rem; }
+/* Expands the hidden papers inside the card — there is no separate publications page. */
+.research-papers-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-text-3);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s, gap 0.15s;
+}
+.research-papers-more:hover {
+    color: var(--color-accent);
+    gap: 0.5rem;
+    text-decoration: none;
+}
+.research-papers-more i {
+    font-size: 0.68rem;
+    transition: transform 0.15s;
+}
+.research-papers-more.open i {
+    transform: rotate(180deg);
+}
+/* When the whole list is collapsed this button is the card's only affordance,
+   so it carries a little more weight than the quiet "+N more" variant. */
+.research-papers-more.is-collapsed {
+    margin-top: 0.9rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+}
+/* Off-card pointer at the foot of a research card (e.g. a workshop I organize).
+   Mono and quiet so it reads as a different kind of thing from the paper list. */
+.research-card-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    color: var(--color-accent-2);
+    text-decoration: none;
+}
+.research-card-link:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+.research-card-link i {
+    flex: none;
+    font-size: 0.68rem;
+    transition: transform 0.15s;
+}
+.research-card-link:hover i { transform: translateX(2px); }
 .research-papers li {
     font-size: 0.88rem;
     line-height: 1.55;
     padding: 0.25rem 0 0.25rem 0.9rem;
-    border-left: 2px solid #eaeaea;
+    border-left: 2px solid var(--color-border);
     margin-bottom: 0.3rem;
     color: var(--color-text);
 }
@@ -301,13 +470,15 @@ navbar_title: About Me
     border-left-color: var(--color-accent);
 }
 .research-papers a {
-    color: #1d4e9e;
-    text-decoration: none;
-    transition: color 0.15s;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-border-hover);
+    text-underline-offset: 3px;
+    transition: color 0.15s, text-decoration-color 0.15s;
 }
 .research-papers a:hover {
-    color: #143879;
-    text-decoration: underline;
+    color: var(--color-accent-dark);
+    text-decoration-color: var(--color-text);
 }
 .research-paper-venue {
     color: var(--color-muted);
@@ -320,7 +491,6 @@ navbar_title: About Me
     font-size: 0.95rem;
     cursor: help;
     vertical-align: middle;
-    filter: drop-shadow(0 1px 2px rgba(230, 81, 0, 0.3));
 }
 .research-paper-site {
     color: var(--color-muted);
@@ -329,11 +499,11 @@ navbar_title: About Me
     white-space: nowrap;
 }
 .research-paper-site a {
-    color: #1d4e9e;
+    color: var(--color-accent);
     text-decoration: none;
 }
 .research-paper-site a:hover {
-    color: #143879;
+    color: var(--color-accent-dark);
     text-decoration: underline;
 }
 .research-paper-site i {
@@ -351,15 +521,15 @@ navbar_title: About Me
 .research-aside strong { color: var(--color-text); font-style: normal; font-weight: 600; }
 .research-aside a strong { color: inherit; }
 .research-aside a {
-    color: #1d4e9e;
+    color: var(--color-accent);
     font-style: normal;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--color-border-hover);
     transition: color 0.15s, border-color 0.15s;
 }
 .research-aside a:hover {
-    color: #143879;
-    border-bottom-color: rgba(20, 56, 121, 0.5);
+    color: var(--color-accent-dark);
+    border-bottom-color: var(--color-text);
     text-decoration: none;
 }
 
@@ -371,14 +541,14 @@ navbar_title: About Me
     padding: 0.55rem 0;
     font-size: 0.96rem;
     line-height: 1.65;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed var(--color-border);
 }
 .news-list li:last-child { border-bottom: none; }
 .news-date {
     flex-shrink: 0;
     font-family: var(--font-mono);
     font-size: 0.82rem;
-    color: #999;
+    color: var(--color-text-3);
     width: 5.2rem;
     padding-top: 0.15rem;
     letter-spacing: -0.01em;
@@ -423,10 +593,10 @@ navbar_title: About Me
     display: inline-block;
     font-size: 0.72rem;
     font-weight: 500;
-    color: #0f766e;
-    background: rgba(15, 118, 110, 0.08);
+    color: var(--color-accent-2);
+    background: var(--color-accent-soft-bg);
     padding: 0.1rem 0.5rem;
-    border-radius: 3px;
+    border-radius: var(--radius-pill);
     margin-left: 0.4em;
     letter-spacing: 0.02em;
     vertical-align: 0.05em;
@@ -435,29 +605,19 @@ navbar_title: About Me
 
 <!-- ===== Hero ===== -->
 <section class="home-hero">
-    <img class="home-hero-photo" src="{{ site.data.profile.portrait_url | relative_url }}" alt="{{ site.data.profile.primary_name }}">
+    <div class="home-hero-photo-wrap">
+        <img class="home-hero-photo" src="{{ site.data.profile.portrait_url | relative_url }}" alt="{{ site.data.profile.primary_name }}">
+    </div>
     <div>
         <h1 class="home-hero-name">{{ site.data.profile.primary_name }}</h1>
-        <div class="home-hero-position">
-            {% for position in site.data.profile.positions %}
-            <strong>{{ position.name }}</strong>{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-        </div>
+        <div class="home-hero-position">{% for position in site.data.profile.positions %}{{ position.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
         <div class="home-hero-affiliations">
             <a href="https://malonecenter.jhu.edu/" target="_blank">@Malone Center for Engineering in Healthcare</a><br>
             <a href="https://ai.jhu.edu/" target="_blank">@Data Science and AI Institute</a><br>
             <a href="https://www.clsp.jhu.edu/" target="_blank">@Center for Language and Speech Processing</a>
         </div>
-        <div class="home-hero-keywords">
-            <span class="kw kw-1">Agentic AI</span>
-            <span class="kw kw-2">Multi-Agent Systems</span>
-            <span class="kw kw-3">Human-AI Collaboration</span>
-            <span class="kw kw-4">AI-assisted Qualitative Analysis</span>
-            <span class="kw kw-5">AI-assisted Code Comprehension</span>
-        </div>
         <div class="home-hero-contact">
             <a href="mailto:{{ site.data.profile.email | encode_email }}"><i class="fas fa-envelope"></i> {{ site.data.profile.email | replace: "@", "(at)" }}</a>
-            <span class="sep">·</span>
             {% if site.data.profile.gscholar %}
             {%- if site.data.profile.gscholar contains 'scholar.google' -%}
             {%- assign gscholar_url = site.data.profile.gscholar -%}
@@ -465,15 +625,12 @@ navbar_title: About Me
             {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
             {%- endif -%}
             <a href="{{ gscholar_url }}" target="_blank" title="Google Scholar"><i class="fab fa-google-scholar"></i> Scholar</a>
-            <span class="sep">·</span>
             {% endif %}
             {% if site.data.profile.twitter %}
             <a href="https://twitter.com/{{ site.data.profile.twitter }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
-            <span class="sep">·</span>
             {% endif %}
             {% if site.data.profile.linkedin %}
             <a href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <span class="sep">·</span>
             {% endif %}
             {% if site.data.profile.cv_link %}
             <a href="{{ site.baseurl }}{{ site.data.profile.cv_link }}" target="_blank" title="CV"><i class="fas fa-file-alt"></i> CV</a>
@@ -484,7 +641,13 @@ navbar_title: About Me
 
 <!-- ===== About ===== -->
 <section class="home-section">
-    <h2 class="home-section-title">About</h2>
+    <div class="home-section-head"><h2>About</h2><span class="rule"></span></div>
+    <div class="home-announce">
+        <p>
+            I will join <a href="https://www.monash.edu/it" target="_blank">Monash University</a> as a Lecturer (i.e., Assistant Professor) in <a href="https://www.monash.edu/it/hcc" target="_blank">Human-Centered Computing</a> in <strong>April 2027</strong>, where I will build the <strong>Interpretive Agentic AI Lab</strong>. I am recruiting 1-2 PhD students for Fall 2027, as well as visiting students and interns. Please <a href="mailto:{{ site.data.profile.email | encode_email }}">reach out</a> if you want to join!
+        </p>
+        <a class="home-announce-more" href="{{ '/monash' | relative_url }}">Join Us <i class="fas fa-arrow-right"></i></a>
+    </div>
     <div class="home-section-lead">
         <p>
             I am currently a <a href="https://malonecenter.jhu.edu/people/jie-gao/" target="_blank">Malone Postdoc Fellow</a> at <a href="https://www.jhu.edu/" target="_blank">Johns Hopkins University</a>, where I am mentored by <a href="https://www.cs.jhu.edu/~mdredze/" target="_blank">Mark Dredze</a>, <a href="https://www.ziangxiao.com/" target="_blank">Ziang Xiao</a>, and <a href="https://www.cs.jhu.edu/~cmhuang/" target="_blank">Chien-Ming Huang</a>. I was fortunate to gain multiple kinds of training I currently rely on through postdoc, Ph.D., and visiting student experiences. Previously, I was a Postdoctoral Associate at <a href="https://m3s.mit.edu/" target="_blank">MIT's SMART program in Singapore</a>, advised by <a href="https://mitsloan.mit.edu/faculty/directory/thomas-w-malone" target="_blank">Thomas W. Malone</a>, where I learned collective intelligence and the theoretical perspective of human-AI teams. I received my Ph.D. from <a href="https://www.sutd.edu.sg/" target="_blank">SUTD</a>, advised by <a href="https://simonperrault.github.io/" target="_blank">Simon Perrault</a>, where I gained foundational HCI training. During my Ph.D., I was a visiting student at the <a href="https://nd.edu/" target="_blank">University of Notre Dame</a>, hosted by <a href="https://toby.li/" target="_blank">Toby Jia-Jun Li</a>, where I learned to design innovative human-AI collaboration, and at the <a href="https://www.nus.edu.sg/" target="_blank">National University of Singapore</a>, hosted by <a href="https://www.shengdongzhao.com/" target="_blank">Shengdong Zhao</a>, where I learned to run rigorous empirical user studies.
@@ -501,29 +664,52 @@ navbar_title: About Me
 
 <!-- ===== Research ===== -->
 <section class="home-section">
-    <h2 class="home-section-title">Research</h2>
+    <div class="home-section-head"><h2>Research</h2><span class="rule"></span></div>
     <p class="research-lead">Building a science of <strong>interpretive work</strong> across humans, autonomous agents, and their collaborations.</p>
+    <div class="research-tags">
+        <span class="kw kw-1">Agentic AI</span>
+        <span class="kw kw-2">Multi-Agent Systems</span>
+        <span class="kw kw-3">Human-AI Collaboration</span>
+        <span class="kw kw-4">AI-assisted Qualitative Analysis</span>
+        <span class="kw kw-5">AI-assisted Code Comprehension</span>
+    </div>
 
-    <ul class="research-list">
-        <li class="research-item">
-            <h3>Agent Behavior Analysis</h3>
-            <div class="research-sub">Helping humans understand agents</div>
-            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans tell whether they did it well." I study how humans can stay in the loop when AI agents act on their own.</p>
-            {% include widgets/research_papers.html topic="oversight" %}
-        </li>
-        <li class="research-item">
-            <h3>Code Comprehension</h3>
-            <div class="research-sub">Helping humans understand code</div>
-            <p>Real-world codebases are messy, and newcomers often struggle to build an accurate mental model. I build tools that help developers understand unfamiliar code, review AI-generated changes critically, and collaborate with AI assistants without giving up their own judgment.</p>
-            {% include widgets/research_papers.html topic="code" %}
-        </li>
-        <li class="research-item">
-            <h3>Qualitative Analysis</h3>
-            <div class="research-sub">Helping humans understand unstructured text</div>
+    <div class="research-grid">
+        <article class="research-card">
+            <div class="research-card-top">
+                <span class="research-mark"><i class="fas fa-tags"></i></span>
+                <div class="research-card-head">
+                    <h3>Qualitative Analysis</h3>
+                    <div class="research-sub">Helping humans understand unstructured text</div>
+                </div>
+            </div>
             <p>How can AI support, rather than replace, the interpretive work of reading unstructured text? I design and evaluate systems that help people code qualitative data, align interpretations across multiple coders, and develop grounded theories from raw text, while keeping human judgment central.</p>
-            {% include widgets/research_papers.html topic="qual" %}
-        </li>
-    </ul>
+            {% include widgets/research_papers.html topic="qual" collapsed=true %}
+        </article>
+        <article class="research-card">
+            <div class="research-card-top">
+                <span class="research-mark"><i class="fas fa-code"></i></span>
+                <div class="research-card-head">
+                    <h3>Code Comprehension</h3>
+                    <div class="research-sub">Helping humans understand code</div>
+                </div>
+            </div>
+            <p>Real-world codebases are messy, and newcomers often struggle to build an accurate mental model. I build tools that help developers understand unfamiliar code, review AI-generated changes critically, and collaborate with AI assistants without giving up their own judgment.</p>
+            {% include widgets/research_papers.html topic="code" collapsed=true %}
+        </article>
+        <article class="research-card">
+            <div class="research-card-top">
+                <span class="research-mark"><i class="fas fa-robot"></i></span>
+                <div class="research-card-head">
+                    <h3>Agent Behavior Analysis</h3>
+                    <div class="research-sub">Helping humans understand agents</div>
+                </div>
+            </div>
+            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans tell whether they did it well." I study how humans can stay in the loop when AI agents act on their own.</p>
+            {% include widgets/research_papers.html topic="oversight" collapsed=true %}
+            <a class="research-card-link" href="https://iab-agents.github.io/" target="_blank">Interpreting Agent Behavior &middot; NeurIPS 2026 Workshop <i class="fas fa-arrow-right"></i></a>
+        </article>
+    </div>
 
     <p class="research-aside">Beyond these three lines, I also work on other topics such as <a href="https://dl.acm.org/doi/abs/10.1145/3613905.3650786" target="_blank"><strong>human-LLM interaction modes</strong></a>, <a href="https://dl.acm.org/doi/abs/10.1145/3586183.3606800" target="_blank"><strong>AI-assisted writing</strong></a>, <a href="https://dl.acm.org/doi/abs/10.1145/3613904.3642530" target="_blank"><strong>online deliberation</strong></a>, and <a href="https://dl.acm.org/doi/abs/10.1145/3610931" target="_blank"><strong>messaging on smart glasses</strong></a>.</p>
 
@@ -539,7 +725,7 @@ navbar_title: About Me
 
 <!-- ===== News ===== -->
 <section class="home-section">
-    <h2 class="home-section-title">News</h2>
+    <div class="home-section-head"><h2>News</h2><span class="rule"></span></div>
     {% assign all_news = site.news | sort: "date" | reverse %}
     {% assign recent_cutoff = 6 %}
     <ul class="news-list">
@@ -569,8 +755,20 @@ navbar_title: About Me
 
 <!-- ===== Travel ===== -->
 <section class="home-section">
-    <h2 class="home-section-title">Travel</h2>
+    <div class="home-section-head"><h2>Travel</h2><span class="rule"></span></div>
     <ul class="news-list">
+        <li>
+            <span class="news-date">[2026.12]</span>
+            <span class="news-text"><a href="https://neurips.cc/Conferences/2026" target="_blank">NeurIPS 2026</a>, Sydney, Australia</span>
+        </li>
+        <li>
+            <span class="news-date">[2026.10]</span>
+            <span class="news-text"><a href="https://2026.emnlp.org/" target="_blank">EMNLP 2026</a>, Budapest, Hungary</span>
+        </li>
+        <li>
+            <span class="news-date">[2026.10]</span>
+            <span class="news-text"><a href="https://colmweb.org/" target="_blank">COLM 2026</a>, San Francisco, USA</span>
+        </li>
         <li class="travel-cancelled">
             <span class="news-date">[2026.04]</span>
             <span class="news-text"><a href="https://iclr.cc/Conferences/2026" target="_blank">ICLR 2026</a>, Rio de Janeiro, Brazil <span class="travel-note">(cancelled — visa issues)</span></span>

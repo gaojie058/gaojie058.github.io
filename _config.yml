@@ -28,16 +28,14 @@ plugins:
   - jekyll-email-protect
 
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# `brainstorming/` holds design notes that quote Liquid tags such as {% raw %}{% include ... %}{% endraw %};
+# without this, `jekyll build` dies trying to execute them. The folder is gitignored,
+# so this only affects local builds.
+exclude:
+  - brainstorming/
+  # A source-only note. Without this, Jekyll renders it into a stray unstyled
+  # page at /assets/images/monash/CREDITS.html.
+  - assets/images/monash/CREDITS.md
 
 # timezone: Asia/Shanghai
 
