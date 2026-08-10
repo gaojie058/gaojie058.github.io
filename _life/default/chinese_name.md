@@ -2,7 +2,9 @@
 show: true
 width: 12
 date: 2025-10-29 00:01:00 +0800
-group: About Me
+# "About Me" collided with the About section on the merged home page, and this
+# card already announces itself as a fun fact.
+group: Fun Facts
 class: ""
 ---
 <div class="p-4">

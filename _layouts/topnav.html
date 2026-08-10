@@ -6,6 +6,9 @@
     <title>{{ page.title }} - {{ site.data.profile.navbar_name }}</title>
 
     <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/favicon-192.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous">
@@ -17,13 +20,13 @@
     <link rel="stylesheet" href="{{ '/assets/css/global.css' | relative_url }}">
     <style>
     /* ===== Topnav layout ===== */
-    body.topnav-layout { padding-top: 0 !important; background: #fff; }
+    body.topnav-layout { padding-top: 0 !important; background: var(--color-bg); }
 
     .topnav-bar {
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(255, 255, 255, 0.92);
+        background: color-mix(in srgb, var(--color-bg) 82%, transparent);
         backdrop-filter: saturate(180%) blur(14px);
         -webkit-backdrop-filter: saturate(180%) blur(14px);
         border-bottom: 1px solid var(--color-border);
@@ -60,8 +63,8 @@
         border-bottom: 1.5px solid transparent;
         transition: color 0.15s, border-color 0.15s;
     }
-    .topnav-link:hover { color: #1d4e9e; text-decoration: none; border-bottom-color: #1d4e9e; }
-    .topnav-link.active { color: #1d4e9e; border-bottom-color: #1d4e9e; }
+    .topnav-link:hover { color: var(--color-accent-dark); text-decoration: none; border-bottom-color: var(--color-accent-dark); }
+    .topnav-link.active { color: var(--color-accent-dark); border-bottom-color: var(--color-accent-dark); }
 
     .topnav-mobile-toggle {
         display: none;
@@ -82,7 +85,7 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 0;
-            background: #fff;
+            background: var(--color-bg-secondary);
             border-bottom: 1px solid var(--color-border);
             padding: 0.5rem 1.2rem 1rem;
         }
@@ -111,15 +114,57 @@
             <i class="fas fa-bars"></i>
         </button>
         <nav class="topnav-links" id="topnav-links">
-            <a href="{{ '/' | relative_url }}" class="topnav-link {% if page.navbar_title == 'About Me' %}active{% endif %}">Home</a>
-            <a href="{{ '/publications' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Publications' %}active{% endif %}">Publications</a>
-            <a href="{{ '/talks' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Talks' %}active{% endif %}">Talks</a>
-            <a href="{{ '/honors' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Honors' %}active{% endif %}">Honors &amp; Services</a>
-            <a href="{{ '/software' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Software' %}active{% endif %}">Software</a>
-            <a href="{{ '/life' | relative_url }}" class="topnav-link {% if page.navbar_title == 'About' %}active{% endif %}">Life</a>
+            <a href="{{ '/' | relative_url }}" class="topnav-link {% if page.navbar_title == 'About Me' %}active{% endif %}" data-section="top">Home</a>
+            <a href="{{ '/#talks' | relative_url }}" class="topnav-link" data-section="talks">Talks</a>
+            <a href="{{ '/#honors' | relative_url }}" class="topnav-link" data-section="honors">Honors &amp; Services</a>
+            <a href="{{ '/#software' | relative_url }}" class="topnav-link" data-section="software">Software</a>
+            <a href="{{ '/#life' | relative_url }}" class="topnav-link" data-section="life">Life</a>
+            <a href="{{ '/monash' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Monash' %}active{% endif %}">Join IAA Lab</a>
         </nav>
     </div>
 </header>
+<script>
+/* Talks / Honors / Software / Life are sections of the home page, not separate
+   pages, so their nav links are #anchors. This tracks which one is in view and
+   moves the active underline to it; on any other page the sections are absent
+   and the whole thing no-ops. */
+(function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.topnav-link[data-section]'));
+    var menu = document.getElementById('topnav-links');
+
+    // Tapping an anchor on mobile should close the drawer it was tapped in.
+    links.forEach(function (a) {
+        a.addEventListener('click', function () { menu.classList.remove('open'); });
+    });
+
+    // This script sits in <head>-adjacent markup, above the sections it tracks,
+    // so resolving the ids has to wait for the rest of the document.
+    document.addEventListener('DOMContentLoaded', function () {
+        var homeLink = document.querySelector('.topnav-link[data-section="top"]');
+        var sections = links.map(function (a) {
+            return { link: a, el: document.getElementById(a.getAttribute('data-section')) };
+        }).filter(function (s) { return s.el; });
+        if (!sections.length) return;
+
+        function sync() {
+            // Probe a little below the sticky bar so a heading counts as "current"
+            // once it has scrolled up to just under the nav.
+            var probe = window.pageYOffset + 140;
+            var current = null;
+            sections.forEach(function (s) {
+                if (s.el.getBoundingClientRect().top + window.pageYOffset <= probe) current = s;
+            });
+            links.forEach(function (a) { a.classList.remove('active'); });
+            if (current) current.link.classList.add('active');
+            else if (homeLink) homeLink.classList.add('active');
+        }
+
+        sync();
+        window.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync);
+    });
+})();
+</script>
 
 <!-- Main content -->
 <main class="topnav-main">

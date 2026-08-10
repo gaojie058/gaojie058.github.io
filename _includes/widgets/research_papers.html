@@ -1,6 +1,21 @@
 {% assign papers = site.publications | where: "topic", include.topic | sort: "date" | reverse %}
+{% if include.collapsed %}
+    {% assign paper_limit = 0 %}
+    {% assign closed_label = "Read relevant papers" %}
+    {% assign open_label = "Hide papers" %}
+{% else %}
+    {% assign paper_limit = include.limit | default: papers.size %}
+    {% assign closed_label = nil %}
+    {% assign open_label = "Show less" %}
+{% endif %}
 {% if papers.size > 0 %}
-<ul class="research-papers">
+{%- comment -%}
+  Papers past `limit` are rendered but hidden; the button expands them in place.
+  There is no separate /publications page, so nothing here may link off-card.
+  Pass `collapsed=true` to hide the whole list behind a "Read relevant papers"
+  disclosure instead of showing the first few.
+{%- endcomment -%}
+<ul class="research-papers{% if include.collapsed %} is-collapsed{% endif %}" id="research-papers-{{ include.topic }}">
     {% for pub in papers %}
         {% assign paper_url = nil %}
         {% assign website_url = nil %}
@@ -12,7 +27,7 @@
                 {% if link[1].url %}{% assign website_url = link[1].url %}{% else %}{% assign website_url = link[1] %}{% endif %}
             {% endif %}
         {% endfor %}
-        <li>
+        <li{% if forloop.index0 >= paper_limit %} class="research-paper-extra" hidden{% endif %}>
             {% if paper_url %}
                 <a href="{{ paper_url }}" target="_blank">{{ pub.title }}</a>
             {% else %}
@@ -36,4 +51,11 @@
         </li>
     {% endfor %}
 </ul>
+{% assign remaining = papers.size | minus: paper_limit %}
+{% if remaining > 0 %}
+{% unless closed_label %}{% assign closed_label = remaining | prepend: "+" | append: " more" %}{% endunless %}
+<button type="button" class="research-papers-more{% if include.collapsed %} is-collapsed{% endif %}" aria-expanded="false" onclick="var open=this.classList.toggle('open'); var list=document.getElementById('research-papers-{{ include.topic }}'); list.classList.toggle('open', open); var extra=list.querySelectorAll('.research-paper-extra'); for (var i = 0; i < extra.length; i++) { extra[i].hidden = !open; } this.setAttribute('aria-expanded', open); this.querySelector('.label').textContent = open ? '{{ open_label }}' : '{{ closed_label }}';">
+    <span class="label">{{ closed_label }}</span> <i class="fas fa-chevron-down"></i>
+</button>
+{% endif %}
 {% endif %}

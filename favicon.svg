@@ -1,4 +1,15 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
-  <rect width='32' height='32' rx='6' fill='#b87333'/>
-  <text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='600' fill='white'>JG</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="JG">
+  <!-- Monogram for Jie (Sophia) Gao. Letterforms outlined from Manrope ExtraBold,
+       the site heading face, so no font is required at render time. The tile
+       inverts with the browser theme: ink on light chrome, paper on dark. -->
+  <style>
+    .tile { fill: #0A0A0A }
+    .mark { fill: #FFFFFF }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #FFFFFF }
+      .mark { fill: #0A0A0A }
+    }
+  </style>
+  <rect width="32" height="32" rx="7" class="tile"/>
+  <path class="mark" d="M8.1 24.54Q6.13 24.54 4.85 23.54Q3.57 22.53 3.04 20.81L6.11 20.07Q6.21 20.71 6.77 21.17Q7.33 21.63 7.96 21.63Q8.4 21.63 8.9 21.39Q9.39 21.15 9.61 20.62Q9.75 20.29 9.77 19.81Q9.8 19.33 9.8 18.7V7.7H12.96V18.7Q12.96 19.49 12.95 20.08Q12.95 20.66 12.84 21.17Q12.73 21.68 12.41 22.23Q11.71 23.44 10.59 23.99Q9.46 24.54 8.1 24.54Z M21.15 24.54Q19.59 24.54 18.18 23.99Q16.77 23.43 15.69 22.34Q14.61 21.26 13.98 19.65Q13.36 18.05 13.36 15.95Q13.36 13.21 14.41 11.29Q15.46 9.37 17.23 8.36Q19 7.36 21.15 7.36Q24.34 7.36 26.16 8.83Q27.98 10.31 28.6 13.02L25.41 13.47Q24.97 12.03 23.95 11.17Q22.94 10.3 21.36 10.29Q19.79 10.27 18.74 10.97Q17.7 11.66 17.18 12.95Q16.66 14.23 16.66 15.95Q16.66 17.67 17.18 18.93Q17.7 20.19 18.74 20.89Q19.79 21.59 21.36 21.61Q22.42 21.63 23.29 21.24Q24.15 20.85 24.75 20.02Q25.34 19.18 25.6 17.88H22.98V15.47H28.92Q28.94 15.62 28.95 16Q28.96 16.37 28.96 16.43Q28.96 18.8 28 20.64Q27.04 22.47 25.29 23.51Q23.53 24.54 21.15 24.54Z"/>
 </svg>

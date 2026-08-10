@@ -1,0 +1,109 @@
+hero:
+  title: "About Monash University"
+  # Campus photo shown under the title. Delete this whole `image:` block to hide it.
+  # If you swap the photo, keep a `credit:` line — this one is Creative Commons and
+  # the attribution is what the licence requires. Do not drop in a photo from
+  # monash.edu or a stock site without checking that you may republish it.
+  image:
+    src: /assets/images/monash/woodside-building.jpg
+    credit: >-
+      Photo by <a href="https://commons.wikimedia.org/wiki/File:Woodside_Building_for_Technology_and_Design,_Monash_University,_Clayton_campus.jpg" target="_blank">Monash Information Technology</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, via Wikimedia Commons.
+
+sections:
+
+  # ---- 01 -------------------------------------------------------------------
+  - paragraphs:
+      - >
+        Monash University is a public research university in Melbourne, Australia, and a
+        member of the <a href="https://go8.edu.au/" target="_blank">Group of Eight</a>, the
+        country's research-intensive universities. It is ranked #31 globally in the 2027
+        QS World University Rankings. On CSRankings it is #7 in HCI worldwide (2010-2026),
+        and #1 in Australia in all four of AI, NLP, software engineering, and HCI.
+    # A `tags:` list here renders a row of pills under the paragraph, each
+    # {label, rank, link} with rank and link both optional. Left empty on
+    # purpose: the per-area figures are already in the sentence above, and
+    # linking each area to CSRankings does not work, since it overwrites the
+    # region in a shared URL with the reader's own location.
+
+  # ---- 02 -------------------------------------------------------------------
+  - title: Interpretive Agentic AI Lab (IAA Lab)
+    # Quiet aside beside the section title. Delete this line once the site is up.
+    note: 
+    paragraphs:
+      - >
+        IAA Lab studies how to support humans in performing interpretive work, including
+        but not limited to agent behavior analysis, data analysis, and code comprehension.
+        We are also open to other topics that align with your research interests.
+      - >
+        Students with HCI, NLP and SE backgrounds are strongly welcome. But we envision that
+        IAA Lab will be an interdisciplinary and innovative team, so students with other strong
+        backgrounds are also welcome to contact us.
+
+  # ---- 03 -------------------------------------------------------------------
+  - title: Open Positions
+    # Plain text: `name` (with `when` inline beside it) over a paragraph.
+    # Add a position by copying one block; delete one by removing it.
+    roles:
+      - name: PhD Students (1-2)
+        when: Starting mid to late 2027 or early 2028
+        description: >
+          I will accept students via
+          <a href="https://www.monash.edu/graduate-research/study/scholarships/fees-scholarships#ScholarshipsandgrantsforMonashAustralia" target="_blank">PhD scholarships</a>
+          below. I may also be able to fund exceptionally strong students directly, depending on grant funding at the time. Please see
+          <a href="https://www.monash.edu/graduate-research/study/apply#tabs__2347545-02" target="_blank">How to apply</a>
+          and the
+          <a href="https://publicpolicydms.monash.edu/Monash/documents/2723244" target="_blank">Graduate Research Admissions Procedure</a>.
+          International students must also satisfy the
+          <a href="https://www.monash.edu/graduate-research/study/apply/english-language-proficiency-requirements-for-admission" target="_blank">English language requirements</a>.
+        # One labelled block holding the scholarship names, each linking to the Monash
+        # page that carries the current rate and eligibility rules. Deliberately no
+        # per-scheme blurb: the linked pages are authoritative and stay current, this
+        # list does not. Drop a line to hide a scheme, or delete `funding:` for all.
+        # Sir James McNeill is absent on purpose. It pays the same as the top two here
+        # but is restricted to Arts (Music), Engineering, Medicine and Science, so IT
+        # students are not eligible.
+        funding:
+          - title: Scholarships
+            link: https://www.monash.edu/graduate-research/study/scholarships/fees-scholarships
+            # Ordered by how likely a student is to actually receive one, not by size.
+            # A single application is considered for every scheme automatically, so the
+            # applicant never picks. CF-MGS leads because the enrolling faculty co-funds
+            # it and the number offered varies with that budget, which gives the faculty
+            # more room than the centrally funded schemes; it is still awarded on merit.
+            # The last two are two awards a year across all of Monash, long shots for anyone.
+            items:
+              - '<a href="https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/co-funded-monash-graduate-scholarship-cf-mgs#scholarship-details" target="_blank">Co-funded Monash Graduate Scholarship (CF-MGS)</a>'
+              - '<a href="https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/monash-graduate-scholarship-mgs" target="_blank">Monash Graduate Scholarship (MGS)</a>'
+              - '<a href="https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/research-training-program-scholarship#scholarship-details" target="_blank">Research Training Program (RTP) Stipend</a>'
+              - '<a href="https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/international-tuition-scholarship" target="_blank">Monash International Tuition Scholarship (MITS)</a>'
+              - '<a href="https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/maxwell-king-phd-scholarship" target="_blank">Maxwell King PhD Scholarship</a>'
+              - '<a href="https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/monash-graduate-impact-2030-scholarship" target="_blank">Monash Graduate Impact 2030 Scholarship</a>'
+              # The full Monash list is not a line here: it hangs off "PhD scholarships"
+              # in the sentence above, so this list stays a list of named schemes.
+        # Admission requirements can go in a `notes:` list here. Same shape as
+        # `funding:` (title, link, items), rendered above the scholarships.
+
+      - name: Visiting Students
+        description: >
+          I personally benefited a lot from my own visiting experience, in which I learned
+          other labs' research methods and gained access to their alumni networks. So IAA Lab
+          will welcome visiting students. I also encourage our students to visit other
+          labs in other countries, and to have one or more internships in industry or another
+          research lab. This ensures our students are more competitive on the job market in
+          their graduating year, whether they are looking for academic or industry positions.
+          If you want to visit IAA Lab, please contact me.
+      - name: Interns
+        description: >
+          We welcome interns both remotely and locally.
+
+  # ---- 04 -------------------------------------------------------------------
+  - title: How to Reach Out
+    # `callout` renders inside the shaded box. Use `paragraphs` instead for plain text.
+    callout:
+      paragraphs:
+        - "When you email me, please include:"
+      list:
+        - Your CV.
+        - Which position you are interested in, and when you would want to start.
+        - >
+          A short paragraph on what you want to work on and why it connects to the lab.
