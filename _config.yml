@@ -31,11 +31,27 @@ plugins:
 # `brainstorming/` holds design notes that quote Liquid tags such as {% raw %}{% include ... %}{% endraw %};
 # without this, `jekyll build` dies trying to execute them. The folder is gitignored,
 # so this only affects local builds.
+# Setting this key REPLACES Jekyll's built-in exclude list rather than adding to
+# it, so the defaults have to be restated below or they are lost.
 exclude:
   - brainstorming/
   # A source-only note. Without this, Jekyll renders it into a stray unstyled
   # page at /assets/images/monash/CREDITS.html.
   - assets/images/monash/CREDITS.md
+  # Jekyll's defaults, restated. `vendor/` matters on CI: ruby/setup-ruby with
+  # bundler-cache installs gems into ./vendor/bundle, and unexcluded Jekyll walks
+  # into them and dies on jekyll-3.10.0's undated site_template ERB post.
+  - .bundle/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 # timezone: Asia/Shanghai
 
