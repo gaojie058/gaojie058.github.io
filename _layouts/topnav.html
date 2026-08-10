@@ -114,15 +114,57 @@
             <i class="fas fa-bars"></i>
         </button>
         <nav class="topnav-links" id="topnav-links">
-            <a href="{{ '/' | relative_url }}" class="topnav-link {% if page.navbar_title == 'About Me' %}active{% endif %}">Home</a>
-            <a href="{{ '/talks' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Talks' %}active{% endif %}">Talks</a>
-            <a href="{{ '/honors' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Honors' %}active{% endif %}">Honors &amp; Services</a>
-            <a href="{{ '/software' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Software' %}active{% endif %}">Software</a>
-            <a href="{{ '/life' | relative_url }}" class="topnav-link {% if page.navbar_title == 'About' %}active{% endif %}">Life</a>
-            <a href="{{ '/monash' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Monash' %}active{% endif %}">Join Us</a>
+            <a href="{{ '/' | relative_url }}" class="topnav-link {% if page.navbar_title == 'About Me' %}active{% endif %}" data-section="top">Home</a>
+            <a href="{{ '/#talks' | relative_url }}" class="topnav-link" data-section="talks">Talks</a>
+            <a href="{{ '/#honors' | relative_url }}" class="topnav-link" data-section="honors">Honors &amp; Services</a>
+            <a href="{{ '/#software' | relative_url }}" class="topnav-link" data-section="software">Software</a>
+            <a href="{{ '/#life' | relative_url }}" class="topnav-link" data-section="life">Life</a>
+            <a href="{{ '/monash' | relative_url }}" class="topnav-link {% if page.navbar_title == 'Monash' %}active{% endif %}">Join IAA Lab</a>
         </nav>
     </div>
 </header>
+<script>
+/* Talks / Honors / Software / Life are sections of the home page, not separate
+   pages, so their nav links are #anchors. This tracks which one is in view and
+   moves the active underline to it; on any other page the sections are absent
+   and the whole thing no-ops. */
+(function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.topnav-link[data-section]'));
+    var menu = document.getElementById('topnav-links');
+
+    // Tapping an anchor on mobile should close the drawer it was tapped in.
+    links.forEach(function (a) {
+        a.addEventListener('click', function () { menu.classList.remove('open'); });
+    });
+
+    // This script sits in <head>-adjacent markup, above the sections it tracks,
+    // so resolving the ids has to wait for the rest of the document.
+    document.addEventListener('DOMContentLoaded', function () {
+        var homeLink = document.querySelector('.topnav-link[data-section="top"]');
+        var sections = links.map(function (a) {
+            return { link: a, el: document.getElementById(a.getAttribute('data-section')) };
+        }).filter(function (s) { return s.el; });
+        if (!sections.length) return;
+
+        function sync() {
+            // Probe a little below the sticky bar so a heading counts as "current"
+            // once it has scrolled up to just under the nav.
+            var probe = window.pageYOffset + 140;
+            var current = null;
+            sections.forEach(function (s) {
+                if (s.el.getBoundingClientRect().top + window.pageYOffset <= probe) current = s;
+            });
+            links.forEach(function (a) { a.classList.remove('active'); });
+            if (current) current.link.classList.add('active');
+            else if (homeLink) homeLink.classList.add('active');
+        }
+
+        sync();
+        window.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync);
+    });
+})();
+</script>
 
 <!-- Main content -->
 <main class="topnav-main">

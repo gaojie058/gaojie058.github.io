@@ -6,6 +6,8 @@ hero:
   # monash.edu or a stock site without checking that you may republish it.
   image:
     src: /assets/images/monash/woodside-building.jpg
+    credit: >-
+      Photo by <a href="https://commons.wikimedia.org/wiki/File:Woodside_Building_for_Technology_and_Design,_Monash_University,_Clayton_campus.jpg" target="_blank">Monash Information Technology</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, via Wikimedia Commons.
 
 sections:
 
@@ -14,25 +16,28 @@ sections:
       - >
         Monash University is a public research university in Melbourne, Australia, and a
         member of the <a href="https://go8.edu.au/" target="_blank">Group of Eight</a>, the
-        country's research-intensive universities. It is ranked #31 globally in the 2027 QS World University Rankings. On
-        <a href="https://csrankings.org/#/fromyear/2010/toyear/2026/index?chi&world" target="_blank">CSRankings</a>
-        it is #7 in HCI worldwide, and
-        <a href="https://csrankings.org/#/fromyear/2020/toyear/2026/index?ai&au" target="_blank">#1 in Australia</a>
-        in all four of AI, NLP, software engineering, and HCI.
-      - >
-        Todo: under this line, add one tag per area for AI, NLP, SE, and HCI, each linking
-        to its own CSRankings page.
+        country's research-intensive universities. It is ranked #31 globally in the 2027
+        QS World University Rankings. On CSRankings it is #7 in HCI worldwide (2010-2026),
+        and #1 in Australia in all four of AI, NLP, software engineering, and HCI.
+    # A `tags:` list here renders a row of pills under the paragraph, each
+    # {label, rank, link} with rank and link both optional. Left empty on
+    # purpose: the per-area figures are already in the sentence above, and
+    # linking each area to CSRankings does not work, since it overwrites the
+    # region in a shared URL with the reader's own location.
 
   # ---- 02 -------------------------------------------------------------------
   - title: Interpretive Agentic AI Lab (IAA Lab)
     # Quiet aside beside the section title. Delete this line once the site is up.
-    note: Lab website under construction
+    note: 
     paragraphs:
       - >
-        The lab studies how people make sense of AI systems that act on their own, and how
-        to design human-AI systems that keep human judgment in the loop while doing so.
+        IAA Lab studies how to support humans in performing interpretive work, including
+        but not limited to agent behavior analysis, data analysis, and code comprehension.
+        We are also open to other topics that align with your research interests.
       - >
-        Todo: add research directions
+        Students with HCI, NLP and SE backgrounds are strongly welcome. But we envision that
+        IAA Lab will be an interdisciplinary and innovative team, so students with other strong
+        backgrounds are also welcome to contact us.
 
   # ---- 03 -------------------------------------------------------------------
   - title: Open Positions
@@ -40,13 +45,14 @@ sections:
     # Add a position by copying one block; delete one by removing it.
     roles:
       - name: PhD Students (1-2)
-        when: Starting Fall 2027
+        when: Starting mid to late 2027 or early 2028
         description: >
-          I encourage you to apply for the
+          I will accept students via
           <a href="https://www.monash.edu/graduate-research/study/scholarships/fees-scholarships#ScholarshipsandgrantsforMonashAustralia" target="_blank">PhD scholarships</a>
-          below. I also fund
-          exceptionally strong students myself. Please see
-          <a href="https://www.monash.edu/graduate-research/study/apply#tabs__2347545-02" target="_blank">How to apply</a>.
+          below. I may also be able to fund exceptionally strong students directly, depending on grant funding at the time. Please see
+          <a href="https://www.monash.edu/graduate-research/study/apply#tabs__2347545-02" target="_blank">How to apply</a>
+          and the
+          <a href="https://publicpolicydms.monash.edu/Monash/documents/2723244" target="_blank">Graduate Research Admissions Procedure</a>.
           International students must also satisfy the
           <a href="https://www.monash.edu/graduate-research/study/apply/english-language-proficiency-requirements-for-admission" target="_blank">English language requirements</a>.
         # One labelled block holding the scholarship names, each linking to the Monash
@@ -80,17 +86,15 @@ sections:
       - name: Visiting Students
         description: >
           I personally benefited a lot from my own visiting experience, in which I learned
-          other labs' research methods and gained access to their alumni networks. So my lab
-          will welcome visiting students. I also encourage my own students to visit other
-          labs in other countries, and to have at least one internship in industry or another
-          research lab. This helps you be more competitive on the job market in your
-          graduating year, whether you are looking for academic positions or industry jobs.
-          If you want to visit the IAA Lab, students who come with their own funding are
-          always welcome. I also occasionally host visiting students when I have funding to
-          support them.
+          other labs' research methods and gained access to their alumni networks. So IAA Lab
+          will welcome visiting students. I also encourage our students to visit other
+          labs in other countries, and to have one or more internships in industry or another
+          research lab. This ensures our students are more competitive on the job market in
+          their graduating year, whether they are looking for academic or industry positions.
+          If you want to visit IAA Lab, please contact me.
       - name: Interns
         description: >
-          I recruit two kinds of interns: Monash students and remote research interns. I occasionally have funding for on-campus interns. Remote internships are not paid.
+          We welcome interns both remotely and locally.
 
   # ---- 04 -------------------------------------------------------------------
   - title: How to Reach Out
@@ -103,6 +107,3 @@ sections:
         - Which position you are interested in, and when you would want to start.
         - >
           A short paragraph on what you want to work on and why it connects to the lab.
-        - >
-          Anything you have built, written, or analyzed that you are proud of, even if it
-          is unpublished.

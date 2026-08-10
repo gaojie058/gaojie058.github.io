@@ -575,12 +575,6 @@ navbar_title: About Me
 }
 
 /* Travel section */
-.travel-cancelled .news-text,
-.travel-cancelled .news-text a {
-    text-decoration: line-through;
-    opacity: 0.55;
-}
-.travel-cancelled .news-date { opacity: 0.55; }
 .travel-note {
     font-size: 0.85em;
     color: var(--color-muted);
@@ -588,7 +582,6 @@ navbar_title: About Me
     font-style: italic;
     margin-left: 0.2em;
 }
-.travel-cancelled .travel-note { text-decoration: none; opacity: 1; }
 .travel-presenting {
     display: inline-block;
     font-size: 0.72rem;
@@ -601,6 +594,112 @@ navbar_title: About Me
     letter-spacing: 0.02em;
     vertical-align: 0.05em;
 }
+
+/* ===== Anchor targets =====
+   The top nav is sticky, so a raw #hash jump would park the section heading
+   underneath it. */
+.home-section { scroll-margin-top: 5.5rem; }
+@media (max-width: 768px) {
+    .home-section { scroll-margin-top: 4.5rem; }
+}
+
+/* ===== Sub-heading inside a section =====
+   Talks / Honors / Software / Life each carry internal groupings that used to be
+   page-level <h5>/<h4> headings. On one page they sit a level below the section
+   rule, so they are quieter than .home-section-head h2. */
+.home-subhead {
+    font-family: var(--font-heading);
+    font-weight: 650;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+    margin: 2.1rem 0 0.9rem;
+}
+.home-subhead:first-child { margin-top: 0; }
+.home-subhead i {
+    margin-right: 0.45rem;
+    font-size: 0.88em;
+    color: var(--color-text-3);
+}
+
+/* ===== Talks ===== */
+.talk-list { list-style: none; padding: 0; margin: 0; }
+.talk-list li {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed var(--color-border);
+}
+.talk-list li:last-child { border-bottom: none; }
+.talk-body { flex: 1; min-width: 0; }
+.talk-title {
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+.talk-venue {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+    margin-top: 0.1rem;
+}
+.talk-list a,
+.plain-list a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border-hover);
+    transition: color 0.15s, border-color 0.15s;
+}
+.talk-list a:hover,
+.plain-list a:hover {
+    color: var(--color-accent-dark);
+    border-bottom-color: var(--color-text);
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    .talk-list li { flex-direction: column; gap: 0.15rem; }
+}
+
+/* ===== Honors & services ===== */
+.plain-list { list-style: none; padding: 0; margin: 0; }
+.plain-list > li {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    padding: 0.3rem 0;
+    color: var(--color-text);
+}
+.plain-list .item-note {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin-top: 0.15rem;
+}
+.plain-list .item-aside {
+    font-size: 0.85rem;
+    color: var(--color-text-3);
+}
+/* Nested years under a single venue (e.g. CHI 2022 / 2023 / 2025 / 2026). */
+.plain-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 0 0.9rem;
+}
+.plain-list ul li {
+    font-size: 0.89rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    padding: 0.1rem 0 0.1rem 0.75rem;
+    border-left: 2px solid var(--color-border);
+}
+
+/* ===== Software ===== */
+.software-lead {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0 0 1.6rem;
+}
+.software-lead strong { font-weight: 600; }
 </style>
 
 <!-- ===== Hero ===== -->
@@ -640,13 +739,13 @@ navbar_title: About Me
 </section>
 
 <!-- ===== About ===== -->
-<section class="home-section">
+<section class="home-section" id="about">
     <div class="home-section-head"><h2>About</h2><span class="rule"></span></div>
     <div class="home-announce">
         <p>
-            I will join <a href="https://www.monash.edu/it" target="_blank">Monash University</a> as a Lecturer (i.e., Assistant Professor) in <a href="https://www.monash.edu/it/hcc" target="_blank">Human-Centered Computing</a> in <strong>April 2027</strong>, where I will build the <strong>Interpretive Agentic AI Lab</strong>. I am recruiting 1-2 PhD students for Fall 2027, as well as visiting students and interns. Please <a href="mailto:{{ site.data.profile.email | encode_email }}">reach out</a> if you want to join!
+            I will join <a href="https://www.monash.edu/it" target="_blank">Monash University</a> as a Lecturer (i.e., Assistant Professor) in <a href="https://www.monash.edu/it/hcc" target="_blank">Human-Centered Computing</a> in <strong>April 2027</strong>, where I will build the <strong>Interpretive Agentic AI Lab (IAA Lab)</strong>. I am recruiting 1-2 PhD students for mid to late 2027 or early 2028, as well as visiting students and interns. Please reach out if you want to join!
         </p>
-        <a class="home-announce-more" href="{{ '/monash' | relative_url }}">Join Us <i class="fas fa-arrow-right"></i></a>
+        <a class="home-announce-more" href="{{ '/monash' | relative_url }}">Join IAA Lab <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="home-section-lead">
         <p>
@@ -663,7 +762,7 @@ navbar_title: About Me
 </section>
 
 <!-- ===== Research ===== -->
-<section class="home-section">
+<section class="home-section" id="research">
     <div class="home-section-head"><h2>Research</h2><span class="rule"></span></div>
     <p class="research-lead">Building a science of <strong>interpretive work</strong> across humans, autonomous agents, and their collaborations.</p>
     <div class="research-tags">
@@ -683,7 +782,7 @@ navbar_title: About Me
                     <div class="research-sub">Helping humans understand unstructured text</div>
                 </div>
             </div>
-            <p>How can AI support, rather than replace, the interpretive work of reading unstructured text? I design and evaluate systems that help people code qualitative data, align interpretations across multiple coders, and develop grounded theories from raw text, while keeping human judgment central.</p>
+            <p>How can AI support, rather than replace, the interpretive work of reading unstructured text? I design and evaluate systems that help people code qualitative data, align interpretations across multiple coders, and develop theories from raw text, while keeping human judgment central.</p>
             {% include widgets/research_papers.html topic="qual" collapsed=true %}
         </article>
         <article class="research-card">
@@ -705,7 +804,7 @@ navbar_title: About Me
                     <div class="research-sub">Helping humans understand agents</div>
                 </div>
             </div>
-            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans tell whether they did it well." I study how humans can stay in the loop when AI agents act on their own.</p>
+            <p>As AI systems take on increasingly autonomous roles, the bottleneck shifts from "can they do it" to "can humans understand or control what they do." I study how humans can understand and control agents when they run autonomously.</p>
             {% include widgets/research_papers.html topic="oversight" collapsed=true %}
             <a class="research-card-link" href="https://iab-agents.github.io/" target="_blank">Interpreting Agent Behavior &middot; NeurIPS 2026 Workshop <i class="fas fa-arrow-right"></i></a>
         </article>
@@ -724,7 +823,7 @@ navbar_title: About Me
 </section>
 
 <!-- ===== News ===== -->
-<section class="home-section">
+<section class="home-section" id="news">
     <div class="home-section-head"><h2>News</h2><span class="rule"></span></div>
     {% assign all_news = site.news | sort: "date" | reverse %}
     {% assign recent_cutoff = 6 %}
@@ -754,7 +853,7 @@ navbar_title: About Me
 </section>
 
 <!-- ===== Travel ===== -->
-<section class="home-section">
+<section class="home-section" id="travel">
     <div class="home-section-head"><h2>Travel</h2><span class="rule"></span></div>
     <ul class="news-list">
         <li>
@@ -768,14 +867,6 @@ navbar_title: About Me
         <li>
             <span class="news-date">[2026.10]</span>
             <span class="news-text"><a href="https://colmweb.org/" target="_blank">COLM 2026</a>, San Francisco, USA</span>
-        </li>
-        <li class="travel-cancelled">
-            <span class="news-date">[2026.04]</span>
-            <span class="news-text"><a href="https://iclr.cc/Conferences/2026" target="_blank">ICLR 2026</a>, Rio de Janeiro, Brazil <span class="travel-note">(cancelled — visa issues)</span></span>
-        </li>
-        <li class="travel-cancelled">
-            <span class="news-date">[2026.04]</span>
-            <span class="news-text"><a href="https://conf.researchr.org/home/icse-2026" target="_blank">ICSE / ICPC 2026</a>, Rio de Janeiro, Brazil <span class="travel-presenting">presenting</span> <span class="travel-note">(cancelled — visa issues)</span></span>
         </li>
         <li>
             <span class="news-date">[2025.11]</span>
@@ -820,4 +911,245 @@ navbar_title: About Me
             <span class="news-text"><a href="https://ubicomp.org/ubicomp2018/" target="_blank">UbiComp 2018</a>, Singapore <span class="travel-presenting">presenting</span></span>
         </li>
     </ul>
+</section>
+
+<!-- ===== Talks ===== -->
+<section class="home-section" id="talks">
+    <div class="home-section-head"><h2>Talks</h2><span class="rule"></span></div>
+    <div class="home-subhead">Invited Talks, Guest Lectures &amp; Tutorials</div>
+    <ul class="talk-list">
+        <li>
+            <span class="news-date">[2026.06]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Toward Seeing What Agents Do: Interpretive Work in the Age of Agentic AI&rdquo;</div>
+                <div class="talk-venue">Monash University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2026.05]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Toward Seeing What Agents Do: Interpretive Work in the Age of Agentic AI&rdquo; (<a href="https://mp.weixin.qq.com/s/QHmTffwLz0wW7kLqXLB9Lg" target="_blank">News</a>)</div>
+                <div class="talk-venue">Fudan University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2026.04]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;LLMs for Qualitative Data Analysis: Methods, Applications and Concerns&rdquo; (<a href="https://docs.google.com/presentation/d/1Ri1q56nlMBlLiehoKJAMlG7axs1iasMvncvroiYAMRk/edit?usp=sharing" target="_blank">Slides</a>)</div>
+                <div class="talk-venue">Guest lecture at Advanced HCI, Johns Hopkins University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2026.04]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;LLMs for Qualitative Data Analysis: Methods, Applications and Concerns&rdquo; (<a href="https://docs.google.com/presentation/d/1NWbdUi99PUps7ryV_sqcUxvUxPeaihXTL5W9NjF_F1o/edit?usp=sharing" target="_blank">Slides</a>)</div>
+                <div class="talk-venue">Guest lecture at <a href="https://nlp-css-601-672.cs.jhu.edu/sp2026/index.html" target="_blank">NLP for Computational Social Science</a>, Johns Hopkins University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2026.03]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Claude Code How-To Session&rdquo; (<a href="https://docs.google.com/presentation/d/1sKNGEJwk3KY4oUQbVbDXfdtdZsdJNdOauhg2lkzM6ww/edit?usp=sharing" target="_blank">Slides</a>)</div>
+                <div class="talk-venue">Tutorial for 40+ JHU researchers (Master&rsquo;s students, PhD students, postdocs, and faculty)</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.11]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Human&ndash;AI Collaboration for Complex Unstructured Data Analysis&rdquo;</div>
+                <div class="talk-venue">Western Michigan University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.10]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;From Automation to Human-AI Collaboration: Methods and Applications for Insights Extraction in Unstructured Data&rdquo;</div>
+                <div class="talk-venue">Malone Center Research Lunch, Johns Hopkins University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.07]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;AI for Text Production and Analysis&rdquo;</div>
+                <div class="talk-venue">HCIX Research Club</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.05]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;AI for Qualitative Data Analysis&rdquo;</div>
+                <div class="talk-venue">Public health course</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.04]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Designing Human-AI Teams to Extract Insights from Unstructured Data&rdquo;</div>
+                <div class="talk-venue">HCI Seminar, Johns Hopkins University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.03]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Human-Centric Software Engineering in the Era of Large Language Models&rdquo;</div>
+                <div class="talk-venue">Singapore Management University</div>
+            </div>
+        </li>
+        <li>
+            <span class="news-date">[2025.02]</span>
+            <div class="talk-body">
+                <div class="talk-title">&ldquo;Extracting Insights from (Un)structured Data: Methods and Applications&rdquo;</div>
+                <div class="talk-venue">M3S Seminar, Singapore&ndash;MIT Alliance for Research and Technology</div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- ===== Honors & Services ===== -->
+<section class="home-section" id="honors">
+    <div class="home-section-head"><h2>Honors &amp; Services</h2><span class="rule"></span></div>
+
+    <div class="home-subhead"><i class="fas fa-award"></i>Fellowships &amp; Awards</div>
+    <ul class="plain-list">
+        <li>
+            ACM SIGSOFT Distinguished Paper Award, ICPC 2026
+            <div class="item-note"> A premier venue for program comprehension and software engineering research.</div>
+        </li>
+        <li>Malone Postdoctoral Fellowship, Johns Hopkins University, 2024</li>
+        <li>SUTD PhD Fellowship, 2019</li>
+        <li>Excellent Graduate Student, Zhejiang University, 2019</li>
+        <li>Excellent Undergraduate Student, Shanghai University, 2017</li>
+        <li>Innovation and Entrepreneurship Scholarship, Shanghai University, 2016</li>
+        <li>Leadership Scholarship, Shanghai University, 2016</li>
+        <li>3rd Prize, Shanghai Electronic Design Competition (Group Leader), 2016</li>
+    </ul>
+
+    <div class="home-subhead"><i class="fas fa-users"></i>Workshop Organizer</div>
+    <ul class="plain-list">
+        <li><a href="https://iab-agents.github.io/" target="_blank">IAB Workshop</a>, NeurIPS 2026 (Lead Organizer)</li>
+        <li>&ldquo;<a href="https://sites.google.com/view/llmsindatawork" target="_blank">LLMs as Research Tools: Applications and Evaluations in HCI Data Work</a>,&rdquo; CHI 2024 Workshop (Co-organizer)</li>
+    </ul>
+
+    <div class="home-subhead"><i class="fas fa-gavel"></i>Associate Chair / Area Chair</div>
+    <ul class="plain-list">
+        <li>
+            ACM Conference on Human Factors in Computing Systems (CHI), Main Track
+            <ul>
+                <li>Associate Chair, 2027 (incoming)</li>
+                <li>Associate Chair, 2026</li>
+                <li>Associate Chair, Best Paper Committee, 2025</li>
+            </ul>
+        </li>
+        <li>
+            ACM Conference on Human Factors in Computing Systems (CHI), Late-Breaking Work Track
+            <ul>
+                <li>Associate Chair, 2023</li>
+                <li>Associate Chair, 2022</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="home-subhead"><i class="fas fa-pen-nib"></i>Invited Reviewer</div>
+    <ul class="plain-list">
+        <li>Conference on Neural Information Processing Systems (NeurIPS), 2026</li>
+        <li>Nordic Conference on Human-Computer Interaction (NordiCHI), 2026</li>
+        <li>International Journal of Human&ndash;Computer Interaction (IJHCI), 2025</li>
+        <li>Empirical Software Engineering (EMSE), 2025</li>
+        <li>ACM Symposium on User Interface Software and Technology (UIST), 2025</li>
+        <li>Computers in Human Behavior Reports, 2025</li>
+        <li>ACM Transactions on Interactive Intelligent Systems (TiiS), 2024&ndash;2025</li>
+        <li>ACM Conference on Human Factors in Computing Systems (CHI), 2023&ndash;2024 <span class="item-aside">(transitioned to Associate Chair from 2024)</span></li>
+        <li>ACM Conference on Computer-Supported Cooperative Work (CSCW), 2022&ndash;2023</li>
+        <li>International Conference on Artificial Intelligence in Education (AIED), 2023</li>
+    </ul>
+</section>
+
+<!-- ===== Software ===== -->
+<section class="home-section" id="software">
+    <div class="home-section-head"><h2>Software</h2><span class="rule"></span></div>
+    <p class="software-lead">I love building software that helps people solve <strong>real problems</strong>. I value <strong>reproducibility</strong> and <strong>open source</strong>. While maintaining these tools takes effort, I believe it supports <strong>real-world applications</strong> of research.</p>
+
+    <div class="home-subhead"><i class="fas fa-code"></i>Support Codebase Understanding</div>
+    <div class="row">
+        {% assign cu_items = site.software | where: "category", "codebase-understanding" | sort: "order" %}
+        {% for item in cu_items %}
+        <div class="col-md-6 mb-3">
+            {% include widgets/software_card.html item=item %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="home-subhead"><i class="fas fa-search"></i>Support Qualitative Analysis</div>
+    <div class="row">
+        {% assign qa_items = site.software | where: "category", "qualitative-analysis" | sort: "order" %}
+        {% for item in qa_items %}
+        <div class="col-md-6 mb-3">
+            {% include widgets/software_card.html item=item %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== Life ===== -->
+<section class="home-section" id="life">
+    <div class="home-section-head"><h2>Life</h2><span class="rule"></span></div>
+
+    {% assign main_items = site.life | sort: "date" | reverse | where: "show", true | where_exp: "item", "item.group != 'Cats'" %}
+    {% assign cat_items = site.life | sort: "date" | reverse | where: "show", true | where_exp: "item", "item.group == 'Cats'" %}
+    {% assign main_by_group = main_items | group_by_exp: "item", "item.group" %}
+
+    {% for group in main_by_group %}
+    {% case group.name %}
+      {% when 'Photos' %}{% assign group_icon = 'fa-images' %}
+      {% when 'Travel' %}{% assign group_icon = 'fa-plane' %}
+      {% when 'About Me' %}{% assign group_icon = 'fa-user' %}
+      {% when 'Fun Facts' %}{% assign group_icon = 'fa-lightbulb' %}
+      {% else %}{% assign group_icon = 'fa-star' %}
+    {% endcase %}
+    <div class="home-subhead"><i class="fas {{ group_icon }}"></i>{{ group.name }}</div>
+    <div class="row grid">
+        <div class="grid-sizer col-1"></div>
+        {% for item in group.items %}
+        {% if item.width >= 6 -%}
+            {%- assign width_sm = 12 -%}
+            {%- assign width_xs = 12 -%}
+        {%- elsif item.width >= 2 -%}
+            {%- assign width_sm = 6 -%}
+            {%- assign width_xs = 6 -%}
+        {%- else -%}
+            {%- assign width_sm = item.width | times: 2 | at_most: 12 -%}
+            {%- assign width_xs = item.width | times: 2 | at_most: 12 -%}
+        {%- endif -%}
+        <div class="p-2 grid-item col-md-{{ item.width | at_most: 12 }} col-sm-{{ width_sm }} col-{{ width_xs }}">
+            <div class="{% if item.class != null %}{{ item.class }}{% else %}card border-0 shadow-sm bg-white{% endif %}">
+                {{ item.content }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    {% if cat_items.size > 0 %}
+    <div class="home-subhead"><i class="fas fa-cat"></i>Cats</div>
+    <div class="row grid">
+        <div class="grid-sizer col-1"></div>
+        {% for item in cat_items %}
+        {% if item.width >= 6 -%}
+            {%- assign width_sm = 12 -%}
+            {%- assign width_xs = 12 -%}
+        {%- elsif item.width >= 2 -%}
+            {%- assign width_sm = 6 -%}
+            {%- assign width_xs = 6 -%}
+        {%- else -%}
+            {%- assign width_sm = item.width | times: 2 | at_most: 12 -%}
+            {%- assign width_xs = item.width | times: 2 | at_most: 12 -%}
+        {%- endif -%}
+        <div class="p-2 grid-item col-md-{{ item.width | at_most: 12 }} col-sm-{{ width_sm }} col-{{ width_xs }}">
+            <div class="{% if item.class != null %}{{ item.class }}{% else %}card border-0 shadow-sm bg-white{% endif %}">
+                {{ item.content }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 </section>

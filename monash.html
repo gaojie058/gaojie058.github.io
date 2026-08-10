@@ -132,6 +132,32 @@ p.mn-todo { margin-bottom: 1rem; }
     color: var(--color-text);
 }
 
+/* Area tags — one per research area, each linking wherever the yml points it.
+   The URL is taken verbatim from the data file; nothing here builds one. */
+.mn-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.2rem 0 0;
+}
+.mn-tag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-bg-secondary);
+    padding: 0.32rem 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+    text-decoration: none;
+}
+.mn-tag:hover { border-color: var(--color-text-3); }
+/* The rank sits quieter than the area name it qualifies. */
+.mn-tag .rank { color: var(--color-text-3); }
+
 /* Open positions — plain text, no cards */
 .mn-roles {
     display: grid;
@@ -202,6 +228,10 @@ p.mn-todo { margin-bottom: 1rem; }
 .mn-cta p { margin: 0 0 0.8rem; line-height: 1.7; }
 .mn-cta p:last-child { margin-bottom: 0; }
 
+/* This page ends on the shaded reach-out box, so the footer's own rule would
+   read as a second divider stacked right under it. Drop it here only. */
+.topnav-main .footer-enhanced { border-top: none; }
+
 @media (max-width: 768px) {
     .mn-hero h1 { font-size: 1.6rem; }
     .mn-section { margin: 2.4rem 0; }
@@ -247,13 +277,29 @@ p.mn-todo { margin-bottom: 1rem; }
     </div>
     {% endif %}
 
-    {% if section.paragraphs or section.facts or section.roles or section.list %}
+    {% if section.paragraphs or section.tags or section.facts or section.roles or section.list %}
     <div class="mn-body">
         {%- comment -%} `todo:` anywhere in a string paints it amber. See .mn-todo. {%- endcomment -%}
         {% for paragraph in section.paragraphs %}
         {% assign scan = paragraph | downcase %}
         <p{% if scan contains 'todo:' %} class="mn-todo"{% endif %}>{{ paragraph | replace: '%EMAIL%', email_link }}</p>
         {% endfor %}
+
+        {%- comment -%}
+          `tags:` is a list of {label, rank, link}. `rank` and `link` are both
+          optional; a tag with no link renders as a plain pill.
+        {%- endcomment -%}
+        {% if section.tags %}
+        <div class="mn-tags">
+            {% for tag in section.tags %}
+            {% if tag.link %}
+            <a class="mn-tag" href="{{ tag.link }}" target="_blank">{{ tag.label }}{% if tag.rank %}<span class="rank">{{ tag.rank }}</span>{% endif %}</a>
+            {% else %}
+            <span class="mn-tag">{{ tag.label }}{% if tag.rank %}<span class="rank">{{ tag.rank }}</span>{% endif %}</span>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
 
         {% if section.list %}
         <ul class="mn-list">
