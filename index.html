@@ -186,8 +186,94 @@ navbar_title: About Me
 .home-hero-contact .fa-google-scholar,
 .home-hero-contact .fa-twitter,
 .home-hero-contact .fa-linkedin,
-.home-hero-contact .fa-file-alt,
-.home-hero-contact .fa-mug-hot        { color: var(--color-text); }
+.home-hero-contact .fa-file-alt       { color: var(--color-text); }
+
+/* The same booking link repeated near the top, so it is reachable without scrolling
+   to the foot of the page. It sits on its own line under the contact pills rather
+   than inside that row, which separates an invitation from the five links that are
+   merely contact details. It inverts for the reason the button at the foot does:
+   this palette separates emphasis by value rather than by hue. */
+.home-hero-contact-cta {
+    margin-top: 0.55rem;
+}
+.home-hero-contact a.contact-cta {
+    background: var(--color-invert-bg);
+    border-color: var(--color-invert-bg);
+    color: var(--color-invert-fg);
+    font-weight: 600;
+    box-shadow: 0 1px 5px rgba(10, 10, 10, .28);
+    animation: coffee-btn-pulse 2.8s ease-in-out infinite;
+}
+.home-hero-contact a.contact-cta:hover {
+    color: var(--color-invert-fg);
+    border-color: var(--color-invert-bg);
+    box-shadow: 0 3px 14px rgba(10, 10, 10, .45);
+}
+/* The row's icons are ink on white, which would vanish on the inverted chip. */
+.home-hero-contact a.contact-cta i {
+    color: var(--color-invert-fg);
+    font-size: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-hero-contact a.contact-cta { animation: none; }
+}
+
+/* ===== Coffee chat (closes the page, after Life) =====
+   A closing invitation rather than another contact link, so it gets a card of
+   its own instead of a sixth pill in the hero row. The palette carries hierarchy
+   by value rather than hue (see the note atop global.css), so the button draws
+   the eye by inverting to solid ink, helped by the same slow shadow pulse the
+   "NEW" news badge already uses for the same job. */
+.home-coffee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.15rem;
+    text-align: center;
+    background: var(--color-accent-soft-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2.2rem 1.6rem;
+}
+.home-coffee-note {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-text);
+    max-width: 58ch;
+}
+.home-coffee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--color-invert-bg);
+    color: var(--color-invert-fg);
+    border: 1px solid var(--color-invert-bg);
+    border-radius: var(--radius-pill);
+    padding: 0.62rem 1.45rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 1px 5px rgba(10, 10, 10, .28);
+    animation: coffee-btn-pulse 2.8s ease-in-out infinite;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+.home-coffee-btn:hover {
+    color: var(--color-invert-fg);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 14px rgba(10, 10, 10, .45);
+}
+.home-coffee-btn i { font-size: 1rem; }
+@keyframes coffee-btn-pulse {
+    0%, 100% { box-shadow: 0 1px 5px rgba(10, 10, 10, .28); }
+    50%      { box-shadow: 0 2px 12px rgba(10, 10, 10, .5); }
+}
+/* An animation that never stops is a nuisance for anyone who asked the OS for
+   less motion. The inverted button alone still carries the emphasis. */
+@media (prefers-reduced-motion: reduce) {
+    .home-coffee-btn { animation: none; }
+}
 
 @media (max-width: 768px) {
     .home-hero {
@@ -735,15 +821,17 @@ navbar_title: About Me
             {% if site.data.profile.cv_link %}
             <a href="{{ site.baseurl }}{{ site.data.profile.cv_link }}" target="_blank" title="CV"><i class="fas fa-file-alt"></i> CV</a>
             {% endif %}
-            {% if site.data.profile.calendly %}
-            <!-- Calendly opens in a popup over the page. The href is the real booking
-                 URL rather than "", so the link still works if widget.js is blocked
-                 or has not finished loading; returning false suppresses navigation
-                 whenever the popup does open. -->
-            <a href="{{ site.data.profile.calendly }}" target="_blank" title="Schedule A Coffee Chat with Me"
-               onclick="if (window.Calendly) { Calendly.initPopupWidget({url: '{{ site.data.profile.calendly }}'}); return false; }"><i class="fas fa-mug-hot"></i> Coffee Chat</a>
-            {% endif %}
         </div>
+        {% if site.data.profile.calendly %}
+        <!-- A row of its own rather than a sixth pill, so it reads as an invitation and not
+             as another contact detail. Reusing .home-hero-contact keeps the pill styling
+             without repeating it; the card at the foot of the page carries the full
+             sentence. Both are data-calendly triggers for the one handler below. -->
+        <div class="home-hero-contact home-hero-contact-cta">
+            <a class="contact-cta" href="{{ site.data.profile.calendly }}" target="_blank" data-calendly
+               title="Schedule A Coffee Chat with Me"><i class="fas fa-mug-hot"></i> Coffee Chat</a>
+        </div>
+        {% endif %}
     </div>
 </section>
 
@@ -1164,8 +1252,52 @@ navbar_title: About Me
 </section>
 
 {% if site.data.profile.calendly %}
+<!-- ===== Coffee chat ===== -->
+<section class="home-section" id="coffee-chat">
+    <div class="home-coffee">
+        {% comment %}
+        ORIGINAL WORDING, as written by the author. Kept here for reference so the
+        published sentence can be compared against it or restored. Three grammar fixes
+        were applied below and nothing else was reworded:
+          1. "enjoy to talk"          -> "enjoy talking"        (enjoy takes a gerund)
+          2. "no matter you are"      -> "no matter whether"     (the clause needs a conjunction)
+          3. "spend three times a week to chat" -> "spend time three times a week chatting"
+                                                   (spend needs an object; spend time + doing)
+
+            I enjoy to talk to others, no matter you are students, postdocs, or collaborators.
+            I plan to spend three times a week to chat with new people who are interested.
+            If you would like to talk, book a meeting below.
+
+        This is a Liquid comment, not an HTML one, so Jekyll strips it at build time and
+        it never reaches the published page source.
+        {% endcomment %}
+        <p class="home-coffee-note">
+            I enjoy talking to others, no matter whether you are students, postdocs, or collaborators.
+            I plan to spend time three times a week chatting with new people who are interested.
+            If you would like to talk, book a meeting below.
+        </p>
+        <!-- data-calendly marks this as a popup trigger; the handler is at the foot of
+             this file. The href is the real booking URL rather than "", so a click still
+             lands on Calendly if widget.js is blocked or has not finished loading. -->
+        <a class="home-coffee-btn" href="{{ site.data.profile.calendly }}" target="_blank" data-calendly><i class="fas fa-mug-hot"></i> Schedule A Coffee Chat with Me</a>
+    </div>
+</section>
+
 <!-- Calendly popup widget. Loaded here rather than in _layouts/topnav.html so the
      other pages, which have no booking link, do not pay for these two requests. -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+/* One delegated handler for every [data-calendly] trigger, so the popup call is
+   written once no matter how many places link to the booking page. Delegation
+   also means it does not care that widget.js loads async: until Calendly is
+   defined the click falls through to the href and opens the booking page in a
+   new tab, which is the same destination by a slower route. */
+document.addEventListener('click', function (event) {
+    var trigger = event.target.closest('[data-calendly]');
+    if (!trigger || !window.Calendly) return;
+    event.preventDefault();
+    Calendly.initPopupWidget({ url: trigger.getAttribute('href') });
+});
+</script>
 {% endif %}
