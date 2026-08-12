@@ -186,7 +186,8 @@ navbar_title: About Me
 .home-hero-contact .fa-google-scholar,
 .home-hero-contact .fa-twitter,
 .home-hero-contact .fa-linkedin,
-.home-hero-contact .fa-file-alt       { color: var(--color-text); }
+.home-hero-contact .fa-file-alt,
+.home-hero-contact .fa-mug-hot        { color: var(--color-text); }
 
 @media (max-width: 768px) {
     .home-hero {
@@ -734,6 +735,14 @@ navbar_title: About Me
             {% if site.data.profile.cv_link %}
             <a href="{{ site.baseurl }}{{ site.data.profile.cv_link }}" target="_blank" title="CV"><i class="fas fa-file-alt"></i> CV</a>
             {% endif %}
+            {% if site.data.profile.calendly %}
+            <!-- Calendly opens in a popup over the page. The href is the real booking
+                 URL rather than "", so the link still works if widget.js is blocked
+                 or has not finished loading; returning false suppresses navigation
+                 whenever the popup does open. -->
+            <a href="{{ site.data.profile.calendly }}" target="_blank" title="Schedule A Coffee Chat with Me"
+               onclick="if (window.Calendly) { Calendly.initPopupWidget({url: '{{ site.data.profile.calendly }}'}); return false; }"><i class="fas fa-mug-hot"></i> Coffee Chat</a>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -1153,3 +1162,10 @@ navbar_title: About Me
     </div>
     {% endif %}
 </section>
+
+{% if site.data.profile.calendly %}
+<!-- Calendly popup widget. Loaded here rather than in _layouts/topnav.html so the
+     other pages, which have no booking link, do not pay for these two requests. -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+{% endif %}
