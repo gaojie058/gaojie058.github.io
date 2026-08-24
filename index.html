@@ -265,6 +265,16 @@ navbar_title: About Me
     box-shadow: 0 3px 14px rgba(10, 10, 10, .45);
 }
 .home-coffee-btn i { font-size: 1rem; }
+/* Fine print under the button. The negative margin pulls it up out of the card's
+   1.15rem gap, so it reads as attached to the button rather than as a third
+   free-standing element. */
+.home-coffee-fine {
+    margin: -0.45rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--color-text-3);
+    max-width: 52ch;
+}
 @keyframes coffee-btn-pulse {
     0%, 100% { box-shadow: 0 1px 5px rgba(10, 10, 10, .28); }
     50%      { box-shadow: 0 2px 12px rgba(10, 10, 10, .5); }
@@ -1280,6 +1290,18 @@ navbar_title: About Me
              this file. The href is the real booking URL rather than "", so a click still
              lands on Calendly if widget.js is blocked or has not finished loading. -->
         <a class="home-coffee-btn" href="{{ site.data.profile.calendly }}" target="_blank" data-calendly><i class="fas fa-mug-hot"></i> Schedule A Coffee Chat with Me</a>
+        {% comment %}
+        ORIGINAL WORDING of the line below, as written by the author. Two grammar fixes,
+        nothing reworded:
+          1. "with me, I'd love"        -> "with me. I'd love"   (two full clauses cannot
+                                                                  be joined by a comma)
+          2. "with students, collaborators" -> "with students and collaborators"
+                                                                 (a two-item list needs "and")
+          Sentence-initial "book" was also capitalised.
+
+            book a coffee chat with me, I'd love to spark new ideas with students, collaborators.
+        {% endcomment %}
+        <p class="home-coffee-fine">Book a coffee chat with me. I'd love to spark new ideas with students and collaborators.</p>
     </div>
 </section>
 
