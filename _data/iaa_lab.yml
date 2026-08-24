@@ -1,0 +1,68 @@
+# All copy for the IAA Lab page (iaa-lab.html) lives here — edit this file, not the page.
+# The recruiting details stay on the Monash page (_data/monash.yml); this page is the
+# lab's own front door: what it studies and who is in it.
+
+hero:
+  title: "Interpretive Agentic AI Lab (IAA Lab)"
+  lead: >
+    IAA Lab studies how to support humans in performing interpretive work, including
+    but not limited to agent behavior analysis, data analysis, and code comprehension.
+    The lab will be based in Human-Centered Computing at Monash University in
+    Melbourne, Australia, starting April 2027.
+
+# One section per group, rendered in this order. Each member is a full-width block:
+# `photo` (site-local path; omit it to fall back to a neutral initial), `name`,
+# optional `role` (quiet, inline after the name), optional `note` (one line on what
+# they work on), and a `links` row. A link whose `url` has no "://" is treated as
+# site-internal. `icon` is an optional Font Awesome class; it defaults to a globe.
+# Add a member by copying a block; remove one by deleting it. Student photos live
+# in /assets/images/iaa-lab/, saved from their own homepages and resized to 400px.
+groups:
+  - title: People
+    members:
+      - name: Jie Gao
+        photo: /assets/images/photos/portrait_final.jpg
+        role: Incoming Lecturer (Assistant Professor), Monash University
+        note: >
+          Currently a Malone Postdoc Fellow at Johns Hopkins University. Building a
+          science of interpretive work across humans, autonomous agents, and their
+          collaborations.
+        links:
+          - label: Homepage
+            url: /
+      - name: Yue Xue
+        photo: /assets/images/iaa-lab/yue-xue.jpg
+        role: Student Researcher
+        note: Blockchain security, software security, and LLM applications in security.
+        links:
+          - label: Homepage
+            url: https://bradmoonuestc.github.io/
+      - name: Zhimin Lin
+        photo: /assets/images/iaa-lab/zhimin-lin.jpg
+        role: Remote Intern
+        note: Large language models and natural language processing.
+        links:
+          - label: Homepage
+            url: https://nenrincake.github.io/
+      - name: Zoey (Zhiyao) Shu
+        photo: /assets/images/iaa-lab/zhiyao-shu.jpg
+        role: Remote Collaborator
+        note: Computer vision, human-AI collaboration, and multimodal reasoning.
+        links:
+          - label: Homepage
+            url: https://zhiyaoshu.github.io/
+      - name: Yifan Zhang
+        photo: /assets/images/iaa-lab/yifan-zhang.jpg
+        role: Visiting Student
+        note: Explainable AI and human-computer interaction.
+        links:
+          - label: Homepage
+            url: https://yvonnefanf.github.io/index.html
+
+# Closing callout. The button under these paragraphs is hardcoded in the page and
+# points to /monash, where the open positions and application details live.
+join:
+  paragraphs:
+    - >
+      We are recruiting 1-2 PhD students for mid to late 2027 or early 2028, as well
+      as postdoctoral researchers, visiting students, and interns.

@@ -44,6 +44,35 @@ sections:
     # Plain text: `name` (with `when` inline beside it) over a paragraph.
     # Add a position by copying one block; delete one by removing it.
     roles:
+      - name: Postdoctoral Researchers
+        description: >
+          There are two routes into a postdoc here. The first is a fellowship you hold
+          yourself, which you apply for with me as your host and which pays your own salary.
+          The second is a salaried position funded on a grant, advertised through
+          <a href="https://careers.pageuppeople.com/513/cw/en/listing/" target="_blank">Monash Jobs</a>.
+          Fellowship applications take months to prepare and Monash's internal deadline
+          usually falls well before the funder's, so please write to me early rather than
+          near the closing date.
+        # The `when:` field is deliberately absent: the timing depends on grant funding.
+        # Fill the todo below in with a real answer, or delete the whole `notes:` block
+        # if you would rather not commit to a year on the page.
+        notes:
+          - title: Timing
+            items:
+              - "todo: say when a funded position is likely, and whether you would co-apply for a fellowship starting in 2027 or 2028."
+        # Named schemes only, each linking to the funder's own page, which is where the
+        # current rate, eligibility rule and closing date live. Same principle as the PhD
+        # list below: this page does not restate numbers that go stale.
+        funding:
+          - title: Fellowships you apply for with me as host
+            items:
+              - '<a href="https://www.arc.gov.au/funding-research/arc-funding-schemes/discovery/discovery-early-career-researcher-award-decra" target="_blank">ARC Discovery Early Career Researcher Award (DECRA)</a>. Three years of salary plus project costs, for researchers within five years of their PhD. This is the main route in Australia, and it is open to any nationality.'
+              - '<a href="https://www.arc.gov.au/early-career-industry-fellowships" target="_blank">ARC Early Career Industry Fellowship</a>. Three years split between the university and an industry partner. Paused as of mid-2026 pending the ARC funding policy review, so check the scheme page before planning around it.'
+              - '<a href="https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships" target="_blank">MSCA Global Postdoctoral Fellowship</a>. For researchers moving from Europe, this funds up to two years at Monash and then a year back at a European host.'
+              - '<a href="https://www.fulbright.org.au/scholarships/fulbright-us-postdoctoral-scholarship/" target="_blank">Fulbright U.S. Postdoctoral Scholarship</a>. For US citizens, tenable at an Australian host institution.'
+              - '<a href="https://www.veski.org.au/victoria-fellowships/" target="_blank">veski Victoria Fellowships</a>. A travel grant rather than a salary, for early career researchers already based in Victoria.'
+              - If your own country funds outbound postdocs, such as JSPS, the Humboldt Foundation, or a national postdoctoral council, Monash can act as the overseas host. Tell me which scheme you have in mind and we can work out whether it fits.
+
       - name: PhD Students (1-2)
         when: Starting mid to late 2027 or early 2028
         description: >
@@ -97,6 +126,24 @@ sections:
           We welcome interns both remotely and locally.
 
   # ---- 04 -------------------------------------------------------------------
+  # What the university puts behind a person once they are here. Aimed mostly at
+  # postdocs and fellowship applicants, though students get the compute and the
+  # institute community too. Every line links to the page that owns the detail.
+  - title: Research Support at Monash
+    paragraphs:
+      - >
+        Whichever position you come in on, these are the things Monash puts behind you.
+        They matter most for a fellowship application, where a host institution has to
+        show it can actually support the work.
+    list:
+      - '<a href="https://docs.erc.monash.edu/Compute/HPC/M3/" target="_blank">MASSIVE M3</a>, the university HPC cluster, gives every Monash researcher access to hundreds of NVIDIA GPUs and a fast parallel file system, with partitions set aside for deep learning. Monash also holds shares in the national NCI and Pawsey facilities.'
+      - '<a href="https://www.monash.edu/data-futures-institute" target="_blank">Monash AI Institute</a>, previously the Monash Data Futures Institute, runs seed grants for interdisciplinary AI and data science projects and is where a lot of the cross-faculty collaboration happens.'
+      - 'The <a href="https://www.monash.edu/researchoffice/find-and-apply/find-funding" target="_blank">Monash Research Office</a> gives strategic advice and review on fellowship and grant applications, and subscribes to the Pivot-RP and Research Professional funding databases so you can find schemes you are eligible for.'
+      - 'The <a href="https://www.monash.edu/ecr-induction/ecr-network" target="_blank">Early Career Researcher Network</a> runs mentoring, workshops and panels across the university, alongside the faculty and school level groups. The <a href="https://www.monash.edu/ecr-induction/home" target="_blank">ECR induction hub</a> is the starting point.'
+      - 'The <a href="https://www.monash.edu/gender-equity/programs/aws-grants" target="_blank">Advancing Women''s Success Grant</a> covers costs that make academic work hard to sustain alongside caring responsibilities, and comes with access to career coaching.'
+      - 'On visas, Monash sponsors work visas for staff it hires. Researchers with a strong international record can also apply for the <a href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/national-innovation-visa-858" target="_blank">National Innovation visa</a>, a permanent residency route that replaced the Global Talent visa in December 2024.'
+
+  # ---- 05 -------------------------------------------------------------------
   - title: How to Reach Out
     # `callout` renders inside the shaded box. Use `paragraphs` instead for plain text.
     callout:
