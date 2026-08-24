@@ -57,6 +57,5 @@ exclude:
 
 collections:
   - publications
-  - news
   - life
   - software

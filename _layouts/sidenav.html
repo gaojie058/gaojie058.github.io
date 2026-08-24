@@ -102,7 +102,7 @@
             <!-- Updates (compact) -->
             <div class="sidenav-updates">
                 {% if site.data.display.homepage.show_news %}
-                {% assign count_news = site.news | size %}
+                {% assign count_news = site.data.news | size %}
                 {% if count_news > 0 %}
                 {% include widgets/news_card.html limit=3 %}
                 {% endif %}

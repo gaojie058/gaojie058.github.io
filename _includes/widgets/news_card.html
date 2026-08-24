@@ -1,4 +1,4 @@
-{% assign all_news = site.news | sort: "date" | reverse %}
+{% assign all_news = site.data.news | sort: "date" | reverse %}
 {% assign current_year = "now" | date: "%Y" %}
 {% assign has_older = false %}
 

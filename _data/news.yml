@@ -1,0 +1,120 @@
+# Edit news items here. New items are displayed in reverse chronological order.
+
+- date: 2026-08-24
+  title: >-
+    🎉 Three papers were accepted to <b>EMNLP 2026</b>! One to the <b>Main</b> conference, on <a href='https://arxiv.org/abs/2605.24600' target='_blank'><i class='ai ai-arxiv' style='margin-right: 0.15rem;'></i>a multi-agent system for qualitative data analysis</a>, and two on agent behavior analysis to <b>Findings</b> (preprints coming soon)!
+- date: 2026-07-15
+  title: >-
+    🔥 Happy to host the <a href='https://glee-competition.com/' target='_blank'>GLEE Competition</a> at the <a href='https://iab-agents.github.io/' target='_blank'>IAB Workshop @NeurIPS 2026</a>!
+
+- date: 2026-07-10
+  title: >-
+    🔥 Organizing the <a href='https://iab-agents.github.io/' target='_blank'>IAB Workshop @NeurIPS 2026</a>, on bringing interpretation methods from HCI and the social sciences to build interpretability for autonomous agents.
+- date: 2026-06-15
+  title: >-
+    🎤 Gave a talk, &ldquo;Toward Seeing What Agents Do: Interpretive Work in the Age of Agentic AI,&rdquo; at <b>Monash University</b>
+- date: 2026-05-20
+  title: >-
+    🎤 Gave a talk, &ldquo;Toward Seeing What Agents Do: Interpretive Work in the Age of Agentic AI,&rdquo; at <b>Fudan University</b> (<a href='https://mp.weixin.qq.com/s/QHmTffwLz0wW7kLqXLB9Lg' target='_blank'>News</a>)
+- date: 2026-05-17
+  title: >-
+    Our preprint <a href='https://arxiv.org/abs/2605.13625' target='_blank'><i class='ai ai-arxiv' style='margin-right: 0.15rem;'></i>How to Interpret Agent Behavior</a> is out! We introduce <b>Act*ONOMY</b>, a hierarchical taxonomy for analyzing autonomous agent behavior at runtime.
+- date: 2026-04-13
+  title: >-
+    🎉 Our <a href='https://gaojie058.github.io/code-map/'>CodeMap</a> paper received an award at <a href='https://conf.researchr.org/home/icpc-2026' target='_blank'>ICPC 2026</a> (a CORE A conference in code comprehension)! <span class='pub-badge-award'>🏆 ACM SIGSOFT Distinguished Paper Award</span>
+- date: 2026-04-13
+  title: >-
+    🎤 Happy to give a talk at <b><a href='https://nlp-css-601-672.cs.jhu.edu/sp2026/index.html' target='_blank'>NLP for Computational Social Science</a></b> (<a href='https://docs.google.com/presentation/d/1NWbdUi99PUps7ryV_sqcUxvUxPeaihXTL5W9NjF_F1o/edit?usp=sharing' target='_blank'>Slides</a>)
+- date: 2026-04-06
+  title: >-
+    🎤 Happy to give a talk at <b>Advanced HCI</b> at JHU (<a href='https://docs.google.com/presentation/d/1Ri1q56nlMBlLiehoKJAMlG7axs1iasMvncvroiYAMRk/edit?usp=sharing' target='_blank'>Slides</a>)
+- date: 2026-03-13
+  title: >-
+    🎤 Gave a <b>Claude Code How-To Session</b> (<a href='https://docs.google.com/presentation/d/1sKNGEJwk3KY4oUQbVbDXfdtdZsdJNdOauhg2lkzM6ww/edit?usp=sharing' target='_blank'>Slides</a>) for 40+ JHU researchers (Master's students, PhD students, postdocs, and faculty): covering practical usage and best practices of Claude Code and OpenClaw, provided live demos.
+- date: 2025-12-01
+  title: >-
+    🎉 Our paper on supporting developers in understanding new codebases has been accepted to the <b>34th IEEE/ACM International Conference on Program Comprehension (ICPC 2026)</b>! Check out the preprint: <a href='https://arxiv.org/abs/2504.04553'> Understanding Codebase like a Professional! Human-AI Collaboration for Code Comprehension </a> | <a href='https://gaojie058.github.io/code-map/'>CodeMap Website</a>
+- date: 2025-11-01
+  title: >-
+    ✈️ I attended EMNLP2025 in Suzhou, China. We presented our position paper, <a href='https://aclanthology.org/2025.hcinlp-1.20/'> From Noise to Nuance: Enriching Subjective Data Annotation through Qualitative Analysis</a> on generalizing qualitative data analysis to subjective data annotation domain.
+- date: 2025-10-01
+  title: >-
+    ✈️ I attended VL/HCC 2025 conference in North Carolina. Met new friends and had a great time!
+- date: 2025-10-01
+  title: >-
+    👩🏻‍💻 I am serving as an Associate Chair for CHI2026 under subcommittee  <a href='https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/#understanding_quantitative'>Understanding People — Statistical and Quantitative Methods</a>.
+- date: 2025-05-01
+  title: >-
+    ✈️ I attended CHI 2025 conference in Japan, and met a lot of old and new friends!
+- date: 2025-04-01
+  title: >-
+    🌟 We introduce <a href="https://mindcoder.ai/">mindcoder.ai</a>, a web application designed to support automated qualitative analysis. The user only needs to follow three steps to obtain qualitative analysis results-1) upload data, 2) start coding, and 3) get analysis report! See how to use-<a href="https://www.youtube.com/watch?v=a0mOkOrmVWg&ab_channel=JieGAO">video</a>.
+- date: 2025-03-01
+  title: >-
+    🚀 Started my postdoc fellowship at Johns Hopkins University!
+- date: 2024-12-01
+  title: >-
+    🚀 I will join the <a href="https://malonecenter.jhu.edu/welcoming-the-new-cohort-of-malone-postdoctoral-fellows/">Malone postdoctoral fellow program</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a> next March! I will be working with <a href="https://www.cs.jhu.edu/~mdredze/">Mark Dredze</a>, <a href="https://www.ziangxiao.com/">Ziang Xiao</a> and <a href="https://www.cs.jhu.edu/~cmhuang/">Chien-Ming Huang</a> to explore the potential of LLM in qualitative analysis methodology usage in healthcare.
+- date: 2024-09-01
+  title: >-
+    👩🏻‍💻 I am serving as an Associate Chair for CHI2025 under subcommittee "<a href="https://chi2025.acm.org/subcommittees/selecting-a-subcommittee/#understanding_quantitative">Understanding People — Statistical and Quantitative Methods</a>" this year!
+- date: 2024-05-01
+  title: >-
+    ✈️ Attended CHI2024 and met old and new friends! I co-organized a workshop "<a href="https://sites.google.com/view/llmsindatawork/home?authuser=0">LLMs as Research Tools</a>".
+- date: 2024-03-02
+  title: >-
+    🎉 Our Late-breaking Work "<a href="https://arxiv.org/abs/2404.00405">A Taxonomy for Human-LLM Interaction Modes-An Initial Exploration</a>" has been accepted to CHI 2024.
+- date: 2024-03-01
+  title: >-
+    We have launched <a href="https://gaojie058.github.io/CollabCoder/">CollabCoder Website</a>. Construction and refinement is ongoing!
+- date: 2024-01-02
+  title: >-
+    🎉 One first-authored paper "<a href="https://arxiv.org/abs/2304.07366">CollabCoder</a>" and one coauthored paper "<a href="https://arxiv.org/abs/2401.10820">Help Me Reflect</a>" have been accepted to CHI2024! (Preprints will have minor refinements in final versions.)
+- date: 2024-01-01
+  title: >-
+    🚀 I successfully defended my PhD thesis titled "<a href="../assets/pdfs/Jie_Thesis.pdf">Tool Support for Human-AI Collaboration in Qualitative Data Analysis</a>".
+- date: 2023-12-03
+  title: >-
+    🚀 We will organize a workshop "<a href="https://sites.google.com/view/llmsindatawork">LLMs as Research Tools</a>" at CHI2024, from 11-16 May 2024 in Honolulu, Hawaii, USA.
+- date: 2023-12-02
+  title: >-
+    🚀 Starting from early 2024, I am excited to become a part of the <a href="https://smart.mit.edu/">Singapore-MIT Alliance for Research and Technology</a> as a Postdoctoral Researcher, where I will be mentored by Prof. <a href="https://mitsloan.mit.edu/faculty/directory/thomas-w-malone">Thomas W. Malone</a>. I'm thrilled about this opportunity!
+- date: 2023-12-01
+  title: >-
+    🚀 I attended EMNLP2023 at Singapore. Happy to learn many new things and friends!
+- date: 2023-11-01
+  title: >-
+    🚀 Presented CollabCoder project in the Immersive Reality Lab at NUS. Thanks for the invitation from Prof Khoo Eng Tat!
+- date: 2023-10-01
+  title: >-
+    🚀 Attended CSCW2023 and presented CollabCoder demo virtually! (due to visa and funding issues)
+- date: 2023-08-01
+  title: >-
+    🎉 One coauthored paper "GlassMessaging" has been accepted to Ubicomp2023!
+- date: 2023-06-04
+  title: >-
+    🎉 One coauthored paper has been accepted to ICSME2023!
+- date: 2023-06-03
+  title: >-
+    🎉 One coauthored paper "VISAR" has been accepted to UIST2023!
+- date: 2023-06-02
+  title: >-
+    🎉 One first-authored paper "CoAIcoder" has been accepted to TOCHI!
+- date: 2023-06-01
+  title: >-
+    🎉 Our "CollabCoder" platform has been selected for a demo work at CSCW2023!
+- date: 2023-01-02
+  title: >-
+    🚀 Excited to start as a visiting Ph.D. student at Notre Dame, working with Prof Toby's team!
+- date: 2023-01-01
+  title: >-
+    👩🏻‍💻 Work as an associate chair for the Late-Breaking Work Committee of CHI2023.
+- date: 2022-06-01
+  title: >-
+    🚀 Thrilled to begin as a visiting Ph.D. student at NUS-HCI lab, looking forward to collaborating with Prof Shen and the lab team!
+- date: 2022-04-01
+  title: >-
+    ✈️ Glad to attend CHI2022 in person in New Orleans, LA, USA. Thanks for the funding support from Simon.
+- date: 2022-01-01
+  title: >-
+    👩🏻‍💻 Worked as an associate chair for the Late-Breaking Work Committee of CHI2022.

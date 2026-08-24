@@ -825,7 +825,7 @@ navbar_title: About Me
 <!-- ===== News ===== -->
 <section class="home-section" id="news">
     <div class="home-section-head"><h2>News</h2><span class="rule"></span></div>
-    {% assign all_news = site.news | sort: "date" | reverse %}
+    {% assign all_news = site.data.news | sort: "date" | reverse %}
     {% assign recent_cutoff = 6 %}
     <ul class="news-list">
         {% for item in all_news limit: recent_cutoff %}
