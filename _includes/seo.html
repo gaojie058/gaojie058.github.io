@@ -1,0 +1,126 @@
+{%- comment -%}
+Search-engine and social metadata, shared by every layout. Each layout includes
+this in place of its own <title>, so title / description / canonical / preview
+image are defined in exactly one place.
+
+Site-wide values live under `seo:` in _config.yml. Any page can override them in
+its front matter:
+
+  description: one-sentence summary shown in Google results
+  keywords:    comma-separated list (Google ignores these; Bing weighs them lightly)
+  image:       site-relative path to the social preview image
+  noindex:     true  -> ask crawlers to leave the page out of results
+  sitemap:     false -> keep the page out of sitemap.xml (read by jekyll-sitemap)
+{%- endcomment -%}
+
+{%- assign seo_name = site.data.profile.navbar_name | default: site.title -%}
+{%- if page.title -%}
+  {%- assign seo_title = page.title | append: " - " | append: seo_name -%}
+{%- else -%}
+  {%- assign seo_title = seo_name -%}
+{%- endif -%}
+{%- assign seo_description = page.description | default: site.description | strip_newlines | strip -%}
+{%- assign seo_keywords = page.keywords | default: site.seo.keywords -%}
+{%- assign seo_image = page.image | default: site.seo.og_image | absolute_url -%}
+{%- assign seo_url = page.url | replace: 'index.html', '' | absolute_url -%}
+{%- assign is_home = false -%}
+{%- if page.url == '/' or page.url == '/index.html' -%}{%- assign is_home = true -%}{%- endif -%}
+
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description | escape }}">
+{%- if seo_keywords %}
+<meta name="keywords" content="{{ seo_keywords | escape }}">
+{%- endif %}
+<meta name="author" content="{{ seo_name }}">
+<link rel="canonical" href="{{ seo_url }}">
+{%- if page.noindex %}
+<meta name="robots" content="noindex, follow">
+{%- else %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+{%- endif %}
+{%- if site.seo.google_site_verification and site.seo.google_site_verification != "" %}
+<meta name="google-site-verification" content="{{ site.seo.google_site_verification }}">
+{%- endif %}
+
+<!-- Link previews on LinkedIn, X, Slack, WeChat. Not used by Google ranking. -->
+<meta property="og:type" content="{% if is_home %}profile{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ seo_name }}">
+<meta property="og:title" content="{{ seo_title }}">
+<meta property="og:description" content="{{ seo_description | escape }}">
+<meta property="og:url" content="{{ seo_url }}">
+<meta property="og:image" content="{{ seo_image }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ seo_title }}">
+<meta name="twitter:description" content="{{ seo_description | escape }}">
+<meta name="twitter:image" content="{{ seo_image }}">
+{%- if site.data.profile.twitter %}
+<meta name="twitter:creator" content="@{{ site.data.profile.twitter }}">
+{%- endif %}
+
+{%- if is_home %}
+{%- comment -%}
+schema.org Person on the home page only. This is what lets Google connect the
+name, the affiliations and the external profiles into one identity, so a search
+for the name can surface this site rather than a namesake. `sameAs` is the part
+that does the work: every URL added there is another confirmed link in that
+identity, so keep it growing in _config.yml as new profiles appear.
+{%- endcomment -%}
+{%- assign same_as = '' -%}
+{%- if site.data.profile.gscholar -%}
+  {%- if site.data.profile.gscholar contains 'scholar.google' -%}
+    {%- assign gscholar_url = site.data.profile.gscholar -%}
+  {%- else -%}
+    {%- assign gscholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar -%}
+  {%- endif -%}
+  {%- assign same_as = same_as | append: '|' | append: gscholar_url -%}
+{%- endif -%}
+{%- if site.data.profile.linkedin -%}
+  {%- assign same_as = same_as | append: '|https://www.linkedin.com/in/' | append: site.data.profile.linkedin -%}
+{%- endif -%}
+{%- if site.data.profile.twitter -%}
+  {%- assign same_as = same_as | append: '|https://x.com/' | append: site.data.profile.twitter -%}
+{%- endif -%}
+{%- if site.data.profile.orcid -%}
+  {%- assign same_as = same_as | append: '|https://orcid.org/' | append: site.data.profile.orcid -%}
+{%- endif -%}
+{%- for extra in site.seo.same_as -%}
+  {%- assign same_as = same_as | append: '|' | append: extra -%}
+{%- endfor -%}
+{%- assign same_as_list = same_as | remove_first: '|' | split: '|' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ '/' | absolute_url }}#person",
+  "name": {{ site.data.profile.primary_name | jsonify }},
+  "alternateName": [{% for alt in site.seo.alternate_names %}{{ alt | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  "url": "{{ '/' | absolute_url }}",
+  "image": "{{ site.data.profile.portrait_url | absolute_url }}",
+  "description": {{ seo_description | jsonify }},
+  "jobTitle": {{ site.seo.job_title | jsonify }},
+  "worksFor": {
+    "@type": "Organization",
+    "name": {{ site.seo.works_for.name | jsonify }},
+    "url": {{ site.seo.works_for.url | jsonify }}
+  },
+  "alumniOf": [{% for org in site.seo.alumni_of %}{
+    "@type": "CollegeOrUniversity",
+    "name": {{ org.name | jsonify }},
+    "url": {{ org.url | jsonify }}
+  }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  "knowsAbout": [{% for topic in site.seo.knows_about %}{{ topic | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  "sameAs": [{% for link in same_as_list %}"{{ link }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "{{ '/' | absolute_url }}",
+  "name": {{ site.title | jsonify }},
+  "description": {{ seo_description | jsonify }},
+  "author": { "@id": "{{ '/' | absolute_url }}#person" }
+}
+</script>
+{%- endif %}

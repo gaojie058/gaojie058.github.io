@@ -1,0 +1,8 @@
+# Crawling rules for search engines.
+# Nothing is blocked: pages that should stay out of results carry a
+# `noindex` meta tag instead, which only works if the crawler is allowed
+# to fetch the page and read it.
+User-agent: *
+Allow: /
+
+Sitemap: https://gaojie058.github.io/sitemap.xml

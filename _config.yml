@@ -14,10 +14,60 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "Academic Homepage" # Your site title
-description: "Personal academic website" # Your site description
+title: "Jie (Sophia) Gao" # Your site title
+# One sentence. Google shows roughly the first 160 characters of this under the
+# page title, and every page inherits it unless its front matter overrides it.
+description: >-
+  Jie (Sophia) Gao is a Malone Postdoctoral Fellow at Johns Hopkins University
+  and incoming Lecturer in Human-Centered Computing at Monash University,
+  working on human-centered interpretation of agentic AI.
 url: "https://gaojie058.github.io" # Your GitHub Pages URL
 baseurl: "" # the subpath of your site, e.g. /blog
+
+# Search-engine settings, consumed by _includes/seo.html. See README for the
+# one-time Google Search Console setup that makes these count.
+seo:
+  # Paste the token from Search Console > Settings > Ownership verification >
+  # HTML tag (just the content="..." value, not the whole tag). Leave empty and
+  # no verification tag is emitted.
+  google_site_verification: "cqEbBH1nziWoVA1GxxgH2LriVYaTNUD7Ep79ltR3ESE"
+  og_image: /assets/images/photos/portrait_final.jpg
+  # Google has ignored this tag since 2009; Bing still reads it weakly. Harmless.
+  keywords: >-
+    Jie Gao, Sophia Gao, Jie Gao HCI, Jie Gao Monash, Jie Gao Johns Hopkins,
+    human-AI collaboration, agentic AI, AI agents, interpreting agent behavior,
+    AI-assisted qualitative analysis, human-centered computing, IAA Lab,
+    Interpretive Agentic AI Lab
+  # Feeds schema.org Person. Spellings people actually type into Google.
+  alternate_names:
+    - "Jie Gao"
+    - "Sophia Gao"
+    - "Gao Jie"
+  job_title: "Malone Postdoctoral Fellow"
+  works_for:
+    name: "Johns Hopkins University"
+    url: "https://www.jhu.edu/"
+  alumni_of:
+    - name: "Singapore University of Technology and Design"
+      url: "https://www.sutd.edu.sg/"
+    - name: "Massachusetts Institute of Technology"
+      url: "https://www.mit.edu/"
+  knows_about:
+    - "Human-Computer Interaction"
+    - "Human-AI Collaboration"
+    - "Agentic AI"
+    - "Multi-Agent Systems"
+    - "AI-Assisted Qualitative Analysis"
+    - "AI-Assisted Code Comprehension"
+  # Every URL here is another profile Google can tie to the same person, which
+  # is the main lever for ranking on the name itself. Google Scholar, LinkedIn
+  # and X are picked up automatically from _data/profile.yml; add the rest here.
+  same_as:
+    - "https://github.com/gaojie058"
+    # - "https://orcid.org/0000-0000-0000-0000"
+    # - "https://dblp.org/pid/xxx/xxx.html"
+    # - "https://www.semanticscholar.org/author/xxxxxxx"
+    # - "https://malonecenter.jhu.edu/people/jie-gao/"
 
 # GitHub Pages specific settings
 repository: "gaojie058/gaojie058.github.io"
@@ -26,6 +76,9 @@ repository: "gaojie058/gaojie058.github.io"
 markdown: kramdown
 plugins:
   - jekyll-email-protect
+  # Generates /sitemap.xml on every build from the pages Jekyll renders, so the
+  # file never goes stale. Pages with `sitemap: false` in front matter are left out.
+  - jekyll-sitemap
 
 # Exclude from processing.
 # `brainstorming/` holds design notes that quote Liquid tags such as {% raw %}{% include ... %}{% endraw %};

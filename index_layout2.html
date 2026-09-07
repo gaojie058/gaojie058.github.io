@@ -2,6 +2,11 @@
 layout: default
 title : Homepage
 navbar_title: Home (Layout 2)
+# An unlinked alternate rendering of the home page. Left in the build for
+# comparison, but kept out of search: near-duplicate content competing with
+# "/" would split the ranking signal for the home page.
+noindex: true
+sitemap: false
 ---
 {% include widgets/profile_card.html %}
 
