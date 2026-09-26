@@ -14,7 +14,9 @@ its front matter:
 {%- endcomment -%}
 
 {%- assign seo_name = site.data.profile.navbar_name | default: site.title -%}
-{%- if page.title -%}
+{%- if page.seo_title -%}
+  {%- assign seo_title = page.seo_title -%}
+{%- elsif page.title -%}
   {%- assign seo_title = page.title | append: " - " | append: seo_name -%}
 {%- else -%}
   {%- assign seo_title = seo_name -%}
