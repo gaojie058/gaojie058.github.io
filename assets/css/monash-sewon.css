@@ -1,0 +1,73 @@
+/* Monash shares the typography, navigation and paper surface of design-sewon. */
+.monash-paper { padding-bottom: 26px; }
+.monash-paper p, .monash-paper li { overflow-wrap: anywhere; }
+.mn-eyebrow { margin: 0 0 10px; color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.mn-hero h1 { margin: 0 0 14px; font-size: 34px; font-weight: 650; letter-spacing: -1.1px; }
+.mn-hero-lead { font-size: 16px; color: var(--muted); }
+.mn-jump-links { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 19px 0 0; font-size: 13px; }
+.mn-figure { margin: 27px 0 0; }
+.mn-figure img { display: block; width: 100%; aspect-ratio: 2.45 / 1; object-fit: cover; object-position: center 70%; border-radius: 10px; }
+.mn-figure figcaption { margin-top: 9px; font-size: 11px; line-height: 1.65; color: var(--muted); }
+.mn-figure figcaption a { color: inherit; text-decoration: underline; }
+.mn-section { margin-top: 36px; }
+.mn-hero + .mn-section { margin-top: 25px; }
+.mn-section-head { padding-bottom: 11px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.mn-section-head h2 { margin: 0; font-size: 22px; font-weight: 600; }
+.mn-body { font-size: 15px; line-height: 1.8; }
+.mn-body p { margin: 0 0 14px; }
+.mn-body p:last-child { margin-bottom: 0; }
+.mn-section-note { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
+.mn-roles { display: grid; gap: 24px; }
+.mn-role + .mn-role { border-top: 1px solid var(--line); padding-top: 22px; }
+.mn-role h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 15px; margin: 0 0 9px; font-size: 17px; font-weight: 600; }
+.mn-role .when { color: var(--muted); font-size: 12px; font-weight: 400; letter-spacing: 0; }
+.mn-block { margin: 17px 0 0; padding-left: 17px; border-left: 2px solid var(--line); }
+.mn-block .k { margin-bottom: 7px; font-size: 13px; font-weight: 600; }
+.mn-block ul { margin: 0; padding-left: 18px; }
+.mn-block li { margin-bottom: 5px; font-size: 13px; line-height: 1.75; }
+.mn-block li:last-child { margin-bottom: 0; }
+.mn-list { margin: 8px 0 0; padding-left: 19px; }
+.mn-list li { padding: 2px 0; }
+.mn-cta { padding: 20px 24px; border-left: 3px solid #92a4ca; border-radius: 0 7px 7px 0; background: var(--soft); font-size: 14px; }
+.mn-cta p { margin-bottom: 10px; }
+.mn-cta p:last-child { margin-bottom: 0; }
+.mn-contact { margin: 17px 0 0; font-size: 13px; }
+.mn-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.mn-tag { display: inline-flex; gap: 7px; padding: 3px 11px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; }
+.mn-tag .rank { color: var(--muted); }
+.mn-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 14px; margin-top: 20px; }
+.mn-fact { padding: 14px 17px; background: var(--soft); border-radius: 7px; }
+.mn-fact .k { display: block; margin-bottom: 4px; color: var(--muted); font-size: 12px; }
+.mn-fact .v { font-size: 14px; }
+.mn-todo { padding: 8px 12px; border: 1px dashed #d3a10c; border-radius: 4px; background: #fff4cc; color: #5b4400; }
+.mn-todo a { color: inherit; }
+.monash-footer { max-width: 1000px; margin: 0 auto; padding: 18px 12px 29px; color: var(--muted); font-size: 12px; }
+@media (max-width: 1040px) {
+  .monash-footer { margin: 0 24px; }
+}
+@media (max-width: 760px) {
+  .mn-hero h1 { font-size: 28px; letter-spacing: -.7px; }
+  .mn-section { margin-top: 30px; }
+  .mn-section-head h2 { font-size: 21px; }
+  .mn-body { font-size: 14px; }
+  .mn-figure img { aspect-ratio: 1.8 / 1; }
+  .monash-footer { margin: 0 16px; }
+}
+@media (max-width: 540px) {
+  .mn-eyebrow { font-size: 10px; }
+  .mn-hero h1 { font-size: 27px; }
+  .mn-jump-links { gap: 6px 17px; font-size: 12px; }
+  .mn-figure { margin-top: 23px; }
+  .mn-figure img { aspect-ratio: 1.6 / 1; border-radius: 7px; }
+  .mn-figure figcaption { font-size: 10px; }
+  .mn-section-head h2 { font-size: 20px; }
+  .mn-role h3 { flex-direction: column; font-size: 16px; }
+  .mn-role .when { font-size: 11px; }
+  .mn-block { padding-left: 13px; }
+  .mn-cta { padding: 16px 17px; font-size: 13px; }
+  .monash-footer { padding: 15px 7px 24px; font-size: 11px; }
+}
+@media print {
+  .mn-jump-links, .monash-footer { display: none; }
+  .mn-figure, .mn-role, .mn-cta { break-inside: avoid; }
+}

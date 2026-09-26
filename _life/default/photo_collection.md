@@ -11,7 +11,7 @@ images:
 - src: ./assets/images/photos/hawaii_horse.jpg
   desc: A big horse I met when I was travelling in Hawaii, 2023.
 - src: ./assets/images/photos/march2025.jpg
-  desc: A dog I met when I was walking beside the sea in Singapore, 2025.
+  desc: A dog I met while walking along the coast in Singapore, 2025.
 - src: ./assets/images/photos/hawaii_volcano.jpg
   desc: The volcano I saw when I was travelling in Hawaii, 2023.
 - src: ./assets/images/photos/flight_singapore.jpg

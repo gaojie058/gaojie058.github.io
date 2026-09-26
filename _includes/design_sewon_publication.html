@@ -1,0 +1,26 @@
+{% assign pub = include.paper %}
+{% assign paper_url = nil %}
+{% for link in pub.links %}
+  {% if link[0] == 'Paper' %}
+    {% assign paper_url = link[1].url | default: link[1] %}
+  {% endif %}
+{% endfor %}
+<li class="publication">
+  <span class="pub-year">{{ pub.date | date: '%Y' }}</span>
+  <div>
+    <h3>{% if paper_url %}<a href="{{ paper_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
+    <p class="pub-authors">{% for author in pub.authors %}{% if author contains 'Jie Gao' %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    {% assign author_string = pub.authors | join: '|' %}
+    {% if author_string contains '#' %}<p class="pub-corresponding-note"># Corresponding author</p>{% endif %}
+    <div class="pub-meta">
+      <span class="pub-venue">{{ page.publication_venues[pub.title] | default: pub.pub }}{% if pub.acceptance_note %} · {{ pub.acceptance_note | escape }}{% endif %}</span>
+      <span class="pub-links">
+        {% for link in pub.links %}
+          {% assign link_url = link[1].url | default: link[1] %}
+          <a href="{{ link_url }}"{% if link[1].target == '_blank' %} target="_blank" rel="noopener noreferrer"{% endif %}>[{{ link[0] }}]</a>
+        {% endfor %}
+      </span>
+    </div>
+    {% if pub.award %}<span class="pub-award">{{ pub.award }}</span>{% endif %}
+  </div>
+</li>

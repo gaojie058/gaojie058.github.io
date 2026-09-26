@@ -1,5 +1,5 @@
 ---
-layout: topnav
+layout: null
 title : About Monash University
 navbar_title: Monash
 description: >-
@@ -12,241 +12,34 @@ keywords: >-
   PhD scholarship human-AI interaction
 ---
 
-<style>
-/* ===== Monash page ===== */
-.mn-hero {
-    margin: 0 0 3rem;
-}
-.mn-hero h1 {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 2.1rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.9rem;
-}
-.mn-hero-lead {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--color-text);
-    margin: 0;
-}
-
-/* Campus photo under the hero */
-.mn-figure {
-    margin: 1.8rem 0 0;
-}
-.mn-figure img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 2.2 / 1;
-    object-fit: cover;
-    object-position: center 70%;   /* keeps the building's name plate in frame */
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-}
-.mn-figure figcaption {
-    margin-top: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    line-height: 1.65;
-    letter-spacing: 0.01em;
-    color: var(--color-text-3);
-}
-.mn-figure figcaption a {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-.mn-figure figcaption .credit { opacity: 0.8; }
-
-.mn-section { margin: 3.2rem 0; }
-.mn-section-head {
-    display: flex;
-    align-items: baseline;
-    gap: 0.8rem;
-    margin: 0 0 1.4rem;
-}
-.mn-section-head h2 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin: 0;
-    color: var(--color-text);
-    white-space: nowrap;
-}
-.mn-section-head .rule {
-    flex: 1;
-    height: 1px;
-    background: var(--color-border);
-    align-self: center;
-}
-.mn-body {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--color-text);
-}
-.mn-body p { margin: 0 0 1rem; }
-.mn-body p:last-child { margin-bottom: 0; }
-
-/* Draft marker. Any paragraph, list item, or note whose text contains "todo:"
-   in any casing is painted amber, so an unfinished placeholder cannot ship
-   unnoticed. Delete the words and the highlight goes with them. */
-.mn-todo {
-    background: #fff4cc;
-    border: 1px dashed #d3a10c;
-    border-radius: var(--radius-sm);
-    padding: 0.55rem 0.8rem;
-    color: #5b4400;
-}
-.mn-todo a { color: inherit; }
-p.mn-todo { margin-bottom: 1rem; }
-
-/* Optional `note:` closing a section, for a status line such as a site that is
-   not up yet. Quieter than the body text so it reads as an aside. */
-.mn-section-note {
-    margin: 1.1rem 0 0;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-    color: var(--color-text-3);
-}
-
-/* Fact list — Monash at a glance */
-.mn-facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 0.9rem;
-    margin: 1.5rem 0 0;
-}
-.mn-fact {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-bg-secondary);
-    padding: 0.95rem 1.1rem;
-}
-.mn-fact .k {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.01em;
-    color: var(--color-text-3);
-    margin-bottom: 0.3rem;
-}
-.mn-fact .v {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--color-text);
-}
-
-/* Area tags — one per research area, each linking wherever the yml points it.
-   The URL is taken verbatim from the data file; nothing here builds one. */
-.mn-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1.2rem 0 0;
-}
-.mn-tag {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.45rem;
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    background: var(--color-bg-secondary);
-    padding: 0.32rem 0.8rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.01em;
-    color: var(--color-text);
-    text-decoration: none;
-}
-.mn-tag:hover { border-color: var(--color-text-3); }
-/* The rank sits quieter than the area name it qualifies. */
-.mn-tag .rank { color: var(--color-text-3); }
-
-/* Open positions — plain text, no cards */
-.mn-roles {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 0.4rem;
-}
-.mn-role h3 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1rem;
-    margin: 0 0 0.3rem;
-    color: var(--color-text);
-}
-/* The start date sits inline after the role name, as a quiet aside. */
-.mn-role h3 .when {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    color: var(--color-text-3);
-    margin-left: 0.6rem;
-}
-.mn-role p {
-    margin: 0;
-    line-height: 1.75;
-    color: var(--color-text);
-}
-/* A labelled reference block under a position: a scholarship (`funding:`) or an
-   admission requirement (`notes:`). Plain text, one step quieter than the
-   position itself so it reads as supporting detail. */
-.mn-block { margin: 0.7rem 0 0; }
-/* A position can carry several blocks; keep them apart without a divider. */
-.mn-block + .mn-block { margin-top: 1rem; }
-.mn-block .k {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.01em;
-    color: var(--color-text-3);
-    margin-bottom: 0.35rem;
-}
-.mn-block ul {
-    margin: 0;
-    padding-left: 1.1rem;
-}
-.mn-block li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 0.35rem;
-}
-.mn-block li:last-child { margin-bottom: 0; }
-
-.mn-list {
-    padding-left: 1.1rem;
-    margin: 0.4rem 0 0;
-}
-.mn-list li {
-    margin-bottom: 0.5rem;
-    line-height: 1.7;
-}
-.mn-list li:last-child { margin-bottom: 0; }
-
-.mn-cta {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.3rem 1.5rem;
-    background: var(--color-accent-soft-bg);
-}
-.mn-cta p { margin: 0 0 0.8rem; line-height: 1.7; }
-.mn-cta p:last-child { margin-bottom: 0; }
-
-/* This page ends on the shaded reach-out box, so the footer's own rule would
-   read as a second divider stacked right under it. Drop it here only. */
-.topnav-main .footer-enhanced { border-top: none; }
-
-@media (max-width: 768px) {
-    .mn-hero h1 { font-size: 1.6rem; }
-    .mn-section { margin: 2.4rem 0; }
-    .mn-figure img { aspect-ratio: 16 / 10; }
-}
-</style>
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include seo.html %}
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/design-sewon.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/monash-sewon.css' | relative_url }}">
+  <script src="{{ '/assets/js/design-sewon.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-name" href="{{ '/design-sewon/' | relative_url }}">Jie Gao</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">＋</span></button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="{{ '/design-sewon/' | relative_url }}">Home</a>
+        <a href="{{ '/design-sewon/#research' | relative_url }}">Research</a>
+        <a href="{{ '/design-sewon/#publications' | relative_url }}">Publications</a>
+        <a href="{{ '/design-sewon/#talks' | relative_url }}">Talks</a>
+        <a href="{{ '/design-sewon/#honors' | relative_url }}">Service</a>
+        <a href="{{ '/monash' | relative_url }}" class="nav-lab" aria-current="page">Join IAA Lab <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="paper monash-paper">
 {%- comment -%}
   All copy on this page lives in _data/monash.yml — edit that file, not this one.
   %EMAIL% in any paragraph is swapped for a mailto: link to the profile address.
@@ -255,15 +48,22 @@ p.mn-todo { margin-bottom: 1rem; }
 {%- capture email_link -%}<a href="mailto:{{ site.data.profile.email | encode_email }}">{{ site.data.profile.email | replace: "@", "(at)" }}</a>{%- endcapture -%}
 
 <!-- ===== Hero ===== -->
-<section class="mn-hero">
-    <h1>{{ mn.hero.title | default: page.title }}</h1>
+<section class="mn-hero" aria-labelledby="monash-heading">
+    <p class="mn-eyebrow">IAA Lab · Monash University</p>
+    <h1 id="monash-heading">{{ mn.hero.title | default: page.title }}</h1>
     {% if mn.hero.lead %}
     <p class="mn-hero-lead">{{ mn.hero.lead | replace: '%EMAIL%', email_link }}</p>
     {% endif %}
 
+    <nav class="mn-jump-links" aria-label="On this page">
+        {% for section in mn.sections %}{% if section.title %}
+        <a href="#{{ section.title | slugify }}">{% if section.roles %}Open Positions{% elsif section.callout %}How to Reach Out{% else %}About the Lab{% endif %}</a>
+        {% endif %}{% endfor %}
+    </nav>
+
     {% if mn.hero.image %}
     <figure class="mn-figure">
-        <img src="{{ mn.hero.image.src | relative_url }}" alt="{{ mn.hero.image.alt | strip_newlines | strip }}" decoding="async">
+        <img src="{{ mn.hero.image.src | relative_url }}" alt="{{ mn.hero.image.alt | default: 'Woodside Building for Technology and Design at Monash University, Clayton campus' | strip_newlines | strip }}" decoding="async" fetchpriority="high">
         {% if mn.hero.image.caption or mn.hero.image.credit %}
         <figcaption>
             {{ mn.hero.image.caption }}
@@ -277,11 +77,10 @@ p.mn-todo { margin-bottom: 1rem; }
 <!-- ===== Sections (in _data/monash.yml order; a section with no `title:` renders
        as a plain lead-in, with no heading or rule) ===== -->
 {% for section in mn.sections %}
-<section class="mn-section">
+<section class="mn-section" id="{{ section.title | default: 'About Monash' | slugify }}"{% if section.title %} aria-labelledby="{{ section.title | slugify }}-heading"{% endif %}>
     {% if section.title %}
     <div class="mn-section-head">
-        <h2>{{ section.title }}</h2>
-        <span class="rule"></span>
+        <h2 id="{{ section.title | slugify }}-heading">{{ section.title }}</h2>
     </div>
     {% endif %}
 
@@ -376,7 +175,16 @@ p.mn-todo { margin-bottom: 1rem; }
             {% endfor %}
         </ul>
         {% endif %}
+        <p class="mn-contact">{{ email_link }}</p>
     </div>
     {% endif %}
 </section>
 {% endfor %}
+    <footer class="site-footer">
+      <span>{{ site.data.profile.primary_name }}</span>
+      <div><a href="{{ '/design-sewon/' | relative_url }}">Back to homepage</a><a href="#main">Back to top ↑</a></div>
+    </footer>
+  </main>
+  <div class="monash-footer">Interpretive Agentic AI Lab · Monash University</div>
+</body>
+</html>

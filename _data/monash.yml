@@ -31,13 +31,9 @@ sections:
     note: 
     paragraphs:
       - >
-        IAA Lab studies how to support humans in performing interpretive work, including
-        but not limited to agent behavior analysis, data analysis, and code comprehension.
-        We are also open to other topics that align with your research interests.
+        IAA Lab (Interpretive Agentic AI Lab) studies how to help people understand, build, evaluate, and use AI agents more effectively. Our goal is to support agent developers, trainers, evaluators, and end users in developing better agent systems, training better models, and interacting with agents. Specifically, we support them in evaluating, monitoring, visualizing, debugging, and overseeing agents, as well as empirically analyzing agent trajectories to identify behaviors and derive insights that inform model training and improvement. Downstream use cases include agent systems for scientific discovery, dynamic workflows, and organizational collaboration.
       - >
-        Students with HCI, NLP and SE backgrounds are strongly welcome. But we envision that
-        IAA Lab will be an interdisciplinary and innovative team, so students with other strong
-        backgrounds are also welcome to contact us.
+        As a cross-disciplinary team, we bring together perspectives from the AI, HCI, social sciences, and software engineering. We especially welcome students from these backgrounds. Students with other strong backgrounds are also welcome to contact us.
 
   # ---- 03 -------------------------------------------------------------------
   - title: Open Positions

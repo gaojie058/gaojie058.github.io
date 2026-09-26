@@ -1,0 +1,60 @@
+---
+layout: null
+title: Life
+permalink: /life/
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include seo.html %}
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/design-sewon.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/life.css' | relative_url }}">
+  <script src="{{ '/assets/js/design-sewon.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-name" href="{{ '/design-sewon/#home' | relative_url }}">Jie Gao</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">＋</span></button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="{{ '/design-sewon/#home' | relative_url }}">Home</a>
+        <a href="{{ '/design-sewon/#research' | relative_url }}">Research</a>
+        <a href="{{ '/design-sewon/#publications' | relative_url }}">Publications</a>
+        <a href="{{ '/design-sewon/#talks' | relative_url }}">Talks</a>
+        <a href="{{ '/design-sewon/#honors' | relative_url }}">Service</a>
+        <a href="{{ '/monash' | relative_url }}" class="nav-lab">Join IAA Lab <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="paper life-page">
+    <header class="life-heading"><h1>Life</h1></header>
+    {% assign facts = site.life | where: 'show', true | where: 'group', 'Fun Facts' %}
+    {% for item in facts %}<section class="life-fact">{{ item.content }}</section>{% endfor %}
+    <section class="content-section" aria-labelledby="photos-heading">
+      <div class="section-heading"><h2 id="photos-heading">Photos</h2></div>
+      <div class="life-grid">
+        {% assign albums = site.life | where: 'show', true | where: 'group', 'Photos' %}
+        {% for album in albums %}{% for photo in album.images %}
+        {% assign photo_path = photo.src | remove_first: './' | prepend: '/' %}
+        <figure>
+          <a href="{{ photo_path | relative_url }}"><img src="{{ photo_path | relative_url }}" alt="{{ photo.desc | escape }}" loading="lazy" decoding="async"></a>
+          <figcaption>{{ photo.desc }}</figcaption>
+        </figure>
+        {% endfor %}{% endfor %}
+      </div>
+    </section>
+    <section class="content-section" aria-labelledby="cats-heading">
+      <div class="section-heading"><h2 id="cats-heading">Cats</h2></div>
+      <div class="life-grid">
+        <figure><a href="{{ '/assets/images/etc/cat1.jpg' | relative_url }}"><img src="{{ '/assets/images/etc/cat1.jpg' | relative_url }}" alt="Cat in Baltimore, May 2025" loading="lazy" decoding="async"></a><figcaption>Meow! I am a <b>brave</b> cat.</figcaption></figure>
+        <figure><a href="{{ '/assets/images/etc/cat2.jpg' | relative_url }}"><img src="{{ '/assets/images/etc/cat2.jpg' | relative_url }}" alt="Cat in Baltimore, June 2025" loading="lazy" decoding="async"></a><figcaption>Meow! I am a <b>smart</b> cat.</figcaption></figure>
+      </div>
+    </section>
+    <footer class="site-footer"><span>{{ site.data.profile.primary_name }}</span><div><a href="{{ '/design-sewon/' | relative_url }}">Home</a><a href="#main">Back to top ↑</a></div></footer>
+  </main>
+</body>
+</html>
