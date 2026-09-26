@@ -24,7 +24,7 @@ publication_venues:
   <link rel="stylesheet" href="{{ '/assets/css/design-sewon.css' | relative_url }}">
   <script src="{{ '/assets/js/design-sewon.js' | relative_url }}" defer></script>
 </head>
-<body>
+<body id="home">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="nav-inner">
@@ -46,7 +46,7 @@ publication_venues:
     {% assign scholar_url = 'https://scholar.google.com/citations?user=' | append: site.data.profile.gscholar %}
   {% endif %}
   <main id="main" class="paper">
-    <section class="profile" id="home" aria-labelledby="profile-name">
+    <section class="profile" aria-labelledby="profile-name">
       <img class="portrait" src="{{ site.data.profile.portrait_url | relative_url }}" alt="{{ site.data.profile.primary_name }}" width="224" height="224" fetchpriority="high">
       <div class="profile-copy">
         <h1 id="profile-name">{{ site.data.profile.primary_name | replace: '(Sophia)', '<span>(Sophia)</span>' }}</h1>
