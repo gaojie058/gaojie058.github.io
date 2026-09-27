@@ -16,8 +16,10 @@ sections:
       - >
         Monash University is a public research university in Melbourne, Australia, and a
         member of the <a href="https://go8.edu.au/" target="_blank">Group of Eight</a>, the
-        country's research-intensive universities. It is ranked #31 globally in the 2027
-        QS World University Rankings. On CSRankings it is #7 in HCI worldwide (2010-2026),
+        country's research-intensive universities. It is ranked #31 globally in the
+        <a href="https://www.topuniversities.com/universities/monash-university" target="_blank" rel="noopener noreferrer">2027 QS World University Rankings</a> and #38 globally in the
+        <a href="https://www.usnews.com/education/best-global-universities/monash-university-500301" target="_blank" rel="noopener noreferrer">2026-2027 U.S. News &amp; World Report Best Global Universities Rankings</a>.
+        On CSRankings it is #7 in HCI worldwide (2010-2026),
         and #1 in Australia in all four of AI, NLP, software engineering, and HCI.
     # A `tags:` list here renders a row of pills under the paragraph, each
     # {label, rank, link} with rank and link both optional. Left empty on
@@ -31,7 +33,7 @@ sections:
     note: 
     paragraphs:
       - >
-        IAA Lab (Interpretive Agentic AI Lab) studies how to help people understand, build, evaluate, and use AI agents more effectively. Our goal is to support agent developers, trainers, evaluators, and end users in developing better agent systems, training better models, and interacting with agents. Specifically, we support them in evaluating, monitoring, visualizing, debugging, and overseeing agents, as well as empirically analyzing agent trajectories to identify behaviors and derive insights that inform model training and improvement. Downstream use cases include agent systems for scientific discovery, dynamic workflows, and organizational collaboration.
+        IAA Lab (Interpretive Agentic AI Lab) studies how to help people understand, build, evaluate, and use AI agents more effectively. Our goal is to support agent developers, trainers, evaluators, and end users in developing better agent systems and working effectively with agents. Using methods from the social sciences and HCI, we help people evaluate, monitor, visualize, debug, and oversee agents. Potential applications include AI agents for scientific research and discovery, software engineering, education and learning, and healthcare and wellbeing.
       - >
         As a cross-disciplinary team, we bring together perspectives from the AI, HCI, social sciences, and software engineering. We especially welcome students from these backgrounds. Students with other strong backgrounds are also welcome to contact us.
 
