@@ -5,11 +5,11 @@ year_display: "2025 – 2026"
 order: 1
 category: qualitative-analysis
 description: "An AI-powered platform for flexible qualitative data analysis. Supports open coding, sub-theme grouping, and theme generation with human-AI collaboration."
-badge: "↗ mindcoder.ai"
-badge_url: "https://mindcoder.ai"
+badge: "↗ Open App"
+badge_url: "https://mind-coder-frontend.vercel.app/"
 icon: "fas fa-brain"
 icon_color: "#9B59B6"
 links:
-  Website: https://mindcoder.ai/
+  Website: https://mind-coder-frontend.vercel.app/
   Paper: https://arxiv.org/abs/2501.00775
 ---
