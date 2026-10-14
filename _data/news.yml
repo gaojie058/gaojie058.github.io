@@ -31,7 +31,7 @@
     Gave a talk, &ldquo;Toward Seeing What Agents Do: Interpretive Work in the Age of Agentic AI,&rdquo; at <b>Fudan University</b> (<a href='https://mp.weixin.qq.com/s/QHmTffwLz0wW7kLqXLB9Lg' target='_blank'>News</a>)
 - date: 2026-05-17
   title: >-
-    Our preprint <a href='https://arxiv.org/abs/2605.13625' target='_blank'>How to Interpret Agent Behavior</a> is out! We introduce <b>Act*ONOMY</b>, a hierarchical taxonomy for analyzing autonomous agent behavior at runtime.
+    Our preprint <a href='https://arxiv.org/abs/2605.13625' target='_blank'>How to Interpret Agent Behavior</a> is out! We introduce <a href='https://github.com/gaojie058/Act-onomy' target='_blank' rel='noopener noreferrer'><b>Actonomy (ACT*ONOMY)</b></a>, a hierarchical taxonomy for analyzing autonomous agent behavior at runtime.
 - date: 2026-04-13
   title: >-
     Our <a href='https://gaojie058.github.io/code-map/'>CodeMap</a> paper received an award at <a href='https://conf.researchr.org/home/icpc-2026' target='_blank'>ICPC 2026</a> (a CORE A conference in code comprehension)! <span class='pub-badge-award'>ACM SIGSOFT Distinguished Paper Award</span>
