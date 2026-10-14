@@ -1,0 +1,27 @@
+/* Group extends the existing site styles; no global layout overrides. */
+.group-heading h1 { margin: 0 0 8px; font-size: 34px; font-weight: 650; letter-spacing: -1px; }
+.group-subtitle { margin-bottom: 18px; color: var(--muted); font-size: 17px; }
+.group-heading > p { max-width: 730px; }
+.group-heading .group-invitation { margin: 17px 0 0; font-size: 14px; }
+.group-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px 28px; list-style: none; margin: 0; padding: 0; }
+.group-person { min-width: 0; break-inside: avoid; }
+.group-photo-link { display: block; width: fit-content; max-width: 100%; border-radius: 10px; }
+.group-photo { display: block; width: 180px; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: center top; border-radius: 10px; background: var(--soft); }
+.group-person h3 { margin: 12px 0 4px; font-size: 15px; line-height: 1.4; font-weight: 600; letter-spacing: 0; overflow-wrap: anywhere; }
+.group-person h3 a { color: #344a77; }
+.group-role, .group-affiliation, .group-period, .group-now { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.group-period { margin-top: 4px; font-size: 12px; }
+.group-now { margin-top: 5px; }
+.group-photo-pending { display: grid; place-items: center; min-height: 0; border: 1px dashed #cbd3e1; color: var(--muted); text-align: center; font-size: 13px; line-height: 1.55; }
+.group-acknowledgements > p { max-width: 760px; font-size: 14px; line-height: 1.8; }
+.group-acknowledgements .group-design-credit { margin: 21px 0 0; font-size: 12px; color: var(--muted); }
+@media (max-width: 900px) {
+  .group-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 24px; }
+}
+@media (max-width: 640px) {
+  .group-heading h1 { font-size: 30px; }
+  .group-subtitle { font-size: 16px; }
+  .group-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 27px 20px; }
+  .group-person h3 { font-size: 14px; }
+  .group-role, .group-affiliation { font-size: 12px; }
+}

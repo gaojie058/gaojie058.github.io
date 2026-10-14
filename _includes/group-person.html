@@ -1,0 +1,17 @@
+{% assign person = include.person %}
+{% assign person_photo = person.photo | strip %}
+{% assign person_url = person.url | strip %}
+<li class="group-person">
+  {% if person_url != '' %}<a class="group-photo-link" href="{{ person_url | relative_url }}" aria-label="{{ person.name | escape }} — homepage">{% endif %}
+  {% if person_photo != '' %}
+    <img class="group-photo" src="{{ person_photo | relative_url }}" alt="{{ person.name | escape }}" width="180" height="180" loading="lazy" decoding="async"{% if person.photo_position %} style="object-position: {{ person.photo_position | escape }}"{% endif %}>
+  {% else %}
+    <div class="group-photo group-photo-pending" role="img" aria-label="Photo of {{ person.name | escape }} coming soon"><span>Photo<br>coming soon</span></div>
+  {% endif %}
+  {% if person_url != '' %}</a>{% endif %}
+  <h3>{% if person_url != '' %}<a href="{{ person_url | relative_url }}">{% endif %}{{ person.name | escape }}{% if person_url != '' %}</a>{% endif %}</h3>
+  {% if person.role %}<p class="group-role">{{ person.role | escape }}</p>{% endif %}
+  {% if person.affiliation %}<p class="group-affiliation">{{ person.affiliation | escape }}</p>{% endif %}
+  {% if person.period %}<p class="group-period">{{ person.period | escape }}</p>{% endif %}
+  {% if person.now %}<p class="group-now">Now: {{ person.now | escape }}</p>{% endif %}
+</li>

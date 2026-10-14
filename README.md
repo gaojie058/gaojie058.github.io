@@ -44,3 +44,22 @@ person. Google uses it to merge the home page, Google Scholar, LinkedIn, GitHub
 and the rest into one identity, which is the main lever for ranking on the name
 rather than a namesake. Add ORCID, DBLP, Semantic Scholar and institutional
 profile pages there as they appear.
+
+
+## Group page
+
+The `/group/` page uses the existing site layout and a portrait grid inspired
+by [Danqi Chen's lab page](https://www.cs.princeton.edu/~danqic/lab.html).
+Edit `_data/group.yml` to update the people, their order, or acknowledgements.
+Member photos are stored locally in `assets/images/group/`; `photo_source`
+records the original public portrait URL and is not rendered on the page.
+
+Each member supports `name`, `role`, `affiliation`, `photo`, and `url`.
+Optional `photo_position` controls the portrait crop (for example,
+`center 55%`), and `period` shows dates of collaboration. A blank photo
+shows a clearly labelled placeholder; a blank URL produces plain text.
+
+The optional `alumni` list uses the same fields plus `now` for a subsequent
+position. It is hidden until entries are added. The reusable card template
+is `_includes/group-person.html`, and page-only styles are in
+`assets/css/group.css`.

@@ -1,0 +1,77 @@
+---
+layout: null
+title: Group
+permalink: /group/
+description: >-
+  Students, collaborators, and mentors working with Jie (Sophia) Gao on
+  human-centered interpretation of agentic AI.
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include seo.html %}
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/design-sewon.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/group.css' | relative_url }}">
+  <script src="{{ '/assets/js/design-sewon.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="nav-name" href="{{ '/' | relative_url }}">Jie Gao</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">＋</span></button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/#news' | relative_url }}">News</a>
+        <a href="{{ '/#publications' | relative_url }}">Publications</a>
+        <a href="{{ '/#talks' | relative_url }}">Talks</a>
+        <a href="{{ '/#travel' | relative_url }}">Travel</a>
+        <a href="{{ '/group/' | relative_url }}" aria-current="page">Group</a>
+        <a href="{{ '/monash' | relative_url }}" class="nav-lab">Join IAA Lab <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  {% assign group = site.data.group %}
+  <main id="main" class="paper group-page">
+    <header class="group-heading">
+      <h1>Group</h1>
+      <!-- <p class="group-subtitle">{{ group.subtitle | escape }}</p> -->
+      <!-- <p>{{ group.introduction }}</p> -->
+      <p class="group-invitation">Interested in working with us? <a href="{{ '/monash' | relative_url }}#open-positions">Join IAA Lab <span aria-hidden="true"></span></a></p>
+    </header>
+
+    <section class="content-section" aria-labelledby="people-heading">
+      <!-- <div class="section-heading"><h2 id="people-heading">Students &amp; collaborators</h2></div> -->
+      <ul class="group-grid" role="list">
+        {% for member in group.members %}
+          {% include group-person.html person=member %}
+        {% endfor %}
+      </ul>
+    </section>
+
+    {% if group.alumni.size > 0 %}
+    <section class="content-section" aria-labelledby="alumni-heading">
+      <div class="section-heading"><h2 id="alumni-heading">{{ group.alumni_title | escape }}</h2></div>
+      <ul class="group-grid" role="list">
+        {% for member in group.alumni %}
+          {% include group-person.html person=member %}
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <!-- <section class="content-section group-acknowledgements" aria-labelledby="acknowledgements-heading">
+      <div class="section-heading"><h2 id="acknowledgements-heading">Acknowledgements</h2></div>
+      {% for paragraph in group.acknowledgements %}<p>{{ paragraph }}</p>{% endfor %}
+    </section> -->
+
+    <footer class="site-footer">
+      <span>{{ site.data.profile.primary_name }}</span>
+      <div><a href="mailto:{{ site.data.profile.email }}">Get in touch</a><a href="{{ '/' | relative_url }}">Home</a><a href="#main">Back to top ↑</a></div>
+    </footer>
+  </main>
+</body>
+</html>

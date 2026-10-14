@@ -1,0 +1,42 @@
+# Content for /group/. Names, affiliations, and photos verified from the
+# linked personal homepages on 2026-10-10. Group roles supplied by Jie Gao.
+subtitle: People I work with
+introduction: >-
+  I am fortunate to work with students and collaborators who bring different
+  perspectives to understanding humans, AI agents, and their collaborations.
+  Our shared interests span human–AI interaction, qualitative analysis,
+  code comprehension, and the interpretation of agent behavior.
+
+
+members:
+  - name: Yifan Zhang
+    role: Research Intern
+    affiliation: PhD student, National University of Singapore
+    photo: /assets/images/group/yifan-zhang.jpg
+    photo_source: https://yvonnefanf.github.io/imgs/ava.jpg
+    url: https://yvonnefanf.github.io/index.html
+  # Added 2026-10-11; affiliation and photo verified from the linked homepage.
+  - name: Zhiyao Shu (Zoey)
+    role: Research Intern
+    affiliation: PhD student, George Mason University
+    photo: /assets/images/group/zhiyao-shu.jpg
+    photo_source: https://zhiyaoshu.github.io/avatar.jpg
+    url: https://zhiyaoshu.github.io/
+  - name: Yue Xue
+    role: Research Intern
+    affiliation: Head of AI Research, CertiK
+    photo: /assets/images/group/yue-xue.jpg
+    photo_position: center 55%
+    photo_source: https://bradmoonuestc.github.io/assets/img/prof_pic.jpg
+    url: https://bradmoonuestc.github.io/
+
+# Move a member to alumni when their internship or research visit ends.
+# Keep their former role, add `period` for the dates, and optionally `now`
+# for their next position. The section stays hidden while the list is empty.
+alumni_title: Alumni
+alumni: []
+
+# HTML links are supported in these paragraphs. Add named funding bodies
+# only when their support has been confirmed.
+acknowledgements:
+  - >-
